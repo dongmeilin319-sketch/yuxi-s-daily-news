@@ -82,3 +82,4 @@ chmod +x scripts/deploy_manual.sh
 ```
 
 该脚本会执行：内容校验 → 构建检查 → `vercel deploy --prod`。
+# yuxi-s-daily-news
