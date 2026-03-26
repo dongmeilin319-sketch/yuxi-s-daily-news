@@ -14,12 +14,13 @@ function escapeXml(value: string): string {
 }
 
 export async function GET() {
-  const siteUrl = getSiteUrl();
-  const news = getAllNews().slice(0, 50);
+  try {
+    const siteUrl = getSiteUrl();
+    const news = getAllNews().slice(0, 50);
 
-  const items = news
-    .map(
-      (item) => `
+    const items = news
+      .map(
+        (item) => `
       <item>
         <title>${escapeXml(item.title)}</title>
         <link>${siteUrl}/news/${item.slug}</link>
@@ -27,10 +28,10 @@ export async function GET() {
         <pubDate>${new Date(item.publishAt).toUTCString()}</pubDate>
         <description>${escapeXml(item.summary)}</description>
       </item>`,
-    )
-    .join("\n");
+      )
+      .join("\n");
 
-  const xml = `<?xml version="1.0" encoding="UTF-8" ?>
+    const xml = `<?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
   <channel>
     <title>AI Intelligence Hub</title>
@@ -41,9 +42,27 @@ export async function GET() {
   </channel>
 </rss>`;
 
-  return new Response(xml, {
-    headers: {
-      "Content-Type": "application/rss+xml; charset=utf-8",
-    },
-  });
+    return new Response(xml, {
+      headers: {
+        "Content-Type": "application/rss+xml; charset=utf-8",
+      },
+    });
+  } catch {
+    // 降级：保证 RSS 永远返回 200（避免因运行时环境/文件系统差异导致订阅与SEO链路中断）。
+    const siteUrl = getSiteUrl();
+    const xml = `<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+  <channel>
+    <title>AI Intelligence Hub</title>
+    <link>${siteUrl}</link>
+    <description>AI 行业新闻聚合与结构化洞察</description>
+    <language>zh-CN</language>
+  </channel>
+</rss>`;
+    return new Response(xml, {
+      headers: {
+        "Content-Type": "application/rss+xml; charset=utf-8",
+      },
+    });
+  }
 }

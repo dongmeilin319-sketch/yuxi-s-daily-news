@@ -8,8 +8,6 @@ export const runtime = "nodejs";
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = getSiteUrl();
   const now = new Date();
-  const news = getAllNews();
-  const weekly = getAllWeekly();
 
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: `${siteUrl}/`, lastModified: now },
@@ -17,15 +15,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/search`, lastModified: now },
   ];
 
-  const newsRoutes = news.map((item) => ({
-    url: `${siteUrl}/news/${item.slug}`,
-    lastModified: new Date(item.publishAt),
-  }));
+  try {
+    const news = getAllNews();
+    const weekly = getAllWeekly();
 
-  const weeklyRoutes = weekly.map((item) => ({
-    url: `${siteUrl}/weekly/${item.slug}`,
-    lastModified: new Date(item.date),
-  }));
+    const newsRoutes = news.map((item) => ({
+      url: `${siteUrl}/news/${item.slug}`,
+      lastModified: new Date(item.publishAt),
+    }));
 
-  return [...staticRoutes, ...newsRoutes, ...weeklyRoutes];
+    const weeklyRoutes = weekly.map((item) => ({
+      url: `${siteUrl}/weekly/${item.slug}`,
+      lastModified: new Date(item.date),
+    }));
+
+    return [...staticRoutes, ...newsRoutes, ...weeklyRoutes];
+  } catch {
+    // 降级：至少返回静态路由，确保 sitemap 永远可用。
+    return staticRoutes;
+  }
 }
