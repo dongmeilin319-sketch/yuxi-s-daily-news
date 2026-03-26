@@ -2,12 +2,14 @@ import Link from "next/link";
 import { getAllNews } from "@/lib/content";
 import { getDailyStats } from "@/lib/stats";
 import { SubscribeForm } from "@/components/subscribe-form";
+import { NewsLabels } from "@/components/news-labels";
 
 type HomePageProps = {
   searchParams: Promise<{
     track?: string;
     sentiment?: string;
-    tag?: string;
+    labelType?: string;
+    labelValue?: string;
   }>;
 };
 
@@ -18,18 +20,22 @@ export default async function Home({ searchParams }: HomePageProps) {
 
   const tracks = Array.from(new Set(news.map((item) => item.track))).sort();
   const sentiments = ["positive", "neutral", "negative"];
-  const tags = Array.from(new Set(news.flatMap((item) => item.tags))).sort();
 
   const filtered = news.filter((item) => {
     const byTrack = query.track ? item.track === query.track : true;
     const bySentiment = query.sentiment ? item.sentiment === query.sentiment : true;
-    const byTag = query.tag ? item.tags.includes(query.tag) : true;
-    return byTrack && bySentiment && byTag;
+    const byLabel =
+      query.labelType && query.labelValue
+        ? item.labels.some(
+            (l) => l.type === query.labelType && l.value === query.labelValue,
+          )
+        : true;
+    return byTrack && bySentiment && byLabel;
   });
 
   const trackChartRows = Object.entries(stats.byTrack).sort((a, b) => b[1] - a[1]);
   const maxTrackCount = trackChartRows.length > 0 ? trackChartRows[0][1] : 1;
-  const baseParams = new URLSearchParams();
+  const hasAnyFilter = Boolean(query.track || query.sentiment || (query.labelType && query.labelValue));
 
   return (
     <main className="mx-auto flex w-full max-w-4xl flex-col gap-6 px-4 py-8 sm:px-6">
@@ -99,23 +105,35 @@ export default async function Home({ searchParams }: HomePageProps) {
         </article>
 
         <article className="rounded-xl border border-zinc-200 p-4 dark:border-zinc-700">
-          <h2 className="text-lg font-semibold">Top Tags</h2>
-          <div className="mt-3 flex flex-wrap gap-2">
-            {stats.topTags.map((entry) => (
-              <span
-                key={entry.tag}
-                className="rounded-full bg-zinc-100 px-2 py-1 text-xs text-zinc-700 dark:bg-zinc-800 dark:text-zinc-200"
-              >
-                {entry.tag} ({entry.count})
-              </span>
-            ))}
+          <h2 className="text-lg font-semibold">标签分布（按类型）</h2>
+          <div className="mt-3 space-y-4">
+            {Object.keys(stats.topLabelsByType).length === 0 ? (
+              <p className="text-sm text-zinc-600 dark:text-zinc-300">暂无标签数据。</p>
+            ) : (
+              Object.entries(stats.topLabelsByType).map(([type, entries]) => (
+                <div key={type} className="space-y-2">
+                  <p className="text-xs font-medium text-zinc-500">{type}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {entries.map((entry) => (
+                      <Link
+                        key={`${type}:${entry.label}`}
+                        href={`/?labelType=${encodeURIComponent(type)}&labelValue=${encodeURIComponent(entry.label)}`}
+                        className="rounded-full bg-zinc-100 px-2 py-1 text-xs text-zinc-700 hover:underline dark:bg-zinc-800 dark:text-zinc-200 dark:hover:underline"
+                      >
+                        {entry.label} ({entry.count})
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ))
+            )}
           </div>
         </article>
       </section>
 
       <section className="rounded-xl border border-zinc-200 p-4 dark:border-zinc-700">
         <h2 className="text-lg font-semibold">筛选器</h2>
-        <div className="mt-3 grid gap-3 sm:grid-cols-3">
+        <div className="mt-3 grid gap-3 sm:grid-cols-2">
           <div className="space-y-2">
             <p className="text-xs text-zinc-500">按赛道</p>
             <div className="flex flex-wrap gap-2">
@@ -156,29 +174,10 @@ export default async function Home({ searchParams }: HomePageProps) {
               })}
             </div>
           </div>
-
-          <div className="space-y-2">
-            <p className="text-xs text-zinc-500">按标签</p>
-            <div className="flex flex-wrap gap-2">
-              {tags.slice(0, 8).map((tag) => {
-                const params = new URLSearchParams(query as Record<string, string>);
-                params.set("tag", tag);
-                return (
-                  <Link
-                    key={tag}
-                    href={`/?${params.toString()}`}
-                    className="rounded-full border px-2 py-1 text-xs hover:bg-zinc-100 dark:hover:bg-zinc-800"
-                  >
-                    {tag}
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
         </div>
-        {(query.track || query.sentiment || query.tag) && (
+        {hasAnyFilter && (
           <div className="mt-3">
-            <Link href={`/?${baseParams.toString()}`} className="text-xs underline underline-offset-4">
+            <Link href="/" className="text-xs underline underline-offset-4">
               清空筛选
             </Link>
           </div>
@@ -192,7 +191,9 @@ export default async function Home({ searchParams }: HomePageProps) {
             className="rounded-xl border border-zinc-200 p-4 transition hover:border-zinc-400 dark:border-zinc-700 dark:hover:border-zinc-500"
           >
             <div className="mb-2 flex items-center gap-3 text-xs text-zinc-500">
-              <span>{new Date(item.date).toLocaleDateString("zh-CN")}</span>
+              <span>{new Date(item.publishAt).toLocaleDateString("zh-CN")}</span>
+              <span>赛道：{item.track}</span>
+              <span>情绪：{item.sentiment}</span>
               <span>阅读约 {item.readingMinutes} 分钟</span>
               <span>置信度 {item.confidence.toFixed(2)}</span>
             </div>
@@ -202,16 +203,7 @@ export default async function Home({ searchParams }: HomePageProps) {
               </Link>
             </h2>
             <p className="mt-2 text-sm text-zinc-700 dark:text-zinc-300">{item.summary}</p>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {item.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-full bg-zinc-100 px-2 py-1 text-xs text-zinc-700 dark:bg-zinc-800 dark:text-zinc-200"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
+            <NewsLabels labels={item.labels} />
           </article>
         ))}
         {filtered.length === 0 && (

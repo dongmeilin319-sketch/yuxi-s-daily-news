@@ -14,7 +14,7 @@ if (!fs.existsSync(dailyDir)) {
 const files = fs.readdirSync(dailyDir).filter((name) => name.endsWith(".mdx"));
 const bySentiment = {};
 const byTrack = {};
-const tagCount = {};
+const labelCountByType = {};
 
 for (const fileName of files) {
   const raw = fs.readFileSync(path.join(dailyDir, fileName), "utf8");
@@ -22,27 +22,34 @@ for (const fileName of files) {
 
   const sentiment = String(data.sentiment ?? "neutral");
   const track = String(data.track ?? "general");
-  const tags = Array.isArray(data.tags) ? data.tags.map(String) : [];
+  const labels = Array.isArray(data.labels) ? data.labels : [];
 
   bySentiment[sentiment] = (bySentiment[sentiment] ?? 0) + 1;
   byTrack[track] = (byTrack[track] ?? 0) + 1;
 
-  for (const tag of tags) {
-    tagCount[tag] = (tagCount[tag] ?? 0) + 1;
+  for (const label of labels) {
+    if (!label || typeof label !== "object") continue;
+    const type = String(label.type ?? "").trim();
+    const value = String(label.value ?? "").trim();
+    if (!type || !value) continue;
+    labelCountByType[type] = labelCountByType[type] ?? {};
+    labelCountByType[type][value] = (labelCountByType[type][value] ?? 0) + 1;
   }
 }
 
-const topTags = Object.entries(tagCount)
-  .map(([tag, count]) => ({ tag, count }))
-  .sort((a, b) => Number(b.count) - Number(a.count))
-  .slice(0, 8);
+const topLabelsByType = {};
+for (const [type, valueCounts] of Object.entries(labelCountByType)) {
+  topLabelsByType[type] = Object.entries(valueCounts)
+    .map(([value, count]) => ({ label: value, count }))
+    .sort((a, b) => Number(b.count) - Number(a.count));
+}
 
 const output = {
   generatedAt: new Date().toISOString(),
   totalNews: files.length,
   bySentiment,
   byTrack,
-  topTags,
+  topLabelsByType,
 };
 
 fs.mkdirSync(path.dirname(outputPath), { recursive: true });

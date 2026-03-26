@@ -16,7 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const newsRoutes = news.map((item) => ({
     url: `${siteUrl}/news/${item.slug}`,
-    lastModified: new Date(item.date),
+    lastModified: new Date(item.publishAt),
   }));
 
   const weeklyRoutes = weekly.map((item) => ({

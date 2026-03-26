@@ -12,7 +12,8 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
 
   const results = keyword
     ? news.filter((item) => {
-        const haystack = [item.title, item.summary, item.track, item.impactType, ...item.tags]
+        const labelValues = item.labels.map((l) => l.value);
+        const haystack = [item.title, item.summary, item.track, item.impactType, ...labelValues]
           .join(" ")
           .toLowerCase();
         return haystack.includes(keyword);
@@ -23,7 +24,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
     <main className="mx-auto w-full max-w-4xl px-4 py-8 sm:px-6">
       <header className="space-y-2">
         <h1 className="text-2xl font-bold">站内搜索（MVP）</h1>
-        <p className="text-sm text-zinc-600 dark:text-zinc-300">支持标题、摘要、赛道、影响类型、标签关键词搜索。</p>
+        <p className="text-sm text-zinc-600 dark:text-zinc-300">支持标题、摘要、赛道、影响类型，以及标签（按类型/值）的关键词搜索。</p>
       </header>
 
       <form className="mt-4 flex gap-2" action="/search" method="get">

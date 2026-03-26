@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getAllArchiveNews } from "@/lib/content";
+import { NewsLabels } from "@/components/news-labels";
 
 export default function ArchivePage() {
   const items = getAllArchiveNews();
@@ -25,8 +26,9 @@ export default function ArchivePage() {
                 </Link>
               </h2>
               <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-300">{item.summary}</p>
+              <NewsLabels labels={item.labels} />
               <p className="mt-2 text-xs text-zinc-500">
-                {new Date(item.date).toLocaleDateString("zh-CN")} · 赛道 {item.track}
+                发布时间：{new Date(item.publishAt).toLocaleDateString("zh-CN")} · 赛道 {item.track}
               </p>
             </article>
           ))

@@ -7,6 +7,7 @@ import { AIAbstract, Insight } from "@/components/mdx-blocks";
 import { ReadingProgress } from "@/components/reading-progress";
 import { ShareCopyButton } from "@/components/share-copy-button";
 import { getSiteUrl } from "@/lib/site";
+import { NewsLabels } from "@/components/news-labels";
 
 type NewsDetailPageProps = {
   params: Promise<{ slug: string }>;
@@ -64,11 +65,16 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
   const related = allNews
     .filter((candidate) => candidate.slug !== item.slug)
     .map((candidate) => {
-      const overlap = candidate.tags.filter((tag) => item.tags.includes(tag)).length;
+      const itemKey = new Set(item.labels.map((l) => `${l.type}:${l.value}`));
+      const candidateKey = new Set(candidate.labels.map((l) => `${l.type}:${l.value}`));
+      let overlap = 0;
+      for (const k of candidateKey) {
+        if (itemKey.has(k)) overlap += 1;
+      }
       const explicit = item.relatedArticles?.includes(candidate.slug) ? 2 : 0;
       return { candidate, score: overlap + explicit };
     })
-    .sort((a, b) => b.score - a.score || +new Date(b.candidate.date) - +new Date(a.candidate.date))
+    .sort((a, b) => b.score - a.score || +new Date(b.candidate.publishAt) - +new Date(a.candidate.publishAt))
     .slice(0, 3)
     .map((entry) => entry.candidate);
 
@@ -87,13 +93,15 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
           </div>
           <p className="text-sm text-zinc-600 dark:text-zinc-300">{item.summary}</p>
           <div className="flex flex-wrap gap-2 text-xs text-zinc-500">
-            <span>{new Date(item.date).toLocaleDateString("zh-CN")}</span>
+            <span>发布时间：{new Date(item.publishAt).toLocaleDateString("zh-CN")}</span>
             <span>赛道：{item.track}</span>
             <span>影响类型：{item.impactType}</span>
             <span>情绪：{item.sentiment}</span>
             <span>置信度：{item.confidence.toFixed(2)}</span>
           </div>
         </header>
+
+        <NewsLabels labels={item.labels} />
 
         <div className="prose prose-zinc max-w-none dark:prose-invert">
           <MDXRemote

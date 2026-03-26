@@ -6,7 +6,9 @@ import matter from "gray-matter";
 const root = process.cwd();
 const dailyDir = path.join(root, "content", "daily");
 const archiveDir = path.join(root, "content", "archive");
-const days = Number(process.env.ARCHIVE_DAYS ?? 30);
+const daysRaw = (process.env.ARCHIVE_DAYS ?? "").trim();
+const daysParsed = Number(daysRaw);
+const days = daysRaw && !Number.isNaN(daysParsed) && daysParsed > 0 ? daysParsed : 30;
 
 if (!fs.existsSync(dailyDir)) {
   fs.mkdirSync(dailyDir, { recursive: true });

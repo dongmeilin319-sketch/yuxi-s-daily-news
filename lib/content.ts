@@ -51,7 +51,7 @@ export function getAllNews(): NewsItem[] {
   return files
     .map(parseNewsFile)
     .filter((item): item is NewsItem => item !== null)
-    .sort((a, b) => +new Date(b.date) - +new Date(a.date));
+    .sort((a, b) => +new Date(b.publishAt) - +new Date(a.publishAt));
 }
 
 export function getNewsBySlug(slug: string): NewsItem | null {
@@ -81,7 +81,7 @@ export function getAllReviewNews(): NewsItem[] {
       };
     })
     .filter((item): item is NewsItem => item !== null)
-    .sort((a, b) => +new Date(b.date) - +new Date(a.date));
+    .sort((a, b) => +new Date(b.publishAt) - +new Date(a.publishAt));
 }
 
 export function getAllArchiveNews(): NewsItem[] {
@@ -106,7 +106,7 @@ export function getAllArchiveNews(): NewsItem[] {
       };
     })
     .filter((item): item is NewsItem => item !== null)
-    .sort((a, b) => +new Date(b.date) - +new Date(a.date));
+    .sort((a, b) => +new Date(b.publishAt) - +new Date(a.publishAt));
 }
 
 export type WeeklyItem = WeeklyFrontmatter & {

@@ -6,6 +6,7 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { getAllNews, getAllReviewNews } from "@/lib/content";
 import { logoutAdmin, publishReviewToDaily } from "@/app/admin/actions";
+import { NewsLabels } from "@/components/news-labels";
 
 const ADMIN_COOKIE_NAME = "admin_auth";
 
@@ -60,10 +61,12 @@ export default async function AdminPage() {
                 <h3 className="font-semibold">{item.title}</h3>
                 <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-300">{item.summary}</p>
                 <div className="mt-2 flex flex-wrap gap-2 text-xs text-zinc-500">
+                  <span>发布时间：{new Date(item.publishAt).toLocaleDateString("zh-CN")}</span>
                   <span>置信度 {item.confidence.toFixed(2)}</span>
                   <span>情绪 {item.sentiment}</span>
                   <span>赛道 {item.track}</span>
                 </div>
+                <NewsLabels labels={item.labels} linkable={false} />
                 <div className="mt-3 flex items-center gap-3">
                   <span className="text-xs text-zinc-500">文件：{fileName ?? "unknown"}</span>
                   {fileName ? (
@@ -93,10 +96,12 @@ export default async function AdminPage() {
             <h2 className="font-semibold">{item.title}</h2>
             <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-300">{item.summary}</p>
             <div className="mt-2 flex flex-wrap gap-2 text-xs text-zinc-500">
+              <span>发布时间：{new Date(item.publishAt).toLocaleDateString("zh-CN")}</span>
               <span>置信度 {item.confidence.toFixed(2)}</span>
               <span>情绪 {item.sentiment}</span>
               <span>赛道 {item.track}</span>
             </div>
+            <NewsLabels labels={item.labels} linkable={false} />
             <p className="mt-2 text-sm">
               <Link href={`/news/${item.slug}`} className="underline underline-offset-4">
                 查看详情

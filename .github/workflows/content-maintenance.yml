@@ -1,0 +1,55 @@
+# 定时归档 content/daily → archive，并刷新 public/data/daily-stats.json
+name: Content maintenance
+
+on:
+  schedule:
+    # 每日 UTC 01:00（北京时间约 09:00，可按需调整）
+    - cron: "0 1 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: content-maintenance
+  cancel-in-progress: false
+
+jobs:
+  archive-and-stats:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Archive old daily content
+        run: npm run archive:run
+        env:
+          # 可在 GitHub 仓库 Settings → Variables 中设置 ARCHIVE_DAYS，不设则脚本默认 30
+          ARCHIVE_DAYS: ${{ vars.ARCHIVE_DAYS }}
+
+      - name: Regenerate stats
+        run: npm run stats:generate
+
+      - name: Validate content
+        run: npm run content:validate
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore: archive + daily-stats [skip ci]"
+            git push
+          fi

@@ -21,7 +21,7 @@ export async function GET() {
         <title>${escapeXml(item.title)}</title>
         <link>${siteUrl}/news/${item.slug}</link>
         <guid>${siteUrl}/news/${item.slug}</guid>
-        <pubDate>${new Date(item.date).toUTCString()}</pubDate>
+        <pubDate>${new Date(item.publishAt).toUTCString()}</pubDate>
         <description>${escapeXml(item.summary)}</description>
       </item>`,
     )

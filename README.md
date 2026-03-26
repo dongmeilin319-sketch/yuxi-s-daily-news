@@ -62,6 +62,16 @@ npm run archive:run
 
 全局顶栏含浅色/深色主题切换；新闻详情页提供「复制分享文案」按钮。
 
+## OpenClaw（Python 最小流水线）
+
+抓取 → Claude → MDX → 可选 Git 推送：`openclaw/run_once.py`，说明见 [openclaw/README.md](./openclaw/README.md)。
+
+若使用**独立 OpenClaw 产品与日报 SKILL**，与本站之间的**落盘路径、MDX 格式、Git 推送**约定见 [docs/OPENCLAW_INTEGRATION.md](./docs/OPENCLAW_INTEGRATION.md)。
+
+## 环境变量
+
+完整列表：[docs/ENVIRONMENT.md](./docs/ENVIRONMENT.md)。
+
 ## 部署
 
 **生产环境（GitHub + Vercel + 自定义域名 + `NEXT_PUBLIC_SITE_URL`）** 请看分步说明：

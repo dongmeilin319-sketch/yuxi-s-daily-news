@@ -44,7 +44,7 @@ export default async function WeeklyDetailPage({ params }: WeeklyDetailPageProps
                 <span className="mt-1 h-2 w-2 rounded-full bg-zinc-700 dark:bg-zinc-200" />
                 <div>
                   <p className="text-xs text-zinc-500">
-                    {new Date(news.date).toLocaleDateString("zh-CN")}
+                    {new Date(news.publishAt).toLocaleDateString("zh-CN")}
                   </p>
                   <Link href={`/news/${news.slug}`} className="text-sm font-medium hover:underline">
                     {news.title}

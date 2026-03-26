@@ -80,9 +80,15 @@ git push -u origin main
 - **Production Branch**：Settings → **Git** → 将生产分支设为 `main`（或你的主分支）。
 - 其他分支推送会生成 **Preview URL**，若希望预览环境 RSS/OG 也正确，可为 **Preview** 单独设 `NEXT_PUBLIC_SITE_URL` 为该次预览的 Vercel 域名（可选）。
 
-## 6. Cron 说明
+## 6. Cron 与安全
 
-`vercel.json` 中配置了每日调用 `/api/cron/daily`。Vercel **Cron** 能力依赖套餐与文档限制；若在免费层不可用，可到 Dashboard 查看该 Cron 是否生效，或改为外部调度（GitHub Actions 等）请求该路径。
+`vercel.json` 中配置了每日调用 `/api/cron/daily`。
+
+1. 在 Vercel **Environment Variables** 为 Production（及需用 Cron 的环境）添加 **`CRON_SECRET`**（随机长串）。保存后 **Redeploy**。设了该变量后，Vercel Cron 发起请求时会自动附带 `Authorization: Bearer <CRON_SECRET>`，接口才会返回 200；未配置时接口在开发/调试下仍开放（生产务必配置）。
+2. 当前该路由仅作**存活探针**与后续扩展钩子；**正文抓取与写 MDX** 由本地或 **GitHub Actions** 运行 `openclaw/run_once.py`（见 `openclaw/README.md`），或另行接入。
+3. Vercel **Cron** 能力依赖套餐与官方说明；若不可用，可用外部调度 `curl -H "Authorization: Bearer $CRON_SECRET" https://你的域名/api/cron/daily`。
+
+环境变量总表见 [ENVIRONMENT.md](./ENVIRONMENT.md)。
 
 ## 7. 交付检查清单
 
