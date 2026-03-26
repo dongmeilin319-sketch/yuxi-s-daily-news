@@ -8,7 +8,14 @@ const dailyDir = path.join(root, "content", "daily");
 const archiveDir = path.join(root, "content", "archive");
 const daysRaw = (process.env.ARCHIVE_DAYS ?? "").trim();
 const daysParsed = Number(daysRaw);
-const days = daysRaw && !Number.isNaN(daysParsed) && daysParsed > 0 ? daysParsed : 30;
+// Guardrail: never archive too aggressively.
+// We keep at least 7 days in `content/daily/` so that:
+// - homepage always has recent content to display
+// - it aligns with the 7-day dedup/ops window
+const MIN_DAYS = 7;
+const daysConfigured =
+  daysRaw && !Number.isNaN(daysParsed) && daysParsed > 0 ? daysParsed : 30;
+const days = Math.max(MIN_DAYS, daysConfigured);
 
 if (!fs.existsSync(dailyDir)) {
   fs.mkdirSync(dailyDir, { recursive: true });
