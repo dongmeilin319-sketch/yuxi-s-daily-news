@@ -1,11 +1,10 @@
 import type { MetadataRoute } from "next";
-import { getAllNews, getAllWeekly } from "@/lib/content";
 import { getSiteUrl } from "@/lib/site";
 
 // sitemap 在 Vercel 上可能被误判为 Edge 运行时；显式改为 nodejs 以支持 node:fs 内容读取。
 export const runtime = "nodejs";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const siteUrl = getSiteUrl();
   const now = new Date();
 
@@ -16,6 +15,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   try {
+    // 动态加载：避免在 Edge 运行时因 node:fs 顶层导入而直接 500（try/catch 无法捕获模块加载错误）。
+    const { getAllNews, getAllWeekly } = await import("@/lib/content");
     const news = getAllNews();
     const weekly = getAllWeekly();
 

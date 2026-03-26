@@ -1,4 +1,3 @@
-import { getAllNews } from "@/lib/content";
 import { getSiteUrl } from "@/lib/site";
 
 // 强制使用 Node.js 运行时，避免 Vercel/Next 将其误判为 Edge（Edge 不支持 node:fs）。
@@ -16,6 +15,8 @@ function escapeXml(value: string): string {
 export async function GET() {
   try {
     const siteUrl = getSiteUrl();
+    // 动态加载：避免在 Edge 运行时因 node:fs 顶层导入而直接 500（try/catch 无法捕获模块加载错误）。
+    const { getAllNews } = await import("@/lib/content");
     const news = getAllNews().slice(0, 50);
 
     const items = news
