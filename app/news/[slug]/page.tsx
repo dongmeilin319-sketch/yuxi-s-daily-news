@@ -89,7 +89,19 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
         <header className="space-y-3">
           <div className="flex flex-wrap items-start justify-between gap-3">
             <h1 className="text-3xl font-bold tracking-tight">{item.title}</h1>
-            <ShareCopyButton title={item.title} summary={item.summary} url={pageUrl} />
+            <div className="flex items-center gap-2">
+              <ShareCopyButton title={item.title} summary={item.summary} url={pageUrl} />
+              {item.originalUrl ? (
+                <a
+                  href={item.originalUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-md border border-zinc-300 px-3 py-1.5 text-sm hover:bg-zinc-100 dark:border-zinc-600 dark:hover:bg-zinc-800"
+                >
+                  查看原文
+                </a>
+              ) : null}
+            </div>
           </div>
           <p className="text-sm text-zinc-600 dark:text-zinc-300">{item.summary}</p>
           <div className="flex flex-wrap gap-2 text-xs text-zinc-500">

@@ -68,6 +68,8 @@ npm run archive:run
 
 若使用**独立 OpenClaw 产品与日报 SKILL**，与本站之间的**落盘路径、MDX 格式、Git 推送**约定见 [docs/OPENCLAW_INTEGRATION.md](./docs/OPENCLAW_INTEGRATION.md)。
 
+开发规范：任何对 MDX `frontmatter` 字段的增删改，都必须遵守“同步改动清单”，见 [docs/CONTENT_FIELD_CONTRACT_SYNC.md](./docs/CONTENT_FIELD_CONTRACT_SYNC.md)。
+
 ## 环境变量
 
 完整列表：[docs/ENVIRONMENT.md](./docs/ENVIRONMENT.md)。

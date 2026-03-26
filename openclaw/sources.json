@@ -1,6 +1,16 @@
 [
   {
-    "name": "示例源（请换成真实文章页 URL）",
-    "url": "https://example.com/news/sample-article"
+    "name": "The Verge AI",
+    "url": "https://www.theverge.com/ai-artificial-intelligence",
+    "category": "tech_media",
+    "priority": 1,
+    "reliability": "high"
+  },
+  {
+    "name": "TechCrunch AI",
+    "url": "https://techcrunch.com/category/artificial-intelligence/",
+    "category": "tech_media",
+    "priority": 1,
+    "reliability": "high"
   }
 ]

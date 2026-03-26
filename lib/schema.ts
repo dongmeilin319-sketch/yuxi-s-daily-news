@@ -27,6 +27,8 @@ export const newsFrontmatterSchema = z.object({
   confidence: z.number().min(0).max(1),
   relatedArticles: z.array(nonEmptyString).optional(),
   coverImage: z.string().optional(),
+  // 原文链接：点击“查看原文”跳转到新闻源页面
+  originalUrl: z.string().url().optional(),
 });
 
 export const weeklyFrontmatterSchema = z.object({

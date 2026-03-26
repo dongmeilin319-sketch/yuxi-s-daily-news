@@ -28,6 +28,8 @@ const newsFrontmatterSchema = z.object({
   confidence: z.number().min(0).max(1),
   relatedArticles: z.array(nonEmptyString).optional(),
   coverImage: z.string().optional(),
+  // 原文链接：用于详情页跳转
+  originalUrl: z.string().url().optional(),
 });
 
 const weeklyFrontmatterSchema = z.object({

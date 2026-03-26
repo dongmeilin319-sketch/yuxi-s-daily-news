@@ -143,6 +143,7 @@ def write_mdx(data: dict, dest_dir: Path, file_stem: str) -> Path:
         "sentiment": data["sentiment"],
         "confidence": float(data["confidence"]),
         "relatedArticles": data.get("relatedArticles") or [],
+        "originalUrl": data["originalUrl"],
     }
     header = yaml.dump(
         fm,
@@ -222,6 +223,9 @@ def main() -> None:
 
     if "slug" not in data:
         data["slug"] = slugify(data.get("title", "article"))
+
+    # 以我们已知的“正文来源 URL”为准
+    data["originalUrl"] = url
 
     data.setdefault("date", to_iso_date())
     if not data.get("publishAt"):
