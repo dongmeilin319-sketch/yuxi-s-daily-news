@@ -70,6 +70,8 @@ npm run archive:run
 
 开发规范：任何对 MDX `frontmatter` 字段的增删改，都必须遵守“同步改动清单”，见 [docs/CONTENT_FIELD_CONTRACT_SYNC.md](./docs/CONTENT_FIELD_CONTRACT_SYNC.md)。
 
+开发守则与版本线索见 [docs/PROJECT_GOVERNANCE.md](./docs/PROJECT_GOVERNANCE.md)。
+
 ## 环境变量
 
 完整列表：[docs/ENVIRONMENT.md](./docs/ENVIRONMENT.md)。
