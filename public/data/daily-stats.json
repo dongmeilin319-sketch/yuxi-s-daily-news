@@ -1,44 +1,7 @@
 {
-  "generatedAt": "2026-03-26T02:16:08.145Z",
-  "totalNews": 2,
-  "bySentiment": {
-    "neutral": 1,
-    "positive": 1
-  },
-  "byTrack": {
-    "开发者工具": 1,
-    "基础模型": 1
-  },
-  "topLabelsByType": {
-    "公司": [
-      {
-        "label": "Anthropic",
-        "count": 1
-      },
-      {
-        "label": "OpenAI",
-        "count": 1
-      }
-    ],
-    "任务": [
-      {
-        "label": "代码推理",
-        "count": 1
-      },
-      {
-        "label": "多模态",
-        "count": 1
-      }
-    ],
-    "技术": [
-      {
-        "label": "上下文窗口",
-        "count": 1
-      },
-      {
-        "label": "模型能力",
-        "count": 1
-      }
-    ]
-  }
+  "generatedAt": "2026-03-26T12:41:47.623Z",
+  "totalNews": 0,
+  "bySentiment": {},
+  "byTrack": {},
+  "topLabelsByType": {}
 }

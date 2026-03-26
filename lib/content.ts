@@ -19,10 +19,10 @@ const weeklyContentDir = path.join(process.cwd(), "content", "weekly");
 const reviewContentDir = path.join(process.cwd(), "content", "review");
 const archiveContentDir = path.join(process.cwd(), "content", "archive");
 
-function ensureContentDir(targetDir: string) {
-  if (!fs.existsSync(targetDir)) {
-    fs.mkdirSync(targetDir, { recursive: true });
-  }
+function readMdxFilesFromDir(dir: string): string[] {
+  // Vercel runtime 通常不允许写入磁盘；目录不存在时应当直接视为空。
+  if (!fs.existsSync(dir)) return [];
+  return fs.readdirSync(dir).filter((name) => name.endsWith(".mdx"));
 }
 
 function parseNewsFile(fileName: string): NewsItem | null {
@@ -45,8 +45,7 @@ function parseNewsFile(fileName: string): NewsItem | null {
 }
 
 export function getAllNews(): NewsItem[] {
-  ensureContentDir(dailyContentDir);
-  const files = fs.readdirSync(dailyContentDir).filter((name) => name.endsWith(".mdx"));
+  const files = readMdxFilesFromDir(dailyContentDir);
 
   return files
     .map(parseNewsFile)
@@ -60,8 +59,7 @@ export function getNewsBySlug(slug: string): NewsItem | null {
 }
 
 export function getAllReviewNews(): NewsItem[] {
-  ensureContentDir(reviewContentDir);
-  const files = fs.readdirSync(reviewContentDir).filter((name) => name.endsWith(".mdx"));
+  const files = readMdxFilesFromDir(reviewContentDir);
 
   return files
     .map((fileName) => {
@@ -85,8 +83,7 @@ export function getAllReviewNews(): NewsItem[] {
 }
 
 export function getAllArchiveNews(): NewsItem[] {
-  ensureContentDir(archiveContentDir);
-  const files = fs.readdirSync(archiveContentDir).filter((name) => name.endsWith(".mdx"));
+  const files = readMdxFilesFromDir(archiveContentDir);
 
   return files
     .map((fileName) => {
@@ -133,8 +130,7 @@ function parseWeeklyFile(fileName: string): WeeklyItem | null {
 }
 
 export function getAllWeekly(): WeeklyItem[] {
-  ensureContentDir(weeklyContentDir);
-  const files = fs.readdirSync(weeklyContentDir).filter((name) => name.endsWith(".mdx"));
+  const files = readMdxFilesFromDir(weeklyContentDir);
 
   return files
     .map(parseWeeklyFile)
