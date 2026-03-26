@@ -21,13 +21,24 @@ const archiveContentDir = path.join(process.cwd(), "content", "archive");
 
 function readMdxFilesFromDir(dir: string): string[] {
   // Vercel runtime 通常不允许写入磁盘；目录不存在时应当直接视为空。
-  if (!fs.existsSync(dir)) return [];
-  return fs.readdirSync(dir).filter((name) => name.endsWith(".mdx"));
+  try {
+    if (!fs.existsSync(dir)) return [];
+    return fs.readdirSync(dir).filter((name) => name.endsWith(".mdx"));
+  } catch {
+    // 在 serverless/受限运行时，可能出现目录存在但不可读/不可访问等情况。
+    // sitemap/rss/页面应当尽量可用，因此这里降级为空集合。
+    return [];
+  }
 }
 
 function parseNewsFile(fileName: string): NewsItem | null {
   const fullPath = path.join(dailyContentDir, fileName);
-  const raw = fs.readFileSync(fullPath, "utf8");
+  let raw: string;
+  try {
+    raw = fs.readFileSync(fullPath, "utf8");
+  } catch {
+    return null;
+  }
   const { data, content } = matter(raw);
   const parsed = newsFrontmatterSchema.safeParse(data);
   if (!parsed.success) {
@@ -64,7 +75,12 @@ export function getAllReviewNews(): NewsItem[] {
   return files
     .map((fileName) => {
       const fullPath = path.join(reviewContentDir, fileName);
-      const raw = fs.readFileSync(fullPath, "utf8");
+      let raw: string;
+      try {
+        raw = fs.readFileSync(fullPath, "utf8");
+      } catch {
+        return null;
+      }
       const { data, content } = matter(raw);
       const parsed = newsFrontmatterSchema.safeParse(data);
       if (!parsed.success) {
@@ -88,7 +104,12 @@ export function getAllArchiveNews(): NewsItem[] {
   return files
     .map((fileName) => {
       const fullPath = path.join(archiveContentDir, fileName);
-      const raw = fs.readFileSync(fullPath, "utf8");
+      let raw: string;
+      try {
+        raw = fs.readFileSync(fullPath, "utf8");
+      } catch {
+        return null;
+      }
       const { data, content } = matter(raw);
       const parsed = newsFrontmatterSchema.safeParse(data);
       if (!parsed.success) {
@@ -113,7 +134,12 @@ export type WeeklyItem = WeeklyFrontmatter & {
 
 function parseWeeklyFile(fileName: string): WeeklyItem | null {
   const fullPath = path.join(weeklyContentDir, fileName);
-  const raw = fs.readFileSync(fullPath, "utf8");
+  let raw: string;
+  try {
+    raw = fs.readFileSync(fullPath, "utf8");
+  } catch {
+    return null;
+  }
   const { data, content } = matter(raw);
   const parsed = weeklyFrontmatterSchema.safeParse(data);
   if (!parsed.success) {
