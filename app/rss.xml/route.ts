@@ -1,6 +1,9 @@
 import { getAllNews } from "@/lib/content";
 import { getSiteUrl } from "@/lib/site";
 
+// 强制使用 Node.js 运行时，避免 Vercel/Next 将其误判为 Edge（Edge 不支持 node:fs）。
+export const runtime = "nodejs";
+
 function escapeXml(value: string): string {
   return value
     .replace(/&/g, "&amp;")
