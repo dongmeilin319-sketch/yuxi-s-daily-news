@@ -106,6 +106,7 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
           <p className="text-sm text-zinc-600 dark:text-zinc-300">{item.summary}</p>
           <div className="flex flex-wrap gap-2 text-xs text-zinc-500">
             <span>发布时间：{new Date(item.publishAt).toLocaleDateString("zh-CN")}</span>
+            <span>采集时间：{new Date(item.collectedAt ?? item.publishAt).toLocaleString("zh-CN")}</span>
             <span>赛道：{item.track}</span>
             <span>影响类型：{item.impactType}</span>
             <span>情绪：{item.sentiment}</span>

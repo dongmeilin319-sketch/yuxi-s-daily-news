@@ -1,7 +1,479 @@
 {
-  "generatedAt": "2026-03-26T12:41:47.623Z",
-  "totalNews": 0,
-  "bySentiment": {},
-  "byTrack": {},
-  "topLabelsByType": {}
+  "generatedAt": "2026-03-27T02:01:13.528Z",
+  "totalNews": 28,
+  "bySentiment": {
+    "neutral": 28
+  },
+  "byTrack": {
+    "政策监管": 11,
+    "基础模型": 4,
+    "行业动态": 3,
+    "应用层": 10
+  },
+  "topLabelsByType": {
+    "政策": [
+      {
+        "label": "AI立法框架",
+        "count": 1
+      },
+      {
+        "label": "账号安全",
+        "count": 1
+      },
+      {
+        "label": "AI立法",
+        "count": 1
+      },
+      {
+        "label": "AI护栏法案",
+        "count": 1
+      },
+      {
+        "label": "AI监管",
+        "count": 1
+      },
+      {
+        "label": "科技政策",
+        "count": 1
+      },
+      {
+        "label": "白宫 AI 政策",
+        "count": 1
+      },
+      {
+        "label": "加密货币监管",
+        "count": 1
+      },
+      {
+        "label": "欧盟AI法案",
+        "count": 1
+      },
+      {
+        "label": "EU AI Act",
+        "count": 1
+      },
+      {
+        "label": "儿童保护",
+        "count": 1
+      },
+      {
+        "label": "强制能耗报告",
+        "count": 1
+      },
+      {
+        "label": "Ratepayer Protection Pledge",
+        "count": 1
+      },
+      {
+        "label": "能源信息披露",
+        "count": 1
+      },
+      {
+        "label": "数据中心监管",
+        "count": 1
+      },
+      {
+        "label": "AI使用限制",
+        "count": 1
+      },
+      {
+        "label": "美国国防部",
+        "count": 1
+      }
+    ],
+    "公司": [
+      {
+        "label": "Google",
+        "count": 10
+      },
+      {
+        "label": "Apple",
+        "count": 4
+      },
+      {
+        "label": "OpenAI",
+        "count": 4
+      },
+      {
+        "label": "Meta",
+        "count": 4
+      },
+      {
+        "label": "Anthropic",
+        "count": 2
+      },
+      {
+        "label": "EssilorLuxottica",
+        "count": 2
+      },
+      {
+        "label": "Polymarket",
+        "count": 1
+      },
+      {
+        "label": "Andreessen Horowitz",
+        "count": 1
+      },
+      {
+        "label": "Disney",
+        "count": 1
+      },
+      {
+        "label": "Epic Games",
+        "count": 1
+      },
+      {
+        "label": "Reddit",
+        "count": 1
+      },
+      {
+        "label": "Nvidia",
+        "count": 1
+      },
+      {
+        "label": "Oracle",
+        "count": 1
+      },
+      {
+        "label": "能源信息管理局",
+        "count": 1
+      },
+      {
+        "label": "Ratepayer Protection Pledge",
+        "count": 1
+      },
+      {
+        "label": "Webtoon",
+        "count": 1
+      }
+    ],
+    "主题": [
+      {
+        "label": "消费电子",
+        "count": 2
+      },
+      {
+        "label": "AI伦理",
+        "count": 2
+      },
+      {
+        "label": "Alliance for a Better Future",
+        "count": 1
+      },
+      {
+        "label": "保守派内部分歧",
+        "count": 1
+      },
+      {
+        "label": "端侧AI",
+        "count": 1
+      },
+      {
+        "label": "合作协议",
+        "count": 1
+      },
+      {
+        "label": "元宇宙",
+        "count": 1
+      },
+      {
+        "label": "AI音乐生成",
+        "count": 1
+      },
+      {
+        "label": "Reality Labs",
+        "count": 1
+      },
+      {
+        "label": "平台治理",
+        "count": 1
+      },
+      {
+        "label": "自主武器",
+        "count": 1
+      },
+      {
+        "label": "大规模监控",
+        "count": 1
+      },
+      {
+        "label": "音乐推荐",
+        "count": 1
+      },
+      {
+        "label": "Extensions",
+        "count": 1
+      },
+      {
+        "label": "特朗普政府",
+        "count": 1
+      },
+      {
+        "label": "立法延迟",
+        "count": 1
+      },
+      {
+        "label": "合规延期",
+        "count": 1
+      },
+      {
+        "label": "数据迁移",
+        "count": 1
+      },
+      {
+        "label": "多语言支持",
+        "count": 1
+      },
+      {
+        "label": "大语言模型",
+        "count": 1
+      },
+      {
+        "label": "内存优化",
+        "count": 1
+      },
+      {
+        "label": "电网规划",
+        "count": 1
+      },
+      {
+        "label": "数据中心能耗",
+        "count": 1
+      },
+      {
+        "label": "创作者经济",
+        "count": 1
+      },
+      {
+        "label": "内容审核",
+        "count": 1
+      },
+      {
+        "label": "第一修正案",
+        "count": 1
+      }
+    ],
+    "安全合规": [
+      {
+        "label": "内容审核",
+        "count": 2
+      },
+      {
+        "label": "AI安全",
+        "count": 1
+      },
+      {
+        "label": "版权保护",
+        "count": 1
+      },
+      {
+        "label": "高风险AI系统监管",
+        "count": 1
+      },
+      {
+        "label": "深度伪造监管",
+        "count": 1
+      },
+      {
+        "label": "供应链风险",
+        "count": 1
+      }
+    ],
+    "技术": [
+      {
+        "label": "Gemini",
+        "count": 3
+      },
+      {
+        "label": "模型蒸馏",
+        "count": 2
+      },
+      {
+        "label": "Gemini 3.1 Flash Live",
+        "count": 2
+      },
+      {
+        "label": "TurboQuant",
+        "count": 2
+      },
+      {
+        "label": "AI眼镜",
+        "count": 2
+      },
+      {
+        "label": "Wi-Fi 6",
+        "count": 2
+      },
+      {
+        "label": "Sora",
+        "count": 1
+      },
+      {
+        "label": "Lyria 3 Pro",
+        "count": 1
+      },
+      {
+        "label": "AI数据中心",
+        "count": 1
+      },
+      {
+        "label": "生物识别",
+        "count": 1
+      },
+      {
+        "label": "AI播放列表生成",
+        "count": 1
+      },
+      {
+        "label": "Siri",
+        "count": 1
+      },
+      {
+        "label": "iOS 27",
+        "count": 1
+      },
+      {
+        "label": "PCAST",
+        "count": 1
+      },
+      {
+        "label": "AI水印技术",
+        "count": 1
+      },
+      {
+        "label": "Search Live",
+        "count": 1
+      },
+      {
+        "label": "模型压缩",
+        "count": 1
+      },
+      {
+        "label": "压缩算法",
+        "count": 1
+      },
+      {
+        "label": "AI翻译",
+        "count": 1
+      },
+      {
+        "label": "AI生成内容",
+        "count": 1
+      },
+      {
+        "label": "Claude",
+        "count": 1
+      }
+    ],
+    "资本": [
+      {
+        "label": "战略合作",
+        "count": 1
+      },
+      {
+        "label": "1350亿美元投资",
+        "count": 1
+      },
+      {
+        "label": "投资者关系",
+        "count": 1
+      }
+    ],
+    "应用": [
+      {
+        "label": "Gemini",
+        "count": 1
+      },
+      {
+        "label": "ProducerAI",
+        "count": 1
+      },
+      {
+        "label": "Apple Music",
+        "count": 1
+      },
+      {
+        "label": "AI Chatbots",
+        "count": 1
+      },
+      {
+        "label": "深度伪造应用",
+        "count": 1
+      },
+      {
+        "label": "Nudify应用",
+        "count": 1
+      },
+      {
+        "label": "AI助手",
+        "count": 1
+      },
+      {
+        "label": "Search Live",
+        "count": 1
+      },
+      {
+        "label": "Google Translate",
+        "count": 1
+      },
+      {
+        "label": "AI搜索助手",
+        "count": 1
+      },
+      {
+        "label": "实时翻译",
+        "count": 1
+      },
+      {
+        "label": "大语言模型",
+        "count": 1
+      },
+      {
+        "label": "可穿戴设备",
+        "count": 1
+      },
+      {
+        "label": "ChatGPT",
+        "count": 1
+      },
+      {
+        "label": "ChatGPT成人模式",
+        "count": 1
+      },
+      {
+        "label": "数字漫画本地化",
+        "count": 1
+      },
+      {
+        "label": "维基百科",
+        "count": 1
+      }
+    ],
+    "任务": [
+      {
+        "label": "裁员",
+        "count": 1
+      },
+      {
+        "label": "人机验证",
+        "count": 1
+      },
+      {
+        "label": "David Sacks",
+        "count": 1
+      },
+      {
+        "label": "内存优化",
+        "count": 1
+      },
+      {
+        "label": "电网规划",
+        "count": 1
+      },
+      {
+        "label": "内容全球化",
+        "count": 1
+      }
+    ]
+  }
 }

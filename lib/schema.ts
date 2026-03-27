@@ -18,6 +18,8 @@ export const newsFrontmatterSchema = z.object({
   slug: nonEmptyString,
   date: isoDateString,
   publishAt: isoDateString,
+  // 采集入库时间（生成端写入）
+  collectedAt: isoDateString.optional(),
   summary: nonEmptyString,
   sources: z.array(nonEmptyString).min(1),
   labels: z.array(labelSchema).min(1),

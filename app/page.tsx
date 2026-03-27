@@ -3,12 +3,15 @@ import { getAllNews } from "@/lib/content";
 import { NewsLabels } from "@/components/news-labels";
 
 type TimeRange = "all" | "today" | "week";
+type CollectedRange = "all" | "today" | "week";
 
 type HomePageProps = {
   searchParams: Promise<{
     range?: TimeRange;
+    collectedRange?: CollectedRange;
     track?: string;
     sentiment?: string;
+    company?: string;
     labelType?: string;
     labelValue?: string;
   }>;
@@ -75,6 +78,7 @@ export default async function Home({ searchParams }: HomePageProps) {
   const news = getAllNews();
 
   const range: TimeRange = query.range ?? "all";
+  const collectedRange: CollectedRange = query.collectedRange ?? "all";
   const now = new Date();
   const todayKey = cstYmdKey(now);
   const weekStartMs = cstWeekStartUtcMs(now);
@@ -94,33 +98,66 @@ export default async function Home({ searchParams }: HomePageProps) {
     return publishCstDayUtcMs >= weekStartMs && publishCstDayUtcMs < weekEndMs;
   });
 
-  const stats = buildStats(timeFilteredNews);
-  const tracks = Array.from(new Set(timeFilteredNews.map((item) => item.track))).sort();
+  const collectedTimeFilteredNews = timeFilteredNews.filter((item) => {
+    if (collectedRange === "all") return true;
+    const collected = new Date(item.collectedAt ?? item.publishAt);
+    if (collectedRange === "today") {
+      return cstYmdKey(collected) === todayKey;
+    }
+    const collectedCstDayUtcMs = Date.UTC(
+      toCstShiftedDate(collected).getUTCFullYear(),
+      toCstShiftedDate(collected).getUTCMonth(),
+      toCstShiftedDate(collected).getUTCDate(),
+    );
+    return collectedCstDayUtcMs >= weekStartMs && collectedCstDayUtcMs < weekEndMs;
+  });
+
+  const stats = buildStats(collectedTimeFilteredNews);
+  const tracks = Array.from(new Set(collectedTimeFilteredNews.map((item) => item.track))).sort();
+  const companies = Array.from(
+    new Set(
+      collectedTimeFilteredNews.flatMap((item) =>
+        item.labels
+          .filter((label) => label.type === "公司" && label.value)
+          .map((label) => label.value),
+      ),
+    ),
+  ).sort();
   const sentiments = ["positive", "neutral", "negative"];
 
-  const filtered = timeFilteredNews.filter((item) => {
+  const filtered = collectedTimeFilteredNews.filter((item) => {
     const byTrack = query.track ? item.track === query.track : true;
     const bySentiment = query.sentiment ? item.sentiment === query.sentiment : true;
+    const byCompany = query.company
+      ? item.labels.some((label) => label.type === "公司" && label.value === query.company)
+      : true;
     const byLabel =
       query.labelType && query.labelValue
         ? item.labels.some(
             (l) => l.type === query.labelType && l.value === query.labelValue,
           )
         : true;
-    return byTrack && bySentiment && byLabel;
+    return byTrack && bySentiment && byCompany && byLabel;
   });
 
   const trackChartRows = Object.entries(stats.byTrack).sort((a, b) => b[1] - a[1]);
   const maxTrackCount = trackChartRows.length > 0 ? trackChartRows[0][1] : 1;
   const hasAnyFilter = Boolean(
-    range !== "all" || query.track || query.sentiment || (query.labelType && query.labelValue),
+    range !== "all" ||
+      collectedRange !== "all" ||
+      query.track ||
+      query.sentiment ||
+      query.company ||
+      (query.labelType && query.labelValue),
   );
 
   function hrefWith(next: Record<string, string | undefined>) {
     const params = new URLSearchParams();
     if (range !== "all") params.set("range", range);
+    if (collectedRange !== "all") params.set("collectedRange", collectedRange);
     if (query.track) params.set("track", query.track);
     if (query.sentiment) params.set("sentiment", query.sentiment);
+    if (query.company) params.set("company", query.company);
     if (query.labelType) params.set("labelType", query.labelType);
     if (query.labelValue) params.set("labelValue", query.labelValue);
     for (const [k, v] of Object.entries(next)) {
@@ -300,8 +337,36 @@ export default async function Home({ searchParams }: HomePageProps) {
       </details>
 
       <section className="rounded-xl border border-zinc-200 p-4 dark:border-zinc-700">
-        <h2 className="text-lg font-semibold">筛选器</h2>
+        <h2 className="text-lg font-semibold">新闻筛选器</h2>
         <div className="mt-3 grid gap-3 sm:grid-cols-2">
+          <div className="space-y-2">
+            <p className="text-xs text-zinc-500">按采集时间</p>
+            <div className="flex flex-wrap gap-2">
+              {(
+                [
+                  { id: "all", label: "全部" },
+                  { id: "today", label: "今日新增" },
+                  { id: "week", label: "本周新增" },
+                ] as const
+              ).map((opt) => {
+                const active = collectedRange === opt.id;
+                return (
+                  <Link
+                    key={opt.id}
+                    href={hrefWith({ collectedRange: opt.id === "all" ? undefined : opt.id })}
+                    className={
+                      active
+                        ? "rounded-full border border-zinc-900 bg-zinc-900 px-2 py-1 text-xs text-white dark:border-zinc-100 dark:bg-zinc-100 dark:text-zinc-900"
+                        : "rounded-full border px-2 py-1 text-xs hover:bg-zinc-100 dark:hover:bg-zinc-800"
+                    }
+                  >
+                    {opt.label}
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+
           <div className="space-y-2">
             <p className="text-xs text-zinc-500">按赛道</p>
             <div className="flex flex-wrap gap-2">
@@ -359,6 +424,38 @@ export default async function Home({ searchParams }: HomePageProps) {
               })}
             </div>
           </div>
+
+          <div className="space-y-2">
+            <p className="text-xs text-zinc-500">按公司</p>
+            <div className="flex flex-wrap gap-2">
+              <Link
+                href={hrefWith({ company: undefined })}
+                className={
+                  !query.company
+                    ? "rounded-full border border-zinc-900 bg-zinc-900 px-2 py-1 text-xs text-white dark:border-zinc-100 dark:bg-zinc-100 dark:text-zinc-900"
+                    : "rounded-full border px-2 py-1 text-xs hover:bg-zinc-100 dark:hover:bg-zinc-800"
+                }
+              >
+                全部
+              </Link>
+              {companies.map((company) => {
+                const active = query.company === company;
+                return (
+                  <Link
+                    key={company}
+                    href={hrefWith({ company: active ? undefined : company })}
+                    className={
+                      active
+                        ? "rounded-full border border-violet-600 bg-violet-600 px-2 py-1 text-xs text-white dark:border-violet-400 dark:bg-violet-400 dark:text-zinc-900"
+                        : "rounded-full border px-2 py-1 text-xs hover:bg-zinc-100 dark:hover:bg-zinc-800"
+                    }
+                  >
+                    {company}
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
         </div>
         {hasAnyFilter && (
           <div className="mt-3">
@@ -377,6 +474,7 @@ export default async function Home({ searchParams }: HomePageProps) {
           >
             <div className="mb-2 flex items-center gap-3 text-xs text-zinc-500">
               <span>{new Date(item.publishAt).toLocaleDateString("zh-CN")}</span>
+              <span>采集：{new Date(item.collectedAt ?? item.publishAt).toLocaleString("zh-CN")}</span>
               <span>赛道：{item.track}</span>
               <span>情绪：{item.sentiment}</span>
               <span>阅读约 {item.readingMinutes} 分钟</span>
@@ -384,7 +482,14 @@ export default async function Home({ searchParams }: HomePageProps) {
             </div>
             <h2 className="text-xl font-semibold">
               <Link href={`/news/${item.slug}`} className="hover:underline">
-                {item.title}
+                <span className="inline-flex items-center gap-2">
+                  {cstYmdKey(new Date(item.collectedAt ?? item.publishAt)) === todayKey ? (
+                    <span className="rounded-full bg-rose-600 px-2 py-0.5 text-[10px] font-semibold tracking-wide text-white">
+                      NEW
+                    </span>
+                  ) : null}
+                  <span>{item.title}</span>
+                </span>
               </Link>
             </h2>
             <p className="mt-2 text-sm text-zinc-700 dark:text-zinc-300">{item.summary}</p>

@@ -91,6 +91,7 @@ def build_prompt(source_name: str, page_url: str, raw_title: str, body: str) -> 
   然后 ## 洞察
   接着三个块：<Insight title="短期">...</Insight> <Insight title="中期">...</Insight> <Insight title="风险">...</Insight>
 - publishAt: ISO 8601 时间字符串（如果无法从页面推断，使用抓取当天时间也可以）
+- collectedAt: ISO 8601 时间字符串（表示本次采集入库时间）
   全部正文用中文，简洁有信息密度。
 
 源页面 URL（写入时请不要再重复大段原文）: {page_url}
@@ -135,6 +136,7 @@ def write_mdx(data: dict, dest_dir: Path, file_stem: str) -> Path:
         "slug": data["slug"],
         "date": data.get("date") or to_iso_date(),
         "publishAt": data.get("publishAt") or data.get("date") or to_iso_date(),
+        "collectedAt": data.get("collectedAt") or to_iso_date(),
         "summary": data["summary"],
         "sources": data["sources"],
         "labels": data.get("labels") or [],
@@ -230,6 +232,8 @@ def main() -> None:
     data.setdefault("date", to_iso_date())
     if not data.get("publishAt"):
         data["publishAt"] = data["date"]
+    if not data.get("collectedAt"):
+        data["collectedAt"] = to_iso_date()
     if not data.get("labels"):
         # 最小兜底：至少给一个标签，保证通过 frontmatter 校验
         data["labels"] = [{"type": "主题", "value": str(data.get("impactType", "信息"))}]

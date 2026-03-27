@@ -48,6 +48,7 @@ REQUIRED_FRONTMATTER_FIELDS = {
     "sentiment",
     "confidence",
     "publishAt",
+    "collectedAt",
     "date",
 }
 
@@ -321,7 +322,14 @@ def discover_links(hub_url: str, max_links: int) -> list[str]:
 
 
 
-def build_prompt(source_names: list[str], page_url: str, raw_title: str, body: str, publish_at_iso: str) -> str:
+def build_prompt(
+    source_names: list[str],
+    page_url: str,
+    raw_title: str,
+    body: str,
+    publish_at_iso: str,
+    collected_at_iso: str,
+) -> str:
     # IMPORTANT: output MUST be one JSON only (no markdown), and include all required fields.
     sources_json = json.dumps(source_names, ensure_ascii=False)
     return f"""你是一个严格的"新闻事实编辑 + 中立性审查员协作体"。你会基于给定网页的正文片段生成结构化 JSON。
@@ -331,6 +339,7 @@ def build_prompt(source_names: list[str], page_url: str, raw_title: str, body: s
 2) 观点必须准确且中立：不要使用夸张、情绪化或带立场的用词；如果信息不足以支持判断，就写成"尚不明确/需要更多信息"，并降低 confidence。
 3) 输出必须是"仅一段 JSON"（不要 markdown 代码围栏）。JSON 字段必须齐全且类型正确。
 4) publishAt 和 date 必须使用我提供的 ISO 时间字符串：{publish_at_iso}
+5) collectedAt 必须使用我提供的 ISO 时间字符串：{collected_at_iso}
 
 字段要求（JSON 顶层）：
 - title: 中文标题（100%来自正文片段的可验证信息）
@@ -346,6 +355,7 @@ def build_prompt(source_names: list[str], page_url: str, raw_title: str, body: s
 - sentiment: 仅填 "neutral"（本项目要求观点中立）
 - confidence: 0~1 小数，表示事实可靠性（单源且片段不足时不要给太高，尽量 <=0.82）
 - relatedArticles: 字符串数组，暂无关联则 []
+- collectedAt: 采集入库时间，必须等于：{collected_at_iso}
 - body_md: 必须是 MDX 片段，且必须包含这些结构：
   <AIAbstract>...</AIAbstract>
 
@@ -482,6 +492,7 @@ def validate_body_md(body_md: str) -> None:
 def validate_and_normalize(
     data: dict[str, Any],
     publish_at_iso: str,
+    collected_at_iso: str,
     slug_fallback: str,
     original_url: str,
     required_sources: list[str],
@@ -503,6 +514,8 @@ def validate_and_normalize(
         data["publishAt"] = publish_at_iso
     if not data.get("date"):
         data["date"] = publish_at_iso
+    if not data.get("collectedAt"):
+        data["collectedAt"] = collected_at_iso
 
     # sources must be non-empty array
     srcs = data.get("sources") or []
@@ -594,6 +607,7 @@ def write_mdx(data: dict[str, Any], dest_dir: Path, file_stem: str) -> Path:
         "slug": data["slug"],
         "date": data["date"],
         "publishAt": data["publishAt"],
+        "collectedAt": data["collectedAt"],
         "summary": data["summary"],
         "sources": data["sources"],
         "labels": data["labels"],
@@ -798,9 +812,17 @@ def main() -> None:
 
     for cl in unique_clusters:
         publish_iso = to_iso_z(cl["published"])
+        collected_iso = to_iso_z(datetime.now(timezone.utc))
         slug_fallback = slugify(cl["raw_title"])
         required_sources = cl["sources"] if isinstance(cl["sources"], list) else [str(cl["sources"])]
-        data_prompt = build_prompt(required_sources, cl["url"], cl["raw_title"], cl["body"], publish_iso)
+        data_prompt = build_prompt(
+            required_sources,
+            cl["url"],
+            cl["raw_title"],
+            cl["body"],
+            publish_iso,
+            collected_iso,
+        )
 
         # LLM call with 2 attempts for robustness
         last_err: Optional[Exception] = None
@@ -822,6 +844,7 @@ def main() -> None:
             data = validate_and_normalize(
                 data,
                 publish_iso,
+                collected_iso,
                 slug_fallback,
                 original_url=cl["url"],
                 required_sources=required_sources,
