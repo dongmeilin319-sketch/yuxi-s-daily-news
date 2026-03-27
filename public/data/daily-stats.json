@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-03-27T02:48:59.941Z",
-  "totalNews": 28,
+  "generatedAt": "2026-03-27T03:45:50.940Z",
+  "totalNews": 21,
   "bySentiment": {
-    "neutral": 28
+    "neutral": 21
   },
   "byTrack": {
-    "政策监管": 11,
-    "基础模型": 4,
+    "政策监管": 9,
+    "基础模型": 2,
     "行业动态": 3,
-    "应用层": 10
+    "应用层": 7
   },
   "topLabelsByType": {
     "政策": [
@@ -49,27 +49,11 @@
         "count": 1
       },
       {
-        "label": "EU AI Act",
-        "count": 1
-      },
-      {
-        "label": "儿童保护",
-        "count": 1
-      },
-      {
         "label": "强制能耗报告",
         "count": 1
       },
       {
         "label": "Ratepayer Protection Pledge",
-        "count": 1
-      },
-      {
-        "label": "能源信息披露",
-        "count": 1
-      },
-      {
-        "label": "数据中心监管",
         "count": 1
       },
       {
@@ -84,26 +68,22 @@
     "公司": [
       {
         "label": "Google",
-        "count": 10
+        "count": 7
       },
       {
         "label": "Apple",
-        "count": 4
+        "count": 3
       },
       {
         "label": "OpenAI",
-        "count": 4
+        "count": 3
       },
       {
         "label": "Meta",
-        "count": 4
+        "count": 3
       },
       {
         "label": "Anthropic",
-        "count": 2
-      },
-      {
-        "label": "EssilorLuxottica",
         "count": 2
       },
       {
@@ -135,11 +115,11 @@
         "count": 1
       },
       {
-        "label": "能源信息管理局",
+        "label": "EssilorLuxottica",
         "count": 1
       },
       {
-        "label": "Ratepayer Protection Pledge",
+        "label": "能源信息管理局",
         "count": 1
       },
       {
@@ -148,14 +128,6 @@
       }
     ],
     "主题": [
-      {
-        "label": "消费电子",
-        "count": 2
-      },
-      {
-        "label": "AI伦理",
-        "count": 2
-      },
       {
         "label": "Alliance for a Better Future",
         "count": 1
@@ -166,10 +138,6 @@
       },
       {
         "label": "端侧AI",
-        "count": 1
-      },
-      {
-        "label": "合作协议",
         "count": 1
       },
       {
@@ -213,10 +181,6 @@
         "count": 1
       },
       {
-        "label": "合规延期",
-        "count": 1
-      },
-      {
         "label": "数据迁移",
         "count": 1
       },
@@ -225,19 +189,15 @@
         "count": 1
       },
       {
-        "label": "大语言模型",
+        "label": "消费电子",
         "count": 1
       },
       {
-        "label": "内存优化",
+        "label": "AI伦理",
         "count": 1
       },
       {
         "label": "电网规划",
-        "count": 1
-      },
-      {
-        "label": "数据中心能耗",
         "count": 1
       },
       {
@@ -255,10 +215,6 @@
     ],
     "安全合规": [
       {
-        "label": "内容审核",
-        "count": 2
-      },
-      {
         "label": "AI安全",
         "count": 1
       },
@@ -271,7 +227,7 @@
         "count": 1
       },
       {
-        "label": "深度伪造监管",
+        "label": "内容审核",
         "count": 1
       },
       {
@@ -282,27 +238,11 @@
     "技术": [
       {
         "label": "Gemini",
-        "count": 3
+        "count": 2
       },
       {
         "label": "模型蒸馏",
-        "count": 2
-      },
-      {
-        "label": "Gemini 3.1 Flash Live",
-        "count": 2
-      },
-      {
-        "label": "TurboQuant",
-        "count": 2
-      },
-      {
-        "label": "AI眼镜",
-        "count": 2
-      },
-      {
-        "label": "Wi-Fi 6",
-        "count": 2
+        "count": 1
       },
       {
         "label": "Sora",
@@ -341,7 +281,11 @@
         "count": 1
       },
       {
-        "label": "Search Live",
+        "label": "Gemini 3.1 Flash Live",
+        "count": 1
+      },
+      {
+        "label": "TurboQuant",
         "count": 1
       },
       {
@@ -349,7 +293,11 @@
         "count": 1
       },
       {
-        "label": "压缩算法",
+        "label": "AI眼镜",
+        "count": 1
+      },
+      {
+        "label": "Wi-Fi 6",
         "count": 1
       },
       {
@@ -401,10 +349,6 @@
         "count": 1
       },
       {
-        "label": "Nudify应用",
-        "count": 1
-      },
-      {
         "label": "AI助手",
         "count": 1
       },
@@ -417,27 +361,11 @@
         "count": 1
       },
       {
-        "label": "AI搜索助手",
-        "count": 1
-      },
-      {
-        "label": "实时翻译",
-        "count": 1
-      },
-      {
         "label": "大语言模型",
         "count": 1
       },
       {
-        "label": "可穿戴设备",
-        "count": 1
-      },
-      {
         "label": "ChatGPT",
-        "count": 1
-      },
-      {
-        "label": "ChatGPT成人模式",
         "count": 1
       },
       {
@@ -464,10 +392,6 @@
       },
       {
         "label": "内存优化",
-        "count": 1
-      },
-      {
-        "label": "电网规划",
         "count": 1
       },
       {
