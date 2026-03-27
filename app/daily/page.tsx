@@ -8,6 +8,10 @@ type DailyPageProps = {
     preset?: DatePreset;
     date?: string;
     page?: string;
+    tracks?: string;
+    impacts?: string;
+    companies?: string;
+    sentiments?: string;
   }>;
 };
 
@@ -40,6 +44,23 @@ function cstWeekStartUtcMs(now: Date): number {
   return baseUtcMs - daysSinceMonday * DAY_MS;
 }
 
+function parseMultiParam(value: string | undefined): string[] {
+  if (!value) return [];
+  return Array.from(
+    new Set(
+      value
+        .split(",")
+        .map((x) => x.trim())
+        .filter(Boolean),
+    ),
+  );
+}
+
+function serializeMultiParam(values: string[]): string | undefined {
+  const clean = Array.from(new Set(values.map((x) => x.trim()).filter(Boolean)));
+  return clean.length > 0 ? clean.join(",") : undefined;
+}
+
 export default async function DailyNewsPage({ searchParams }: DailyPageProps) {
   const query = await searchParams;
   const allNews = getAllNews();
@@ -51,8 +72,12 @@ export default async function DailyNewsPage({ searchParams }: DailyPageProps) {
 
   const preset: DatePreset = query.preset ?? "all";
   const customDate = (query.date ?? "").trim();
+  const selectedTracks = parseMultiParam(query.tracks);
+  const selectedImpacts = parseMultiParam(query.impacts);
+  const selectedCompanies = parseMultiParam(query.companies);
+  const selectedSentiments = parseMultiParam(query.sentiments);
 
-  const filtered = allNews.filter((item) => {
+  const dateFiltered = allNews.filter((item) => {
     const publish = new Date(item.publishAt);
     const key = cstYmdKey(publish);
     const dayStart = cstDayStartUtcMs(publish);
@@ -64,6 +89,33 @@ export default async function DailyNewsPage({ searchParams }: DailyPageProps) {
     if (preset === "yesterday") return key === yesterdayKey;
     if (preset === "week") return dayStart >= weekStartMs && dayStart < weekEndMs;
     return true;
+  });
+
+  const trackOptions = Array.from(new Set(dateFiltered.map((item) => item.track))).sort();
+  const impactOptions = Array.from(new Set(dateFiltered.map((item) => item.impactType))).sort();
+  const companyOptions = Array.from(
+    new Set(
+      dateFiltered.flatMap((item) =>
+        item.labels
+          .filter((label) => label.type === "公司" && label.value)
+          .map((label) => label.value),
+      ),
+    ),
+  ).sort();
+  const sentimentOptions = Array.from(new Set(dateFiltered.map((item) => item.sentiment))).sort();
+
+  const filtered = dateFiltered.filter((item) => {
+    const byTrack = selectedTracks.length > 0 ? selectedTracks.includes(item.track) : true;
+    const byImpact = selectedImpacts.length > 0 ? selectedImpacts.includes(item.impactType) : true;
+    const byCompany =
+      selectedCompanies.length > 0
+        ? item.labels.some(
+            (label) => label.type === "公司" && selectedCompanies.includes(label.value),
+          )
+        : true;
+    const bySentiment =
+      selectedSentiments.length > 0 ? selectedSentiments.includes(item.sentiment) : true;
+    return byTrack && byImpact && byCompany && bySentiment;
   });
 
   const total = filtered.length;
@@ -79,6 +131,14 @@ export default async function DailyNewsPage({ searchParams }: DailyPageProps) {
     const params = new URLSearchParams();
     if (preset !== "all") params.set("preset", preset);
     if (customDate) params.set("date", customDate);
+    const tracks = serializeMultiParam(selectedTracks);
+    const impacts = serializeMultiParam(selectedImpacts);
+    const companies = serializeMultiParam(selectedCompanies);
+    const sentiments = serializeMultiParam(selectedSentiments);
+    if (tracks) params.set("tracks", tracks);
+    if (impacts) params.set("impacts", impacts);
+    if (companies) params.set("companies", companies);
+    if (sentiments) params.set("sentiments", sentiments);
     if (currentPage > 1) params.set("page", String(currentPage));
     for (const [k, v] of Object.entries(next)) {
       if (!v) params.delete(k);
@@ -98,58 +158,208 @@ export default async function DailyNewsPage({ searchParams }: DailyPageProps) {
       </header>
 
       <section className="rounded-xl border border-zinc-200 p-4 dark:border-zinc-700">
-        <h2 className="text-lg font-semibold">日期筛选器</h2>
-        <div className="mt-3 flex flex-wrap gap-2">
-          {(
-            [
-              { id: "all", label: "全部" },
-              { id: "today", label: "今天" },
-              { id: "yesterday", label: "昨天" },
-              { id: "week", label: "近7天" },
-            ] as const
-          ).map((opt) => {
-            const active = !customDate && preset === opt.id;
-            return (
+        <div className="grid gap-3 md:grid-cols-2">
+          <div className="rounded-lg border border-zinc-200 p-3 dark:border-zinc-700">
+            <h2 className="text-base font-semibold">日期筛选器</h2>
+            <div className="mt-2 flex flex-wrap items-center gap-2">
+              {(
+                [
+                  { id: "all", label: "全部" },
+                  { id: "today", label: "今天" },
+                  { id: "yesterday", label: "昨天" },
+                  { id: "week", label: "近7天" },
+                ] as const
+              ).map((opt) => {
+                const active = !customDate && preset === opt.id;
+                return (
+                  <Link
+                    key={opt.id}
+                    href={hrefWith({
+                      preset: opt.id === "all" ? undefined : opt.id,
+                      date: undefined,
+                      page: undefined,
+                    })}
+                    className={
+                      active
+                        ? "rounded-full border border-zinc-900 bg-zinc-900 px-3 py-1 text-xs text-white dark:border-zinc-100 dark:bg-zinc-100 dark:text-zinc-900"
+                        : "rounded-full border px-3 py-1 text-xs hover:bg-zinc-100 dark:hover:bg-zinc-800"
+                    }
+                  >
+                    {opt.label}
+                  </Link>
+                );
+              })}
+            </div>
+
+            <form method="get" action="/daily" className="mt-2 flex flex-wrap items-center gap-2">
+              {preset !== "all" ? <input type="hidden" name="preset" value={preset} /> : null}
+              {selectedTracks.length > 0 ? (
+                <input type="hidden" name="tracks" value={serializeMultiParam(selectedTracks)} />
+              ) : null}
+              {selectedImpacts.length > 0 ? (
+                <input type="hidden" name="impacts" value={serializeMultiParam(selectedImpacts)} />
+              ) : null}
+              {selectedCompanies.length > 0 ? (
+                <input type="hidden" name="companies" value={serializeMultiParam(selectedCompanies)} />
+              ) : null}
+              {selectedSentiments.length > 0 ? (
+                <input type="hidden" name="sentiments" value={serializeMultiParam(selectedSentiments)} />
+              ) : null}
+              <label htmlFor="date" className="text-xs text-zinc-500">
+                自定义日期
+              </label>
+              <input
+                id="date"
+                name="date"
+                type="date"
+                defaultValue={customDate}
+                className="rounded-md border border-zinc-300 bg-transparent px-2 py-1 text-xs dark:border-zinc-600"
+              />
+              <button
+                type="submit"
+                className="rounded-md border border-zinc-300 px-2 py-1 text-xs hover:bg-zinc-100 dark:border-zinc-600 dark:hover:bg-zinc-800"
+              >
+                应用
+              </button>
+              <Link href="/daily" className="text-xs underline underline-offset-4">
+                清空
+              </Link>
+            </form>
+          </div>
+
+          <div className="rounded-lg border border-zinc-200 p-3 dark:border-zinc-700">
+            <h2 className="text-base font-semibold">高级筛选</h2>
+            <p className="mt-1 text-xs text-zinc-500">
+              已选{" "}
+              {selectedTracks.length +
+                selectedImpacts.length +
+                selectedCompanies.length +
+                selectedSentiments.length}{" "}
+              项
+            </p>
+
+            <div className="mt-2 grid gap-2 sm:grid-cols-2 xl:grid-cols-3">
+              <details className="rounded-md border border-zinc-200 p-2 dark:border-zinc-700">
+                <summary className="cursor-pointer text-xs font-medium text-zinc-600 hover:underline dark:text-zinc-300">
+                  赛道（多选）
+                </summary>
+                <div className="mt-2 max-h-24 overflow-auto rounded-md border border-zinc-200 p-2 dark:border-zinc-700">
+                  {trackOptions.map((option) => {
+                    const next = selectedTracks.includes(option)
+                      ? selectedTracks.filter((v) => v !== option)
+                      : [...selectedTracks, option];
+                    return (
+                      <Link
+                        key={option}
+                        href={hrefWith({ tracks: serializeMultiParam(next), page: undefined })}
+                        className={
+                          selectedTracks.includes(option)
+                            ? "mb-1 mr-1 inline-block rounded-full border border-indigo-600 bg-indigo-600 px-2 py-0.5 text-[11px] text-white"
+                            : "mb-1 mr-1 inline-block rounded-full border px-2 py-0.5 text-[11px] hover:bg-zinc-100 dark:hover:bg-zinc-800"
+                        }
+                      >
+                        {option}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </details>
+
+              <details className="rounded-md border border-zinc-200 p-2 dark:border-zinc-700">
+                <summary className="cursor-pointer text-xs font-medium text-zinc-600 hover:underline dark:text-zinc-300">
+                  影响类型（多选）
+                </summary>
+                <div className="mt-2 max-h-24 overflow-auto rounded-md border border-zinc-200 p-2 dark:border-zinc-700">
+                  {impactOptions.map((option) => {
+                    const next = selectedImpacts.includes(option)
+                      ? selectedImpacts.filter((v) => v !== option)
+                      : [...selectedImpacts, option];
+                    return (
+                      <Link
+                        key={option}
+                        href={hrefWith({ impacts: serializeMultiParam(next), page: undefined })}
+                        className={
+                          selectedImpacts.includes(option)
+                            ? "mb-1 mr-1 inline-block rounded-full border border-emerald-600 bg-emerald-600 px-2 py-0.5 text-[11px] text-white"
+                            : "mb-1 mr-1 inline-block rounded-full border px-2 py-0.5 text-[11px] hover:bg-zinc-100 dark:hover:bg-zinc-800"
+                        }
+                      >
+                        {option}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </details>
+
+              <details className="rounded-md border border-zinc-200 p-2 dark:border-zinc-700">
+                <summary className="cursor-pointer text-xs font-medium text-zinc-600 hover:underline dark:text-zinc-300">
+                  公司（多选）
+                </summary>
+                <div className="mt-2 max-h-24 overflow-auto rounded-md border border-zinc-200 p-2 dark:border-zinc-700">
+                  {companyOptions.map((option) => {
+                    const next = selectedCompanies.includes(option)
+                      ? selectedCompanies.filter((v) => v !== option)
+                      : [...selectedCompanies, option];
+                    return (
+                      <Link
+                        key={option}
+                        href={hrefWith({ companies: serializeMultiParam(next), page: undefined })}
+                        className={
+                          selectedCompanies.includes(option)
+                            ? "mb-1 mr-1 inline-block rounded-full border border-violet-600 bg-violet-600 px-2 py-0.5 text-[11px] text-white"
+                            : "mb-1 mr-1 inline-block rounded-full border px-2 py-0.5 text-[11px] hover:bg-zinc-100 dark:hover:bg-zinc-800"
+                        }
+                      >
+                        {option}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </details>
+
+              <details className="rounded-md border border-zinc-200 p-2 dark:border-zinc-700">
+                <summary className="cursor-pointer text-xs font-medium text-zinc-600 hover:underline dark:text-zinc-300">
+                  情绪（多选）
+                </summary>
+                <div className="mt-2 max-h-24 overflow-auto rounded-md border border-zinc-200 p-2 dark:border-zinc-700">
+                  {sentimentOptions.map((option) => {
+                    const next = selectedSentiments.includes(option)
+                      ? selectedSentiments.filter((v) => v !== option)
+                      : [...selectedSentiments, option];
+                    return (
+                      <Link
+                        key={option}
+                        href={hrefWith({ sentiments: serializeMultiParam(next), page: undefined })}
+                        className={
+                          selectedSentiments.includes(option)
+                            ? "mb-1 mr-1 inline-block rounded-full border border-sky-600 bg-sky-600 px-2 py-0.5 text-[11px] text-white"
+                            : "mb-1 mr-1 inline-block rounded-full border px-2 py-0.5 text-[11px] hover:bg-zinc-100 dark:hover:bg-zinc-800"
+                        }
+                      >
+                        {option}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </details>
+            </div>
+
+            <div className="mt-2 text-right">
               <Link
-                key={opt.id}
                 href={hrefWith({
-                  preset: opt.id === "all" ? undefined : opt.id,
-                  date: undefined,
+                  tracks: undefined,
+                  impacts: undefined,
+                  companies: undefined,
+                  sentiments: undefined,
                   page: undefined,
                 })}
-                className={
-                  active
-                    ? "rounded-full border border-zinc-900 bg-zinc-900 px-3 py-1 text-xs text-white dark:border-zinc-100 dark:bg-zinc-100 dark:text-zinc-900"
-                    : "rounded-full border px-3 py-1 text-xs hover:bg-zinc-100 dark:hover:bg-zinc-800"
-                }
+                className="text-xs underline underline-offset-4"
               >
-                {opt.label}
+                清空高级筛选
               </Link>
-            );
-          })}
+            </div>
+          </div>
         </div>
-
-        <form method="get" action="/daily" className="mt-3 flex flex-wrap items-center gap-2">
-          <label htmlFor="date" className="text-xs text-zinc-500">
-            自定义日期
-          </label>
-          <input
-            id="date"
-            name="date"
-            type="date"
-            defaultValue={customDate}
-            className="rounded-md border border-zinc-300 bg-transparent px-2 py-1 text-xs dark:border-zinc-600"
-          />
-          <button
-            type="submit"
-            className="rounded-md border border-zinc-300 px-2 py-1 text-xs hover:bg-zinc-100 dark:border-zinc-600 dark:hover:bg-zinc-800"
-          >
-            应用
-          </button>
-          <Link href="/daily" className="text-xs underline underline-offset-4">
-            清空
-          </Link>
-        </form>
       </section>
 
       <section className="rounded-xl border border-zinc-200 p-4 dark:border-zinc-700">
@@ -165,7 +375,15 @@ export default async function DailyNewsPage({ searchParams }: DailyPageProps) {
             <article key={item.slug} className="rounded-lg border border-zinc-200 p-3 dark:border-zinc-700">
               <div className="flex items-start justify-between gap-3">
                 <div className="min-w-0">
-                  <h3 className="text-sm font-semibold">
+                  <div className="mb-1 flex flex-wrap items-center gap-1.5">
+                    <span className="inline-flex items-center rounded-full border border-indigo-200 bg-indigo-50 px-2 py-0.5 text-[11px] font-medium text-indigo-700 dark:border-indigo-800/60 dark:bg-indigo-900/30 dark:text-indigo-300">
+                      {item.track}
+                    </span>
+                    <span className="inline-flex items-center rounded-full border border-emerald-200 bg-emerald-50 px-2 py-0.5 text-[11px] font-medium text-emerald-700 dark:border-emerald-800/60 dark:bg-emerald-900/30 dark:text-emerald-300">
+                      {item.impactType}
+                    </span>
+                  </div>
+                  <h3 className="text-sm font-semibold leading-5">
                     <Link href={`/news/${item.slug}`} className="hover:underline">
                       {item.title}
                     </Link>
@@ -192,7 +410,7 @@ export default async function DailyNewsPage({ searchParams }: DailyPageProps) {
 
         {pageItems.length === 0 && (
           <div className="mt-2 rounded-lg border border-dashed border-zinc-300 p-5 text-sm text-zinc-600 dark:border-zinc-700 dark:text-zinc-300">
-            当前筛选条件下暂无数据，请调整日期筛选器。
+            当前筛选条件下暂无数据，请调整日期或高级筛选条件。
           </div>
         )}
 
