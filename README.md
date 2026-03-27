@@ -1,4 +1,4 @@
-# AI Intelligence Hub
+# Dlim's Wonderland
 
 AI 行业新闻聚合与结构化洞察网站（Phase 1 开发中）。
 

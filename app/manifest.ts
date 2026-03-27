@@ -2,8 +2,8 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "AI Intelligence Hub",
-    short_name: "AI Hub",
+    name: "Dlim's Wonderland",
+    short_name: "Wonderland",
     description: "AI 行业新闻聚合与结构化洞察平台",
     start_url: "/",
     display: "standalone",

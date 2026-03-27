@@ -35,7 +35,7 @@ export async function GET() {
     const xml = `<?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
   <channel>
-    <title>AI Intelligence Hub</title>
+    <title>Dlim's Wonderland</title>
     <link>${siteUrl}</link>
     <description>AI 行业新闻聚合与结构化洞察</description>
     <language>zh-CN</language>
@@ -54,7 +54,7 @@ export async function GET() {
     const xml = `<?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
   <channel>
-    <title>AI Intelligence Hub</title>
+    <title>Dlim's Wonderland</title>
     <link>${siteUrl}</link>
     <description>AI 行业新闻聚合与结构化洞察</description>
     <language>zh-CN</language>

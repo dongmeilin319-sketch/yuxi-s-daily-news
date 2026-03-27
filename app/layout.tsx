@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AI Intelligence Hub",
+  title: "Dlim's Wonderland",
   description: "AI 行业新闻聚合与结构化洞察平台",
   metadataBase: new URL(getSiteUrl()),
   alternates: {

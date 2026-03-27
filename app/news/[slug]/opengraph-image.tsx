@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { getNewsBySlug } from "@/lib/content";
 
-export const alt = "AI Intelligence Hub";
+export const alt = "Dlim's Wonderland";
 export const size = {
   width: 1200,
   height: 630,
@@ -16,7 +16,7 @@ export default async function Image({ params }: Props) {
   const { slug } = await params;
   const item = getNewsBySlug(slug);
 
-  const title = item?.title ?? "AI Intelligence Hub";
+  const title = item?.title ?? "Dlim's Wonderland";
   const summary = item?.summary ?? "AI 行业新闻聚合与结构化洞察";
 
   return new ImageResponse(
@@ -33,7 +33,7 @@ export default async function Image({ params }: Props) {
           color: "#f8fafc",
         }}
       >
-        <div style={{ fontSize: 28, opacity: 0.9 }}>AI Intelligence Hub</div>
+        <div style={{ fontSize: 28, opacity: 0.9 }}>Dlim&apos;s Wonderland</div>
         <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
           <div style={{ fontSize: 56, fontWeight: 700, lineHeight: 1.2 }}>{title}</div>
           <div style={{ fontSize: 28, lineHeight: 1.4, opacity: 0.9 }}>{summary}</div>

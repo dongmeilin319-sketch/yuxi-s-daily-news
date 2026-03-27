@@ -171,7 +171,7 @@ export default async function Home({ searchParams }: HomePageProps) {
   return (
     <main className="mx-auto flex w-full max-w-4xl flex-col gap-6 px-4 py-8 sm:px-6">
       <header className="space-y-2">
-        <h1 className="text-3xl font-bold tracking-tight">AI Intelligence Hub</h1>
+        <h1 className="text-3xl font-bold tracking-tight">Dlim&apos;s Wonderland</h1>
         <p className="text-sm text-zinc-600 dark:text-zinc-300">
           每日自动汇总 AI 行业新闻，提供结构化摘要与洞察。
         </p>
