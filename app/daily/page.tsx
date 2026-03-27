@@ -150,16 +150,13 @@ export default async function DailyNewsPage({ searchParams }: DailyPageProps) {
 
   return (
     <main className="mx-auto flex w-full max-w-4xl flex-col gap-6 px-4 py-8 sm:px-6">
-      <header className="space-y-2">
+      <header>
         <h1 className="text-3xl font-bold tracking-tight">每日新闻</h1>
-        <p className="text-sm text-zinc-600 dark:text-zinc-300">
-          共 {total} 条，每页 {PAGE_SIZE} 条，当前第 {currentPage}/{totalPages} 页。
-        </p>
       </header>
 
       <section className="rounded-xl border border-zinc-200 p-4 dark:border-zinc-700">
-        <div className="grid gap-3 md:grid-cols-2">
-          <div className="rounded-lg border border-zinc-200 p-3 dark:border-zinc-700">
+        <div className="flex flex-col gap-3 md:flex-row md:items-start">
+          <div className="w-full shrink-0 rounded-lg border border-zinc-200 p-3 md:w-fit md:max-w-sm dark:border-zinc-700">
             <h2 className="text-base font-semibold">日期筛选器</h2>
             <div className="mt-2 flex flex-wrap items-center gap-2">
               {(
@@ -227,7 +224,7 @@ export default async function DailyNewsPage({ searchParams }: DailyPageProps) {
             </form>
           </div>
 
-          <div className="rounded-lg border border-zinc-200 p-3 dark:border-zinc-700">
+          <div className="min-w-0 flex-1 rounded-lg border border-zinc-200 p-3 dark:border-zinc-700">
             <h2 className="text-base font-semibold">高级筛选</h2>
             <p className="mt-1 text-xs text-zinc-500">
               已选{" "}
@@ -238,12 +235,12 @@ export default async function DailyNewsPage({ searchParams }: DailyPageProps) {
               项
             </p>
 
-            <div className="mt-2 grid gap-2 sm:grid-cols-2 xl:grid-cols-3">
-              <details className="rounded-md border border-zinc-200 p-2 dark:border-zinc-700">
-                <summary className="cursor-pointer text-xs font-medium text-zinc-600 hover:underline dark:text-zinc-300">
+            <div className="mt-2 flex flex-wrap gap-2">
+              <details className="w-max max-w-full rounded-md border border-zinc-200 p-2 dark:border-zinc-700">
+                <summary className="cursor-pointer whitespace-nowrap text-xs font-medium text-zinc-600 hover:underline dark:text-zinc-300">
                   赛道（多选）
                 </summary>
-                <div className="mt-2 max-h-24 overflow-auto rounded-md border border-zinc-200 p-2 dark:border-zinc-700">
+                <div className="mt-2 max-h-24 min-w-full overflow-auto rounded-md border border-zinc-200 p-2 dark:border-zinc-700">
                   {trackOptions.map((option) => {
                     const next = selectedTracks.includes(option)
                       ? selectedTracks.filter((v) => v !== option)
@@ -265,11 +262,11 @@ export default async function DailyNewsPage({ searchParams }: DailyPageProps) {
                 </div>
               </details>
 
-              <details className="rounded-md border border-zinc-200 p-2 dark:border-zinc-700">
-                <summary className="cursor-pointer text-xs font-medium text-zinc-600 hover:underline dark:text-zinc-300">
+              <details className="w-max max-w-full rounded-md border border-zinc-200 p-2 dark:border-zinc-700">
+                <summary className="cursor-pointer whitespace-nowrap text-xs font-medium text-zinc-600 hover:underline dark:text-zinc-300">
                   影响类型（多选）
                 </summary>
-                <div className="mt-2 max-h-24 overflow-auto rounded-md border border-zinc-200 p-2 dark:border-zinc-700">
+                <div className="mt-2 max-h-24 min-w-full overflow-auto rounded-md border border-zinc-200 p-2 dark:border-zinc-700">
                   {impactOptions.map((option) => {
                     const next = selectedImpacts.includes(option)
                       ? selectedImpacts.filter((v) => v !== option)
@@ -291,11 +288,11 @@ export default async function DailyNewsPage({ searchParams }: DailyPageProps) {
                 </div>
               </details>
 
-              <details className="rounded-md border border-zinc-200 p-2 dark:border-zinc-700">
-                <summary className="cursor-pointer text-xs font-medium text-zinc-600 hover:underline dark:text-zinc-300">
+              <details className="w-max max-w-full rounded-md border border-zinc-200 p-2 dark:border-zinc-700">
+                <summary className="cursor-pointer whitespace-nowrap text-xs font-medium text-zinc-600 hover:underline dark:text-zinc-300">
                   公司（多选）
                 </summary>
-                <div className="mt-2 max-h-24 overflow-auto rounded-md border border-zinc-200 p-2 dark:border-zinc-700">
+                <div className="mt-2 max-h-24 min-w-full overflow-auto rounded-md border border-zinc-200 p-2 dark:border-zinc-700">
                   {companyOptions.map((option) => {
                     const next = selectedCompanies.includes(option)
                       ? selectedCompanies.filter((v) => v !== option)
@@ -317,11 +314,11 @@ export default async function DailyNewsPage({ searchParams }: DailyPageProps) {
                 </div>
               </details>
 
-              <details className="rounded-md border border-zinc-200 p-2 dark:border-zinc-700">
-                <summary className="cursor-pointer text-xs font-medium text-zinc-600 hover:underline dark:text-zinc-300">
+              <details className="w-max max-w-full rounded-md border border-zinc-200 p-2 dark:border-zinc-700">
+                <summary className="cursor-pointer whitespace-nowrap text-xs font-medium text-zinc-600 hover:underline dark:text-zinc-300">
                   情绪（多选）
                 </summary>
-                <div className="mt-2 max-h-24 overflow-auto rounded-md border border-zinc-200 p-2 dark:border-zinc-700">
+                <div className="mt-2 max-h-24 min-w-full overflow-auto rounded-md border border-zinc-200 p-2 dark:border-zinc-700">
                   {sentimentOptions.map((option) => {
                     const next = selectedSentiments.includes(option)
                       ? selectedSentiments.filter((v) => v !== option)

@@ -114,19 +114,16 @@ export default async function Home() {
         </p>
         <div className="flex flex-wrap gap-2">
           <Link href="/daily" className={navLinkClass}>
-            每日新闻
+            新闻
           </Link>
           <Link href="/weekly" className={navLinkClass}>
-            查看周报
+            周报
           </Link>
-          <Link href="/archive" className={navLinkClass}>
-            历史归档
+          <Link href="/schedule" className={navLinkClass}>
+            日程
           </Link>
-          <Link href="/search" className={navLinkClass}>
-            站内搜索
-          </Link>
-          <Link href="/admin" className={navLinkClass}>
-            管理后台
+          <Link href="/yuxi-notes" className={navLinkClass}>
+            Yuxi随记
           </Link>
         </div>
       </header>

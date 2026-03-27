@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getAllNews } from "@/lib/content";
+import { searchAllContent } from "@/lib/global-search";
 
 type SearchPageProps = {
   searchParams: Promise<{ q?: string }>;
@@ -7,24 +7,16 @@ type SearchPageProps = {
 
 export default async function SearchPage({ searchParams }: SearchPageProps) {
   const { q } = await searchParams;
-  const keyword = (q ?? "").trim().toLowerCase();
-  const news = getAllNews();
-
-  const results = keyword
-    ? news.filter((item) => {
-        const labelValues = item.labels.map((l) => l.value);
-        const haystack = [item.title, item.summary, item.track, item.impactType, ...labelValues]
-          .join(" ")
-          .toLowerCase();
-        return haystack.includes(keyword);
-      })
-    : [];
+  const keyword = (q ?? "").trim();
+  const results = searchAllContent(keyword, 60);
 
   return (
     <main className="mx-auto w-full max-w-4xl px-4 py-8 sm:px-6">
       <header className="space-y-2">
         <h1 className="text-2xl font-bold">站内搜索（MVP）</h1>
-        <p className="text-sm text-zinc-600 dark:text-zinc-300">支持标题、摘要、赛道、影响类型，以及标签（按类型/值）的关键词搜索。</p>
+        <p className="text-sm text-zinc-600 dark:text-zinc-300">
+          支持全局搜索：新闻、周报、归档与审核池（review）。
+        </p>
       </header>
 
       <form className="mt-4 flex gap-2" action="/search" method="get">
@@ -50,13 +42,16 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
           <p className="text-sm text-zinc-500">未找到相关结果。</p>
         ) : (
           results.map((item) => (
-            <article key={item.slug} className="rounded-xl border border-zinc-200 p-4 dark:border-zinc-700">
+            <article key={item.id} className="rounded-xl border border-zinc-200 p-4 dark:border-zinc-700">
               <h2 className="font-semibold">
-                <Link href={`/news/${item.slug}`} className="hover:underline">
+                <Link href={item.href} className="hover:underline">
                   {item.title}
                 </Link>
               </h2>
-              <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-300">{item.summary}</p>
+              <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-300">{item.excerpt}</p>
+              <p className="mt-2 text-xs text-zinc-500">
+                类型：{item.kind} · 时间：{new Date(item.date).toLocaleDateString("zh-CN")}
+              </p>
             </article>
           ))
         )}
