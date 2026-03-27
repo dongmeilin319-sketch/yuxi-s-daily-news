@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { getSiteUrl } from "@/lib/site";
 import { SiteHeader } from "@/components/site-header";
+import { SitePageBackdrop } from "@/components/site-page-backdrop";
 
 const themeInlineScript = `(function(){try{var t=localStorage.getItem("theme");if(t==="dark")document.documentElement.classList.add("dark");else if(t==="light")document.documentElement.classList.remove("dark");else if(window.matchMedia("(prefers-color-scheme: dark)").matches)document.documentElement.classList.add("dark");else document.documentElement.classList.remove("dark");}catch(e){}})();`;
 
@@ -39,9 +40,12 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInlineScript }} />
       </head>
-      <body className="min-h-full flex flex-col bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100">
-        <SiteHeader />
-        <div className="flex flex-1 flex-col">{children}</div>
+      <body className="min-h-full text-zinc-900 dark:text-zinc-100">
+        <div className="relative isolate flex min-h-full flex-col">
+          <SitePageBackdrop />
+          <SiteHeader />
+          <div className="relative flex min-h-0 flex-1 flex-col">{children}</div>
+        </div>
       </body>
     </html>
   );

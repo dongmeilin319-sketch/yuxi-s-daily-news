@@ -3,7 +3,7 @@ import { ThemeToggle } from "@/components/theme-toggle";
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-30 border-b border-zinc-200 bg-zinc-50/90 backdrop-blur dark:border-zinc-800 dark:bg-zinc-950/90">
+    <header className="sticky top-0 z-30 border-b border-zinc-200/80 bg-white/75 backdrop-blur-md dark:border-zinc-800/80 dark:bg-zinc-950/75">
       <div className="mx-auto flex max-w-4xl items-center justify-between gap-3 px-4 py-2 sm:px-6">
         <Link href="/" className="text-sm font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">
           Dlim&apos;s Wonderland

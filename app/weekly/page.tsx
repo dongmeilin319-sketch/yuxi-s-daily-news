@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getAllWeekly } from "@/lib/content";
+import { NewsDataDashboard } from "@/components/news-data-dashboard";
 
 export default function WeeklyPage() {
   const weekly = getAllWeekly();
@@ -12,6 +13,10 @@ export default function WeeklyPage() {
           每周自动生成的 AI 行业周报，支持回顾关键事件与趋势变化。
         </p>
       </header>
+
+      <div className="mt-6">
+        <NewsDataDashboard />
+      </div>
 
       <section className="mt-6 space-y-4">
         {weekly.length === 0 ? (
