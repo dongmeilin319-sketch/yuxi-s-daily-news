@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getAllNews } from "@/lib/content";
+import { SubpageHeader } from "@/components/subpage-header";
 
 type DatePreset = "all" | "today" | "yesterday" | "week";
 
@@ -150,9 +151,12 @@ export default async function DailyNewsPage({ searchParams }: DailyPageProps) {
 
   return (
     <main className="mx-auto flex w-full max-w-4xl flex-col gap-6 px-4 py-8 sm:px-6">
-      <header>
-        <h1 className="text-3xl font-bold tracking-tight">每日新闻</h1>
-      </header>
+      <SubpageHeader
+        title="每日新闻"
+        subtitle="按日期与多维标签筛选每日条目。"
+        englishSubtitle="Daily News"
+        activeTab="daily"
+      />
 
       <section className="rounded-xl border border-zinc-200 p-4 dark:border-zinc-700">
         <div className="flex flex-col gap-3 md:flex-row md:items-start">

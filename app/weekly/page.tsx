@@ -1,18 +1,19 @@
 import Link from "next/link";
 import { getAllWeekly } from "@/lib/content";
 import { NewsDataDashboard } from "@/components/news-data-dashboard";
+import { SubpageHeader } from "@/components/subpage-header";
 
 export default function WeeklyPage() {
   const weekly = getAllWeekly();
 
   return (
     <main className="mx-auto w-full max-w-4xl px-4 py-8 sm:px-6">
-      <header className="space-y-2">
-        <h1 className="text-3xl font-bold tracking-tight">周报</h1>
-        <p className="text-sm text-zinc-600 dark:text-zinc-300">
-          每周自动生成的 AI 行业周报，支持回顾关键事件与趋势变化。
-        </p>
-      </header>
+      <SubpageHeader
+        title="周报"
+        subtitle="每周自动生成的 AI 行业周报，支持回顾关键事件与趋势变化。"
+        englishSubtitle="Weekly Report"
+        activeTab="weekly"
+      />
 
       <div className="mt-6">
         <NewsDataDashboard />
