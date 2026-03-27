@@ -48,7 +48,6 @@ git push -u origin main
 
 | Name | 说明 |
 |------|------|
-| `ADMIN_PASSWORD` | `/admin` 登录密码；不设则无法按设计使用后台 |
 | `SUBSCRIBE_WEBHOOK_URL` | 邮件订阅转发 Webhook，不设则为占位成功 |
 | `ARCHIVE_DAYS` | 可选，归档脚本默认 `30` |
 
@@ -96,7 +95,6 @@ git push -u origin main
 - [ ] `NEXT_PUBLIC_SITE_URL` 为最终 `https://` 域名（或明确的 `vercel.app` URL）且已 **Redeploy**。
 - [ ] 访问 `https://你的域名/sitemap.xml`、`/robots.txt`、`/rss.xml` 内容中的链接为期望域名。
 - [ ] 任意一篇 `/news/某slug`，用社交媒体调试工具抽查 OG 图与 URL。
-- [ ] （可选）已设置 `ADMIN_PASSWORD` 并能登录 `/admin`。
 
 ## 8. CLI 部署（可选）
 

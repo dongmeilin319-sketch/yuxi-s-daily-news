@@ -14,12 +14,6 @@
 |------|------|------|
 | `CRON_SECRET` | 生产建议 | 设置后，`/api/cron/daily` 须带 `Authorization: Bearer <CRON_SECRET>` 或头 `x-cron-secret: <CRON_SECRET>`。Vercel Cron 在项目里配置同名变量后，请求会自动带 Bearer。未设置时接口仍开放（仅便于本地调试）。 |
 
-## 管理后台
-
-| 变量 | 必填 | 说明 |
-|------|------|------|
-| `ADMIN_PASSWORD` | 使用 `/admin` 时 | 后台登录密码。 |
-
 ## 邮件订阅（可选）
 
 | 变量 | 必填 | 说明 |

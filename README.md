@@ -50,8 +50,7 @@ npm run archive:run
 - `/weekly`：周报列表
 - `/weekly/[slug]`：周报详情
 - `/search`：站内搜索（MVP）
-- `/admin/login`：后台登录
-- `/admin`：后台审核列表（MVP，支持将 review 发布到 daily）
+- `/admin`：管理后台占位页（即将上线）
 - `/api/cron/daily`：定时任务占位接口
 - `/archive`：历史归档列表
 - `/sitemap.xml`：站点地图
