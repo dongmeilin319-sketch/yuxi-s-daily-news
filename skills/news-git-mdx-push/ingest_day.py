@@ -22,7 +22,7 @@ import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Optional
-from urllib.parse import urljoin, urlparse
+from urllib.parse import parse_qsl, urlencode, urljoin, urlparse, urlunparse
 
 import certifi
 import requests
@@ -51,6 +51,11 @@ REQUIRED_FRONTMATTER_FIELDS = {
     "collectedAt",
     "date",
 }
+
+# Global dedup (cross-batch) settings.
+GLOBAL_DEDUP_DAYS = 7
+GLOBAL_DEDUP_TITLE_THRESHOLD = 0.9
+GLOBAL_DEDUP_TIME_HOURS = 24 * 7
 
 
 def load_env() -> None:
@@ -667,6 +672,112 @@ def title_similarity(a: str, b: str) -> float:
     return difflib.SequenceMatcher(None, a_norm, b_norm).ratio()
 
 
+def normalize_url_key(raw_url: str) -> str:
+    u = (raw_url or "").strip()
+    if not u:
+        return ""
+    try:
+        p = urlparse(u)
+        scheme = (p.scheme or "https").lower()
+        host = (p.netloc or "").lower()
+        path = (p.path or "/").rstrip("/") or "/"
+        drop_params = {
+            "utm_source",
+            "utm_medium",
+            "utm_campaign",
+            "utm_term",
+            "utm_content",
+            "gclid",
+            "fbclid",
+            "mc_cid",
+            "mc_eid",
+        }
+        q = [
+            (k, v)
+            for k, v in parse_qsl(p.query or "", keep_blank_values=True)
+            if k.lower() not in drop_params
+        ]
+        q.sort(key=lambda x: (x[0], x[1]))
+        query = urlencode(q, doseq=True)
+        return urlunparse((scheme, host, path, "", query, ""))
+    except Exception:
+        return u
+
+
+def normalize_title(raw_title: str) -> str:
+    return re.sub(r"\s+", " ", (raw_title or "").strip().lower())
+
+
+def extract_frontmatter_yaml(raw_text: str) -> dict[str, Any]:
+    m = re.match(r"^---\n(.*?)\n---\n", raw_text, flags=re.S)
+    if not m:
+        return {}
+    fm_raw = m.group(1)
+    try:
+        data = yaml.safe_load(fm_raw) or {}
+        if isinstance(data, dict):
+            return data
+        return {}
+    except Exception:
+        return {}
+
+
+def load_recent_existing_index(now: datetime) -> dict[str, Any]:
+    cutoff = now - timedelta(days=GLOBAL_DEDUP_DAYS)
+    index: dict[str, Any] = {"url_keys": set(), "titles": []}
+
+    for subdir in ("content/daily", "content/review", "content/archive"):
+        dir_path = REPO_ROOT / subdir
+        if not dir_path.exists():
+            continue
+        for mdx in dir_path.glob("*.mdx"):
+            try:
+                raw = mdx.read_text(encoding="utf-8")
+            except Exception:
+                continue
+            fm = extract_frontmatter_yaml(raw)
+            if not fm:
+                continue
+            dt = parse_datetime_maybe(
+                str(fm.get("publishAt") or fm.get("date") or fm.get("collectedAt") or "")
+            )
+            if not dt or dt < cutoff:
+                continue
+
+            url_key = normalize_url_key(str(fm.get("originalUrl") or ""))
+            if url_key:
+                index["url_keys"].add(url_key)
+
+            t_norm = normalize_title(str(fm.get("title") or ""))
+            if t_norm:
+                index["titles"].append((t_norm, dt))
+
+    return index
+
+
+def is_global_duplicate(
+    candidate_url: str,
+    candidate_canonical_url: str,
+    candidate_title: str,
+    candidate_published: datetime,
+    index: dict[str, Any],
+) -> tuple[bool, str]:
+    # URL is highest-priority hard dedup key.
+    url_key = normalize_url_key(candidate_canonical_url) or normalize_url_key(candidate_url)
+    if url_key and url_key in index["url_keys"]:
+        return True, "url-key"
+
+    # Fallback dedup: title similarity + time window.
+    c_title = normalize_title(candidate_title)
+    if c_title:
+        for t, dt in index["titles"]:
+            hours = abs((candidate_published - dt).total_seconds()) / 3600.0
+            if hours <= GLOBAL_DEDUP_TIME_HOURS and title_similarity(c_title, t) >= GLOBAL_DEDUP_TITLE_THRESHOLD:
+                return True, "title-similarity"
+
+    return False, ""
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="OpenClaw news ingest (multi-source) -> MDX -> git push")
     parser.add_argument("--no-push", action="store_true", help="只写文件不 git push（用于测试）")
@@ -704,6 +815,7 @@ def main() -> None:
 
     now = datetime.now(timezone.utc)
     cutoff = now - timedelta(hours=float(args.hours))
+    existing_index = load_recent_existing_index(now)
 
     existing_slugs = read_existing_slugs()
 
@@ -758,6 +870,7 @@ def main() -> None:
                 {
                     "source_name": source_name or host_of(hub_url),
                     "url": cand_url,
+                    "canonical_url": canonical_url,
                     "raw_title": raw_title,
                     "body": body,
                     "published": published,
@@ -811,6 +924,17 @@ def main() -> None:
     dest_paths: list[Path] = []
 
     for cl in unique_clusters:
+        is_dup, reason = is_global_duplicate(
+            candidate_url=str(cl.get("url", "") or ""),
+            candidate_canonical_url=str(cl.get("canonical_url", "") or ""),
+            candidate_title=str(cl.get("raw_title", "") or ""),
+            candidate_published=cl["published"],
+            index=existing_index,
+        )
+        if is_dup:
+            print(f"[ingest] skip (global dedup): {cl['raw_title']} reason={reason}")
+            continue
+
         publish_iso = to_iso_z(cl["published"])
         collected_iso = to_iso_z(datetime.now(timezone.utc))
         slug_fallback = slugify(cl["raw_title"])
@@ -880,6 +1004,13 @@ def main() -> None:
         out = write_mdx(data, dest_dir, stem)
         dest_paths.append(out)
         existing_slugs.add(data["slug"])
+        # Update in-memory global dedup index to avoid duplicates in the same run.
+        url_key = normalize_url_key(str(cl.get("canonical_url", "") or "")) or normalize_url_key(str(cl.get("url", "") or ""))
+        if url_key:
+            existing_index["url_keys"].add(url_key)
+        t_norm = normalize_title(str(data.get("title", "") or ""))
+        if t_norm:
+            existing_index["titles"].append((t_norm, cl["published"]))
 
         print(
             f"[ingest] wrote: {out.relative_to(REPO_ROOT)} (sub={sub}, confidence={conf:.2f}, neutral_pass={neutral_pass}, sources={','.join(required_sources)})"

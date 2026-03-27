@@ -163,14 +163,28 @@ export default async function DailyNewsPage({ searchParams }: DailyPageProps) {
         <div className="space-y-2">
           {pageItems.map((item) => (
             <article key={item.slug} className="rounded-lg border border-zinc-200 p-3 dark:border-zinc-700">
-              <h3 className="text-sm font-semibold">
-                <Link href={`/news/${item.slug}`} className="hover:underline">
-                  {item.title}
-                </Link>
-              </h3>
-              <div className="mt-1 flex flex-wrap gap-3 text-xs text-zinc-500">
-                <span>发布时间：{new Date(item.publishAt).toLocaleString("zh-CN")}</span>
-                <span>情绪：{item.sentiment}</span>
+              <div className="flex items-start justify-between gap-3">
+                <div className="min-w-0">
+                  <h3 className="text-sm font-semibold">
+                    <Link href={`/news/${item.slug}`} className="hover:underline">
+                      {item.title}
+                    </Link>
+                  </h3>
+                  <div className="mt-1 flex flex-wrap gap-3 text-xs text-zinc-500">
+                    <span>发布时间：{new Date(item.publishAt).toLocaleString("zh-CN")}</span>
+                    <span>情绪：{item.sentiment}</span>
+                  </div>
+                </div>
+                {item.originalUrl ? (
+                  <a
+                    href={item.originalUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="shrink-0 rounded-md border border-zinc-300 px-2 py-1 text-xs hover:bg-zinc-100 dark:border-zinc-600 dark:hover:bg-zinc-800"
+                  >
+                    查看新闻源
+                  </a>
+                ) : null}
               </div>
             </article>
           ))}
