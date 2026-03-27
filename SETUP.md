@@ -52,7 +52,7 @@ cp .env.example .env.local
 
 ```bash
 pnpm create next-app@latest .
-pnpm add @next/mdx @mdx-js/loader @mdx-js/react gray-matter reading-time remark-gfm rehype-slug
+pnpm add @next/mdx @mdx-js/loader @mdx-js/react gray-matter reading-time
 ```
 
 ## 6. 部署准备清单（Vercel）
