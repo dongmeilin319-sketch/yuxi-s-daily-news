@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { FormEvent, useCallback, useEffect, useMemo, useState } from "react";
+import { FormEvent, useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 type ThemeMode = "light" | "dark";
 type LanguageMode = "zh-CN" | "en-US";
@@ -31,12 +31,35 @@ export function SiteHeader() {
   const [keyword, setKeyword] = useState("");
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState<SearchItem[]>([]);
+  const searchButtonRef = useRef<HTMLButtonElement | null>(null);
+  const searchPanelRef = useRef<HTMLDivElement | null>(null);
 
   const safeKeyword = keyword.trim();
 
   useEffect(() => {
     setTheme(currentTheme());
   }, []);
+
+  useEffect(() => {
+    if (!searchOpen) return;
+
+    const onPointerDown = (event: MouseEvent | TouchEvent) => {
+      const target = event.target as Node | null;
+      if (!target) return;
+      const clickInsidePanel = searchPanelRef.current?.contains(target);
+      const clickOnSearchButton = searchButtonRef.current?.contains(target);
+      if (!clickInsidePanel && !clickOnSearchButton) {
+        setSearchOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", onPointerDown);
+    document.addEventListener("touchstart", onPointerDown);
+    return () => {
+      document.removeEventListener("mousedown", onPointerDown);
+      document.removeEventListener("touchstart", onPointerDown);
+    };
+  }, [searchOpen]);
 
   const runSearch = useCallback(async (q: string) => {
     if (!q.trim()) {
@@ -97,7 +120,12 @@ export function SiteHeader() {
             <Link href="/" className={navButtonClass}>
               首页
             </Link>
-            <button type="button" onClick={openSearch} className={navButtonClass}>
+            <button
+              ref={searchButtonRef}
+              type="button"
+              onClick={openSearch}
+              className={navButtonClass}
+            >
               搜索
             </button>
             <Link href="/admin" className={navButtonClass}>
@@ -158,7 +186,10 @@ export function SiteHeader() {
         </div>
 
         {searchOpen ? (
-          <div className="border-t border-zinc-200/80 bg-white/90 px-4 py-3 shadow-sm backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/85 sm:px-6">
+          <div
+            ref={searchPanelRef}
+            className="border-t border-zinc-200/80 bg-white/90 px-4 py-3 shadow-sm backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/85 sm:px-6"
+          >
             <div className="mx-auto w-full max-w-4xl">
               <form onSubmit={onSearchSubmit} className="flex gap-2">
                 <input
@@ -170,9 +201,13 @@ export function SiteHeader() {
                 />
                 <button
                   type="submit"
-                  className="rounded-md border border-zinc-300 px-4 py-2 text-sm hover:bg-zinc-100 dark:border-zinc-700 dark:hover:bg-zinc-800"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-zinc-300 text-sm hover:bg-zinc-100 dark:border-zinc-700 dark:hover:bg-zinc-800"
+                  aria-label="执行搜索"
                 >
-                  搜索
+                  <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
+                    <circle cx="11" cy="11" r="7" />
+                    <path d="M20 20L16.6 16.6" />
+                  </svg>
                 </button>
                 <button
                   type="button"
@@ -181,9 +216,13 @@ export function SiteHeader() {
                     setKeyword("");
                     setResults([]);
                   }}
-                  className="rounded-md border border-zinc-300 px-3 py-2 text-sm hover:bg-zinc-100 dark:border-zinc-700 dark:hover:bg-zinc-800"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-zinc-300 text-sm hover:bg-zinc-100 dark:border-zinc-700 dark:hover:bg-zinc-800"
+                  aria-label="关闭搜索"
                 >
-                  关闭
+                  <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M6 6L18 18" />
+                    <path d="M18 6L6 18" />
+                  </svg>
                 </button>
               </form>
 
