@@ -24,9 +24,17 @@
    - 为实现“清空线上新闻但保留站点功能”，使用 `git mv` 将 MDX 从活跃目录移到 `content/removed/`。
    - 纠正误解后：**周报 `content/weekly` 被保留**，避免 `/weekly` 页面出现空数据/异常。
 
-此外，这里还涉及一次“线上运行时兼容性”修复：
+4. **采集时间与筛选联动（内容可运营）**
+   - 新增字段：`collectedAt`（采集入库时间），并完成全链路同步：
+     - `lib/schema.ts`、`scripts/validate-content.mjs`
+     - 生成端：`skills/news-git-mdx-push/ingest_day.py`、`openclaw/run_once.py`
+     - 展示端：首页列表/详情页展示采集时间，首页新增“采集时间/公司”筛选，今日新增显示 `NEW`。
+   - 历史 `content/daily/*.mdx` 已批量补齐 `collectedAt`（先与 `publishAt` 对齐，保证契约完整）。
+
+此外，这里还涉及“线上运行时兼容性”与“归档策略”修复：
 - 当内容目录缺失/不可读时，前端内容读取不应在运行时尝试创建目录或写磁盘（Vercel 运行时更严格）。
 - 与 `node:fs` 相关的路由需要确保使用 Node 运行时（避免被误判为 Edge 导致 500）。
+- 归档脚本增加保护：`content/daily` 最少保留 7 天，避免新生成内容被过早迁移到 `content/archive` 导致首页不展示。
 
 ---
 ## 2. 重点机制（你后续最常用的知识点）
@@ -74,18 +82,28 @@
 - sitemap/rss 涉及 `node:fs` 时，要强制或确认它使用 Node 运行时；
 - 验证顺序：`/`、`/weekly`、`/sitemap.xml`、`/rss.xml`、至少抽查 1 条 `/news/<slug>`。
 
----
-## 4. 当前已知问题（先记录，后续可再处理）
+### 3.4 当你要改动归档策略
+必须保证：
+- 不得把“近 7 天”新闻从 `content/daily` 提前迁移；
+- 若调整 `ARCHIVE_DAYS`，应明确其与“首页曝光周期/去重窗口”一致；
+- 修改后执行一次 `archive:run` 本地验证，确认不会误迁移当天/昨天内容。
 
-- 已确认：你当前看到的页面（首页 `/`、周报 `/weekly`）工作正常。
-- 已记录：生产环境中 `/sitemap.xml` 与 `/rss.xml` 曾出现 500（与运行时环境推断/切换相关）。
-  - 本轮你要求先不继续修复，因此这里暂时不做额外改动。
+---
+## 4. 当前状态（线上）
+
+- 首页 `/` 与周报 `/weekly` 正常。
+- `sitemap.xml` / `rss.xml` 已做运行时容错与懒加载处理，保障可用性。
+- OpenClaw 生成后，只要成功 push 到 `main`，可正常发布到网站。
 
 ---
 ## 5. 版本记录（main 分支最近关键提交）
 
 > 说明：这里以 `git log` 的提交信息为“版本线索”，便于你后续快速定位行为变化。
 
+- `3fe3b11` `feat: add collectedAt field with new badges and filters`
+  - 新增 `collectedAt` 字段全链路联动；首页增加 NEW 标识与“采集时间/公司”筛选；历史 daily 批量补齐采集时间。
+- `0158c05` `fix: keep at least 7 days of daily content before archiving`
+  - 归档脚本新增保护阈值，避免新生成新闻被过早迁移导致首页不展示。
 - `e61d7c9` `fix: force node runtime for rss/sitemap`
   - 强制 RSS / sitemap 走 Node 运行时（避免 Edge 误判导致 `node:fs` 不可用）。
 - `c44bbef` `fix: make content fs reads resilient in runtime`
