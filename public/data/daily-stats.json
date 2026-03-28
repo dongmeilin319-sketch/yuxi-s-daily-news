@@ -1,17 +1,30 @@
 {
-  "generatedAt": "2026-03-27T03:45:50.940Z",
-  "totalNews": 21,
+  "generatedAt": "2026-03-28T03:31:26.256Z",
+  "totalNews": 31,
   "bySentiment": {
-    "neutral": 21
+    "neutral": 31
   },
   "byTrack": {
-    "政策监管": 9,
+    "政策监管": 16,
     "基础模型": 2,
-    "行业动态": 3,
-    "应用层": 7
+    "行业动态": 4,
+    "应用层": 8,
+    "安全合规": 1
   },
   "topLabelsByType": {
     "政策": [
+      {
+        "label": "特朗普政府",
+        "count": 2
+      },
+      {
+        "label": "PCAST",
+        "count": 2
+      },
+      {
+        "label": "集体诉讼",
+        "count": 2
+      },
       {
         "label": "AI立法框架",
         "count": 1
@@ -61,21 +74,41 @@
         "count": 1
       },
       {
+        "label": "行业实践",
+        "count": 1
+      },
+      {
         "label": "美国国防部",
+        "count": 1
+      },
+      {
+        "label": "美国国家AI框架",
+        "count": 1
+      },
+      {
+        "label": "国家AI框架",
+        "count": 1
+      },
+      {
+        "label": "能源监管",
         "count": 1
       }
     ],
     "公司": [
       {
         "label": "Google",
-        "count": 7
+        "count": 10
       },
       {
-        "label": "Apple",
-        "count": 3
+        "label": "Anthropic",
+        "count": 5
       },
       {
         "label": "OpenAI",
+        "count": 4
+      },
+      {
+        "label": "Apple",
         "count": 3
       },
       {
@@ -83,7 +116,7 @@
         "count": 3
       },
       {
-        "label": "Anthropic",
+        "label": "Craft Ventures",
         "count": 2
       },
       {
@@ -124,6 +157,26 @@
       },
       {
         "label": "Webtoon",
+        "count": 1
+      },
+      {
+        "label": "SoftBank",
+        "count": 1
+      },
+      {
+        "label": "JPMorgan Chase",
+        "count": 1
+      },
+      {
+        "label": "Goldman Sachs",
+        "count": 1
+      },
+      {
+        "label": "Amazon",
+        "count": 1
+      },
+      {
+        "label": "Microsoft",
         "count": 1
       }
     ],
@@ -209,11 +262,51 @@
         "count": 1
       },
       {
+        "label": "音乐产业",
+        "count": 1
+      },
+      {
         "label": "第一修正案",
+        "count": 1
+      },
+      {
+        "label": "国防部",
+        "count": 1
+      },
+      {
+        "label": "人工智能监管",
+        "count": 1
+      },
+      {
+        "label": "模型发布",
+        "count": 1
+      },
+      {
+        "label": "国防采购",
+        "count": 1
+      },
+      {
+        "label": "AI伦理限制",
+        "count": 1
+      },
+      {
+        "label": "政府科技顾问",
+        "count": 1
+      },
+      {
+        "label": "数据中心能耗",
+        "count": 1
+      },
+      {
+        "label": "电网影响",
         "count": 1
       }
     ],
     "安全合规": [
+      {
+        "label": "供应链风险",
+        "count": 2
+      },
       {
         "label": "AI安全",
         "count": 1
@@ -231,13 +324,29 @@
         "count": 1
       },
       {
-        "label": "供应链风险",
+        "label": "数据泄露",
+        "count": 1
+      },
+      {
+        "label": "供应链风险认定",
+        "count": 1
+      },
+      {
+        "label": "隐私数据",
+        "count": 1
+      },
+      {
+        "label": "隐私泄露",
         "count": 1
       }
     ],
     "技术": [
       {
         "label": "Gemini",
+        "count": 2
+      },
+      {
+        "label": "AI搜索",
         "count": 2
       },
       {
@@ -309,7 +418,19 @@
         "count": 1
       },
       {
+        "label": "生成式AI",
+        "count": 1
+      },
+      {
         "label": "Claude",
+        "count": 1
+      },
+      {
+        "label": "Mythos",
+        "count": 1
+      },
+      {
+        "label": "人工智能",
         "count": 1
       }
     ],
@@ -324,6 +445,14 @@
       },
       {
         "label": "投资者关系",
+        "count": 1
+      },
+      {
+        "label": "IPO",
+        "count": 1
+      },
+      {
+        "label": "债务融资",
         "count": 1
       }
     ],
@@ -375,9 +504,17 @@
       {
         "label": "维基百科",
         "count": 1
+      },
+      {
+        "label": "音频采样生成",
+        "count": 1
       }
     ],
     "任务": [
+      {
+        "label": "David Sacks",
+        "count": 2
+      },
       {
         "label": "裁员",
         "count": 1
@@ -387,15 +524,17 @@
         "count": 1
       },
       {
-        "label": "David Sacks",
-        "count": 1
-      },
-      {
         "label": "内存优化",
         "count": 1
       },
       {
         "label": "内容全球化",
+        "count": 1
+      }
+    ],
+    "人物": [
+      {
+        "label": "David Sacks",
         "count": 1
       }
     ]
