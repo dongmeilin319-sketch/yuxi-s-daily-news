@@ -1,5 +1,8 @@
 import Link from "next/link";
+import { DailyRatingStars } from "@/components/daily-rating-stars";
 import { getAllNews } from "@/lib/content";
+import { getSessionUser } from "@/lib/auth";
+import { getRatingsByUserAndSlugs } from "@/lib/ratings-store";
 import { SubpageHeader } from "@/components/subpage-header";
 
 type DatePreset = "all" | "today" | "yesterday" | "week";
@@ -127,6 +130,17 @@ export default async function DailyNewsPage({ searchParams }: DailyPageProps) {
     : 1;
   const start = (currentPage - 1) * PAGE_SIZE;
   const pageItems = filtered.slice(start, start + PAGE_SIZE);
+
+  const sessionUser = await getSessionUser();
+  const pageSlugs = pageItems.map((item) => item.slug);
+  let slugRatings = new Map<string, number>();
+  if (sessionUser && pageSlugs.length > 0) {
+    try {
+      slugRatings = await getRatingsByUserAndSlugs(sessionUser.id, pageSlugs);
+    } catch {
+      slugRatings = new Map();
+    }
+  }
 
   function hrefWith(next: Record<string, string | undefined>) {
     const params = new URLSearchParams();
@@ -375,7 +389,7 @@ export default async function DailyNewsPage({ searchParams }: DailyPageProps) {
           {pageItems.map((item) => (
             <article key={item.slug} className="rounded-lg border border-zinc-200 p-3 dark:border-zinc-700">
               <div className="flex items-start justify-between gap-3">
-                <div className="min-w-0">
+                <div className="min-w-0 flex-1">
                   <div className="mb-1 flex flex-wrap items-center gap-1.5">
                     <span className="inline-flex items-center rounded-full border border-indigo-200 bg-indigo-50 px-2 py-0.5 text-[11px] font-medium text-indigo-700 dark:border-indigo-800/60 dark:bg-indigo-900/30 dark:text-indigo-300">
                       {item.track}
@@ -394,16 +408,23 @@ export default async function DailyNewsPage({ searchParams }: DailyPageProps) {
                     <span>情绪：{item.sentiment}</span>
                   </div>
                 </div>
-                {item.originalUrl ? (
-                  <a
-                    href={item.originalUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="shrink-0 rounded-md border border-zinc-300 px-2 py-1 text-xs hover:bg-zinc-100 dark:border-zinc-600 dark:hover:bg-zinc-800"
-                  >
-                    查看新闻源
-                  </a>
-                ) : null}
+                <div className="flex shrink-0 flex-col items-end gap-2 sm:flex-row sm:items-start">
+                  <DailyRatingStars
+                    slug={item.slug}
+                    initialRating={slugRatings.get(item.slug) ?? null}
+                    canRate={Boolean(sessionUser)}
+                  />
+                  {item.originalUrl ? (
+                    <a
+                      href={item.originalUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="rounded-md border border-zinc-300 px-2 py-1 text-xs hover:bg-zinc-100 dark:border-zinc-600 dark:hover:bg-zinc-800"
+                    >
+                      查看新闻源
+                    </a>
+                  ) : null}
+                </div>
               </div>
             </article>
           ))}

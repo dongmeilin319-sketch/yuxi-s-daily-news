@@ -4,7 +4,7 @@ import Link from "next/link";
 import { FormEvent, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { HeaderSearchOverlay, type SearchItem } from "@/components/header-search-overlay";
 import { HeaderSettingsMenu } from "@/components/header-settings-menu";
-import { HeaderLoginModal } from "@/components/header-login-modal";
+import { HeaderLoginModal, type SessionUser } from "@/components/header-login-modal";
 
 type ThemeMode = "light" | "dark";
 type LanguageMode = "zh-CN" | "en-US";
@@ -20,6 +20,8 @@ export function SiteHeader() {
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [loginOpen, setLoginOpen] = useState(false);
+  const [sessionUser, setSessionUser] = useState<SessionUser | null>(null);
+  const [sessionLoading, setSessionLoading] = useState(true);
   const [theme, setTheme] = useState<ThemeMode>("light");
   const [lang, setLang] = useState<LanguageMode>("zh-CN");
   const [keyword, setKeyword] = useState("");
@@ -30,6 +32,30 @@ export function SiteHeader() {
 
   useEffect(() => {
     setTheme(currentTheme());
+  }, []);
+
+  const refreshSession = useCallback(() => {
+    setSessionLoading(true);
+    void fetch("/api/auth/session", { cache: "no-store" })
+      .then((r) => r.json())
+      .then((data: { user?: SessionUser | null }) => {
+        setSessionUser(data.user ?? null);
+      })
+      .catch(() => setSessionUser(null))
+      .finally(() => setSessionLoading(false));
+  }, []);
+
+  useEffect(() => {
+    refreshSession();
+  }, [refreshSession]);
+
+  const logout = useCallback(async () => {
+    try {
+      await fetch("/api/auth/logout", { method: "POST" });
+    } catch {
+      // ignore
+    }
+    setSessionUser(null);
   }, []);
 
   useEffect(() => {
@@ -133,17 +159,30 @@ export function SiteHeader() {
             >
               设置
             </button>
-            <button
-              type="button"
-              onClick={() => {
-                setLoginOpen(true);
-                setSettingsOpen(false);
-                setSearchOpen(false);
-              }}
-              className={navButtonClass}
-            >
-              登录
-            </button>
+            {sessionLoading ? (
+              <span className={`${navButtonClass} cursor-default opacity-60`}>登录</span>
+            ) : sessionUser ? (
+              <>
+                <span className="max-w-[7rem] truncate rounded-md border border-zinc-300/90 bg-white/70 px-2.5 py-1 text-xs text-zinc-700 dark:border-zinc-700 dark:bg-zinc-900/60 dark:text-zinc-200">
+                  {sessionUser.username}
+                </span>
+                <button type="button" onClick={() => void logout()} className={navButtonClass}>
+                  退出
+                </button>
+              </>
+            ) : (
+              <button
+                type="button"
+                onClick={() => {
+                  setLoginOpen(true);
+                  setSettingsOpen(false);
+                  setSearchOpen(false);
+                }}
+                className={navButtonClass}
+              >
+                登录
+              </button>
+            )}
 
             <HeaderSettingsMenu
               open={settingsOpen}
@@ -172,7 +211,11 @@ export function SiteHeader() {
         />
       </header>
 
-      <HeaderLoginModal open={loginOpen} onClose={() => setLoginOpen(false)} />
+      <HeaderLoginModal
+        open={loginOpen}
+        onClose={() => setLoginOpen(false)}
+        onLoggedIn={(user) => setSessionUser(user)}
+      />
     </>
   );
 }

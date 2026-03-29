@@ -1,12 +1,58 @@
 "use client";
 
+import { FormEvent, useEffect, useState } from "react";
+
+export type SessionUser = { id: string; username: string };
+
 type HeaderLoginModalProps = {
   open: boolean;
   onClose: () => void;
+  onLoggedIn: (user: SessionUser) => void;
 };
 
-export function HeaderLoginModal({ open, onClose }: HeaderLoginModalProps) {
+export function HeaderLoginModal({ open, onClose, onLoggedIn }: HeaderLoginModalProps) {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!open) {
+      setUsername("");
+      setPassword("");
+      setError(null);
+      setSubmitting(false);
+    }
+  }, [open]);
+
   if (!open) return null;
+
+  async function onSubmit(e: FormEvent) {
+    e.preventDefault();
+    setSubmitting(true);
+    setError(null);
+    try {
+      const resp = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username: username.trim(), password }),
+      });
+      const data = (await resp.json().catch(() => ({}))) as {
+        ok?: boolean;
+        message?: string;
+        user?: SessionUser;
+      };
+      if (!resp.ok || !data.ok || !data.user) {
+        throw new Error(data.message || "登录失败");
+      }
+      onLoggedIn(data.user);
+      onClose();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "登录失败");
+    } finally {
+      setSubmitting(false);
+    }
+  }
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
@@ -21,28 +67,42 @@ export function HeaderLoginModal({ open, onClose }: HeaderLoginModalProps) {
             关闭
           </button>
         </div>
-        <form className="mt-4 space-y-3">
+        <form className="mt-4 space-y-3" onSubmit={onSubmit}>
           <div className="space-y-1">
-            <label className="text-xs text-zinc-500">账号</label>
+            <label htmlFor="header-login-user" className="text-xs text-zinc-500">
+              账号
+            </label>
             <input
+              id="header-login-user"
               type="text"
+              autoComplete="username"
+              value={username}
+              onChange={(ev) => setUsername(ev.target.value)}
               placeholder="请输入账号"
               className="w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-sm dark:border-zinc-700 dark:bg-zinc-950"
             />
           </div>
           <div className="space-y-1">
-            <label className="text-xs text-zinc-500">密码</label>
+            <label htmlFor="header-login-pass" className="text-xs text-zinc-500">
+              密码
+            </label>
             <input
+              id="header-login-pass"
               type="password"
+              autoComplete="current-password"
+              value={password}
+              onChange={(ev) => setPassword(ev.target.value)}
               placeholder="请输入密码"
               className="w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-sm dark:border-zinc-700 dark:bg-zinc-950"
             />
           </div>
+          {error ? <p className="text-xs text-rose-600 dark:text-rose-400">{error}</p> : null}
           <button
-            type="button"
-            className="w-full rounded-md bg-zinc-900 px-3 py-2 text-sm text-white hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900"
+            type="submit"
+            disabled={submitting}
+            className="w-full rounded-md bg-zinc-900 px-3 py-2 text-sm text-white hover:bg-zinc-700 disabled:opacity-60 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300"
           >
-            登录（样式占位）
+            {submitting ? "登录中…" : "登录"}
           </button>
         </form>
       </div>
