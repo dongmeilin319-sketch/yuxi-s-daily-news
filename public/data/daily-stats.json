@@ -1,18 +1,22 @@
 {
-  "generatedAt": "2026-03-29T03:51:24.424Z",
-  "totalNews": 31,
+  "generatedAt": "2026-03-30T03:55:17.730Z",
+  "totalNews": 43,
   "bySentiment": {
-    "neutral": 31
+    "neutral": 43
   },
   "byTrack": {
-    "政策监管": 16,
+    "政策监管": 17,
     "基础模型": 2,
-    "行业动态": 4,
-    "应用层": 8,
-    "安全合规": 1
+    "行业动态": 10,
+    "应用层": 12,
+    "安全合规": 2
   },
   "topLabelsByType": {
     "政策": [
+      {
+        "label": "AI监管",
+        "count": 2
+      },
       {
         "label": "特朗普政府",
         "count": 2
@@ -39,10 +43,6 @@
       },
       {
         "label": "AI护栏法案",
-        "count": 1
-      },
-      {
-        "label": "AI监管",
         "count": 1
       },
       {
@@ -92,6 +92,18 @@
       {
         "label": "能源监管",
         "count": 1
+      },
+      {
+        "label": "DoD 争端",
+        "count": 1
+      },
+      {
+        "label": "国防部合作争议",
+        "count": 1
+      },
+      {
+        "label": "AI广告标注",
+        "count": 1
       }
     ],
     "公司": [
@@ -101,22 +113,34 @@
       },
       {
         "label": "Anthropic",
-        "count": 5
+        "count": 9
       },
       {
         "label": "OpenAI",
-        "count": 4
+        "count": 8
       },
       {
         "label": "Apple",
-        "count": 3
+        "count": 4
       },
       {
         "label": "Meta",
         "count": 3
       },
       {
+        "label": "Disney",
+        "count": 2
+      },
+      {
         "label": "Craft Ventures",
+        "count": 2
+      },
+      {
+        "label": "xAI",
+        "count": 2
+      },
+      {
+        "label": "SpaceX",
         "count": 2
       },
       {
@@ -125,10 +149,6 @@
       },
       {
         "label": "Andreessen Horowitz",
-        "count": 1
-      },
-      {
-        "label": "Disney",
         "count": 1
       },
       {
@@ -177,6 +197,30 @@
       },
       {
         "label": "Microsoft",
+        "count": 1
+      },
+      {
+        "label": "Bluesky",
+        "count": 1
+      },
+      {
+        "label": "Suno",
+        "count": 1
+      },
+      {
+        "label": "Samsung",
+        "count": 1
+      },
+      {
+        "label": "TikTok",
+        "count": 1
+      },
+      {
+        "label": "X",
+        "count": 1
+      },
+      {
+        "label": "ByteDance",
         "count": 1
       }
     ],
@@ -300,16 +344,56 @@
       {
         "label": "电网影响",
         "count": 1
+      },
+      {
+        "label": "付费订阅增长",
+        "count": 1
+      },
+      {
+        "label": "消费者AI市场",
+        "count": 1
+      },
+      {
+        "label": "高管离职",
+        "count": 1
+      },
+      {
+        "label": "团队重组",
+        "count": 1
+      },
+      {
+        "label": "迎合行为",
+        "count": 1
+      },
+      {
+        "label": "人际建议",
+        "count": 1
+      },
+      {
+        "label": "订阅服务分层",
+        "count": 1
+      },
+      {
+        "label": "联合创始人离职",
+        "count": 1
+      },
+      {
+        "label": "第三方AI集成",
+        "count": 1
+      },
+      {
+        "label": "战略调整",
+        "count": 1
       }
     ],
     "安全合规": [
       {
-        "label": "供应链风险",
-        "count": 2
+        "label": "AI安全",
+        "count": 3
       },
       {
-        "label": "AI安全",
-        "count": 1
+        "label": "供应链风险",
+        "count": 2
       },
       {
         "label": "版权保护",
@@ -338,9 +422,17 @@
       {
         "label": "隐私泄露",
         "count": 1
+      },
+      {
+        "label": "内容真实性",
+        "count": 1
       }
     ],
     "技术": [
+      {
+        "label": "Claude",
+        "count": 4
+      },
       {
         "label": "Gemini",
         "count": 2
@@ -422,15 +514,47 @@
         "count": 1
       },
       {
-        "label": "Claude",
-        "count": 1
-      },
-      {
         "label": "Mythos",
         "count": 1
       },
       {
         "label": "人工智能",
+        "count": 1
+      },
+      {
+        "label": "AT Protocol",
+        "count": 1
+      },
+      {
+        "label": "视频生成",
+        "count": 1
+      },
+      {
+        "label": "AI智能体",
+        "count": 1
+      },
+      {
+        "label": "大语言模型",
+        "count": 1
+      },
+      {
+        "label": "AI谄媚",
+        "count": 1
+      },
+      {
+        "label": "AI音乐生成",
+        "count": 1
+      },
+      {
+        "label": "C2PA",
+        "count": 1
+      },
+      {
+        "label": "AI App Store",
+        "count": 1
+      },
+      {
+        "label": "AI视频生成",
         "count": 1
       }
     ],
@@ -453,6 +577,26 @@
       },
       {
         "label": "债务融资",
+        "count": 1
+      },
+      {
+        "label": "1亿美元融资",
+        "count": 1
+      },
+      {
+        "label": "收购",
+        "count": 1
+      },
+      {
+        "label": "融资",
+        "count": 1
+      },
+      {
+        "label": "并购整合",
+        "count": 1
+      },
+      {
+        "label": "IPO筹备",
         "count": 1
       }
     ],
@@ -508,6 +652,34 @@
       {
         "label": "音频采样生成",
         "count": 1
+      },
+      {
+        "label": "Claude Code",
+        "count": 1
+      },
+      {
+        "label": "Attie",
+        "count": 1
+      },
+      {
+        "label": "个人建议",
+        "count": 1
+      },
+      {
+        "label": "声音克隆",
+        "count": 1
+      },
+      {
+        "label": "个性化模型训练",
+        "count": 1
+      },
+      {
+        "label": "iOS 27",
+        "count": 1
+      },
+      {
+        "label": "Sora",
+        "count": 1
       }
     ],
     "任务": [
@@ -529,6 +701,18 @@
       },
       {
         "label": "内容全球化",
+        "count": 1
+      },
+      {
+        "label": "付费订阅增长",
+        "count": 1
+      },
+      {
+        "label": "Sora",
+        "count": 1
+      },
+      {
+        "label": "Siri Extensions",
         "count": 1
       }
     ],
