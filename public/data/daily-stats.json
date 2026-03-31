@@ -1,21 +1,24 @@
 {
-  "generatedAt": "2026-03-30T03:55:17.730Z",
-  "totalNews": 43,
+  "generatedAt": "2026-03-31T03:46:18.068Z",
+  "totalNews": 60,
   "bySentiment": {
-    "neutral": 43
+    "neutral": 60
   },
   "byTrack": {
-    "政策监管": 17,
+    "政策监管": 19,
     "基础模型": 2,
-    "行业动态": 10,
-    "应用层": 12,
-    "安全合规": 2
+    "行业动态": 13,
+    "应用层": 18,
+    "安全合规": 3,
+    "市场观点": 1,
+    "芯片算力": 2,
+    "开发者工具": 2
   },
   "topLabelsByType": {
     "政策": [
       {
         "label": "AI监管",
-        "count": 2
+        "count": 4
       },
       {
         "label": "特朗普政府",
@@ -27,6 +30,10 @@
       },
       {
         "label": "集体诉讼",
+        "count": 2
+      },
+      {
+        "label": "中国AI监管",
         "count": 2
       },
       {
@@ -104,27 +111,39 @@
       {
         "label": "AI广告标注",
         "count": 1
+      },
+      {
+        "label": "内容标记",
+        "count": 1
+      },
+      {
+        "label": "NRC人员裁撤",
+        "count": 1
       }
     ],
     "公司": [
+      {
+        "label": "Anthropic",
+        "count": 12
+      },
       {
         "label": "Google",
         "count": 10
       },
       {
-        "label": "Anthropic",
+        "label": "OpenAI",
         "count": 9
       },
       {
-        "label": "OpenAI",
-        "count": 8
-      },
-      {
         "label": "Apple",
-        "count": 4
+        "count": 6
       },
       {
         "label": "Meta",
+        "count": 3
+      },
+      {
+        "label": "Microsoft",
         "count": 3
       },
       {
@@ -141,6 +160,38 @@
       },
       {
         "label": "SpaceX",
+        "count": 2
+      },
+      {
+        "label": "Suno",
+        "count": 2
+      },
+      {
+        "label": "Alibaba",
+        "count": 2
+      },
+      {
+        "label": "Mantis Biotech",
+        "count": 2
+      },
+      {
+        "label": "Okta",
+        "count": 2
+      },
+      {
+        "label": "Rebellions",
+        "count": 2
+      },
+      {
+        "label": "Mirae Asset",
+        "count": 2
+      },
+      {
+        "label": "ScaleOps",
+        "count": 2
+      },
+      {
+        "label": "Insight Partners",
         "count": 2
       },
       {
@@ -196,15 +247,7 @@
         "count": 1
       },
       {
-        "label": "Microsoft",
-        "count": 1
-      },
-      {
         "label": "Bluesky",
-        "count": 1
-      },
-      {
-        "label": "Suno",
         "count": 1
       },
       {
@@ -222,9 +265,21 @@
       {
         "label": "ByteDance",
         "count": 1
+      },
+      {
+        "label": "Udio",
+        "count": 1
+      },
+      {
+        "label": "Bandcamp",
+        "count": 1
       }
     ],
     "主题": [
+      {
+        "label": "AI采用率",
+        "count": 2
+      },
       {
         "label": "Alliance for a Better Future",
         "count": 1
@@ -384,6 +439,70 @@
       {
         "label": "战略调整",
         "count": 1
+      },
+      {
+        "label": "AI信任度",
+        "count": 1
+      },
+      {
+        "label": "公众调查",
+        "count": 1
+      },
+      {
+        "label": "就业市场影响",
+        "count": 1
+      },
+      {
+        "label": "版权诉讼",
+        "count": 1
+      },
+      {
+        "label": "AI信任",
+        "count": 1
+      },
+      {
+        "label": "就业影响",
+        "count": 1
+      },
+      {
+        "label": "公众态度",
+        "count": 1
+      },
+      {
+        "label": "Quinnipiac University",
+        "count": 1
+      },
+      {
+        "label": "错误上线",
+        "count": 1
+      },
+      {
+        "label": "iPhone",
+        "count": 1
+      },
+      {
+        "label": "Frontier Program",
+        "count": 1
+      },
+      {
+        "label": "身份管理",
+        "count": 1
+      },
+      {
+        "label": "SaaSpocalypse",
+        "count": 1
+      },
+      {
+        "label": "推理计算",
+        "count": 1
+      },
+      {
+        "label": "云计算成本优化",
+        "count": 1
+      },
+      {
+        "label": "AI基础设施",
+        "count": 1
       }
     ],
     "安全合规": [
@@ -426,12 +545,24 @@
       {
         "label": "内容真实性",
         "count": 1
+      },
+      {
+        "label": "网络安全",
+        "count": 1
+      },
+      {
+        "label": "AI Agent Security",
+        "count": 1
+      },
+      {
+        "label": "核安全监管",
+        "count": 1
       }
     ],
     "技术": [
       {
         "label": "Claude",
-        "count": 4
+        "count": 5
       },
       {
         "label": "Gemini",
@@ -439,6 +570,34 @@
       },
       {
         "label": "AI搜索",
+        "count": 2
+      },
+      {
+        "label": "视频生成",
+        "count": 2
+      },
+      {
+        "label": "AI音乐生成",
+        "count": 2
+      },
+      {
+        "label": "Apple Intelligence",
+        "count": 2
+      },
+      {
+        "label": "数字孪生",
+        "count": 2
+      },
+      {
+        "label": "合成数据",
+        "count": 2
+      },
+      {
+        "label": "AI芯片",
+        "count": 2
+      },
+      {
+        "label": "Kubernetes",
         "count": 2
       },
       {
@@ -526,10 +685,6 @@
         "count": 1
       },
       {
-        "label": "视频生成",
-        "count": 1
-      },
-      {
         "label": "AI智能体",
         "count": 1
       },
@@ -539,10 +694,6 @@
       },
       {
         "label": "AI谄媚",
-        "count": 1
-      },
-      {
-        "label": "AI音乐生成",
         "count": 1
       },
       {
@@ -556,9 +707,45 @@
       {
         "label": "AI视频生成",
         "count": 1
+      },
+      {
+        "label": "Claude 集成",
+        "count": 1
+      },
+      {
+        "label": "Copilot Cowork",
+        "count": 1
+      },
+      {
+        "label": "AI代理",
+        "count": 1
+      },
+      {
+        "label": "AI Agent",
+        "count": 1
+      },
+      {
+        "label": "Identity Management",
+        "count": 1
+      },
+      {
+        "label": "GPU优化",
+        "count": 1
+      },
+      {
+        "label": "下一代核反应堆",
+        "count": 1
       }
     ],
     "资本": [
+      {
+        "label": "Pre-IPO融资",
+        "count": 2
+      },
+      {
+        "label": "Series C",
+        "count": 2
+      },
       {
         "label": "战略合作",
         "count": 1
@@ -597,6 +784,22 @@
       },
       {
         "label": "IPO筹备",
+        "count": 1
+      },
+      {
+        "label": "种子轮融资",
+        "count": 1
+      },
+      {
+        "label": "种子轮",
+        "count": 1
+      },
+      {
+        "label": "韩国国家增长基金",
+        "count": 1
+      },
+      {
+        "label": "计算成本",
         "count": 1
       }
     ],
@@ -680,11 +883,39 @@
       {
         "label": "Sora",
         "count": 1
+      },
+      {
+        "label": "AI 代理",
+        "count": 1
+      },
+      {
+        "label": "Researcher Agent",
+        "count": 1
+      },
+      {
+        "label": "Critique",
+        "count": 1
+      },
+      {
+        "label": "医疗数据增强",
+        "count": 1
+      },
+      {
+        "label": "生物医学",
+        "count": 1
+      },
+      {
+        "label": "数据中心能源",
+        "count": 1
       }
     ],
     "任务": [
       {
         "label": "David Sacks",
+        "count": 2
+      },
+      {
+        "label": "Sora",
         "count": 2
       },
       {
@@ -708,11 +939,19 @@
         "count": 1
       },
       {
-        "label": "Sora",
+        "label": "Siri Extensions",
         "count": 1
       },
       {
-        "label": "Siri Extensions",
+        "label": "SaaS转型",
+        "count": 1
+      },
+      {
+        "label": "资源优化",
+        "count": 1
+      },
+      {
+        "label": "DOGE政府改革",
         "count": 1
       }
     ],
