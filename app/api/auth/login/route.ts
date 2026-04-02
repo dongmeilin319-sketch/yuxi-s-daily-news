@@ -1,5 +1,8 @@
 import { NextResponse } from "next/server";
-import { AUTH_COOKIE_NAME, verifyLogin } from "@/lib/auth";
+import { AUTH_COOKIE_NAME, verifyLoginCredential } from "@/lib/auth";
+import { isAdminUsername } from "@/lib/permissions";
+
+export const runtime = "nodejs";
 
 export async function POST(req: Request) {
   const body = (await req.json().catch(() => ({}))) as {
@@ -8,12 +11,15 @@ export async function POST(req: Request) {
   };
   const username = (body.username ?? "").trim();
   const password = body.password ?? "";
-  const user = verifyLogin(username, password);
+  const user = await verifyLoginCredential(username, password);
   if (!user) {
     return NextResponse.json({ ok: false, message: "账号或密码错误" }, { status: 401 });
   }
 
-  const res = NextResponse.json({ ok: true, user });
+  const res = NextResponse.json({
+    ok: true,
+    user: { ...user, isSuperAdmin: isAdminUsername(user.username) },
+  });
   res.cookies.set(AUTH_COOKIE_NAME, JSON.stringify(user), {
     httpOnly: true,
     sameSite: "lax",

@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { DailyRatingStars } from "@/components/daily-rating-stars";
+import { DailyNewsListSection } from "@/components/daily-news-list-section";
 import { getAllNews } from "@/lib/content";
 import { getSessionUser } from "@/lib/auth";
 import { getRatingsByUserAndSlugs } from "@/lib/ratings-store";
+import { getSiteUrl } from "@/lib/site";
 import { SubpageHeader } from "@/components/subpage-header";
 
 type DatePreset = "all" | "today" | "yesterday" | "week";
@@ -141,6 +142,19 @@ export default async function DailyNewsPage({ searchParams }: DailyPageProps) {
       slugRatings = new Map();
     }
   }
+
+  const slugRatingsRecord = Object.fromEntries(slugRatings.entries());
+  const listRows = pageItems.map((item) => ({
+    slug: item.slug,
+    title: item.title,
+    publishAt: item.publishAt,
+    collectedAt: item.collectedAt,
+    sentiment: item.sentiment,
+    track: item.track,
+    impactType: item.impactType,
+    originalUrl: item.originalUrl,
+  }));
+  const siteUrl = getSiteUrl();
 
   function hrefWith(next: Record<string, string | undefined>) {
     const params = new URLSearchParams();
@@ -385,50 +399,12 @@ export default async function DailyNewsPage({ searchParams }: DailyPageProps) {
           </span>
         </div>
 
-        <div className="space-y-2">
-          {pageItems.map((item) => (
-            <article key={item.slug} className="rounded-lg border border-zinc-200 p-3 dark:border-zinc-700">
-              <div className="flex items-start justify-between gap-3">
-                <div className="min-w-0 flex-1">
-                  <div className="mb-1 flex flex-wrap items-center gap-1.5">
-                    <span className="inline-flex items-center rounded-full border border-indigo-200 bg-indigo-50 px-2 py-0.5 text-[11px] font-medium text-indigo-700 dark:border-indigo-800/60 dark:bg-indigo-900/30 dark:text-indigo-300">
-                      {item.track}
-                    </span>
-                    <span className="inline-flex items-center rounded-full border border-emerald-200 bg-emerald-50 px-2 py-0.5 text-[11px] font-medium text-emerald-700 dark:border-emerald-800/60 dark:bg-emerald-900/30 dark:text-emerald-300">
-                      {item.impactType}
-                    </span>
-                  </div>
-                  <h3 className="text-sm font-semibold leading-5">
-                    <Link href={`/news/${item.slug}`} className="hover:underline">
-                      {item.title}
-                    </Link>
-                  </h3>
-                  <div className="mt-1 flex flex-wrap gap-3 text-xs text-zinc-500">
-                    <span>发布时间：{new Date(item.publishAt).toLocaleString("zh-CN")}</span>
-                    <span>情绪：{item.sentiment}</span>
-                  </div>
-                </div>
-                <div className="flex shrink-0 flex-col items-end gap-2 sm:flex-row sm:items-start">
-                  <DailyRatingStars
-                    slug={item.slug}
-                    initialRating={slugRatings.get(item.slug) ?? null}
-                    canRate={Boolean(sessionUser)}
-                  />
-                  {item.originalUrl ? (
-                    <a
-                      href={item.originalUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="rounded-md border border-zinc-300 px-2 py-1 text-xs hover:bg-zinc-100 dark:border-zinc-600 dark:hover:bg-zinc-800"
-                    >
-                      查看新闻源
-                    </a>
-                  ) : null}
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
+        <DailyNewsListSection
+          siteUrl={siteUrl}
+          rows={listRows}
+          slugRatings={slugRatingsRecord}
+          canRate={Boolean(sessionUser)}
+        />
 
         {pageItems.length === 0 && (
           <div className="mt-2 rounded-lg border border-dashed border-zinc-300 p-5 text-sm text-zinc-600 dark:border-zinc-700 dark:text-zinc-300">

@@ -5,6 +5,7 @@ import { FormEvent, useCallback, useEffect, useMemo, useRef, useState } from "re
 import { HeaderSearchOverlay, type SearchItem } from "@/components/header-search-overlay";
 import { HeaderSettingsMenu } from "@/components/header-settings-menu";
 import { HeaderLoginModal, type SessionUser } from "@/components/header-login-modal";
+import { UserAvatar } from "@/components/user-avatar";
 
 type ThemeMode = "light" | "dark";
 type LanguageMode = "zh-CN" | "en-US";
@@ -16,10 +17,54 @@ function currentTheme(): ThemeMode {
 const navButtonClass =
   "rounded-md border border-zinc-300/90 bg-white/70 px-2.5 py-1 text-xs text-zinc-700 transition hover:bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-900/60 dark:text-zinc-200 dark:hover:bg-zinc-800";
 
+const iconNavButtonClass =
+  "inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-zinc-300/90 bg-white/70 text-zinc-700 transition hover:bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-900/60 dark:text-zinc-200 dark:hover:bg-zinc-800";
+
+function IconSearch({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <circle cx="11" cy="11" r="8" />
+      <path d="m21 21-4.3-4.3" />
+    </svg>
+  );
+}
+
+function IconSettings({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+      <circle cx="12" cy="12" r="3" />
+    </svg>
+  );
+}
+
 export function SiteHeader() {
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [loginOpen, setLoginOpen] = useState(false);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [sessionUser, setSessionUser] = useState<SessionUser | null>(null);
   const [sessionLoading, setSessionLoading] = useState(true);
   const [theme, setTheme] = useState<ThemeMode>("light");
@@ -29,6 +74,8 @@ export function SiteHeader() {
   const [results, setResults] = useState<SearchItem[]>([]);
   const searchButtonRef = useRef<HTMLButtonElement | null>(null);
   const searchPanelRef = useRef<HTMLDivElement | null>(null);
+  const userMenuRef = useRef<HTMLDivElement | null>(null);
+  const settingsWrapRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     setTheme(currentTheme());
@@ -56,6 +103,7 @@ export function SiteHeader() {
       // ignore
     }
     setSessionUser(null);
+    setUserMenuOpen(false);
   }, []);
 
   useEffect(() => {
@@ -78,6 +126,42 @@ export function SiteHeader() {
       document.removeEventListener("touchstart", onPointerDown);
     };
   }, [searchOpen]);
+
+  useEffect(() => {
+    if (!userMenuOpen) return;
+
+    const onPointerDown = (event: MouseEvent | TouchEvent) => {
+      const target = event.target as Node | null;
+      if (!target) return;
+      if (userMenuRef.current?.contains(target)) return;
+      setUserMenuOpen(false);
+    };
+
+    document.addEventListener("mousedown", onPointerDown);
+    document.addEventListener("touchstart", onPointerDown);
+    return () => {
+      document.removeEventListener("mousedown", onPointerDown);
+      document.removeEventListener("touchstart", onPointerDown);
+    };
+  }, [userMenuOpen]);
+
+  useEffect(() => {
+    if (!settingsOpen) return;
+
+    const onPointerDown = (event: MouseEvent | TouchEvent) => {
+      const target = event.target as Node | null;
+      if (!target) return;
+      if (settingsWrapRef.current?.contains(target)) return;
+      setSettingsOpen(false);
+    };
+
+    document.addEventListener("mousedown", onPointerDown);
+    document.addEventListener("touchstart", onPointerDown);
+    return () => {
+      document.removeEventListener("mousedown", onPointerDown);
+      document.removeEventListener("touchstart", onPointerDown);
+    };
+  }, [settingsOpen]);
 
   const runSearch = useCallback(async (q: string) => {
     if (!q.trim()) {
@@ -102,6 +186,7 @@ export function SiteHeader() {
   const openSearch = useCallback(() => {
     setSearchOpen(true);
     setSettingsOpen(false);
+    setUserMenuOpen(false);
   }, []);
 
   const toggleTheme = useCallback(() => {
@@ -128,48 +213,87 @@ export function SiteHeader() {
 
   return (
     <>
-      <header className="sticky top-0 z-30 border-b border-zinc-200/80 bg-white/75 backdrop-blur-md dark:border-zinc-800/80 dark:bg-zinc-950/75">
+      <header className="sticky top-0 z-30 border-b border-zinc-200/80 bg-white/75 backdrop-blur-md dark:border-zinc-800/80 dark:bg-zinc-950/80">
         <div className="mx-auto flex max-w-4xl items-center justify-between gap-3 px-4 py-2 sm:px-6">
           <Link href="/" className="text-sm font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">
             Dlim&apos;s Wonderland
           </Link>
 
-          <nav className="relative flex flex-wrap items-center gap-1.5">
+          <nav className="relative flex flex-wrap items-center justify-end gap-1.5">
             <Link href="/" className={navButtonClass}>
               首页
             </Link>
+            {(sessionUser?.permissions?.includes("admin") || sessionUser?.isSuperAdmin) && (
+              <Link href="/admin" className={navButtonClass}>
+                管理后台
+              </Link>
+            )}
             <button
               ref={searchButtonRef}
               type="button"
               onClick={openSearch}
-              className={navButtonClass}
+              className={iconNavButtonClass}
+              aria-label="搜索"
             >
-              搜索
+              <IconSearch />
             </button>
-            <Link href="/admin" className={navButtonClass}>
-              管理后台
-            </Link>
-            <button
-              type="button"
-              onClick={() => {
-                setSettingsOpen((v) => !v);
-                setSearchOpen(false);
-              }}
-              className={navButtonClass}
-            >
-              设置
-            </button>
+            <div className="relative" ref={settingsWrapRef}>
+              <button
+                type="button"
+                onClick={() => {
+                  setSettingsOpen((v) => !v);
+                  setSearchOpen(false);
+                  setUserMenuOpen(false);
+                }}
+                className={iconNavButtonClass}
+                aria-label="设置"
+                aria-expanded={settingsOpen}
+              >
+                <IconSettings />
+              </button>
+              <HeaderSettingsMenu
+                open={settingsOpen}
+                themeLabel={themeLabel}
+                lang={lang}
+                onToggleTheme={toggleTheme}
+                onLanguageChange={(value) => setLang(value)}
+              />
+            </div>
+
             {sessionLoading ? (
               <span className={`${navButtonClass} cursor-default opacity-60`}>登录</span>
             ) : sessionUser ? (
-              <>
-                <span className="max-w-[7rem] truncate rounded-md border border-zinc-300/90 bg-white/70 px-2.5 py-1 text-xs text-zinc-700 dark:border-zinc-700 dark:bg-zinc-900/60 dark:text-zinc-200">
-                  {sessionUser.username}
-                </span>
-                <button type="button" onClick={() => void logout()} className={navButtonClass}>
-                  退出
+              <div className="relative" ref={userMenuRef}>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setUserMenuOpen((v) => !v);
+                    setSearchOpen(false);
+                    setSettingsOpen(false);
+                  }}
+                  className="flex items-center rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-black"
+                  aria-label="用户菜单"
+                  aria-expanded={userMenuOpen}
+                  aria-haspopup="menu"
+                >
+                  <UserAvatar username={sessionUser.username} />
                 </button>
-              </>
+                {userMenuOpen ? (
+                  <div
+                    className="absolute right-0 top-full z-40 mt-2 w-36 rounded-lg border border-zinc-200 bg-white py-1 shadow-xl dark:border-zinc-700 dark:bg-zinc-900"
+                    role="menu"
+                  >
+                    <button
+                      type="button"
+                      role="menuitem"
+                      className="w-full px-3 py-2 text-left text-xs text-zinc-700 hover:bg-zinc-100 dark:text-zinc-200 dark:hover:bg-zinc-800"
+                      onClick={() => void logout()}
+                    >
+                      退出
+                    </button>
+                  </div>
+                ) : null}
+              </div>
             ) : (
               <button
                 type="button"
@@ -177,20 +301,13 @@ export function SiteHeader() {
                   setLoginOpen(true);
                   setSettingsOpen(false);
                   setSearchOpen(false);
+                  setUserMenuOpen(false);
                 }}
                 className={navButtonClass}
               >
                 登录
               </button>
             )}
-
-            <HeaderSettingsMenu
-              open={settingsOpen}
-              themeLabel={themeLabel}
-              lang={lang}
-              onToggleTheme={toggleTheme}
-              onLanguageChange={(value) => setLang(value)}
-            />
           </nav>
         </div>
 

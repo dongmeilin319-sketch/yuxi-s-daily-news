@@ -1,17 +1,22 @@
 import { cookies } from "next/headers";
+import {
+  getAllPermissionKeys,
+  getLegacyDefaultPermissions,
+  isAdminUsername,
+  normalizeSessionPermissions,
+} from "@/lib/permissions";
+import { AUTH_COOKIE_NAME, type AuthUser } from "@/lib/auth-types";
+import {
+  findActiveUserByUsername,
+  isDbUnavailableError,
+  verifyPassword,
+} from "@/lib/users-store";
 
-export const AUTH_COOKIE_NAME = "news_auth_user";
+export { AUTH_COOKIE_NAME, type AuthUser };
 
-export type AuthUser = {
-  id: string;
-  username: string;
-};
+type LegacyAuthRecord = AuthUser & { password: string };
 
-type AuthRecord = AuthUser & {
-  password: string;
-};
-
-function getConfiguredUsers(): AuthRecord[] {
+function getConfiguredUsers(): LegacyAuthRecord[] {
   const json = process.env.APP_USERS_JSON?.trim();
   if (json) {
     try {
@@ -26,6 +31,7 @@ function getConfiguredUsers(): AuthRecord[] {
           id: x.id?.trim() || `user_${i + 1}`,
           username: String(x.username).trim(),
           password: String(x.password),
+          permissions: getLegacyDefaultPermissions(),
         }));
     } catch {
       // fall through
@@ -35,13 +41,50 @@ function getConfiguredUsers(): AuthRecord[] {
   const username = (process.env.ADMIN_USERNAME ?? "admin").trim();
   const password = process.env.ADMIN_PASSWORD?.trim();
   if (!password) return [];
-  return [{ id: "admin", username, password }];
+  return [{ id: "admin", username, password, permissions: getAllPermissionKeys() }];
 }
 
-export function verifyLogin(username: string, password: string): AuthUser | null {
-  const users = getConfiguredUsers();
-  const matched = users.find((u) => u.username === username && u.password === password);
-  return matched ? { id: matched.id, username: matched.username } : null;
+export async function verifyLoginCredential(
+  username: string,
+  password: string,
+): Promise<AuthUser | null> {
+  const u = username.trim();
+  if (!u) return null;
+
+  try {
+    const row = await findActiveUserByUsername(u);
+    if (row && verifyPassword(password, row.password_hash)) {
+      return {
+        id: row.id,
+        username: row.username,
+        permissions: row.permissions,
+      };
+    }
+  } catch (e) {
+    if (!isDbUnavailableError(e)) throw e;
+  }
+
+  if (isAdminUsername(u)) {
+    const envPass = process.env.ADMIN_PASSWORD?.trim();
+    if (envPass && password === envPass) {
+      return {
+        id: "admin",
+        username: u,
+        permissions: getAllPermissionKeys(),
+      };
+    }
+  }
+
+  const legacy = getConfiguredUsers();
+  const matched = legacy.find((x) => x.username === u && x.password === password);
+  if (!matched) return null;
+  return {
+    id: matched.id,
+    username: matched.username,
+    permissions: isAdminUsername(matched.username)
+      ? getAllPermissionKeys()
+      : matched.permissions,
+  };
 }
 
 export async function getSessionUser(): Promise<AuthUser | null> {
@@ -49,9 +92,10 @@ export async function getSessionUser(): Promise<AuthUser | null> {
   const raw = store.get(AUTH_COOKIE_NAME)?.value;
   if (!raw) return null;
   try {
-    const parsed = JSON.parse(raw) as AuthUser;
+    const parsed = JSON.parse(raw) as Partial<AuthUser> & { permissions?: unknown };
     if (!parsed?.id || !parsed?.username) return null;
-    return parsed;
+    const permissions = normalizeSessionPermissions(parsed.username, parsed.permissions);
+    return { id: parsed.id, username: parsed.username, permissions };
   } catch {
     return null;
   }

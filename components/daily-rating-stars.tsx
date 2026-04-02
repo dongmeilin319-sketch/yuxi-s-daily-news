@@ -69,7 +69,9 @@ export function DailyRatingStars({ slug, initialRating, canRate }: DailyRatingSt
   return (
     <div className="shrink-0 space-y-1 text-right">
       <div className="text-[11px] text-zinc-500">{canRate ? "我的评分" : "登录后评分"}</div>
-      <div className="flex items-center justify-end gap-1">
+      <div
+        className={`flex items-center justify-end gap-1 ${canRate ? "[&_button]:cursor-pointer" : ""}`}
+      >
         {Array.from({ length: 5 }, (_, i) => (
           <button
             key={i}
@@ -82,7 +84,9 @@ export function DailyRatingStars({ slug, initialRating, canRate }: DailyRatingSt
               const next = clampToHalf(i + half);
               void save(next);
             }}
-            className={canRate ? "transition hover:scale-110" : "cursor-not-allowed opacity-60"}
+            className={
+              canRate ? "cursor-pointer transition hover:scale-110" : "cursor-not-allowed opacity-60"
+            }
             aria-label={`评分第 ${i + 1} 颗星`}
           >
             <StarIcon fillPercent={stars[i]} />
