@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-04-01T03:57:50.748Z",
-  "totalNews": 60,
+  "generatedAt": "2026-04-02T03:39:15.123Z",
+  "totalNews": 73,
   "bySentiment": {
-    "neutral": 60
+    "neutral": 73
   },
   "byTrack": {
-    "政策监管": 19,
-    "基础模型": 2,
-    "行业动态": 13,
-    "应用层": 18,
+    "政策监管": 20,
+    "基础模型": 4,
+    "行业动态": 17,
+    "应用层": 23,
     "安全合规": 3,
     "市场观点": 1,
     "芯片算力": 2,
-    "开发者工具": 2
+    "开发者工具": 3
   },
   "topLabelsByType": {
     "政策": [
@@ -119,27 +119,43 @@
       {
         "label": "NRC人员裁撤",
         "count": 1
+      },
+      {
+        "label": "学术伦理",
+        "count": 1
+      },
+      {
+        "label": "行政命令",
+        "count": 1
       }
     ],
     "公司": [
       {
         "label": "Anthropic",
+        "count": 13
+      },
+      {
+        "label": "OpenAI",
         "count": 12
       },
       {
         "label": "Google",
-        "count": 10
-      },
-      {
-        "label": "OpenAI",
-        "count": 9
+        "count": 11
       },
       {
         "label": "Apple",
-        "count": 6
+        "count": 7
       },
       {
         "label": "Meta",
+        "count": 3
+      },
+      {
+        "label": "Oracle",
+        "count": 3
+      },
+      {
+        "label": "Amazon",
         "count": 3
       },
       {
@@ -147,7 +163,15 @@
         "count": 3
       },
       {
+        "label": "Samsung",
+        "count": 3
+      },
+      {
         "label": "Disney",
+        "count": 2
+      },
+      {
+        "label": "Nvidia",
         "count": 2
       },
       {
@@ -211,14 +235,6 @@
         "count": 1
       },
       {
-        "label": "Nvidia",
-        "count": 1
-      },
-      {
-        "label": "Oracle",
-        "count": 1
-      },
-      {
         "label": "EssilorLuxottica",
         "count": 1
       },
@@ -243,15 +259,7 @@
         "count": 1
       },
       {
-        "label": "Amazon",
-        "count": 1
-      },
-      {
         "label": "Bluesky",
-        "count": 1
-      },
-      {
-        "label": "Samsung",
         "count": 1
       },
       {
@@ -273,11 +281,31 @@
       {
         "label": "Bandcamp",
         "count": 1
+      },
+      {
+        "label": "Grubhub",
+        "count": 1
+      },
+      {
+        "label": "CalArts",
+        "count": 1
+      },
+      {
+        "label": "Nothing",
+        "count": 1
       }
     ],
     "主题": [
       {
         "label": "AI采用率",
+        "count": 2
+      },
+      {
+        "label": "艺术教育",
+        "count": 2
+      },
+      {
+        "label": "裁员",
         "count": 2
       },
       {
@@ -503,6 +531,46 @@
       {
         "label": "AI基础设施",
         "count": 1
+      },
+      {
+        "label": "就业市场",
+        "count": 1
+      },
+      {
+        "label": "创意就业",
+        "count": 1
+      },
+      {
+        "label": "AI监管",
+        "count": 1
+      },
+      {
+        "label": "人工智能集成",
+        "count": 1
+      },
+      {
+        "label": "AI视频生成",
+        "count": 1
+      },
+      {
+        "label": "可穿戴设备",
+        "count": 1
+      },
+      {
+        "label": "云计算",
+        "count": 1
+      },
+      {
+        "label": "劳动力调整",
+        "count": 1
+      },
+      {
+        "label": "AI Ethics",
+        "count": 1
+      },
+      {
+        "label": "影像真实性",
+        "count": 1
       }
     ],
     "安全合规": [
@@ -557,6 +625,26 @@
       {
         "label": "核安全监管",
         "count": 1
+      },
+      {
+        "label": "源代码泄露",
+        "count": 1
+      },
+      {
+        "label": "版权争议",
+        "count": 1
+      },
+      {
+        "label": "隐私标准",
+        "count": 1
+      },
+      {
+        "label": "安全标准",
+        "count": 1
+      },
+      {
+        "label": "内容防护栏",
+        "count": 1
       }
     ],
     "技术": [
@@ -566,6 +654,14 @@
       },
       {
         "label": "Gemini",
+        "count": 2
+      },
+      {
+        "label": "Sora",
+        "count": 2
+      },
+      {
+        "label": "生成式AI",
         "count": 2
       },
       {
@@ -601,11 +697,11 @@
         "count": 2
       },
       {
-        "label": "模型蒸馏",
-        "count": 1
+        "label": "生成式 AI",
+        "count": 2
       },
       {
-        "label": "Sora",
+        "label": "模型蒸馏",
         "count": 1
       },
       {
@@ -666,10 +762,6 @@
       },
       {
         "label": "AI生成内容",
-        "count": 1
-      },
-      {
-        "label": "生成式AI",
         "count": 1
       },
       {
@@ -735,6 +827,46 @@
       {
         "label": "下一代核反应堆",
         "count": 1
+      },
+      {
+        "label": "Alexa Plus",
+        "count": 1
+      },
+      {
+        "label": "Claude Code",
+        "count": 1
+      },
+      {
+        "label": "TypeScript",
+        "count": 1
+      },
+      {
+        "label": "CarPlay",
+        "count": 1
+      },
+      {
+        "label": "iOS 26.4",
+        "count": 1
+      },
+      {
+        "label": "Veo 3.1 Lite",
+        "count": 1
+      },
+      {
+        "label": "AI 智能眼镜",
+        "count": 1
+      },
+      {
+        "label": "ChatGPT",
+        "count": 1
+      },
+      {
+        "label": "AI Photo Editing",
+        "count": 1
+      },
+      {
+        "label": "AI 图像编辑",
+        "count": 1
       }
     ],
     "资本": [
@@ -744,6 +876,10 @@
       },
       {
         "label": "Series C",
+        "count": 2
+      },
+      {
+        "label": "AI基础设施投资",
         "count": 2
       },
       {
@@ -800,6 +936,10 @@
       },
       {
         "label": "计算成本",
+        "count": 1
+      },
+      {
+        "label": "私募融资",
         "count": 1
       }
     ],
@@ -907,6 +1047,30 @@
       {
         "label": "数据中心能源",
         "count": 1
+      },
+      {
+        "label": "外卖订购",
+        "count": 1
+      },
+      {
+        "label": "智能代理",
+        "count": 1
+      },
+      {
+        "label": "创意产业",
+        "count": 1
+      },
+      {
+        "label": "车载语音助手",
+        "count": 1
+      },
+      {
+        "label": "Photo Assist",
+        "count": 1
+      },
+      {
+        "label": "Galaxy S26",
+        "count": 1
       }
     ],
     "任务": [
@@ -952,6 +1116,18 @@
       },
       {
         "label": "DOGE政府改革",
+        "count": 1
+      },
+      {
+        "label": "产品发布计划",
+        "count": 1
+      },
+      {
+        "label": "IPO准备",
+        "count": 1
+      },
+      {
+        "label": "Natural Language Image Editing",
         "count": 1
       }
     ],
