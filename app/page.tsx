@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { HomePersonalCalendar } from "@/components/home-personal-calendar";
+import { StickyPageHero } from "@/components/sticky-page-hero";
 import { getAllNews } from "@/lib/content";
 import { cstCalendarPartsFromDate, cstYmdKey } from "@/lib/cst-wall-clock";
 
@@ -112,8 +113,8 @@ export default async function Home() {
   });
 
   return (
-    <main className="relative mx-auto flex w-full max-w-4xl flex-col gap-6 px-4 py-8 sm:px-6">
-      <header className="space-y-3">
+    <main className="relative mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 py-8 sm:px-6">
+      <StickyPageHero className="space-y-3">
         <h1 className="text-3xl font-bold tracking-tight">Dlim&apos;s Wonderland</h1>
         <p className="text-base font-medium tracking-tight text-zinc-700 dark:text-zinc-200">
           Hi,there...
@@ -132,7 +133,7 @@ export default async function Home() {
             Yuxi随记
           </Link>
         </div>
-      </header>
+      </StickyPageHero>
 
       <div className="grid gap-4 md:grid-cols-2">
         <section className="rounded-xl border border-zinc-200/90 bg-white/70 p-4 shadow-sm backdrop-blur-sm dark:border-zinc-700/90 dark:bg-zinc-900/45">

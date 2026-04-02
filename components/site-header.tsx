@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { FormEvent, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { FormEvent, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { HeaderSearchOverlay, type SearchItem } from "@/components/header-search-overlay";
 import { HeaderSettingsMenu } from "@/components/header-settings-menu";
 import { HeaderLoginModal, type SessionUser } from "@/components/header-login-modal";
@@ -76,6 +76,20 @@ export function SiteHeader() {
   const searchPanelRef = useRef<HTMLDivElement | null>(null);
   const userMenuRef = useRef<HTMLDivElement | null>(null);
   const settingsWrapRef = useRef<HTMLDivElement | null>(null);
+  const headerShellRef = useRef<HTMLElement | null>(null);
+
+  useLayoutEffect(() => {
+    const el = headerShellRef.current;
+    if (!el || typeof ResizeObserver === "undefined") return;
+    const sync = () => {
+      const h = Math.round(el.getBoundingClientRect().height);
+      document.documentElement.style.setProperty("--site-header-sticky-offset", `${h}px`);
+    };
+    sync();
+    const ro = new ResizeObserver(sync);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
 
   useEffect(() => {
     setTheme(currentTheme());
@@ -213,8 +227,11 @@ export function SiteHeader() {
 
   return (
     <>
-      <header className="sticky top-0 z-30 border-b border-zinc-200/80 bg-white/75 backdrop-blur-md dark:border-zinc-800/80 dark:bg-zinc-950/80">
-        <div className="mx-auto flex max-w-4xl items-center justify-between gap-3 px-4 py-2 sm:px-6">
+      <header
+        ref={headerShellRef}
+        className="sticky top-0 z-30 bg-white dark:bg-zinc-950"
+      >
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-2 sm:px-6">
           <Link href="/" className="text-sm font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">
             Dlim&apos;s Wonderland
           </Link>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import { StickyPageHero } from "@/components/sticky-page-hero";
 import { getAllNews, getAllWeekly, getWeeklyBySlug } from "@/lib/content";
 
 type WeeklyDetailPageProps = {
@@ -21,17 +22,17 @@ export default async function WeeklyDetailPage({ params }: WeeklyDetailPageProps
   }
 
   return (
-    <main className="mx-auto w-full max-w-3xl px-4 py-8 sm:px-6">
+    <main className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6">
       <Link href="/weekly" className="text-sm text-zinc-600 hover:underline dark:text-zinc-300">
         ← 返回周报列表
       </Link>
 
       <article className="mt-4 space-y-5">
-        <header className="space-y-3">
+        <StickyPageHero className="space-y-3">
           <p className="text-sm text-zinc-500">{item.weekLabel}</p>
           <h1 className="text-3xl font-bold tracking-tight">{item.title}</h1>
           <p className="text-sm text-zinc-600 dark:text-zinc-300">{item.summary}</p>
-        </header>
+        </StickyPageHero>
         <div className="prose prose-zinc max-w-none dark:prose-invert">
           <MDXRemote source={item.body} />
         </div>

@@ -178,7 +178,7 @@ export default async function DailyNewsPage({ searchParams }: DailyPageProps) {
   }
 
   return (
-    <main className="mx-auto flex w-full max-w-4xl flex-col gap-6 px-4 py-8 sm:px-6">
+    <main className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 py-8 sm:px-6">
       <SubpageHeader
         title="每日新闻"
         subtitle="按日期与多维标签筛选每日条目。"

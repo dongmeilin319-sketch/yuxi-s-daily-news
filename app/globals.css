@@ -5,6 +5,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  /* 与 SiteHeader 内层 min-h 一致，避免粘性区 top 与顶栏实际高度错位露出滚动内容 */
+  --site-header-sticky-offset: 3.5rem;
 }
 
 .dark {

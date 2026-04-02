@@ -28,7 +28,7 @@ export function ReadingProgress() {
   }, []);
 
   return (
-    <div className="sticky top-0 z-20 mb-4 h-1 w-full overflow-hidden rounded bg-zinc-200 dark:bg-zinc-800">
+    <div className="sticky z-[25] mb-4 h-1 w-full overflow-hidden rounded bg-zinc-200 dark:bg-zinc-800" style={{ top: "var(--site-header-sticky-offset)" }}>
       <div className="h-full bg-zinc-900 transition-[width] duration-150 dark:bg-zinc-100" style={{ width: `${progress}%` }} />
     </div>
   );

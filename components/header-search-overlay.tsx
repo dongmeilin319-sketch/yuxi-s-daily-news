@@ -43,7 +43,7 @@ export function HeaderSearchOverlay({
       ref={panelRef}
       className="border-t border-zinc-200/80 bg-white/90 px-4 py-3 shadow-sm backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/85 sm:px-6"
     >
-      <div className="mx-auto w-full max-w-4xl">
+      <div className="mx-auto w-full max-w-6xl">
         <form onSubmit={onSubmit} className="flex gap-2">
           <input
             type="text"

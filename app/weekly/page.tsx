@@ -7,7 +7,7 @@ export default function WeeklyPage() {
   const weekly = getAllWeekly();
 
   return (
-    <main className="mx-auto w-full max-w-4xl px-4 py-8 sm:px-6">
+    <main className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6">
       <SubpageHeader
         title="周报"
         subtitle="每周自动生成的 AI 行业周报，支持回顾关键事件与趋势变化。"

@@ -8,6 +8,7 @@ import { ReadingProgress } from "@/components/reading-progress";
 import { ShareCopyButton } from "@/components/share-copy-button";
 import { getSiteUrl } from "@/lib/site";
 import { NewsLabels } from "@/components/news-labels";
+import { StickyPageHero } from "@/components/sticky-page-hero";
 
 type NewsDetailPageProps = {
   params: Promise<{ slug: string }>;
@@ -79,14 +80,14 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
     .map((entry) => entry.candidate);
 
   return (
-    <main className="mx-auto w-full max-w-3xl px-4 py-8 sm:px-6">
+    <main className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6">
       <ReadingProgress />
       <Link href="/" className="text-sm text-zinc-600 hover:underline dark:text-zinc-300">
         ← 返回首页
       </Link>
 
       <article className="mt-4 space-y-5">
-        <header className="space-y-3">
+        <StickyPageHero className="space-y-3" stickyTopExtra="0.25rem">
           <div className="flex flex-wrap items-start justify-between gap-3">
             <h1 className="text-3xl font-bold tracking-tight">{item.title}</h1>
             <div className="flex items-center gap-2">
@@ -112,7 +113,7 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
             <span>情绪：{item.sentiment}</span>
             <span>置信度：{item.confidence.toFixed(2)}</span>
           </div>
-        </header>
+        </StickyPageHero>
 
         <NewsLabels labels={item.labels} />
 

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { StickyPageHero } from "@/components/sticky-page-hero";
 import { searchAllContent } from "@/lib/global-search";
 
 type SearchPageProps = {
@@ -11,13 +12,13 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
   const results = searchAllContent(keyword, 60);
 
   return (
-    <main className="mx-auto w-full max-w-4xl px-4 py-8 sm:px-6">
-      <header className="space-y-2">
+    <main className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6">
+      <StickyPageHero className="space-y-2">
         <h1 className="text-2xl font-bold">站内搜索（MVP）</h1>
         <p className="text-sm text-zinc-600 dark:text-zinc-300">
           支持全局搜索：新闻、周报、归档与审核池（review）。
         </p>
-      </header>
+      </StickyPageHero>
 
       <form className="mt-4 flex gap-2" action="/search" method="get">
         <input

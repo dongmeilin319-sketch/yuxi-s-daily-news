@@ -2,7 +2,7 @@ import { SubpageHeader } from "@/components/subpage-header";
 
 export default function YuxiNotesPage() {
   return (
-    <main className="mx-auto w-full max-w-4xl space-y-6 px-4 py-8 sm:px-6">
+    <main className="mx-auto w-full max-w-6xl space-y-6 px-4 py-8 sm:px-6">
       <SubpageHeader
         title="Yuxi随记"
         subtitle="记录想法、灵感与阶段性总结。"

@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { StickyPageHero } from "@/components/sticky-page-hero";
 import { PAGE_PERMISSIONS, type PagePermissionKey } from "@/lib/permissions";
 
 type Session = {
@@ -103,7 +104,7 @@ export function AdminDashboard() {
 
   if (!bootLoading && !session) {
     return (
-      <main className="mx-auto w-full max-w-4xl px-4 py-8 sm:px-6">
+      <main className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6">
         <p className="text-sm text-zinc-600 dark:text-zinc-300">请先登录后访问管理后台。</p>
       </main>
     );
@@ -114,7 +115,7 @@ export function AdminDashboard() {
 
   if (!bootLoading && session && !canAccessAdmin) {
     return (
-      <main className="mx-auto w-full max-w-4xl px-4 py-8 sm:px-6">
+      <main className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6">
         <p className="text-sm text-rose-600 dark:text-rose-400">您没有管理后台访问权限。</p>
       </main>
     );
@@ -122,21 +123,23 @@ export function AdminDashboard() {
 
   return (
     <main className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6">
-      <h1 className="text-2xl font-bold tracking-tight">管理后台</h1>
-      <div className="mt-4 flex flex-wrap gap-1 border-b border-zinc-200 dark:border-zinc-700">
-        <button type="button" className={tabBtn(tab === "overview")} onClick={() => setTab("overview")}>
-          概览
-        </button>
-        {session?.isSuperAdmin ? (
-          <button
-            type="button"
-            className={tabBtn(tab === "accounts")}
-            onClick={() => setTab("accounts")}
-          >
-            账号管理
+      <StickyPageHero className="space-y-4">
+        <h1 className="text-2xl font-bold tracking-tight">管理后台</h1>
+        <div className="flex flex-wrap gap-1 border-b border-zinc-200 dark:border-zinc-700">
+          <button type="button" className={tabBtn(tab === "overview")} onClick={() => setTab("overview")}>
+            概览
           </button>
-        ) : null}
-      </div>
+          {session?.isSuperAdmin ? (
+            <button
+              type="button"
+              className={tabBtn(tab === "accounts")}
+              onClick={() => setTab("accounts")}
+            >
+              账号管理
+            </button>
+          ) : null}
+        </div>
+      </StickyPageHero>
 
       {msg ? (
         <p className="mt-3 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-900 dark:border-amber-900/50 dark:bg-amber-950/40 dark:text-amber-100">

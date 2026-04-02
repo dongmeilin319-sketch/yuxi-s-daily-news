@@ -1,16 +1,17 @@
 import Link from "next/link";
 import { getAllArchiveNews } from "@/lib/content";
 import { NewsLabels } from "@/components/news-labels";
+import { StickyPageHero } from "@/components/sticky-page-hero";
 
 export default function ArchivePage() {
   const items = getAllArchiveNews();
 
   return (
-    <main className="mx-auto w-full max-w-4xl px-4 py-8 sm:px-6">
-      <header className="space-y-2">
+    <main className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6">
+      <StickyPageHero className="space-y-2">
         <h1 className="text-3xl font-bold tracking-tight">历史归档</h1>
         <p className="text-sm text-zinc-600 dark:text-zinc-300">展示 30 天前自动归档的内容。</p>
-      </header>
+      </StickyPageHero>
 
       <section className="mt-6 space-y-3">
         {items.length === 0 ? (

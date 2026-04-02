@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { StickyPageHero } from "@/components/sticky-page-hero";
 
 type SubpageTabKey = "daily" | "weekly" | "schedule" | "notes";
 
@@ -23,7 +24,7 @@ export function SubpageHeader({
   activeTab,
 }: SubpageHeaderProps) {
   return (
-    <header className="space-y-3">
+    <StickyPageHero className="space-y-3">
       <div className="space-y-1">
         <h1 className="text-3xl font-bold tracking-tight">{title}</h1>
         <p className="text-sm text-zinc-600 dark:text-zinc-300">{subtitle}</p>
@@ -51,6 +52,6 @@ export function SubpageHeader({
       <p className="text-xs font-medium uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
         {englishSubtitle}
       </p>
-    </header>
+    </StickyPageHero>
   );
 }
