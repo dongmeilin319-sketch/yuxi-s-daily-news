@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { buildCstMonthGrid } from "@/lib/cst-calendar";
 import { moodEmoji, moodLabel, type MoodId } from "@/lib/home-mood-calendar";
+import { DeerDairyPanel } from "@/components/deer-dairy-panel";
 import { MoodPickerDialog } from "@/components/mood-picker-dialog";
 
 type MoodRow = {
@@ -317,82 +318,25 @@ export function ScheduleMoodsClient({ initialYear, initialMonth, todayKey }: Sch
           </div>
         </section>
 
-        <section className="min-w-0 flex-1 rounded-xl border border-zinc-200/90 bg-white/70 p-4 shadow-sm dark:border-zinc-700/90 dark:bg-zinc-900/45">
-          {!loggedIn ? (
-            <p className="text-sm text-zinc-500">登录后可编辑当日日程与心情。</p>
-          ) : !selectedDateKey ? (
-            <div className="flex min-h-[12rem] flex-col items-center justify-center text-center text-sm text-zinc-500 dark:text-zinc-400">
-              <p>请从左侧日历选择一天</p>
-              <p className="mt-1 text-xs">选择后可在右侧填写该日文字日程，并管理心情。</p>
-            </div>
-          ) : (
-            <div className="space-y-6">
-              <header>
-                <h2 className="text-base font-semibold text-zinc-900 dark:text-zinc-100">
-                  {formatSelectedDateLabel(selectedDateKey)}
-                </h2>
-                <p className="mt-0.5 font-mono text-xs tabular-nums text-zinc-500 dark:text-zinc-400">
-                  {selectedDateKey}
-                </p>
-              </header>
-
-              <div>
-                <label htmlFor="schedule-body" className="text-sm font-medium text-zinc-800 dark:text-zinc-200">
-                  当日日程
-                </label>
-                <textarea
-                  id="schedule-body"
-                  value={bodyDraft}
-                  onChange={(e) => setBodyDraft(e.target.value)}
-                  rows={10}
-                  placeholder="记录会议、待办、备忘等（按日保存，留空保存可清除该日内容）"
-                  className="mt-2 w-full resize-y rounded-lg border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-900 shadow-sm placeholder:text-zinc-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 dark:border-zinc-600 dark:bg-zinc-950/50 dark:text-zinc-100 dark:placeholder:text-zinc-500"
-                />
-                <div className="mt-2 flex flex-wrap items-center gap-2">
-                  <button
-                    type="button"
-                    onClick={() => void saveNote()}
-                    disabled={savingNote}
-                    className="rounded-lg bg-indigo-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-indigo-700 disabled:opacity-60 dark:bg-indigo-500 dark:hover:bg-indigo-400"
-                  >
-                    {savingNote ? "保存中…" : "保存日程"}
-                  </button>
-                </div>
-              </div>
-
-              <div className="border-t border-zinc-200/80 pt-4 dark:border-zinc-700/80">
-                <h3 className="text-sm font-medium text-zinc-800 dark:text-zinc-200">当日心情</h3>
-                <div className="mt-2 flex flex-wrap items-center gap-3">
-                  {moods[selectedDateKey] ? (
-                    <>
-                      <span className="text-2xl" aria-hidden>
-                        {moodEmoji(moods[selectedDateKey]!)}
-                      </span>
-                      <span className="text-sm text-zinc-700 dark:text-zinc-200">
-                        {moodLabel(moods[selectedDateKey]!)}
-                      </span>
-                    </>
-                  ) : (
-                    <span className="text-sm text-zinc-500 dark:text-zinc-400">尚未记录</span>
-                  )}
-                  <button
-                    type="button"
-                    onClick={() => setPickerKey(selectedDateKey)}
-                    className="rounded-md border border-zinc-300 px-2.5 py-1 text-xs font-medium hover:bg-zinc-100 dark:border-zinc-600 dark:hover:bg-zinc-800"
-                  >
-                    {moods[selectedDateKey] ? "更改心情" : "记录心情"}
-                  </button>
-                </div>
-              </div>
-            </div>
-          )}
-        </section>
+        <DeerDairyPanel
+          loggedIn={loggedIn}
+          selectedDateKey={selectedDateKey}
+          selectedDateLabel={selectedDateKey ? formatSelectedDateLabel(selectedDateKey) : null}
+          bodyDraft={bodyDraft}
+          onBodyChange={setBodyDraft}
+          savingNote={savingNote}
+          onSaveNote={() => void saveNote()}
+          moodForDay={selectedDateKey ? moods[selectedDateKey] : undefined}
+          onOpenMoodPicker={() => {
+            if (selectedDateKey) setPickerKey(selectedDateKey);
+          }}
+        />
       </div>
 
       <section className="rounded-xl border border-zinc-200/90 bg-white/70 p-4 shadow-sm dark:border-zinc-700/90 dark:bg-zinc-900/45">
         <h3 className="text-base font-semibold">本月心情记录</h3>
         <p className="mt-1 text-xs text-zinc-500">
-          含最后更新时间，便于追溯；在右侧选择日期后可记录或修改心情。
+          含最后更新时间，便于追溯；在右侧 deer-dairy 中选日后可记录或修改心情。
         </p>
         {!loggedIn ? (
           <p className="mt-4 text-sm text-zinc-500">登录后显示列表。</p>
