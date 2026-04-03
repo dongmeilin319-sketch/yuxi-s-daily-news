@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-04-02T03:39:15.123Z",
-  "totalNews": 73,
+  "generatedAt": "2026-04-03T03:41:26.074Z",
+  "totalNews": 88,
   "bySentiment": {
-    "neutral": 73
+    "neutral": 88
   },
   "byTrack": {
-    "政策监管": 20,
-    "基础模型": 4,
-    "行业动态": 17,
-    "应用层": 23,
-    "安全合规": 3,
+    "政策监管": 22,
+    "基础模型": 7,
+    "行业动态": 21,
+    "应用层": 27,
+    "安全合规": 4,
     "市场观点": 1,
-    "芯片算力": 2,
+    "芯片算力": 3,
     "开发者工具": 3
   },
   "topLabelsByType": {
@@ -127,28 +127,52 @@
       {
         "label": "行政命令",
         "count": 1
+      },
+      {
+        "label": "可持续发展承诺",
+        "count": 1
+      },
+      {
+        "label": "版权诉讼",
+        "count": 1
+      },
+      {
+        "label": "Apache 2.0 许可证",
+        "count": 1
+      },
+      {
+        "label": "FDA De Novo审批",
+        "count": 1
+      },
+      {
+        "label": "政治传播",
+        "count": 1
       }
     ],
     "公司": [
       {
-        "label": "Anthropic",
-        "count": 13
+        "label": "Google",
+        "count": 15
       },
       {
         "label": "OpenAI",
-        "count": 12
+        "count": 15
       },
       {
-        "label": "Google",
-        "count": 11
+        "label": "Anthropic",
+        "count": 14
       },
       {
         "label": "Apple",
         "count": 7
       },
       {
+        "label": "Microsoft",
+        "count": 5
+      },
+      {
         "label": "Meta",
-        "count": 3
+        "count": 4
       },
       {
         "label": "Oracle",
@@ -159,7 +183,7 @@
         "count": 3
       },
       {
-        "label": "Microsoft",
+        "label": "Suno",
         "count": 3
       },
       {
@@ -184,10 +208,6 @@
       },
       {
         "label": "SpaceX",
-        "count": 2
-      },
-      {
-        "label": "Suno",
         "count": 2
       },
       {
@@ -293,9 +313,53 @@
       {
         "label": "Nothing",
         "count": 1
+      },
+      {
+        "label": "InterPositive",
+        "count": 1
+      },
+      {
+        "label": "Netflix",
+        "count": 1
+      },
+      {
+        "label": "Cognichip",
+        "count": 1
+      },
+      {
+        "label": "Seligman Ventures",
+        "count": 1
+      },
+      {
+        "label": "Penguin Random House",
+        "count": 1
+      },
+      {
+        "label": "TDK Ventures",
+        "count": 1
+      },
+      {
+        "label": "Replit",
+        "count": 1
+      },
+      {
+        "label": "Forum AI",
+        "count": 1
+      },
+      {
+        "label": "Kintsugi",
+        "count": 1
+      },
+      {
+        "label": "TBPN",
+        "count": 1
       }
     ],
     "主题": [
+      {
+        "label": "音乐产业",
+        "count": 2
+      },
       {
         "label": "AI采用率",
         "count": 2
@@ -386,10 +450,6 @@
       },
       {
         "label": "内容审核",
-        "count": 1
-      },
-      {
-        "label": "音乐产业",
         "count": 1
       },
       {
@@ -571,6 +631,66 @@
       {
         "label": "影像真实性",
         "count": 1
+      },
+      {
+        "label": "GitHub",
+        "count": 1
+      },
+      {
+        "label": "愚人节",
+        "count": 1
+      },
+      {
+        "label": "影视制作成本",
+        "count": 1
+      },
+      {
+        "label": "云存储",
+        "count": 1
+      },
+      {
+        "label": "天然气能源",
+        "count": 1
+      },
+      {
+        "label": "碳排放与气候变化",
+        "count": 1
+      },
+      {
+        "label": "甲烷泄漏",
+        "count": 1
+      },
+      {
+        "label": "AI生成内容版权争议",
+        "count": 1
+      },
+      {
+        "label": "风险投资",
+        "count": 1
+      },
+      {
+        "label": "AI创新",
+        "count": 1
+      },
+      {
+        "label": "智能家居",
+        "count": 1
+      },
+      {
+        "label": "开源模型",
+        "count": 1
+      },
+      {
+        "label": "AI医疗监管",
+        "count": 1
+      },
+      {
+        "label": "组织架构调整",
+        "count": 1
+      },
+      {
+        "label": "编辑独立性",
+        "count": 1
       }
     ],
     "安全合规": [
@@ -645,6 +765,10 @@
       {
         "label": "内容防护栏",
         "count": 1
+      },
+      {
+        "label": "DMCA下架",
+        "count": 1
       }
     ],
     "技术": [
@@ -654,7 +778,11 @@
       },
       {
         "label": "Gemini",
-        "count": 2
+        "count": 3
+      },
+      {
+        "label": "ChatGPT",
+        "count": 3
       },
       {
         "label": "Sora",
@@ -662,6 +790,10 @@
       },
       {
         "label": "生成式AI",
+        "count": 2
+      },
+      {
+        "label": "人工智能",
         "count": 2
       },
       {
@@ -694,6 +826,10 @@
       },
       {
         "label": "Kubernetes",
+        "count": 2
+      },
+      {
+        "label": "Claude Code",
         "count": 2
       },
       {
@@ -769,10 +905,6 @@
         "count": 1
       },
       {
-        "label": "人工智能",
-        "count": 1
-      },
-      {
         "label": "AT Protocol",
         "count": 1
       },
@@ -833,10 +965,6 @@
         "count": 1
       },
       {
-        "label": "Claude Code",
-        "count": 1
-      },
-      {
         "label": "TypeScript",
         "count": 1
       },
@@ -857,15 +985,47 @@
         "count": 1
       },
       {
-        "label": "ChatGPT",
-        "count": 1
-      },
-      {
         "label": "AI Photo Editing",
         "count": 1
       },
       {
         "label": "AI 图像编辑",
+        "count": 1
+      },
+      {
+        "label": "AI辅助芯片设计",
+        "count": 1
+      },
+      {
+        "label": "vibe coding",
+        "count": 1
+      },
+      {
+        "label": "Veo 3.1",
+        "count": 1
+      },
+      {
+        "label": "Lyria 3",
+        "count": 1
+      },
+      {
+        "label": "Gemma 4",
+        "count": 1
+      },
+      {
+        "label": "语音生物识别",
+        "count": 1
+      },
+      {
+        "label": "语音识别",
+        "count": 1
+      },
+      {
+        "label": "基础模型",
+        "count": 1
+      },
+      {
+        "label": "多模态AI",
         "count": 1
       }
     ],
@@ -940,6 +1100,18 @@
       },
       {
         "label": "私募融资",
+        "count": 1
+      },
+      {
+        "label": "6000万美元融资",
+        "count": 1
+      },
+      {
+        "label": "订阅服务",
+        "count": 1
+      },
+      {
+        "label": "媒体收购",
         "count": 1
       }
     ],
@@ -1071,6 +1243,42 @@
       {
         "label": "Galaxy S26",
         "count": 1
+      },
+      {
+        "label": "AI内容生成",
+        "count": 1
+      },
+      {
+        "label": "制作流程优化",
+        "count": 1
+      },
+      {
+        "label": "Google One AI Pro",
+        "count": 1
+      },
+      {
+        "label": "Google Vids",
+        "count": 1
+      },
+      {
+        "label": "AI视频编辑",
+        "count": 1
+      },
+      {
+        "label": "Google Home",
+        "count": 1
+      },
+      {
+        "label": "开发者工具",
+        "count": 1
+      },
+      {
+        "label": "心理健康筛查",
+        "count": 1
+      },
+      {
+        "label": "企业生产力",
+        "count": 1
       }
     ],
     "任务": [
@@ -1129,11 +1337,35 @@
       {
         "label": "Natural Language Image Editing",
         "count": 1
+      },
+      {
+        "label": "源代码泄露",
+        "count": 1
+      },
+      {
+        "label": "降低芯片设计成本与周期",
+        "count": 1
+      },
+      {
+        "label": "Hyperion AI数据中心建设",
+        "count": 1
+      },
+      {
+        "label": "超级智能",
+        "count": 1
+      },
+      {
+        "label": "语音转录与生成",
+        "count": 1
       }
     ],
     "人物": [
       {
         "label": "David Sacks",
+        "count": 1
+      },
+      {
+        "label": "Mustafa Suleyman",
         "count": 1
       }
     ]
