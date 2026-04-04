@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-04-03T03:41:26.074Z",
-  "totalNews": 88,
+  "generatedAt": "2026-04-04T03:28:41.020Z",
+  "totalNews": 110,
   "bySentiment": {
-    "neutral": 88
+    "neutral": 110
   },
   "byTrack": {
-    "政策监管": 22,
+    "政策监管": 28,
     "基础模型": 7,
-    "行业动态": 21,
-    "应用层": 27,
+    "行业动态": 35,
+    "应用层": 29,
     "安全合规": 4,
     "市场观点": 1,
     "芯片算力": 3,
@@ -18,7 +18,7 @@
     "政策": [
       {
         "label": "AI监管",
-        "count": 4
+        "count": 6
       },
       {
         "label": "特朗普政府",
@@ -147,32 +147,44 @@
       {
         "label": "政治传播",
         "count": 1
+      },
+      {
+        "label": "犹他州AI医疗试点",
+        "count": 1
+      },
+      {
+        "label": "犹他州AI处方试点",
+        "count": 1
       }
     ],
     "公司": [
       {
-        "label": "Google",
-        "count": 15
+        "label": "OpenAI",
+        "count": 26
       },
       {
-        "label": "OpenAI",
-        "count": 15
+        "label": "Google",
+        "count": 19
       },
       {
         "label": "Anthropic",
-        "count": 14
+        "count": 16
       },
       {
         "label": "Apple",
-        "count": 7
+        "count": 9
+      },
+      {
+        "label": "Meta",
+        "count": 6
       },
       {
         "label": "Microsoft",
         "count": 5
       },
       {
-        "label": "Meta",
-        "count": 4
+        "label": "SpaceX",
+        "count": 5
       },
       {
         "label": "Oracle",
@@ -191,6 +203,10 @@
         "count": 3
       },
       {
+        "label": "TBPN",
+        "count": 3
+      },
+      {
         "label": "Disney",
         "count": 2
       },
@@ -204,10 +220,6 @@
       },
       {
         "label": "xAI",
-        "count": 2
-      },
-      {
-        "label": "SpaceX",
         "count": 2
       },
       {
@@ -236,6 +248,34 @@
       },
       {
         "label": "Insight Partners",
+        "count": 2
+      },
+      {
+        "label": "Granola",
+        "count": 2
+      },
+      {
+        "label": "Tesla",
+        "count": 2
+      },
+      {
+        "label": "Legion Health",
+        "count": 2
+      },
+      {
+        "label": "Coefficient Bio",
+        "count": 2
+      },
+      {
+        "label": "Perplexity",
+        "count": 2
+      },
+      {
+        "label": "Take-Two",
+        "count": 2
+      },
+      {
+        "label": "Zynga",
         "count": 2
       },
       {
@@ -351,7 +391,7 @@
         "count": 1
       },
       {
-        "label": "TBPN",
+        "label": "Slack",
         "count": 1
       }
     ],
@@ -370,6 +410,22 @@
       },
       {
         "label": "裁员",
+        "count": 2
+      },
+      {
+        "label": "编辑独立性",
+        "count": 2
+      },
+      {
+        "label": "法律诉讼",
+        "count": 2
+      },
+      {
+        "label": "隐私保护",
+        "count": 2
+      },
+      {
+        "label": "医疗休假",
         "count": 2
       },
       {
@@ -681,6 +737,10 @@
         "count": 1
       },
       {
+        "label": "数据安全",
+        "count": 1
+      },
+      {
         "label": "AI医疗监管",
         "count": 1
       },
@@ -689,7 +749,59 @@
         "count": 1
       },
       {
-        "label": "编辑独立性",
+        "label": "媒体收购",
+        "count": 1
+      },
+      {
+        "label": "AI传播",
+        "count": 1
+      },
+      {
+        "label": "商业诉讼",
+        "count": 1
+      },
+      {
+        "label": "诉讼",
+        "count": 1
+      },
+      {
+        "label": "精神药物续方",
+        "count": 1
+      },
+      {
+        "label": "产品排名",
+        "count": 1
+      },
+      {
+        "label": "播客",
+        "count": 1
+      },
+      {
+        "label": "50周年产品排名",
+        "count": 1
+      },
+      {
+        "label": "AI商业转型",
+        "count": 1
+      },
+      {
+        "label": "IPO",
+        "count": 1
+      },
+      {
+        "label": "AGI部署",
+        "count": 1
+      },
+      {
+        "label": "高管人事变动",
+        "count": 1
+      },
+      {
+        "label": "特殊项目",
+        "count": 1
+      },
+      {
+        "label": "游戏行业",
         "count": 1
       }
     ],
@@ -700,6 +812,14 @@
       },
       {
         "label": "供应链风险",
+        "count": 2
+      },
+      {
+        "label": "隐私设置",
+        "count": 2
+      },
+      {
+        "label": "医疗AI监管",
         "count": 2
       },
       {
@@ -769,6 +889,14 @@
       {
         "label": "DMCA下架",
         "count": 1
+      },
+      {
+        "label": "集体诉讼",
+        "count": 1
+      },
+      {
+        "label": "数据共享",
+        "count": 1
       }
     ],
     "技术": [
@@ -805,6 +933,10 @@
         "count": 2
       },
       {
+        "label": "大语言模型",
+        "count": 2
+      },
+      {
         "label": "AI音乐生成",
         "count": 2
       },
@@ -834,6 +966,10 @@
       },
       {
         "label": "生成式 AI",
+        "count": 2
+      },
+      {
+        "label": "AI训练数据",
         "count": 2
       },
       {
@@ -910,10 +1046,6 @@
       },
       {
         "label": "AI智能体",
-        "count": 1
-      },
-      {
-        "label": "大语言模型",
         "count": 1
       },
       {
@@ -1027,9 +1159,37 @@
       {
         "label": "多模态AI",
         "count": 1
+      },
+      {
+        "label": "AI聊天机器人",
+        "count": 1
+      },
+      {
+        "label": "AI药物发现",
+        "count": 1
+      },
+      {
+        "label": "AI for Life Sciences",
+        "count": 1
+      },
+      {
+        "label": "数据跟踪",
+        "count": 1
+      },
+      {
+        "label": "应用 AI",
+        "count": 1
+      },
+      {
+        "label": "AI",
+        "count": 1
       }
     ],
     "资本": [
+      {
+        "label": "IPO",
+        "count": 3
+      },
       {
         "label": "Pre-IPO融资",
         "count": 2
@@ -1043,6 +1203,14 @@
         "count": 2
       },
       {
+        "label": "媒体收购",
+        "count": 2
+      },
+      {
+        "label": "并购",
+        "count": 2
+      },
+      {
         "label": "战略合作",
         "count": 1
       },
@@ -1052,10 +1220,6 @@
       },
       {
         "label": "投资者关系",
-        "count": 1
-      },
-      {
-        "label": "IPO",
         "count": 1
       },
       {
@@ -1111,11 +1275,27 @@
         "count": 1
       },
       {
-        "label": "媒体收购",
+        "label": "广告收入",
+        "count": 1
+      },
+      {
+        "label": "融资并购",
+        "count": 1
+      },
+      {
+        "label": "投资银行",
+        "count": 1
+      },
+      {
+        "label": "复杂交易",
         "count": 1
       }
     ],
     "应用": [
+      {
+        "label": "AI笔记",
+        "count": 2
+      },
       {
         "label": "Gemini",
         "count": 1
@@ -1279,6 +1459,26 @@
       {
         "label": "企业生产力",
         "count": 1
+      },
+      {
+        "label": "生命科学",
+        "count": 1
+      },
+      {
+        "label": "药物发现",
+        "count": 1
+      },
+      {
+        "label": "Grok",
+        "count": 1
+      },
+      {
+        "label": "超级应用",
+        "count": 1
+      },
+      {
+        "label": "AI精神科药物续方",
+        "count": 1
       }
     ],
     "任务": [
@@ -1288,6 +1488,10 @@
       },
       {
         "label": "Sora",
+        "count": 2
+      },
+      {
+        "label": "高管变动",
         "count": 2
       },
       {
@@ -1357,6 +1561,50 @@
       {
         "label": "语音转录与生成",
         "count": 1
+      },
+      {
+        "label": "收购",
+        "count": 1
+      },
+      {
+        "label": "企业传播",
+        "count": 1
+      },
+      {
+        "label": "自动驾驶",
+        "count": 1
+      },
+      {
+        "label": "社区投票分析",
+        "count": 1
+      },
+      {
+        "label": "组织架构调整",
+        "count": 1
+      },
+      {
+        "label": "首席运营官",
+        "count": 1
+      },
+      {
+        "label": "AGI开发",
+        "count": 1
+      },
+      {
+        "label": "特别项目",
+        "count": 1
+      },
+      {
+        "label": "AI搜索",
+        "count": 1
+      },
+      {
+        "label": "高管离职",
+        "count": 1
+      },
+      {
+        "label": "人事变动",
+        "count": 1
       }
     ],
     "人物": [
@@ -1366,6 +1614,14 @@
       },
       {
         "label": "Mustafa Suleyman",
+        "count": 1
+      },
+      {
+        "label": "Jay Edelson",
+        "count": 1
+      },
+      {
+        "label": "Sam Altman",
         "count": 1
       }
     ]
