@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { HomePersonalCalendar } from "@/components/home-personal-calendar";
 import { StickyPageHero } from "@/components/sticky-page-hero";
+import { getSessionUser } from "@/lib/auth";
 import { getAllNews } from "@/lib/content";
 import { cstCalendarPartsFromDate, cstYmdKey } from "@/lib/cst-wall-clock";
+import { userHasPagePermission } from "@/lib/permissions";
 
 type TrackLook = {
   bar: string;
@@ -88,6 +90,10 @@ const navLinkClass =
   "rounded-lg border border-zinc-200/90 bg-zinc-100/80 px-3 py-1.5 text-xs font-medium text-zinc-800 shadow-sm transition hover:border-indigo-300 hover:bg-indigo-50 hover:text-indigo-900 dark:border-zinc-600/80 dark:bg-zinc-800/80 dark:text-zinc-100 dark:hover:border-indigo-500/50 dark:hover:bg-indigo-950/50 dark:hover:text-indigo-100";
 
 export default async function Home() {
+  const sessionUser = await getSessionUser();
+  const su = sessionUser?.username;
+  const perm = sessionUser?.permissions;
+
   const news = getAllNews();
   const now = new Date();
   const todayKey = cstYmdKey(now);
@@ -112,6 +118,11 @@ export default async function Home() {
     return a.localeCompare(b, "zh-CN");
   });
 
+  const showSchedule = Boolean(su && userHasPagePermission(su, perm, "schedule"));
+  const newsSectionClass =
+    "rounded-xl border border-zinc-200/90 bg-white/70 p-4 shadow-sm backdrop-blur-sm dark:border-zinc-700/90 dark:bg-zinc-900/45" +
+    (showSchedule ? "" : " md:col-span-2");
+
   return (
     <main className="relative mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 py-8 sm:px-6">
       <StickyPageHero className="space-y-3">
@@ -120,32 +131,42 @@ export default async function Home() {
           Hi,there...
         </p>
         <div className="flex flex-wrap gap-2">
-          <Link href="/daily" className={navLinkClass}>
-            新闻
-          </Link>
-          <Link href="/weekly" className={navLinkClass}>
-            周报
-          </Link>
-          <Link href="/schedule" className={navLinkClass}>
-            日程
-          </Link>
-          <Link href="/yuxi-notes" className={navLinkClass}>
-            Yuxi随记
-          </Link>
+          {su && userHasPagePermission(su, perm, "daily") ? (
+            <Link href="/daily" className={navLinkClass}>
+              新闻
+            </Link>
+          ) : null}
+          {su && userHasPagePermission(su, perm, "weekly") ? (
+            <Link href="/weekly" className={navLinkClass}>
+              周报
+            </Link>
+          ) : null}
+          {su && userHasPagePermission(su, perm, "schedule") ? (
+            <Link href="/schedule" className={navLinkClass}>
+              日程
+            </Link>
+          ) : null}
+          {su && userHasPagePermission(su, perm, "yuxi_notes") ? (
+            <Link href="/yuxi-notes" className={navLinkClass}>
+              Yuxi随记
+            </Link>
+          ) : null}
         </div>
       </StickyPageHero>
 
       <div className="grid gap-4 md:grid-cols-2">
-        <section className="rounded-xl border border-zinc-200/90 bg-white/70 p-4 shadow-sm backdrop-blur-sm dark:border-zinc-700/90 dark:bg-zinc-900/45">
-          <h2 className="text-lg font-semibold">个人日历</h2>
-          <p className="mt-1 text-xs text-zinc-500">Personal calendar</p>
-          <p className="mt-1 text-[11px] leading-snug text-zinc-500 dark:text-zinc-400">
-            当月简图（东八区）。登录后点击日期记录心情，数据保存在账号下，可在「日程」页查看与追溯。
-          </p>
-          <HomePersonalCalendar year={calendarYear} month={calendarMonth} todayKey={todayKey} />
-        </section>
+        {showSchedule ? (
+          <section className="rounded-xl border border-zinc-200/90 bg-white/70 p-4 shadow-sm backdrop-blur-sm dark:border-zinc-700/90 dark:bg-zinc-900/45">
+            <h2 className="text-lg font-semibold">个人日历</h2>
+            <p className="mt-1 text-xs text-zinc-500">Personal calendar</p>
+            <p className="mt-1 text-[11px] leading-snug text-zinc-500 dark:text-zinc-400">
+              当月简图（东八区）。点击日期记录心情，数据仅保存在当前账号下，与他人隔离；详情可在「日程」页查看。
+            </p>
+            <HomePersonalCalendar year={calendarYear} month={calendarMonth} todayKey={todayKey} />
+          </section>
+        ) : null}
 
-        <section className="rounded-xl border border-zinc-200/90 bg-white/70 p-4 shadow-sm backdrop-blur-sm dark:border-zinc-700/90 dark:bg-zinc-900/45">
+        <section className={newsSectionClass}>
           <h2 className="text-lg font-semibold">今日新闻</h2>
           <p className="mt-0.5 text-xs font-medium text-zinc-500">Today&apos;s News</p>
           <p className="mt-1 text-xs text-zinc-500">

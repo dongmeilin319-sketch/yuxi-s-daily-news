@@ -39,6 +39,8 @@ export const weeklyFrontmatterSchema = z.object({
   date: isoDateString,
   summary: nonEmptyString,
   weekLabel: nonEmptyString,
+  /** 本周活跃公司（列表副标题展示；可选） */
+  activeCompanies: z.array(nonEmptyString).optional(),
 });
 
 export type NewsFrontmatter = z.infer<typeof newsFrontmatterSchema>;

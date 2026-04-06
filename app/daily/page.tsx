@@ -4,6 +4,7 @@ import { getAllNews } from "@/lib/content";
 import { getSessionUser } from "@/lib/auth";
 import { getRatingsByUserAndSlugs } from "@/lib/ratings-store";
 import { getSiteUrl } from "@/lib/site";
+import { DateRangeFilterCard } from "@/components/date-range-filter-card";
 import { SubpageHeader } from "@/components/subpage-header";
 
 type DatePreset = "all" | "today" | "yesterday" | "week";
@@ -184,77 +185,41 @@ export default async function DailyNewsPage({ searchParams }: DailyPageProps) {
         subtitle="按日期与多维标签筛选每日条目。"
         englishSubtitle="Daily News"
         activeTab="daily"
+        sessionUsername={sessionUser?.username}
+        sessionPermissions={sessionUser?.permissions}
       />
 
       <section className="rounded-xl border border-zinc-200 p-4 dark:border-zinc-700">
         <div className="flex flex-col gap-3 md:flex-row md:items-start">
-          <div className="w-full shrink-0 rounded-lg border border-zinc-200 p-3 md:w-fit md:max-w-sm dark:border-zinc-700">
-            <h2 className="text-base font-semibold">日期筛选器</h2>
-            <div className="mt-2 flex flex-wrap items-center gap-2">
-              {(
-                [
-                  { id: "all", label: "全部" },
-                  { id: "today", label: "今天" },
-                  { id: "yesterday", label: "昨天" },
-                  { id: "week", label: "近7天" },
-                ] as const
-              ).map((opt) => {
-                const active = !customDate && preset === opt.id;
-                return (
-                  <Link
-                    key={opt.id}
-                    href={hrefWith({
-                      preset: opt.id === "all" ? undefined : opt.id,
-                      date: undefined,
-                      page: undefined,
-                    })}
-                    className={
-                      active
-                        ? "rounded-full border border-zinc-900 bg-zinc-900 px-3 py-1 text-xs text-white dark:border-zinc-100 dark:bg-zinc-100 dark:text-zinc-900"
-                        : "rounded-full border px-3 py-1 text-xs hover:bg-zinc-100 dark:hover:bg-zinc-800"
-                    }
-                  >
-                    {opt.label}
-                  </Link>
-                );
-              })}
-            </div>
-
-            <form method="get" action="/daily" className="mt-2 flex flex-wrap items-center gap-2">
-              {preset !== "all" ? <input type="hidden" name="preset" value={preset} /> : null}
-              {selectedTracks.length > 0 ? (
-                <input type="hidden" name="tracks" value={serializeMultiParam(selectedTracks)} />
-              ) : null}
-              {selectedImpacts.length > 0 ? (
-                <input type="hidden" name="impacts" value={serializeMultiParam(selectedImpacts)} />
-              ) : null}
-              {selectedCompanies.length > 0 ? (
-                <input type="hidden" name="companies" value={serializeMultiParam(selectedCompanies)} />
-              ) : null}
-              {selectedSentiments.length > 0 ? (
-                <input type="hidden" name="sentiments" value={serializeMultiParam(selectedSentiments)} />
-              ) : null}
-              <label htmlFor="date" className="text-xs text-zinc-500">
-                自定义日期
-              </label>
-              <input
-                id="date"
-                name="date"
-                type="date"
-                defaultValue={customDate}
-                className="rounded-md border border-zinc-300 bg-transparent px-2 py-1 text-xs dark:border-zinc-600"
-              />
-              <button
-                type="submit"
-                className="rounded-md border border-zinc-300 px-2 py-1 text-xs hover:bg-zinc-100 dark:border-zinc-600 dark:hover:bg-zinc-800"
-              >
-                应用
-              </button>
-              <Link href="/daily" className="text-xs underline underline-offset-4">
-                清空
-              </Link>
-            </form>
-          </div>
+          <DateRangeFilterCard
+            action="/daily"
+            preset={preset}
+            customDate={customDate}
+            presetHref={(id) =>
+              hrefWith({
+                preset: id === "all" ? undefined : id,
+                date: undefined,
+                page: undefined,
+              })
+            }
+            clearHref="/daily"
+            extraFormFields={
+              <>
+                {selectedTracks.length > 0 ? (
+                  <input type="hidden" name="tracks" value={serializeMultiParam(selectedTracks)} />
+                ) : null}
+                {selectedImpacts.length > 0 ? (
+                  <input type="hidden" name="impacts" value={serializeMultiParam(selectedImpacts)} />
+                ) : null}
+                {selectedCompanies.length > 0 ? (
+                  <input type="hidden" name="companies" value={serializeMultiParam(selectedCompanies)} />
+                ) : null}
+                {selectedSentiments.length > 0 ? (
+                  <input type="hidden" name="sentiments" value={serializeMultiParam(selectedSentiments)} />
+                ) : null}
+              </>
+            }
+          />
 
           <div className="min-w-0 flex-1 rounded-lg border border-zinc-200 p-3 dark:border-zinc-700">
             <h2 className="text-base font-semibold">高级筛选</h2>

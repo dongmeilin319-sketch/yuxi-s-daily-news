@@ -45,6 +45,13 @@
 
 字段增删改必须遵守：`docs/CONTENT_FIELD_CONTRACT_SYNC.md`（已作为项目守则落地）。
 
+补充（运营 / 商业化向，**不增必填字段**）：
+
+- 采集范围与 `track` / `labels` 约定：`docs/NEWS_INGEST_SCOPE.md`
+- 周报正文小节模板：`docs/WEEKLY_EDITORIAL_TEMPLATE.md`
+- 可选字段演进备忘：`docs/NEWS_SCHEMA_ROADMAP.md`
+- 周报附录草稿（按东八区周聚合新闻与公司频次）：`npm run weekly:digest`（可加 `--date=YYYY-MM-DD`、`--top=N`）
+
 ### 2.2 生成端是“可被验证”的：写对 frontmatter 就能上线
 生成端不是“写了就行”，而是：
 - 必须输出满足 schema 的字段结构；

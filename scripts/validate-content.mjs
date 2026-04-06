@@ -40,6 +40,7 @@ const weeklyFrontmatterSchema = z.object({
   date: isoDateString,
   summary: nonEmptyString,
   weekLabel: nonEmptyString,
+  activeCompanies: z.array(nonEmptyString).optional(),
 });
 
 function readMdxFiles(dir) {

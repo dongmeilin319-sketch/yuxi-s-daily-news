@@ -29,9 +29,9 @@ export function isReservedUsername(username: string): boolean {
   return isAdminUsername(username);
 }
 
-/** 新注册用户默认可访问的页面（不含管理后台） */
+/** 新注册用户默认可访问的页面（不含管理后台）：首页壳 + 新闻列表/正文 + 周报 + 日程（日历按账号隔离） */
 export function getDefaultNewUserPermissions(): PagePermissionKey[] {
-  return ["home", "daily", "news", "weekly", "archive", "schedule", "search", "yuxi_notes"];
+  return ["home", "daily", "news", "weekly", "schedule"];
 }
 
 /** 旧版 cookie 无 permissions 字段时的兼容：除管理后台外均可访问 */

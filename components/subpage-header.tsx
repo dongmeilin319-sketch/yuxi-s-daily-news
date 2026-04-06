@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { StickyPageHero } from "@/components/sticky-page-hero";
+import { type PagePermissionKey, userHasPagePermission } from "@/lib/permissions";
 
 type SubpageTabKey = "daily" | "weekly" | "schedule" | "notes";
 
@@ -8,6 +9,9 @@ type SubpageHeaderProps = {
   subtitle: string;
   englishSubtitle: string;
   activeTab: SubpageTabKey;
+  /** 传入后仅展示当前账号有权访问的子页签 */
+  sessionUsername?: string;
+  sessionPermissions?: unknown;
 };
 
 const tabs: Array<{ key: SubpageTabKey; label: string; href: string }> = [
@@ -17,12 +21,28 @@ const tabs: Array<{ key: SubpageTabKey; label: string; href: string }> = [
   { key: "notes", label: "Yuxi随记", href: "/yuxi-notes" },
 ];
 
+const TAB_TO_PERMISSION: Record<SubpageTabKey, PagePermissionKey> = {
+  daily: "daily",
+  weekly: "weekly",
+  schedule: "schedule",
+  notes: "yuxi_notes",
+};
+
 export function SubpageHeader({
   title,
   subtitle,
   englishSubtitle,
   activeTab,
+  sessionUsername,
+  sessionPermissions,
 }: SubpageHeaderProps) {
+  const visibleTabs =
+    sessionUsername != null
+      ? tabs.filter((tab) =>
+          userHasPagePermission(sessionUsername, sessionPermissions, TAB_TO_PERMISSION[tab.key]),
+        )
+      : tabs;
+
   return (
     <StickyPageHero className="space-y-3">
       <div className="space-y-1">
@@ -31,7 +51,7 @@ export function SubpageHeader({
       </div>
 
       <nav className="flex flex-wrap gap-2">
-        {tabs.map((tab) => {
+        {visibleTabs.map((tab) => {
           const active = tab.key === activeTab;
           return (
             <Link

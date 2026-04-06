@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev --webpack",
+    "dev:3010": "next dev --webpack -p 3010",
     "content:validate": "node ./scripts/validate-content.mjs",
     "stats:generate": "node ./scripts/generate-daily-stats.mjs",
+    "weekly:digest": "node ./scripts/weekly-digest-suggest.mjs",
     "archive:run": "node ./scripts/archive-old-content.mjs",
     "prebuild": "npm run content:validate && npm run stats:generate",
     "build": "next build",

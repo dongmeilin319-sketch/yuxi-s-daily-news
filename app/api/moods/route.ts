@@ -3,6 +3,7 @@ import { getSessionUser } from "@/lib/auth";
 import type { MoodId } from "@/lib/home-mood-calendar";
 import { isValidMoodId } from "@/lib/home-mood-calendar";
 import { listUserMoodsInMonth, setUserDailyMood } from "@/lib/moods-store";
+import { userHasPagePermission } from "@/lib/permissions";
 import { isDbUnavailableError } from "@/lib/users-store";
 
 export const runtime = "nodejs";
@@ -11,6 +12,9 @@ export async function GET(req: Request) {
   const session = await getSessionUser();
   if (!session) {
     return NextResponse.json({ ok: false, message: "请先登录" }, { status: 401 });
+  }
+  if (!userHasPagePermission(session.username, session.permissions, "schedule")) {
+    return NextResponse.json({ ok: false, message: "无日程权限" }, { status: 403 });
   }
 
   const { searchParams } = new URL(req.url);
@@ -21,6 +25,7 @@ export async function GET(req: Request) {
   }
 
   try {
+    // 心情仅查询当前登录账号 user_id（与其它账号隔离）
     const rows = await listUserMoodsInMonth(session.id, year, month);
     const moods: Record<string, MoodId> = {};
     for (const r of rows) moods[r.dateKey] = r.moodId;
@@ -37,6 +42,9 @@ export async function PUT(req: Request) {
   const session = await getSessionUser();
   if (!session) {
     return NextResponse.json({ ok: false, message: "请先登录" }, { status: 401 });
+  }
+  if (!userHasPagePermission(session.username, session.permissions, "schedule")) {
+    return NextResponse.json({ ok: false, message: "无日程权限" }, { status: 403 });
   }
 
   const body = (await req.json().catch(() => ({}))) as {

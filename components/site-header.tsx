@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { FormEvent, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { HeaderSearchOverlay, type SearchItem } from "@/components/header-search-overlay";
 import { HeaderSettingsMenu } from "@/components/header-settings-menu";
@@ -61,6 +62,7 @@ function IconSettings({ className }: { className?: string }) {
 }
 
 export function SiteHeader() {
+  const router = useRouter();
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [loginOpen, setLoginOpen] = useState(false);
@@ -118,7 +120,8 @@ export function SiteHeader() {
     }
     setSessionUser(null);
     setUserMenuOpen(false);
-  }, []);
+    router.refresh();
+  }, [router]);
 
   useEffect(() => {
     if (!searchOpen) return;
@@ -224,6 +227,7 @@ export function SiteHeader() {
   );
 
   const themeLabel = useMemo(() => (theme === "dark" ? "深色" : "浅色"), [theme]);
+  const canSearch = Boolean(sessionUser?.permissions?.includes("search"));
 
   return (
     <>
@@ -245,15 +249,17 @@ export function SiteHeader() {
                 管理后台
               </Link>
             )}
-            <button
-              ref={searchButtonRef}
-              type="button"
-              onClick={openSearch}
-              className={iconNavButtonClass}
-              aria-label="搜索"
-            >
-              <IconSearch />
-            </button>
+            {canSearch ? (
+              <button
+                ref={searchButtonRef}
+                type="button"
+                onClick={openSearch}
+                className={iconNavButtonClass}
+                aria-label="搜索"
+              >
+                <IconSearch />
+              </button>
+            ) : null}
             <div className="relative" ref={settingsWrapRef}>
               <button
                 type="button"
@@ -348,7 +354,10 @@ export function SiteHeader() {
       <HeaderLoginModal
         open={loginOpen}
         onClose={() => setLoginOpen(false)}
-        onLoggedIn={(user) => setSessionUser(user)}
+        onLoggedIn={(user) => {
+          setSessionUser(user);
+          router.refresh();
+        }}
       />
     </>
   );

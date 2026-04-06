@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { getSessionUser } from "@/lib/auth";
 import { isValidYmdKey } from "@/lib/moods-store";
+import { userHasPagePermission } from "@/lib/permissions";
 import { listUserScheduleNotesInMonth, setUserScheduleNote } from "@/lib/schedule-notes-store";
 import { isDbUnavailableError } from "@/lib/users-store";
 
@@ -11,6 +12,9 @@ export async function GET(req: Request) {
   if (!session) {
     return NextResponse.json({ ok: false, message: "请先登录" }, { status: 401 });
   }
+  if (!userHasPagePermission(session.username, session.permissions, "schedule")) {
+    return NextResponse.json({ ok: false, message: "无日程权限" }, { status: 403 });
+  }
 
   const { searchParams } = new URL(req.url);
   const year = Number.parseInt(searchParams.get("year") ?? "", 10);
@@ -20,6 +24,7 @@ export async function GET(req: Request) {
   }
 
   try {
+    // 手记仅返回当前登录账号 user_id 对应的数据（与其它账号隔离）
     const notes = await listUserScheduleNotesInMonth(session.id, year, month);
     return NextResponse.json({ ok: true, notes });
   } catch (e) {
@@ -34,6 +39,9 @@ export async function PUT(req: Request) {
   const session = await getSessionUser();
   if (!session) {
     return NextResponse.json({ ok: false, message: "请先登录" }, { status: 401 });
+  }
+  if (!userHasPagePermission(session.username, session.permissions, "schedule")) {
+    return NextResponse.json({ ok: false, message: "无日程权限" }, { status: 403 });
   }
 
   const body = (await req.json().catch(() => ({}))) as { date?: string; body?: string };
