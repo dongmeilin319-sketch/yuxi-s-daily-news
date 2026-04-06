@@ -124,7 +124,7 @@ export default async function Home() {
     (showSchedule ? "" : " md:col-span-2");
 
   return (
-    <main className="relative mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 py-8 sm:px-6">
+    <main className="relative mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 pb-8 pt-0 sm:px-6">
       <StickyPageHero className="space-y-3">
         <h1 className="text-3xl font-bold tracking-tight">Dlim&apos;s Wonderland</h1>
         <p className="text-base font-medium tracking-tight text-zinc-700 dark:text-zinc-200">

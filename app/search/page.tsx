@@ -12,7 +12,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
   const results = searchAllContent(keyword, 60);
 
   return (
-    <main className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6">
+    <main className="mx-auto w-full max-w-6xl px-4 pb-8 pt-0 sm:px-6">
       <StickyPageHero className="space-y-2">
         <h1 className="text-2xl font-bold">站内搜索（MVP）</h1>
         <p className="text-sm text-zinc-600 dark:text-zinc-300">

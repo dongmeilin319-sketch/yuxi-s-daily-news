@@ -97,7 +97,7 @@ export default async function WeeklyPage({ searchParams }: WeeklyPageProps) {
   }
 
   return (
-    <main className="mx-auto w-full max-w-6xl space-y-6 px-4 py-8 sm:px-6">
+    <main className="mx-auto w-full max-w-6xl space-y-6 px-4 pb-8 pt-0 sm:px-6">
       <SubpageHeader
         title="周报"
         subtitle="按与每日新闻相同的时间维度筛选周报；列表按周展示，每页 20 条。"

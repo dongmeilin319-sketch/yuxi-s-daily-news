@@ -8,7 +8,7 @@ export default async function SchedulePage() {
   const sessionUser = await getSessionUser();
 
   return (
-    <main className="mx-auto w-full max-w-6xl space-y-6 px-4 py-8 sm:px-6">
+    <main className="mx-auto w-full max-w-6xl space-y-6 px-4 pb-8 pt-0 sm:px-6">
       <SubpageHeader
         title="日程"
         subtitle="左侧月历选日，右侧 deer-dairy 手记与心情（登录后按账号存储）。"

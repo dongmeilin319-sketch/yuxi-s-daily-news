@@ -7,7 +7,7 @@ export default function ArchivePage() {
   const items = getAllArchiveNews();
 
   return (
-    <main className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6">
+    <main className="mx-auto w-full max-w-6xl px-4 pb-8 pt-0 sm:px-6">
       <StickyPageHero className="space-y-2">
         <h1 className="text-3xl font-bold tracking-tight">历史归档</h1>
         <p className="text-sm text-zinc-600 dark:text-zinc-300">展示 30 天前自动归档的内容。</p>

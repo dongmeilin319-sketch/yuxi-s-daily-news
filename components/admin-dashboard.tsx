@@ -122,7 +122,7 @@ export function AdminDashboard() {
   }
 
   return (
-    <main className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6">
+    <main className="mx-auto w-full max-w-6xl px-4 pb-8 pt-0 sm:px-6">
       <StickyPageHero className="space-y-4">
         <h1 className="text-2xl font-bold tracking-tight">管理后台</h1>
         <div className="flex flex-wrap gap-1 border-b border-zinc-200 dark:border-zinc-700">
