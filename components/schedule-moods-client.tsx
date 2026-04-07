@@ -407,7 +407,7 @@ export function ScheduleMoodsClient({ initialYear, initialMonth, todayKey }: Sch
           <div className="mt-4 overflow-x-auto">
             <svg
               viewBox="0 0 860 300"
-              className="h-[300px] min-w-[860px] w-full rounded-lg border border-zinc-200/90 bg-white/90 p-2 dark:border-zinc-700/90 dark:bg-zinc-900/60"
+              className="block h-[300px] min-w-[860px] max-w-none rounded-lg border border-zinc-200/90 bg-white/90 p-2 text-indigo-600 dark:border-zinc-700/90 dark:bg-zinc-900/60 dark:text-indigo-300"
               role="img"
               aria-label="近30天心情坐标图"
             >
@@ -444,8 +444,8 @@ export function ScheduleMoodsClient({ initialYear, initialMonth, todayKey }: Sch
                 const y = 260 - (p.moodIndex / (MOOD_AXIS.length - 1)) * 220;
                 return (
                   <g key={p.dateKey}>
-                    <circle cx={x} cy={y} r="6" fill="currentColor" opacity="0.8" />
-                    <text x={x - 8} y={y - 10} fontSize="12" fill="currentColor" opacity="0.9">
+                    <circle cx={x} cy={y} r="3" fill="currentColor" opacity="0.7" />
+                    <text x={x - 12} y={y - 12} fontSize="24" fill="currentColor" opacity="0.95">
                       {moodEmoji(p.moodId)}
                     </text>
                     <title>{`${p.dateKey} ${moodLabel(p.moodId)}`}</title>
