@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-04-06T09:01:46.883Z",
-  "totalNews": 118,
+  "generatedAt": "2026-04-07T03:45:18.094Z",
+  "totalNews": 152,
   "bySentiment": {
-    "neutral": 118
+    "neutral": 152
   },
   "byTrack": {
-    "政策监管": 30,
-    "基础模型": 7,
-    "行业动态": 38,
-    "应用层": 30,
-    "安全合规": 5,
+    "政策监管": 35,
+    "基础模型": 9,
+    "行业动态": 51,
+    "应用层": 43,
+    "安全合规": 6,
     "市场观点": 1,
     "芯片算力": 3,
     "开发者工具": 4
@@ -175,20 +175,52 @@
       {
         "label": "AI版权保护",
         "count": 1
+      },
+      {
+        "label": "经济产业省 2040 战略",
+        "count": 1
+      },
+      {
+        "label": "日本 2040 物理 AI 市场目标",
+        "count": 1
+      },
+      {
+        "label": "服务条款",
+        "count": 1
+      },
+      {
+        "label": "使用条款",
+        "count": 1
+      },
+      {
+        "label": "AI经济框架",
+        "count": 1
+      },
+      {
+        "label": "机器人税",
+        "count": 1
+      },
+      {
+        "label": "公共财富基金",
+        "count": 1
       }
     ],
     "公司": [
       {
         "label": "OpenAI",
-        "count": 30
+        "count": 38
       },
       {
         "label": "Google",
-        "count": 19
+        "count": 24
       },
       {
         "label": "Anthropic",
         "count": 19
+      },
+      {
+        "label": "SpaceX",
+        "count": 10
       },
       {
         "label": "Apple",
@@ -196,26 +228,30 @@
       },
       {
         "label": "Meta",
-        "count": 7
-      },
-      {
-        "label": "SpaceX",
-        "count": 6
+        "count": 9
       },
       {
         "label": "Microsoft",
-        "count": 5
+        "count": 6
       },
       {
         "label": "Oracle",
-        "count": 3
+        "count": 4
       },
       {
-        "label": "Amazon",
-        "count": 3
+        "label": "Bluesky",
+        "count": 4
+      },
+      {
+        "label": "xAI",
+        "count": 4
       },
       {
         "label": "Suno",
+        "count": 4
+      },
+      {
+        "label": "Amazon",
         "count": 3
       },
       {
@@ -224,6 +260,18 @@
       },
       {
         "label": "TBPN",
+        "count": 3
+      },
+      {
+        "label": "Cisco",
+        "count": 3
+      },
+      {
+        "label": "Delve",
+        "count": 3
+      },
+      {
+        "label": "Y Combinator",
         "count": 3
       },
       {
@@ -236,10 +284,6 @@
       },
       {
         "label": "Craft Ventures",
-        "count": 2
-      },
-      {
-        "label": "xAI",
         "count": 2
       },
       {
@@ -299,6 +343,22 @@
         "count": 2
       },
       {
+        "label": "Grammarly/Superhuman",
+        "count": 2
+      },
+      {
+        "label": "Mujin",
+        "count": 2
+      },
+      {
+        "label": "Starcloud",
+        "count": 2
+      },
+      {
+        "label": "Blue Origin",
+        "count": 2
+      },
+      {
         "label": "Polymarket",
         "count": 1
       },
@@ -336,10 +396,6 @@
       },
       {
         "label": "Goldman Sachs",
-        "count": 1
-      },
-      {
-        "label": "Bluesky",
         "count": 1
       },
       {
@@ -429,9 +485,33 @@
       {
         "label": "Spotify",
         "count": 1
+      },
+      {
+        "label": "WHILL",
+        "count": 1
+      },
+      {
+        "label": "微软",
+        "count": 1
+      },
+      {
+        "label": "Character.ai",
+        "count": 1
+      },
+      {
+        "label": "早期初创企业",
+        "count": 1
       }
     ],
     "主题": [
+      {
+        "label": "AI基础设施",
+        "count": 3
+      },
+      {
+        "label": "地缘政治",
+        "count": 3
+      },
       {
         "label": "音乐产业",
         "count": 2
@@ -462,6 +542,30 @@
       },
       {
         "label": "医疗休假",
+        "count": 2
+      },
+      {
+        "label": "劳动力短缺",
+        "count": 2
+      },
+      {
+        "label": "青少年用户行为",
+        "count": 2
+      },
+      {
+        "label": "服务中断",
+        "count": 2
+      },
+      {
+        "label": "vibe coding",
+        "count": 2
+      },
+      {
+        "label": "Startup Battlefield 200",
+        "count": 2
+      },
+      {
+        "label": "TechCrunch Disrupt 2026",
         "count": 2
       },
       {
@@ -681,10 +785,6 @@
         "count": 1
       },
       {
-        "label": "AI基础设施",
-        "count": 1
-      },
-      {
         "label": "就业市场",
         "count": 1
       },
@@ -871,19 +971,111 @@
       {
         "label": "AI音乐伪造",
         "count": 1
+      },
+      {
+        "label": "AI行程规划",
+        "count": 1
+      },
+      {
+        "label": "AI 行程规划",
+        "count": 1
+      },
+      {
+        "label": "肖像权争议",
+        "count": 1
+      },
+      {
+        "label": "肖像权/隐私权",
+        "count": 1
+      },
+      {
+        "label": "太空基础设施",
+        "count": 1
+      },
+      {
+        "label": "版权侵权",
+        "count": 1
+      },
+      {
+        "label": "社交媒体",
+        "count": 1
+      },
+      {
+        "label": "欺诈指控",
+        "count": 1
+      },
+      {
+        "label": "合规欺诈",
+        "count": 1
+      },
+      {
+        "label": "合规欺诈指控",
+        "count": 1
+      },
+      {
+        "label": "离线AI",
+        "count": 1
+      },
+      {
+        "label": "离线 AI",
+        "count": 1
+      },
+      {
+        "label": "离线AI处理",
+        "count": 1
+      },
+      {
+        "label": "中东局势",
+        "count": 1
+      },
+      {
+        "label": "模型开源策略",
+        "count": 1
+      },
+      {
+        "label": "劳动力市场转型",
+        "count": 1
+      },
+      {
+        "label": "四天工作制",
+        "count": 1
+      },
+      {
+        "label": "Sam Altman",
+        "count": 1
+      },
+      {
+        "label": "媒体调查",
+        "count": 1
+      },
+      {
+        "label": "人工智能伦理",
+        "count": 1
+      },
+      {
+        "label": "领导力信任",
+        "count": 1
+      },
+      {
+        "label": "权力与治理",
+        "count": 1
+      },
+      {
+        "label": "早期初创公司",
+        "count": 1
       }
     ],
     "安全合规": [
       {
+        "label": "数据泄露",
+        "count": 5
+      },
+      {
         "label": "AI安全",
-        "count": 3
+        "count": 4
       },
       {
         "label": "供应链风险",
-        "count": 2
-      },
-      {
-        "label": "数据泄露",
         "count": 2
       },
       {
@@ -892,6 +1084,10 @@
       },
       {
         "label": "医疗AI监管",
+        "count": 2
+      },
+      {
+        "label": "AI内容安全",
         "count": 2
       },
       {
@@ -969,15 +1165,59 @@
       {
         "label": "平台内容审核",
         "count": 1
+      },
+      {
+        "label": "模型幻觉风险",
+        "count": 1
+      },
+      {
+        "label": "隐私侵权诉讼",
+        "count": 1
+      },
+      {
+        "label": "未经授权使用 likeness",
+        "count": 1
+      },
+      {
+        "label": "版权过滤",
+        "count": 1
+      },
+      {
+        "label": "设施安全威胁",
+        "count": 1
+      },
+      {
+        "label": "基础设施物理威胁",
+        "count": 1
+      },
+      {
+        "label": "数据中心安全",
+        "count": 1
+      },
+      {
+        "label": "AI安全风险",
+        "count": 1
+      },
+      {
+        "label": "企业伦理",
+        "count": 1
       }
     ],
     "技术": [
+      {
+        "label": "Gemini",
+        "count": 5
+      },
       {
         "label": "Claude",
         "count": 5
       },
       {
-        "label": "Gemini",
+        "label": "生成式AI",
+        "count": 3
+      },
+      {
+        "label": "AI音乐生成",
         "count": 3
       },
       {
@@ -993,11 +1233,15 @@
         "count": 3
       },
       {
-        "label": "Sora",
-        "count": 2
+        "label": "语音识别",
+        "count": 3
       },
       {
-        "label": "生成式AI",
+        "label": "Gemma",
+        "count": 3
+      },
+      {
+        "label": "Sora",
         "count": 2
       },
       {
@@ -1014,10 +1258,6 @@
       },
       {
         "label": "大语言模型",
-        "count": 2
-      },
-      {
-        "label": "AI音乐生成",
         "count": 2
       },
       {
@@ -1046,6 +1286,22 @@
       },
       {
         "label": "生成式 AI",
+        "count": 2
+      },
+      {
+        "label": "vibe coding",
+        "count": 2
+      },
+      {
+        "label": "Physical AI",
+        "count": 2
+      },
+      {
+        "label": "数据中心",
+        "count": 2
+      },
+      {
+        "label": "开源AI模型",
         "count": 2
       },
       {
@@ -1201,10 +1457,6 @@
         "count": 1
       },
       {
-        "label": "vibe coding",
-        "count": 1
-      },
-      {
         "label": "Veo 3.1",
         "count": 1
       },
@@ -1218,10 +1470,6 @@
       },
       {
         "label": "语音生物识别",
-        "count": 1
-      },
-      {
-        "label": "语音识别",
         "count": 1
       },
       {
@@ -1271,12 +1519,52 @@
       {
         "label": "Content ID",
         "count": 1
+      },
+      {
+        "label": "AI写作助手",
+        "count": 1
+      },
+      {
+        "label": "Copilot",
+        "count": 1
+      },
+      {
+        "label": "Starlink",
+        "count": 1
+      },
+      {
+        "label": "角色扮演聊天机器人",
+        "count": 1
+      },
+      {
+        "label": "社交网络",
+        "count": 1
+      },
+      {
+        "label": "服务中断",
+        "count": 1
+      },
+      {
+        "label": "太空计算",
+        "count": 1
+      },
+      {
+        "label": "太空数据中心",
+        "count": 1
+      },
+      {
+        "label": "网络芯片",
+        "count": 1
+      },
+      {
+        "label": "自动语音识别",
+        "count": 1
       }
     ],
     "资本": [
       {
         "label": "IPO",
-        "count": 3
+        "count": 5
       },
       {
         "label": "Pre-IPO融资",
@@ -1296,6 +1584,10 @@
       },
       {
         "label": "并购",
+        "count": 2
+      },
+      {
+        "label": "风险投资",
         "count": 2
       },
       {
@@ -1381,11 +1673,23 @@
       {
         "label": "私募二级市场",
         "count": 1
+      },
+      {
+        "label": "创业加速器",
+        "count": 1
       }
     ],
     "应用": [
       {
+        "label": "Google AI Edge Eloquent",
+        "count": 3
+      },
+      {
         "label": "AI笔记",
+        "count": 2
+      },
+      {
+        "label": "Google Maps",
         "count": 2
       },
       {
@@ -1575,6 +1879,38 @@
       {
         "label": "AI精神科药物续方",
         "count": 1
+      },
+      {
+        "label": "工业自动化",
+        "count": 1
+      },
+      {
+        "label": "Copilot",
+        "count": 1
+      },
+      {
+        "label": "Suno Studio",
+        "count": 1
+      },
+      {
+        "label": "Character.ai",
+        "count": 1
+      },
+      {
+        "label": "角色扮演聊天机器人",
+        "count": 1
+      },
+      {
+        "label": "社交媒体",
+        "count": 1
+      },
+      {
+        "label": "AI合规工具",
+        "count": 1
+      },
+      {
+        "label": "iOS",
+        "count": 1
       }
     ],
     "任务": [
@@ -1588,6 +1924,14 @@
       },
       {
         "label": "高管变动",
+        "count": 2
+      },
+      {
+        "label": "轨道数据中心",
+        "count": 2
+      },
+      {
+        "label": "Stargate",
         "count": 2
       },
       {
@@ -1701,6 +2045,38 @@
       {
         "label": "人事变动",
         "count": 1
+      },
+      {
+        "label": "AI写作助手",
+        "count": 1
+      },
+      {
+        "label": "Expert Review",
+        "count": 1
+      },
+      {
+        "label": "AI合规",
+        "count": 1
+      },
+      {
+        "label": "语音听写",
+        "count": 1
+      },
+      {
+        "label": "Stargate项目",
+        "count": 1
+      },
+      {
+        "label": "AI模型开发",
+        "count": 1
+      },
+      {
+        "label": "初创企业融资",
+        "count": 1
+      },
+      {
+        "label": "创业竞赛",
+        "count": 1
       }
     ],
     "人物": [
@@ -1719,6 +2095,10 @@
       {
         "label": "Sam Altman",
         "count": 1
+      },
+      {
+        "label": "Chuck Robbins",
+        "count": 1
       }
     ],
     "组织": [
@@ -1730,6 +2110,12 @@
     "行业": [
       {
         "label": "娱乐产业",
+        "count": 1
+      }
+    ],
+    "地区": [
+      {
+        "label": "日本",
         "count": 1
       }
     ]
