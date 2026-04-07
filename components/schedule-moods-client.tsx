@@ -1,8 +1,8 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { buildCstMonthGrid } from "@/lib/cst-calendar";
-import { moodEmoji, moodLabel, type MoodId } from "@/lib/home-mood-calendar";
+import { MOOD_OPTIONS, moodEmoji, moodLabel, type MoodId } from "@/lib/home-mood-calendar";
 import { DeerDairyPanel } from "@/components/deer-dairy-panel";
 import { MoodPickerDialog } from "@/components/mood-picker-dialog";
 
@@ -11,6 +11,9 @@ type MoodRow = {
   moodId: MoodId;
   updatedAt: string;
 };
+
+const MOOD_AXIS: MoodId[] = ["sad", "nervous", "calm", "happy", "blessed"];
+const MOOD_Y_INDEX = new Map<MoodId, number>(MOOD_AXIS.map((id, i) => [id, i]));
 
 type ScheduleMoodsClientProps = {
   initialYear: number;
@@ -32,6 +35,23 @@ function formatSelectedDateLabel(dateKey: string): string {
     month: "long",
     day: "numeric",
   });
+}
+
+function parseDateKeyToCstDate(dateKey: string): Date {
+  return new Date(`${dateKey}T12:00:00+08:00`);
+}
+
+function formatDateKey(date: Date): string {
+  const yyyy = date.getUTCFullYear();
+  const mm = String(date.getUTCMonth() + 1).padStart(2, "0");
+  const dd = String(date.getUTCDate()).padStart(2, "0");
+  return `${yyyy}-${mm}-${dd}`;
+}
+
+function addDaysFromDateKey(dateKey: string, delta: number): string {
+  const d = parseDateKeyToCstDate(dateKey);
+  d.setUTCDate(d.getUTCDate() + delta);
+  return formatDateKey(d);
 }
 
 function ChevronLeftIcon(props: { className?: string }) {
@@ -63,7 +83,7 @@ export function ScheduleMoodsClient({ initialYear, initialMonth, todayKey }: Sch
   const [month, setMonth] = useState(initialMonth);
   const [moods, setMoods] = useState<Record<string, MoodId>>({});
   const [notes, setNotes] = useState<Record<string, string>>({});
-  const [rows, setRows] = useState<MoodRow[]>([]);
+  const [recentRows, setRecentRows] = useState<Record<string, MoodRow>>({});
   const [loggedIn, setLoggedIn] = useState(false);
   const [selectedDateKey, setSelectedDateKey] = useState<string | null>(todayKey);
   const [bodyDraft, setBodyDraft] = useState("");
@@ -73,6 +93,18 @@ export function ScheduleMoodsClient({ initialYear, initialMonth, todayKey }: Sch
 
   const grid = buildCstMonthGrid(year, month);
   const weekdays = ["一", "二", "三", "四", "五", "六", "日"] as const;
+  const recent30DateKeys = useMemo(
+    () => Array.from({ length: 30 }, (_, i) => addDaysFromDateKey(todayKey, i - 29)),
+    [todayKey],
+  );
+  const recent30MonthPairs = useMemo(() => {
+    const pairs = new Set<string>();
+    for (const dk of recent30DateKeys) pairs.add(dk.slice(0, 7));
+    return Array.from(pairs).map((x) => {
+      const [yy, mm] = x.split("-");
+      return { year: Number.parseInt(yy ?? "0", 10), month: Number.parseInt(mm ?? "0", 10) };
+    });
+  }, [recent30DateKeys]);
 
   const load = useCallback(async () => {
     const sess = await fetch("/api/auth/session", { cache: "no-store" }).then((r) => r.json()) as {
@@ -83,7 +115,7 @@ export function ScheduleMoodsClient({ initialYear, initialMonth, todayKey }: Sch
     if (!ok) {
       setMoods({});
       setNotes({});
-      setRows([]);
+      setRecentRows({});
       setError(null);
       return;
     }
@@ -105,13 +137,11 @@ export function ScheduleMoodsClient({ initialYear, initialMonth, todayKey }: Sch
 
     if (!moodsRes.ok) {
       setMoods({});
-      setRows([]);
       setNotes({});
       setError(moodsData.message ?? "心情记录加载失败");
       return;
     }
     setMoods(moodsData.moods ?? {});
-    setRows(moodsData.rows ?? []);
 
     if (!notesRes.ok) {
       setNotes({});
@@ -120,7 +150,24 @@ export function ScheduleMoodsClient({ initialYear, initialMonth, todayKey }: Sch
     }
     setNotes(notesData.notes ?? {});
     setError(null);
-  }, [year, month]);
+
+    const chartRowsMap: Record<string, MoodRow> = {};
+    for (const pair of recent30MonthPairs) {
+      const chartRes = await fetch(`/api/moods?year=${pair.year}&month=${pair.month}`, {
+        cache: "no-store",
+      });
+      if (!chartRes.ok) continue;
+      const chartData = (await chartRes.json().catch(() => ({}))) as { rows?: MoodRow[] };
+      for (const row of chartData.rows ?? []) {
+        if (!recent30DateKeys.includes(row.dateKey)) continue;
+        const prev = chartRowsMap[row.dateKey];
+        if (!prev || Date.parse(row.updatedAt) > Date.parse(prev.updatedAt)) {
+          chartRowsMap[row.dateKey] = row;
+        }
+      }
+    }
+    setRecentRows(chartRowsMap);
+  }, [year, month, recent30DateKeys, recent30MonthPairs]);
 
   useEffect(() => {
     queueMicrotask(() => void load());
@@ -203,6 +250,20 @@ export function ScheduleMoodsClient({ initialYear, initialMonth, todayKey }: Sch
     selectedDateKey && dateInMonth(selectedDateKey, year, month)
       ? Number(selectedDateKey.slice(-2))
       : null;
+
+  const chartPoints = useMemo(
+    () =>
+      recent30DateKeys
+        .map((dateKey, index) => {
+          const row = recentRows[dateKey];
+          if (!row) return null;
+          const moodIndex = MOOD_Y_INDEX.get(row.moodId);
+          if (moodIndex == null) return null;
+          return { dateKey, moodId: row.moodId, index, moodIndex };
+        })
+        .filter((x): x is { dateKey: string; moodId: MoodId; index: number; moodIndex: number } => x != null),
+    [recent30DateKeys, recentRows],
+  );
 
   return (
     <div className="space-y-8">
@@ -336,43 +397,73 @@ export function ScheduleMoodsClient({ initialYear, initialMonth, todayKey }: Sch
       <section className="rounded-xl border border-zinc-200/90 bg-white/70 p-4 shadow-sm dark:border-zinc-700/90 dark:bg-zinc-900/45">
         <h3 className="text-base font-semibold">本月心情记录</h3>
         <p className="mt-1 text-xs text-zinc-500">
-          含最后更新时间，便于追溯；在右侧 deer-dairy 中选日后可记录或修改心情。
+          以近30天为默认窗口：横轴为日期，纵轴为心情（从难过到幸福）。
         </p>
         {!loggedIn ? (
-          <p className="mt-4 text-sm text-zinc-500">登录后显示列表。</p>
-        ) : rows.length === 0 ? (
-          <p className="mt-4 text-sm text-zinc-500">本月尚未记录心情。</p>
+          <p className="mt-4 text-sm text-zinc-500">登录后显示可视化。</p>
+        ) : chartPoints.length === 0 ? (
+          <p className="mt-4 text-sm text-zinc-500">近30天尚未记录心情。</p>
         ) : (
           <div className="mt-4 overflow-x-auto">
-            <table className="w-full min-w-[280px] border-collapse text-left text-sm">
-              <thead>
-                <tr className="border-b border-zinc-200 text-xs text-zinc-500 dark:border-zinc-700">
-                  <th className="py-2 pr-4 font-medium">日期</th>
-                  <th className="py-2 pr-4 font-medium">心情</th>
-                  <th className="py-2 font-medium">最后更新</th>
-                </tr>
-              </thead>
-              <tbody>
-                {rows.map((row) => (
-                  <tr key={row.dateKey} className="border-b border-zinc-100 dark:border-zinc-800">
-                    <td className="py-2 pr-4 font-medium tabular-nums text-zinc-900 dark:text-zinc-100">
-                      {row.dateKey}
-                    </td>
-                    <td className="py-2 pr-4">
-                      <span className="mr-1.5 text-lg" aria-hidden>
-                        {moodEmoji(row.moodId)}
-                      </span>
-                      <span className="text-zinc-700 dark:text-zinc-200">{moodLabel(row.moodId)}</span>
-                    </td>
-                    <td className="py-2 text-xs tabular-nums text-zinc-500 dark:text-zinc-400">
-                      {new Date(row.updatedAt).toLocaleString("zh-CN", { timeZone: "Asia/Shanghai" })}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <svg
+              viewBox="0 0 860 300"
+              className="h-[300px] min-w-[860px] w-full rounded-lg border border-zinc-200/90 bg-white/90 p-2 dark:border-zinc-700/90 dark:bg-zinc-900/60"
+              role="img"
+              aria-label="近30天心情坐标图"
+            >
+              <line x1="60" y1="24" x2="60" y2="260" stroke="currentColor" opacity="0.35" />
+              <line x1="60" y1="260" x2="830" y2="260" stroke="currentColor" opacity="0.35" />
+
+              {MOOD_AXIS.map((id, moodIdx) => {
+                const y = 260 - (moodIdx / (MOOD_AXIS.length - 1)) * 220;
+                return (
+                  <g key={id}>
+                    <line x1="60" y1={y} x2="830" y2={y} stroke="currentColor" opacity="0.12" />
+                    <text x="8" y={y + 4} fontSize="12" fill="currentColor" opacity="0.8">
+                      {moodEmoji(id)} {moodLabel(id)}
+                    </text>
+                  </g>
+                );
+              })}
+
+              {recent30DateKeys.map((dateKey, index) => {
+                if (index % 5 !== 0 && index !== recent30DateKeys.length - 1) return null;
+                const x = 60 + (index / (recent30DateKeys.length - 1)) * 770;
+                return (
+                  <g key={`x-${dateKey}`}>
+                    <line x1={x} y1="260" x2={x} y2="264" stroke="currentColor" opacity="0.5" />
+                    <text x={x - 20} y="282" fontSize="10" fill="currentColor" opacity="0.75">
+                      {dateKey.slice(5)}
+                    </text>
+                  </g>
+                );
+              })}
+
+              {chartPoints.map((p) => {
+                const x = 60 + (p.index / (recent30DateKeys.length - 1)) * 770;
+                const y = 260 - (p.moodIndex / (MOOD_AXIS.length - 1)) * 220;
+                return (
+                  <g key={p.dateKey}>
+                    <circle cx={x} cy={y} r="6" fill="currentColor" opacity="0.8" />
+                    <text x={x - 8} y={y - 10} fontSize="12" fill="currentColor" opacity="0.9">
+                      {moodEmoji(p.moodId)}
+                    </text>
+                    <title>{`${p.dateKey} ${moodLabel(p.moodId)}`}</title>
+                  </g>
+                );
+              })}
+            </svg>
           </div>
         )}
+        {loggedIn ? (
+          <div className="mt-3 flex flex-wrap gap-2 text-[11px] text-zinc-500 dark:text-zinc-400">
+            {MOOD_OPTIONS.map((m) => (
+              <span key={m.id} className="rounded-full border border-zinc-200 px-2 py-0.5 dark:border-zinc-700">
+                {m.emoji} {m.label}
+              </span>
+            ))}
+          </div>
+        ) : null}
       </section>
 
       <MoodPickerDialog

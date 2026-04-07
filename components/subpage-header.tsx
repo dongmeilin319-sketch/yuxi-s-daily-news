@@ -51,6 +51,12 @@ export function SubpageHeader({
       </div>
 
       <nav className="flex flex-wrap gap-2">
+        <Link
+          href="/"
+          className="rounded-lg border border-indigo-200/90 bg-indigo-50/90 px-3 py-1.5 text-xs font-medium text-indigo-800 shadow-sm transition hover:border-indigo-300 hover:bg-indigo-100 hover:text-indigo-900 dark:border-indigo-600/70 dark:bg-indigo-950/50 dark:text-indigo-200 dark:hover:border-indigo-500 dark:hover:bg-indigo-900/60"
+        >
+          回首页
+        </Link>
         {visibleTabs.map((tab) => {
           const active = tab.key === activeTab;
           return (
