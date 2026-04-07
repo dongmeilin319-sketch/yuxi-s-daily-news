@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import Link from "next/link";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { getAllNews, getNewsBySlug } from "@/lib/content";
+import { getAllNews, resolveNewsBySlug } from "@/lib/content";
 import { AIAbstract, Insight } from "@/components/mdx-blocks";
 import { ReadingProgress } from "@/components/reading-progress";
 import { ShareCopyButton } from "@/components/share-copy-button";
@@ -20,10 +20,11 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: NewsDetailPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const item = getNewsBySlug(slug);
-  if (!item) {
+  const resolved = resolveNewsBySlug(slug);
+  if (!resolved) {
     return {};
   }
+  const { item } = resolved;
 
   const siteUrl = getSiteUrl();
   const pageUrl = `${siteUrl}/news/${item.slug}`;
@@ -53,12 +54,18 @@ export async function generateMetadata({ params }: NewsDetailPageProps): Promise
 
 export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
   const { slug } = await params;
-  const item = getNewsBySlug(slug);
-  const allNews = getAllNews();
+  const resolved = resolveNewsBySlug(slug);
 
-  if (!item) {
+  if (!resolved) {
     notFound();
   }
+
+  if (resolved.canonicalSlug !== slug) {
+    redirect(`/news/${resolved.canonicalSlug}`);
+  }
+
+  const { item } = resolved;
+  const allNews = getAllNews();
 
   const siteUrl = getSiteUrl();
   const pageUrl = `${siteUrl}/news/${item.slug}`;

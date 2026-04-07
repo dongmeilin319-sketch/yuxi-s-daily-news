@@ -55,18 +55,189 @@ function parseNewsFile(fileName: string): NewsItem | null {
   };
 }
 
-export function getAllNews(): NewsItem[] {
-  const files = readMdxFilesFromDir(dailyContentDir);
+/** 无 originalUrl 时按标题去重的时间桶宽度（毫秒） */
+const TITLE_DEDUP_WINDOW_MS = 6 * 60 * 60 * 1000;
 
-  return files
+const TRACKING_QUERY_KEYS = new Set([
+  "fbclid",
+  "gclid",
+  "mc_cid",
+  "mc_eid",
+  "igshid",
+  "spm",
+  "_hsenc",
+  "_hsmi",
+  "ref",
+  "ref_src",
+  "ref_url",
+]);
+
+function normalizeUrlForDedup(raw: string | undefined): string | null {
+  if (!raw?.trim()) return null;
+  try {
+    const u = new URL(raw.trim());
+    u.hash = "";
+    u.hostname = u.hostname.toLowerCase();
+    for (const k of Array.from(u.searchParams.keys())) {
+      const lk = k.toLowerCase();
+      if (TRACKING_QUERY_KEYS.has(lk) || lk.startsWith("utm_")) {
+        u.searchParams.delete(k);
+      }
+    }
+    let pathname = u.pathname;
+    if (pathname.length > 1 && pathname.endsWith("/")) {
+      pathname = pathname.slice(0, -1);
+    }
+    u.pathname = pathname;
+    return u.href;
+  } catch {
+    return null;
+  }
+}
+
+function normalizeTitleForDedup(title: string): string {
+  return title
+    .toLowerCase()
+    .normalize("NFKC")
+    .replace(/[\p{P}\p{S}]+/gu, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function publishMs(iso: string): number {
+  const t = Date.parse(iso);
+  return Number.isFinite(t) ? t : 0;
+}
+
+function collectedMs(item: NewsItem): number {
+  const t = Date.parse(item.collectedAt ?? item.publishAt);
+  return Number.isFinite(t) ? t : 0;
+}
+
+function pickCanonicalFromGroup(group: NewsItem[]): NewsItem {
+  const sorted = [...group].sort((a, b) => {
+    const pub = publishMs(b.publishAt) - publishMs(a.publishAt);
+    if (pub !== 0) return pub;
+    const col = collectedMs(b) - collectedMs(a);
+    if (col !== 0) return col;
+    return a.slug.localeCompare(b.slug);
+  });
+  return sorted[0]!;
+}
+
+function buildDailyDedupIndex(raw: NewsItem[]): {
+  uniqueSorted: NewsItem[];
+  aliasToCanonical: Map<string, string>;
+} {
+  const urlGroups = new Map<string, NewsItem[]>();
+  const noUrlItems: NewsItem[] = [];
+
+  for (const item of raw) {
+    const uk = normalizeUrlForDedup(item.originalUrl);
+    if (uk) {
+      const arr = urlGroups.get(uk) ?? [];
+      arr.push(item);
+      urlGroups.set(uk, arr);
+    } else {
+      noUrlItems.push(item);
+    }
+  }
+
+  const titleGroups = new Map<string, NewsItem[]>();
+  for (const item of noUrlItems) {
+    const nt = normalizeTitleForDedup(item.title);
+    if (!nt) continue;
+    const bucket = Math.floor(publishMs(item.publishAt) / TITLE_DEDUP_WINDOW_MS);
+    const key = `${nt}|${bucket}`;
+    const arr = titleGroups.get(key) ?? [];
+    arr.push(item);
+    titleGroups.set(key, arr);
+  }
+
+  const canonicalSlugs = new Set<string>();
+  const aliasToCanonical = new Map<string, string>();
+
+  for (const group of urlGroups.values()) {
+    const winner = pickCanonicalFromGroup(group);
+    canonicalSlugs.add(winner.slug);
+    for (const it of group) {
+      if (it.slug !== winner.slug) {
+        aliasToCanonical.set(it.slug, winner.slug);
+      }
+    }
+  }
+
+  for (const group of titleGroups.values()) {
+    const winner = pickCanonicalFromGroup(group);
+    canonicalSlugs.add(winner.slug);
+    for (const it of group) {
+      if (it.slug !== winner.slug) {
+        aliasToCanonical.set(it.slug, winner.slug);
+      }
+    }
+  }
+
+  const uniqueSorted = raw
+    .filter((it) => canonicalSlugs.has(it.slug))
+    .sort((a, b) => publishMs(b.publishAt) - publishMs(a.publishAt));
+
+  return { uniqueSorted, aliasToCanonical };
+}
+
+type DailyNewsDedupIndex = {
+  uniqueSorted: NewsItem[];
+  aliasToCanonical: Map<string, string>;
+  rawBySlug: Map<string, NewsItem>;
+  canonicalItemBySlug: Map<string, NewsItem>;
+};
+
+let productionDedupCache: DailyNewsDedupIndex | null = null;
+
+function buildDailyNewsDedupIndexFromDisk(): DailyNewsDedupIndex {
+  const files = readMdxFilesFromDir(dailyContentDir);
+  const raw = files
     .map(parseNewsFile)
-    .filter((item): item is NewsItem => item !== null)
-    .sort((a, b) => +new Date(b.publishAt) - +new Date(a.publishAt));
+    .filter((item): item is NewsItem => item !== null);
+  const rawBySlug = new Map(raw.map((i) => [i.slug, i]));
+  const { uniqueSorted, aliasToCanonical } = buildDailyDedupIndex(raw);
+  const canonicalItemBySlug = new Map(uniqueSorted.map((i) => [i.slug, i]));
+  return { uniqueSorted, aliasToCanonical, rawBySlug, canonicalItemBySlug };
+}
+
+function getDailyNewsDedupIndex(): DailyNewsDedupIndex {
+  if (process.env.NODE_ENV === "production") {
+    if (!productionDedupCache) {
+      productionDedupCache = buildDailyNewsDedupIndexFromDisk();
+    }
+    return productionDedupCache;
+  }
+  return buildDailyNewsDedupIndexFromDisk();
+}
+
+export type ResolvedNewsBySlug = {
+  item: NewsItem;
+  /** 去重后的主 slug（与 item.slug 一致） */
+  canonicalSlug: string;
+};
+
+/**
+ * 按 slug 解析新闻：重复条目会映射到 canonical 对应的 NewsItem（正文与元数据均为保留条）。
+ */
+export function resolveNewsBySlug(slug: string): ResolvedNewsBySlug | null {
+  const { aliasToCanonical, rawBySlug, canonicalItemBySlug } = getDailyNewsDedupIndex();
+  if (!rawBySlug.has(slug)) return null;
+  const canonicalSlug = aliasToCanonical.get(slug) ?? slug;
+  const winner = canonicalItemBySlug.get(canonicalSlug);
+  if (!winner) return null;
+  return { item: winner, canonicalSlug: winner.slug };
+}
+
+export function getAllNews(): NewsItem[] {
+  return getDailyNewsDedupIndex().uniqueSorted;
 }
 
 export function getNewsBySlug(slug: string): NewsItem | null {
-  const all = getAllNews();
-  return all.find((item) => item.slug === slug) ?? null;
+  return resolveNewsBySlug(slug)?.item ?? null;
 }
 
 export function getAllReviewNews(): NewsItem[] {

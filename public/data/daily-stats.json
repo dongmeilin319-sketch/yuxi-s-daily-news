@@ -1,40 +1,23 @@
 {
-  "generatedAt": "2026-04-07T03:45:18.094Z",
-  "totalNews": 152,
+  "generatedAt": "2026-04-07T11:32:34.674Z",
+  "totalNews": 109,
   "bySentiment": {
-    "neutral": 152
+    "neutral": 109
   },
   "byTrack": {
-    "政策监管": 35,
-    "基础模型": 9,
-    "行业动态": 51,
-    "应用层": 43,
-    "安全合规": 6,
-    "市场观点": 1,
-    "芯片算力": 3,
-    "开发者工具": 4
+    "政策监管": 27,
+    "基础模型": 8,
+    "行业动态": 34,
+    "应用层": 31,
+    "安全合规": 4,
+    "芯片算力": 2,
+    "开发者工具": 3
   },
   "topLabelsByType": {
     "政策": [
       {
         "label": "AI监管",
-        "count": 6
-      },
-      {
-        "label": "特朗普政府",
-        "count": 2
-      },
-      {
-        "label": "PCAST",
-        "count": 2
-      },
-      {
-        "label": "集体诉讼",
-        "count": 2
-      },
-      {
-        "label": "中国AI监管",
-        "count": 2
+        "count": 4
       },
       {
         "label": "AI立法框架",
@@ -89,11 +72,19 @@
         "count": 1
       },
       {
-        "label": "美国国家AI框架",
+        "label": "特朗普政府",
+        "count": 1
+      },
+      {
+        "label": "PCAST",
         "count": 1
       },
       {
         "label": "国家AI框架",
+        "count": 1
+      },
+      {
+        "label": "集体诉讼",
         "count": 1
       },
       {
@@ -105,15 +96,15 @@
         "count": 1
       },
       {
-        "label": "国防部合作争议",
-        "count": 1
-      },
-      {
         "label": "AI广告标注",
         "count": 1
       },
       {
         "label": "内容标记",
+        "count": 1
+      },
+      {
+        "label": "中国AI监管",
         "count": 1
       },
       {
@@ -149,10 +140,6 @@
         "count": 1
       },
       {
-        "label": "犹他州AI医疗试点",
-        "count": 1
-      },
-      {
         "label": "订阅政策调整",
         "count": 1
       },
@@ -181,15 +168,7 @@
         "count": 1
       },
       {
-        "label": "日本 2040 物理 AI 市场目标",
-        "count": 1
-      },
-      {
         "label": "服务条款",
-        "count": 1
-      },
-      {
-        "label": "使用条款",
         "count": 1
       },
       {
@@ -208,42 +187,30 @@
     "公司": [
       {
         "label": "OpenAI",
-        "count": 38
+        "count": 29
       },
       {
         "label": "Google",
-        "count": 24
+        "count": 18
       },
       {
         "label": "Anthropic",
-        "count": 19
-      },
-      {
-        "label": "SpaceX",
-        "count": 10
+        "count": 14
       },
       {
         "label": "Apple",
-        "count": 9
+        "count": 7
       },
       {
         "label": "Meta",
-        "count": 9
+        "count": 7
       },
       {
-        "label": "Microsoft",
+        "label": "SpaceX",
         "count": 6
       },
       {
-        "label": "Oracle",
-        "count": 4
-      },
-      {
-        "label": "Bluesky",
-        "count": 4
-      },
-      {
-        "label": "xAI",
+        "label": "Microsoft",
         "count": 4
       },
       {
@@ -251,27 +218,11 @@
         "count": 4
       },
       {
+        "label": "Oracle",
+        "count": 3
+      },
+      {
         "label": "Amazon",
-        "count": 3
-      },
-      {
-        "label": "Samsung",
-        "count": 3
-      },
-      {
-        "label": "TBPN",
-        "count": 3
-      },
-      {
-        "label": "Cisco",
-        "count": 3
-      },
-      {
-        "label": "Delve",
-        "count": 3
-      },
-      {
-        "label": "Y Combinator",
         "count": 3
       },
       {
@@ -283,79 +234,23 @@
         "count": 2
       },
       {
-        "label": "Craft Ventures",
+        "label": "Bluesky",
         "count": 2
       },
       {
-        "label": "Alibaba",
+        "label": "Samsung",
         "count": 2
       },
       {
-        "label": "Mantis Biotech",
+        "label": "xAI",
         "count": 2
       },
       {
-        "label": "Okta",
+        "label": "TBPN",
         "count": 2
       },
       {
-        "label": "Rebellions",
-        "count": 2
-      },
-      {
-        "label": "Mirae Asset",
-        "count": 2
-      },
-      {
-        "label": "ScaleOps",
-        "count": 2
-      },
-      {
-        "label": "Insight Partners",
-        "count": 2
-      },
-      {
-        "label": "Granola",
-        "count": 2
-      },
-      {
-        "label": "Tesla",
-        "count": 2
-      },
-      {
-        "label": "Legion Health",
-        "count": 2
-      },
-      {
-        "label": "Coefficient Bio",
-        "count": 2
-      },
-      {
-        "label": "Perplexity",
-        "count": 2
-      },
-      {
-        "label": "Take-Two",
-        "count": 2
-      },
-      {
-        "label": "Zynga",
-        "count": 2
-      },
-      {
-        "label": "Grammarly/Superhuman",
-        "count": 2
-      },
-      {
-        "label": "Mujin",
-        "count": 2
-      },
-      {
-        "label": "Starcloud",
-        "count": 2
-      },
-      {
-        "label": "Blue Origin",
+        "label": "Cisco",
         "count": 2
       },
       {
@@ -384,6 +279,10 @@
       },
       {
         "label": "Webtoon",
+        "count": 1
+      },
+      {
+        "label": "Craft Ventures",
         "count": 1
       },
       {
@@ -416,6 +315,34 @@
       },
       {
         "label": "Bandcamp",
+        "count": 1
+      },
+      {
+        "label": "Alibaba",
+        "count": 1
+      },
+      {
+        "label": "Mantis Biotech",
+        "count": 1
+      },
+      {
+        "label": "Okta",
+        "count": 1
+      },
+      {
+        "label": "Rebellions",
+        "count": 1
+      },
+      {
+        "label": "Mirae Asset",
+        "count": 1
+      },
+      {
+        "label": "ScaleOps",
+        "count": 1
+      },
+      {
+        "label": "Insight Partners",
         "count": 1
       },
       {
@@ -463,7 +390,19 @@
         "count": 1
       },
       {
+        "label": "Granola",
+        "count": 1
+      },
+      {
         "label": "Kintsugi",
+        "count": 1
+      },
+      {
+        "label": "Tesla",
+        "count": 1
+      },
+      {
+        "label": "Coefficient Bio",
         "count": 1
       },
       {
@@ -471,7 +410,19 @@
         "count": 1
       },
       {
-        "label": "Slack",
+        "label": "Perplexity",
+        "count": 1
+      },
+      {
+        "label": "Take-Two",
+        "count": 1
+      },
+      {
+        "label": "Zynga",
+        "count": 1
+      },
+      {
+        "label": "Legion Health",
         "count": 1
       },
       {
@@ -487,7 +438,11 @@
         "count": 1
       },
       {
-        "label": "WHILL",
+        "label": "Grammarly/Superhuman",
+        "count": 1
+      },
+      {
+        "label": "Mujin",
         "count": 1
       },
       {
@@ -495,37 +450,29 @@
         "count": 1
       },
       {
+        "label": "Starcloud",
+        "count": 1
+      },
+      {
+        "label": "Blue Origin",
+        "count": 1
+      },
+      {
         "label": "Character.ai",
         "count": 1
       },
       {
-        "label": "早期初创企业",
+        "label": "Delve",
+        "count": 1
+      },
+      {
+        "label": "Y Combinator",
         "count": 1
       }
     ],
     "主题": [
       {
-        "label": "AI基础设施",
-        "count": 3
-      },
-      {
-        "label": "地缘政治",
-        "count": 3
-      },
-      {
         "label": "音乐产业",
-        "count": 2
-      },
-      {
-        "label": "AI采用率",
-        "count": 2
-      },
-      {
-        "label": "艺术教育",
-        "count": 2
-      },
-      {
-        "label": "裁员",
         "count": 2
       },
       {
@@ -533,39 +480,7 @@
         "count": 2
       },
       {
-        "label": "法律诉讼",
-        "count": 2
-      },
-      {
-        "label": "隐私保护",
-        "count": 2
-      },
-      {
-        "label": "医疗休假",
-        "count": 2
-      },
-      {
-        "label": "劳动力短缺",
-        "count": 2
-      },
-      {
-        "label": "青少年用户行为",
-        "count": 2
-      },
-      {
-        "label": "服务中断",
-        "count": 2
-      },
-      {
-        "label": "vibe coding",
-        "count": 2
-      },
-      {
-        "label": "Startup Battlefield 200",
-        "count": 2
-      },
-      {
-        "label": "TechCrunch Disrupt 2026",
+        "label": "地缘政治",
         "count": 2
       },
       {
@@ -665,14 +580,6 @@
         "count": 1
       },
       {
-        "label": "国防采购",
-        "count": 1
-      },
-      {
-        "label": "AI伦理限制",
-        "count": 1
-      },
-      {
         "label": "政府科技顾问",
         "count": 1
       },
@@ -686,22 +593,6 @@
       },
       {
         "label": "付费订阅增长",
-        "count": 1
-      },
-      {
-        "label": "消费者AI市场",
-        "count": 1
-      },
-      {
-        "label": "高管离职",
-        "count": 1
-      },
-      {
-        "label": "团队重组",
-        "count": 1
-      },
-      {
-        "label": "迎合行为",
         "count": 1
       },
       {
@@ -729,6 +620,10 @@
         "count": 1
       },
       {
+        "label": "AI采用率",
+        "count": 1
+      },
+      {
         "label": "公众调查",
         "count": 1
       },
@@ -738,26 +633,6 @@
       },
       {
         "label": "版权诉讼",
-        "count": 1
-      },
-      {
-        "label": "AI信任",
-        "count": 1
-      },
-      {
-        "label": "就业影响",
-        "count": 1
-      },
-      {
-        "label": "公众态度",
-        "count": 1
-      },
-      {
-        "label": "Quinnipiac University",
-        "count": 1
-      },
-      {
-        "label": "错误上线",
         "count": 1
       },
       {
@@ -773,19 +648,11 @@
         "count": 1
       },
       {
-        "label": "SaaSpocalypse",
-        "count": 1
-      },
-      {
-        "label": "推理计算",
-        "count": 1
-      },
-      {
         "label": "云计算成本优化",
         "count": 1
       },
       {
-        "label": "就业市场",
+        "label": "艺术教育",
         "count": 1
       },
       {
@@ -809,15 +676,11 @@
         "count": 1
       },
       {
-        "label": "云计算",
+        "label": "裁员",
         "count": 1
       },
       {
         "label": "劳动力调整",
-        "count": 1
-      },
-      {
-        "label": "AI Ethics",
         "count": 1
       },
       {
@@ -889,27 +752,7 @@
         "count": 1
       },
       {
-        "label": "AI传播",
-        "count": 1
-      },
-      {
         "label": "商业诉讼",
-        "count": 1
-      },
-      {
-        "label": "诉讼",
-        "count": 1
-      },
-      {
-        "label": "精神药物续方",
-        "count": 1
-      },
-      {
-        "label": "产品排名",
-        "count": 1
-      },
-      {
-        "label": "播客",
         "count": 1
       },
       {
@@ -921,6 +764,14 @@
         "count": 1
       },
       {
+        "label": "法律诉讼",
+        "count": 1
+      },
+      {
+        "label": "隐私保护",
+        "count": 1
+      },
+      {
         "label": "IPO",
         "count": 1
       },
@@ -929,11 +780,11 @@
         "count": 1
       },
       {
-        "label": "高管人事变动",
+        "label": "医疗休假",
         "count": 1
       },
       {
-        "label": "特殊项目",
+        "label": "高管人事变动",
         "count": 1
       },
       {
@@ -946,10 +797,6 @@
       },
       {
         "label": "社交媒体传播",
-        "count": 1
-      },
-      {
-        "label": "游戏行业",
         "count": 1
       },
       {
@@ -973,19 +820,15 @@
         "count": 1
       },
       {
-        "label": "AI行程规划",
-        "count": 1
-      },
-      {
         "label": "AI 行程规划",
         "count": 1
       },
       {
-        "label": "肖像权争议",
+        "label": "肖像权/隐私权",
         "count": 1
       },
       {
-        "label": "肖像权/隐私权",
+        "label": "劳动力短缺",
         "count": 1
       },
       {
@@ -997,27 +840,23 @@
         "count": 1
       },
       {
+        "label": "青少年用户行为",
+        "count": 1
+      },
+      {
         "label": "社交媒体",
         "count": 1
       },
       {
-        "label": "欺诈指控",
+        "label": "vibe coding",
         "count": 1
       },
       {
-        "label": "合规欺诈",
+        "label": "AI基础设施",
         "count": 1
       },
       {
         "label": "合规欺诈指控",
-        "count": 1
-      },
-      {
-        "label": "离线AI",
-        "count": 1
-      },
-      {
-        "label": "离线 AI",
         "count": 1
       },
       {
@@ -1026,10 +865,6 @@
       },
       {
         "label": "中东局势",
-        "count": 1
-      },
-      {
-        "label": "模型开源策略",
         "count": 1
       },
       {
@@ -1045,19 +880,15 @@
         "count": 1
       },
       {
-        "label": "媒体调查",
+        "label": "领导力争议",
         "count": 1
       },
       {
-        "label": "人工智能伦理",
+        "label": "Startup Battlefield 200",
         "count": 1
       },
       {
-        "label": "领导力信任",
-        "count": 1
-      },
-      {
-        "label": "权力与治理",
+        "label": "TechCrunch Disrupt 2026",
         "count": 1
       },
       {
@@ -1067,27 +898,15 @@
     ],
     "安全合规": [
       {
-        "label": "数据泄露",
-        "count": 5
+        "label": "AI安全",
+        "count": 3
       },
       {
-        "label": "AI安全",
-        "count": 4
+        "label": "数据泄露",
+        "count": 3
       },
       {
         "label": "供应链风险",
-        "count": 2
-      },
-      {
-        "label": "隐私设置",
-        "count": 2
-      },
-      {
-        "label": "医疗AI监管",
-        "count": 2
-      },
-      {
-        "label": "AI内容安全",
         "count": 2
       },
       {
@@ -1103,14 +922,6 @@
         "count": 1
       },
       {
-        "label": "供应链风险认定",
-        "count": 1
-      },
-      {
-        "label": "隐私数据",
-        "count": 1
-      },
-      {
         "label": "隐私泄露",
         "count": 1
       },
@@ -1123,19 +934,11 @@
         "count": 1
       },
       {
-        "label": "AI Agent Security",
-        "count": 1
-      },
-      {
         "label": "核安全监管",
         "count": 1
       },
       {
         "label": "源代码泄露",
-        "count": 1
-      },
-      {
-        "label": "版权争议",
         "count": 1
       },
       {
@@ -1155,23 +958,19 @@
         "count": 1
       },
       {
+        "label": "隐私设置",
+        "count": 1
+      },
+      {
         "label": "集体诉讼",
         "count": 1
       },
       {
-        "label": "数据共享",
+        "label": "医疗AI监管",
         "count": 1
       },
       {
         "label": "平台内容审核",
-        "count": 1
-      },
-      {
-        "label": "模型幻觉风险",
-        "count": 1
-      },
-      {
-        "label": "隐私侵权诉讼",
         "count": 1
       },
       {
@@ -1183,7 +982,7 @@
         "count": 1
       },
       {
-        "label": "设施安全威胁",
+        "label": "AI内容安全",
         "count": 1
       },
       {
@@ -1195,10 +994,6 @@
         "count": 1
       },
       {
-        "label": "AI安全风险",
-        "count": 1
-      },
-      {
         "label": "企业伦理",
         "count": 1
       }
@@ -1206,14 +1001,10 @@
     "技术": [
       {
         "label": "Gemini",
-        "count": 5
+        "count": 4
       },
       {
         "label": "Claude",
-        "count": 5
-      },
-      {
-        "label": "生成式AI",
         "count": 3
       },
       {
@@ -1229,19 +1020,11 @@
         "count": 3
       },
       {
-        "label": "AI训练数据",
-        "count": 3
-      },
-      {
-        "label": "语音识别",
-        "count": 3
-      },
-      {
-        "label": "Gemma",
-        "count": 3
-      },
-      {
         "label": "Sora",
+        "count": 2
+      },
+      {
+        "label": "生成式AI",
         "count": 2
       },
       {
@@ -1249,59 +1032,11 @@
         "count": 2
       },
       {
-        "label": "AI搜索",
-        "count": 2
-      },
-      {
         "label": "视频生成",
         "count": 2
       },
       {
-        "label": "大语言模型",
-        "count": 2
-      },
-      {
-        "label": "Apple Intelligence",
-        "count": 2
-      },
-      {
-        "label": "数字孪生",
-        "count": 2
-      },
-      {
-        "label": "合成数据",
-        "count": 2
-      },
-      {
-        "label": "AI Agent",
-        "count": 2
-      },
-      {
-        "label": "AI芯片",
-        "count": 2
-      },
-      {
-        "label": "Kubernetes",
-        "count": 2
-      },
-      {
-        "label": "生成式 AI",
-        "count": 2
-      },
-      {
-        "label": "vibe coding",
-        "count": 2
-      },
-      {
-        "label": "Physical AI",
-        "count": 2
-      },
-      {
-        "label": "数据中心",
-        "count": 2
-      },
-      {
-        "label": "开源AI模型",
+        "label": "AI训练数据",
         "count": 2
       },
       {
@@ -1373,6 +1108,10 @@
         "count": 1
       },
       {
+        "label": "AI搜索",
+        "count": 1
+      },
+      {
         "label": "AT Protocol",
         "count": 1
       },
@@ -1397,11 +1136,19 @@
         "count": 1
       },
       {
+        "label": "Apple Intelligence",
+        "count": 1
+      },
+      {
         "label": "Claude 集成",
         "count": 1
       },
       {
-        "label": "Copilot Cowork",
+        "label": "数字孪生",
+        "count": 1
+      },
+      {
+        "label": "合成数据",
         "count": 1
       },
       {
@@ -1409,7 +1156,11 @@
         "count": 1
       },
       {
-        "label": "Identity Management",
+        "label": "AI芯片",
+        "count": 1
+      },
+      {
+        "label": "Kubernetes",
         "count": 1
       },
       {
@@ -1429,6 +1180,10 @@
         "count": 1
       },
       {
+        "label": "生成式 AI",
+        "count": 1
+      },
+      {
         "label": "CarPlay",
         "count": 1
       },
@@ -1445,15 +1200,15 @@
         "count": 1
       },
       {
-        "label": "AI Photo Editing",
-        "count": 1
-      },
-      {
         "label": "AI 图像编辑",
         "count": 1
       },
       {
         "label": "AI辅助芯片设计",
+        "count": 1
+      },
+      {
+        "label": "vibe coding",
         "count": 1
       },
       {
@@ -1473,6 +1228,10 @@
         "count": 1
       },
       {
+        "label": "语音识别",
+        "count": 1
+      },
+      {
         "label": "基础模型",
         "count": 1
       },
@@ -1481,23 +1240,15 @@
         "count": 1
       },
       {
-        "label": "AI聊天机器人",
-        "count": 1
-      },
-      {
         "label": "AI药物发现",
         "count": 1
       },
       {
-        "label": "AI for Life Sciences",
+        "label": "AI Agent",
         "count": 1
       },
       {
         "label": "数据跟踪",
-        "count": 1
-      },
-      {
-        "label": "应用 AI",
         "count": 1
       },
       {
@@ -1525,27 +1276,11 @@
         "count": 1
       },
       {
-        "label": "Copilot",
-        "count": 1
-      },
-      {
-        "label": "Starlink",
-        "count": 1
-      },
-      {
-        "label": "角色扮演聊天机器人",
-        "count": 1
-      },
-      {
-        "label": "社交网络",
+        "label": "Physical AI",
         "count": 1
       },
       {
         "label": "服务中断",
-        "count": 1
-      },
-      {
-        "label": "太空计算",
         "count": 1
       },
       {
@@ -1557,38 +1292,22 @@
         "count": 1
       },
       {
+        "label": "Gemma",
+        "count": 1
+      },
+      {
         "label": "自动语音识别",
+        "count": 1
+      },
+      {
+        "label": "开源AI模型",
         "count": 1
       }
     ],
     "资本": [
       {
         "label": "IPO",
-        "count": 5
-      },
-      {
-        "label": "Pre-IPO融资",
-        "count": 2
-      },
-      {
-        "label": "Series C",
-        "count": 2
-      },
-      {
-        "label": "AI基础设施投资",
-        "count": 2
-      },
-      {
-        "label": "媒体收购",
-        "count": 2
-      },
-      {
-        "label": "并购",
-        "count": 2
-      },
-      {
-        "label": "风险投资",
-        "count": 2
+        "count": 3
       },
       {
         "label": "战略合作",
@@ -1611,10 +1330,6 @@
         "count": 1
       },
       {
-        "label": "收购",
-        "count": 1
-      },
-      {
         "label": "融资",
         "count": 1
       },
@@ -1627,15 +1342,19 @@
         "count": 1
       },
       {
-        "label": "种子轮融资",
-        "count": 1
-      },
-      {
         "label": "种子轮",
         "count": 1
       },
       {
+        "label": "Pre-IPO融资",
+        "count": 1
+      },
+      {
         "label": "韩国国家增长基金",
+        "count": 1
+      },
+      {
+        "label": "Series C",
         "count": 1
       },
       {
@@ -1647,6 +1366,10 @@
         "count": 1
       },
       {
+        "label": "AI基础设施投资",
+        "count": 1
+      },
+      {
         "label": "6000万美元融资",
         "count": 1
       },
@@ -1655,11 +1378,15 @@
         "count": 1
       },
       {
+        "label": "媒体收购",
+        "count": 1
+      },
+      {
         "label": "广告收入",
         "count": 1
       },
       {
-        "label": "融资并购",
+        "label": "并购",
         "count": 1
       },
       {
@@ -1675,23 +1402,11 @@
         "count": 1
       },
       {
-        "label": "创业加速器",
+        "label": "风险投资",
         "count": 1
       }
     ],
     "应用": [
-      {
-        "label": "Google AI Edge Eloquent",
-        "count": 3
-      },
-      {
-        "label": "AI笔记",
-        "count": 2
-      },
-      {
-        "label": "Google Maps",
-        "count": 2
-      },
       {
         "label": "Gemini",
         "count": 1
@@ -1753,10 +1468,6 @@
         "count": 1
       },
       {
-        "label": "个人建议",
-        "count": 1
-      },
-      {
         "label": "声音克隆",
         "count": 1
       },
@@ -1777,18 +1488,6 @@
         "count": 1
       },
       {
-        "label": "Researcher Agent",
-        "count": 1
-      },
-      {
-        "label": "Critique",
-        "count": 1
-      },
-      {
-        "label": "医疗数据增强",
-        "count": 1
-      },
-      {
         "label": "生物医学",
         "count": 1
       },
@@ -1805,15 +1504,7 @@
         "count": 1
       },
       {
-        "label": "创意产业",
-        "count": 1
-      },
-      {
         "label": "车载语音助手",
-        "count": 1
-      },
-      {
-        "label": "Photo Assist",
         "count": 1
       },
       {
@@ -1849,6 +1540,10 @@
         "count": 1
       },
       {
+        "label": "AI笔记",
+        "count": 1
+      },
+      {
         "label": "心理健康筛查",
         "count": 1
       },
@@ -1858,10 +1553,6 @@
       },
       {
         "label": "生命科学",
-        "count": 1
-      },
-      {
-        "label": "药物发现",
         "count": 1
       },
       {
@@ -1881,6 +1572,10 @@
         "count": 1
       },
       {
+        "label": "Google Maps",
+        "count": 1
+      },
+      {
         "label": "工业自动化",
         "count": 1
       },
@@ -1893,19 +1588,15 @@
         "count": 1
       },
       {
-        "label": "Character.ai",
-        "count": 1
-      },
-      {
         "label": "角色扮演聊天机器人",
         "count": 1
       },
       {
-        "label": "社交媒体",
+        "label": "AI合规工具",
         "count": 1
       },
       {
-        "label": "AI合规工具",
+        "label": "Google AI Edge Eloquent",
         "count": 1
       },
       {
@@ -1920,14 +1611,6 @@
       },
       {
         "label": "Sora",
-        "count": 2
-      },
-      {
-        "label": "高管变动",
-        "count": 2
-      },
-      {
-        "label": "轨道数据中心",
         "count": 2
       },
       {
@@ -1951,19 +1634,11 @@
         "count": 1
       },
       {
-        "label": "付费订阅增长",
-        "count": 1
-      },
-      {
         "label": "Siri Extensions",
         "count": 1
       },
       {
         "label": "SaaS转型",
-        "count": 1
-      },
-      {
-        "label": "资源优化",
         "count": 1
       },
       {
@@ -1976,10 +1651,6 @@
       },
       {
         "label": "IPO准备",
-        "count": 1
-      },
-      {
-        "label": "Natural Language Image Editing",
         "count": 1
       },
       {
@@ -2007,15 +1678,15 @@
         "count": 1
       },
       {
-        "label": "企业传播",
-        "count": 1
-      },
-      {
         "label": "自动驾驶",
         "count": 1
       },
       {
         "label": "社区投票分析",
+        "count": 1
+      },
+      {
+        "label": "高管变动",
         "count": 1
       },
       {
@@ -2035,19 +1706,7 @@
         "count": 1
       },
       {
-        "label": "AI搜索",
-        "count": 1
-      },
-      {
-        "label": "高管离职",
-        "count": 1
-      },
-      {
         "label": "人事变动",
-        "count": 1
-      },
-      {
-        "label": "AI写作助手",
         "count": 1
       },
       {
@@ -2055,15 +1714,7 @@
         "count": 1
       },
       {
-        "label": "AI合规",
-        "count": 1
-      },
-      {
-        "label": "语音听写",
-        "count": 1
-      },
-      {
-        "label": "Stargate项目",
+        "label": "轨道数据中心",
         "count": 1
       },
       {
@@ -2073,17 +1724,9 @@
       {
         "label": "初创企业融资",
         "count": 1
-      },
-      {
-        "label": "创业竞赛",
-        "count": 1
       }
     ],
     "人物": [
-      {
-        "label": "David Sacks",
-        "count": 1
-      },
       {
         "label": "Mustafa Suleyman",
         "count": 1
@@ -2110,12 +1753,6 @@
     "行业": [
       {
         "label": "娱乐产业",
-        "count": 1
-      }
-    ],
-    "地区": [
-      {
-        "label": "日本",
         "count": 1
       }
     ]

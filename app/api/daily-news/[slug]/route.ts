@@ -35,6 +35,8 @@ export async function GET(_req: Request, { params }: { params: Promise<{ slug: s
     }));
 
   return NextResponse.json({
+    requestedSlug: slug,
+    canonicalSlug: item.slug,
     slug: item.slug,
     title: item.title,
     summary: item.summary,

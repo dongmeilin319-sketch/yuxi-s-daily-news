@@ -417,7 +417,12 @@ def call_llm_direct(prompt: str, max_tokens: int = 4096) -> str:
     response.raise_for_status()
     
     data = response.json()
-    return data["choices"][0]["message"]["content"]
+    message = data["choices"][0]["message"]
+    content = message.get("content", "")
+    # kimi-k2.5 may return empty content with reasoning_content
+    if not content and message.get("reasoning_content"):
+        content = message.get("reasoning_content", "")
+    return content
 
 
 def call_claude_json(prompt: str) -> dict[str, Any]:
