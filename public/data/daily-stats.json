@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-04-07T11:47:37.460Z",
-  "totalNews": 109,
+  "generatedAt": "2026-04-08T03:47:34.851Z",
+  "totalNews": 127,
   "bySentiment": {
-    "neutral": 109
+    "neutral": 127
   },
   "byTrack": {
-    "政策监管": 27,
+    "政策监管": 28,
     "基础模型": 8,
-    "行业动态": 34,
-    "应用层": 31,
-    "安全合规": 4,
-    "芯片算力": 2,
+    "行业动态": 40,
+    "应用层": 36,
+    "安全合规": 5,
+    "芯片算力": 7,
     "开发者工具": 3
   },
   "topLabelsByType": {
@@ -182,20 +182,32 @@
       {
         "label": "公共财富基金",
         "count": 1
+      },
+      {
+        "label": "地缘政治威胁",
+        "count": 1
+      },
+      {
+        "label": "版权授权协议",
+        "count": 1
       }
     ],
     "公司": [
       {
         "label": "OpenAI",
-        "count": 29
+        "count": 34
       },
       {
         "label": "Google",
-        "count": 18
+        "count": 23
       },
       {
         "label": "Anthropic",
-        "count": 14
+        "count": 19
+      },
+      {
+        "label": "SpaceX",
+        "count": 8
       },
       {
         "label": "Apple",
@@ -206,16 +218,20 @@
         "count": 7
       },
       {
-        "label": "SpaceX",
+        "label": "Suno",
         "count": 6
+      },
+      {
+        "label": "xAI",
+        "count": 5
       },
       {
         "label": "Microsoft",
         "count": 4
       },
       {
-        "label": "Suno",
-        "count": 4
+        "label": "Nvidia",
+        "count": 3
       },
       {
         "label": "Oracle",
@@ -226,11 +242,19 @@
         "count": 3
       },
       {
-        "label": "Disney",
-        "count": 2
+        "label": "Tesla",
+        "count": 3
       },
       {
-        "label": "Nvidia",
+        "label": "Broadcom",
+        "count": 3
+      },
+      {
+        "label": "Project Prometheus",
+        "count": 3
+      },
+      {
+        "label": "Disney",
         "count": 2
       },
       {
@@ -242,15 +266,27 @@
         "count": 2
       },
       {
-        "label": "xAI",
-        "count": 2
-      },
-      {
         "label": "TBPN",
         "count": 2
       },
       {
+        "label": "Spotify",
+        "count": 2
+      },
+      {
         "label": "Cisco",
+        "count": 2
+      },
+      {
+        "label": "Intel",
+        "count": 2
+      },
+      {
+        "label": "Universal Music Group",
+        "count": 2
+      },
+      {
+        "label": "Sony Music Entertainment",
         "count": 2
       },
       {
@@ -398,10 +434,6 @@
         "count": 1
       },
       {
-        "label": "Tesla",
-        "count": 1
-      },
-      {
         "label": "Coefficient Bio",
         "count": 1
       },
@@ -431,10 +463,6 @@
       },
       {
         "label": "YouTube",
-        "count": 1
-      },
-      {
-        "label": "Spotify",
         "count": 1
       },
       {
@@ -468,9 +496,33 @@
       {
         "label": "Y Combinator",
         "count": 1
+      },
+      {
+        "label": "GoDaddy",
+        "count": 1
+      },
+      {
+        "label": "Cloudflare",
+        "count": 1
+      },
+      {
+        "label": "Warner Music Group",
+        "count": 1
       }
     ],
     "主题": [
+      {
+        "label": "地缘政治",
+        "count": 3
+      },
+      {
+        "label": "端侧AI",
+        "count": 2
+      },
+      {
+        "label": "AI音乐生成",
+        "count": 2
+      },
       {
         "label": "音乐产业",
         "count": 2
@@ -480,7 +532,15 @@
         "count": 2
       },
       {
-        "label": "地缘政治",
+        "label": "AI基础设施",
+        "count": 2
+      },
+      {
+        "label": "人才流动",
+        "count": 2
+      },
+      {
+        "label": "半导体制造",
         "count": 2
       },
       {
@@ -492,15 +552,7 @@
         "count": 1
       },
       {
-        "label": "端侧AI",
-        "count": 1
-      },
-      {
         "label": "元宇宙",
-        "count": 1
-      },
-      {
-        "label": "AI音乐生成",
         "count": 1
       },
       {
@@ -844,15 +896,15 @@
         "count": 1
       },
       {
+        "label": "AI算力",
+        "count": 1
+      },
+      {
         "label": "社交媒体",
         "count": 1
       },
       {
         "label": "vibe coding",
-        "count": 1
-      },
-      {
-        "label": "AI基础设施",
         "count": 1
       },
       {
@@ -893,6 +945,30 @@
       },
       {
         "label": "早期初创公司",
+        "count": 1
+      },
+      {
+        "label": "网络安全",
+        "count": 1
+      },
+      {
+        "label": "AI人才流动",
+        "count": 1
+      },
+      {
+        "label": "网站托管",
+        "count": 1
+      },
+      {
+        "label": "心理健康",
+        "count": 1
+      },
+      {
+        "label": "流媒体服务",
+        "count": 1
+      },
+      {
+        "label": "版权授权",
         "count": 1
       }
     ],
@@ -996,11 +1072,27 @@
       {
         "label": "企业伦理",
         "count": 1
+      },
+      {
+        "label": "网络安全防御",
+        "count": 1
+      },
+      {
+        "label": "危机干预",
+        "count": 1
+      },
+      {
+        "label": "基础设施安全",
+        "count": 1
       }
     ],
     "技术": [
       {
         "label": "Gemini",
+        "count": 5
+      },
+      {
+        "label": "AI音乐生成",
         "count": 4
       },
       {
@@ -1008,7 +1100,7 @@
         "count": 3
       },
       {
-        "label": "AI音乐生成",
+        "label": "AI芯片",
         "count": 3
       },
       {
@@ -1017,6 +1109,10 @@
       },
       {
         "label": "ChatGPT",
+        "count": 3
+      },
+      {
+        "label": "TPU",
         "count": 3
       },
       {
@@ -1037,6 +1133,14 @@
       },
       {
         "label": "AI训练数据",
+        "count": 2
+      },
+      {
+        "label": "语音识别",
+        "count": 2
+      },
+      {
+        "label": "Claude Mythos Preview",
         "count": 2
       },
       {
@@ -1156,10 +1260,6 @@
         "count": 1
       },
       {
-        "label": "AI芯片",
-        "count": 1
-      },
-      {
         "label": "Kubernetes",
         "count": 1
       },
@@ -1225,10 +1325,6 @@
       },
       {
         "label": "语音生物识别",
-        "count": 1
-      },
-      {
-        "label": "语音识别",
         "count": 1
       },
       {
@@ -1301,6 +1397,14 @@
       },
       {
         "label": "开源AI模型",
+        "count": 1
+      },
+      {
+        "label": "AI爬虫控制",
+        "count": 1
+      },
+      {
+        "label": "AI 播放列表生成",
         "count": 1
       }
     ],
@@ -1399,6 +1503,14 @@
       },
       {
         "label": "私募二级市场",
+        "count": 1
+      },
+      {
+        "label": "基础设施投资",
+        "count": 1
+      },
+      {
+        "label": "AI基础设施",
         "count": 1
       },
       {
@@ -1596,15 +1708,51 @@
         "count": 1
       },
       {
+        "label": "AI Edge Eloquent",
+        "count": 1
+      },
+      {
         "label": "Google AI Edge Eloquent",
         "count": 1
       },
       {
         "label": "iOS",
         "count": 1
+      },
+      {
+        "label": "自动化漏洞检测",
+        "count": 1
+      },
+      {
+        "label": "漏洞检测",
+        "count": 1
+      },
+      {
+        "label": "AI制造",
+        "count": 1
+      },
+      {
+        "label": "对话式AI",
+        "count": 1
+      },
+      {
+        "label": "项目管理",
+        "count": 1
+      },
+      {
+        "label": "智能制造",
+        "count": 1
+      },
+      {
+        "label": "播客发现",
+        "count": 1
       }
     ],
     "任务": [
+      {
+        "label": "Stargate",
+        "count": 3
+      },
       {
         "label": "David Sacks",
         "count": 2
@@ -1614,7 +1762,11 @@
         "count": 2
       },
       {
-        "label": "Stargate",
+        "label": "Project Glasswing",
+        "count": 2
+      },
+      {
+        "label": "Terafab",
         "count": 2
       },
       {
@@ -1724,6 +1876,18 @@
       {
         "label": "初创企业融资",
         "count": 1
+      },
+      {
+        "label": "Kyle Kozic",
+        "count": 1
+      },
+      {
+        "label": "Stargate数据中心建设",
+        "count": 1
+      },
+      {
+        "label": "内容推荐",
+        "count": 1
       }
     ],
     "人物": [
@@ -1741,6 +1905,14 @@
       },
       {
         "label": "Chuck Robbins",
+        "count": 1
+      },
+      {
+        "label": "Kyle Kozic",
+        "count": 1
+      },
+      {
+        "label": "Jeff Bezos",
         "count": 1
       }
     ],
