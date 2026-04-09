@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-04-08T03:47:34.851Z",
-  "totalNews": 127,
+  "generatedAt": "2026-04-09T03:42:56.088Z",
+  "totalNews": 150,
   "bySentiment": {
-    "neutral": 127
+    "neutral": 150
   },
   "byTrack": {
-    "政策监管": 28,
-    "基础模型": 8,
-    "行业动态": 40,
-    "应用层": 36,
+    "政策监管": 31,
+    "基础模型": 9,
+    "行业动态": 53,
+    "应用层": 42,
     "安全合规": 5,
     "芯片算力": 7,
     "开发者工具": 3
@@ -190,20 +190,56 @@
       {
         "label": "版权授权协议",
         "count": 1
+      },
+      {
+        "label": "AI治理",
+        "count": 1
+      },
+      {
+        "label": "劳动力转型",
+        "count": 1
+      },
+      {
+        "label": "资本利得税",
+        "count": 1
+      },
+      {
+        "label": "资本利得税改革",
+        "count": 1
+      },
+      {
+        "label": "社会福利制度",
+        "count": 1
+      },
+      {
+        "label": "新闻室AI使用规范",
+        "count": 1
+      },
+      {
+        "label": "AI使用规范",
+        "count": 1
+      },
+      {
+        "label": "集体谈判",
+        "count": 1
       }
     ],
     "公司": [
       {
         "label": "OpenAI",
-        "count": 34
+        "count": 45
       },
       {
         "label": "Google",
-        "count": 23
+        "count": 25
       },
       {
         "label": "Anthropic",
-        "count": 19
+        "count": 25
+      },
+      {
+        "label": "Meta",
+        "count": 8
       },
       {
         "label": "SpaceX",
@@ -211,10 +247,6 @@
       },
       {
         "label": "Apple",
-        "count": 7
-      },
-      {
-        "label": "Meta",
         "count": 7
       },
       {
@@ -226,7 +258,15 @@
         "count": 5
       },
       {
+        "label": "Amazon",
+        "count": 4
+      },
+      {
         "label": "Microsoft",
+        "count": 4
+      },
+      {
+        "label": "AWS",
         "count": 4
       },
       {
@@ -238,10 +278,6 @@
         "count": 3
       },
       {
-        "label": "Amazon",
-        "count": 3
-      },
-      {
         "label": "Tesla",
         "count": 3
       },
@@ -250,7 +286,15 @@
         "count": 3
       },
       {
+        "label": "Muck Rack",
+        "count": 3
+      },
+      {
         "label": "Project Prometheus",
+        "count": 3
+      },
+      {
+        "label": "ProPublica",
         "count": 3
       },
       {
@@ -287,6 +331,22 @@
       },
       {
         "label": "Sony Music Entertainment",
+        "count": 2
+      },
+      {
+        "label": "Poke",
+        "count": 2
+      },
+      {
+        "label": "The Interaction Company of California",
+        "count": 2
+      },
+      {
+        "label": "Tubi",
+        "count": 2
+      },
+      {
+        "label": "Fox",
         "count": 2
       },
       {
@@ -506,13 +566,29 @@
         "count": 1
       },
       {
+        "label": "ChatGPT",
+        "count": 1
+      },
+      {
+        "label": "Gemini",
+        "count": 1
+      },
+      {
         "label": "Warner Music Group",
+        "count": 1
+      },
+      {
+        "label": "Astropad",
         "count": 1
       }
     ],
     "主题": [
       {
         "label": "地缘政治",
+        "count": 3
+      },
+      {
+        "label": "劳工罢工",
         "count": 3
       },
       {
@@ -525,6 +601,10 @@
       },
       {
         "label": "音乐产业",
+        "count": 2
+      },
+      {
+        "label": "模型发布",
         "count": 2
       },
       {
@@ -541,6 +621,18 @@
       },
       {
         "label": "半导体制造",
+        "count": 2
+      },
+      {
+        "label": "利益冲突",
+        "count": 2
+      },
+      {
+        "label": "高管变动",
+        "count": 2
+      },
+      {
+        "label": "集体谈判",
         "count": 2
       },
       {
@@ -625,10 +717,6 @@
       },
       {
         "label": "人工智能监管",
-        "count": 1
-      },
-      {
-        "label": "模型发布",
         "count": 1
       },
       {
@@ -948,6 +1036,10 @@
         "count": 1
       },
       {
+        "label": "媒体可见性",
+        "count": 1
+      },
+      {
         "label": "网络安全",
         "count": 1
       },
@@ -964,11 +1056,87 @@
         "count": 1
       },
       {
+        "label": "AI引用可见性",
+        "count": 1
+      },
+      {
+        "label": "AI 引用可见性",
+        "count": 1
+      },
+      {
+        "label": "新闻媒体",
+        "count": 1
+      },
+      {
         "label": "流媒体服务",
         "count": 1
       },
       {
         "label": "版权授权",
+        "count": 1
+      },
+      {
+        "label": "Mac Mini",
+        "count": 1
+      },
+      {
+        "label": "AI自动化",
+        "count": 1
+      },
+      {
+        "label": "合作伙伴竞争",
+        "count": 1
+      },
+      {
+        "label": "云服务商竞争",
+        "count": 1
+      },
+      {
+        "label": "金融AI应用",
+        "count": 1
+      },
+      {
+        "label": "国际市场扩展",
+        "count": 1
+      },
+      {
+        "label": "竞争格局",
+        "count": 1
+      },
+      {
+        "label": "企业战略调整",
+        "count": 1
+      },
+      {
+        "label": "市场竞争",
+        "count": 1
+      },
+      {
+        "label": "IPO准备",
+        "count": 1
+      },
+      {
+        "label": "AI治理",
+        "count": 1
+      },
+      {
+        "label": "AI劳动力影响",
+        "count": 1
+      },
+      {
+        "label": "企业可信度",
+        "count": 1
+      },
+      {
+        "label": "新闻业",
+        "count": 1
+      },
+      {
+        "label": "AI集成",
+        "count": 1
+      },
+      {
+        "label": "内容推荐",
         "count": 1
       }
     ],
@@ -1084,11 +1252,27 @@
       {
         "label": "基础设施安全",
         "count": 1
+      },
+      {
+        "label": "儿童安全",
+        "count": 1
+      },
+      {
+        "label": "五角大楼合同争议",
+        "count": 1
       }
     ],
     "技术": [
       {
         "label": "Gemini",
+        "count": 6
+      },
+      {
+        "label": "生成式AI",
+        "count": 5
+      },
+      {
+        "label": "ChatGPT",
         "count": 5
       },
       {
@@ -1108,19 +1292,11 @@
         "count": 3
       },
       {
-        "label": "ChatGPT",
-        "count": 3
-      },
-      {
         "label": "TPU",
         "count": 3
       },
       {
         "label": "Sora",
-        "count": 2
-      },
-      {
-        "label": "生成式AI",
         "count": 2
       },
       {
@@ -1132,11 +1308,19 @@
         "count": 2
       },
       {
+        "label": "AI代理",
+        "count": 2
+      },
+      {
         "label": "AI训练数据",
         "count": 2
       },
       {
         "label": "语音识别",
+        "count": 2
+      },
+      {
+        "label": "AI Agent",
         "count": 2
       },
       {
@@ -1256,10 +1440,6 @@
         "count": 1
       },
       {
-        "label": "AI代理",
-        "count": 1
-      },
-      {
         "label": "Kubernetes",
         "count": 1
       },
@@ -1340,10 +1520,6 @@
         "count": 1
       },
       {
-        "label": "AI Agent",
-        "count": 1
-      },
-      {
         "label": "数据跟踪",
         "count": 1
       },
@@ -1400,11 +1576,43 @@
         "count": 1
       },
       {
+        "label": "AI搜索引擎",
+        "count": 1
+      },
+      {
         "label": "AI爬虫控制",
         "count": 1
       },
       {
+        "label": "LLM",
+        "count": 1
+      },
+      {
+        "label": "大语言模型",
+        "count": 1
+      },
+      {
         "label": "AI 播放列表生成",
+        "count": 1
+      },
+      {
+        "label": "远程桌面",
+        "count": 1
+      },
+      {
+        "label": "模型路由服务",
+        "count": 1
+      },
+      {
+        "label": "Muse Spark",
+        "count": 1
+      },
+      {
+        "label": "消息平台集成",
+        "count": 1
+      },
+      {
+        "label": "AI agents",
         "count": 1
       }
     ],
@@ -1412,6 +1620,18 @@
       {
         "label": "IPO",
         "count": 3
+      },
+      {
+        "label": "战略投资",
+        "count": 3
+      },
+      {
+        "label": "融资",
+        "count": 2
+      },
+      {
+        "label": "IPO筹备",
+        "count": 2
       },
       {
         "label": "战略合作",
@@ -1434,15 +1654,7 @@
         "count": 1
       },
       {
-        "label": "融资",
-        "count": 1
-      },
-      {
         "label": "并购整合",
-        "count": 1
-      },
-      {
-        "label": "IPO筹备",
         "count": 1
       },
       {
@@ -1516,12 +1728,28 @@
       {
         "label": "风险投资",
         "count": 1
+      },
+      {
+        "label": "500亿美元投资",
+        "count": 1
+      },
+      {
+        "label": "1220亿美元融资",
+        "count": 1
+      },
+      {
+        "label": "追加融资",
+        "count": 1
       }
     ],
     "应用": [
       {
         "label": "Gemini",
-        "count": 1
+        "count": 2
+      },
+      {
+        "label": "ChatGPT",
+        "count": 2
       },
       {
         "label": "ProducerAI",
@@ -1553,10 +1781,6 @@
       },
       {
         "label": "大语言模型",
-        "count": 1
-      },
-      {
-        "label": "ChatGPT",
         "count": 1
       },
       {
@@ -1746,6 +1970,38 @@
       {
         "label": "播客发现",
         "count": 1
+      },
+      {
+        "label": "AI代理监控",
+        "count": 1
+      },
+      {
+        "label": "Google Finance",
+        "count": 1
+      },
+      {
+        "label": "智能眼镜",
+        "count": 1
+      },
+      {
+        "label": "消费级AI助手",
+        "count": 1
+      },
+      {
+        "label": "消息应用集成",
+        "count": 1
+      },
+      {
+        "label": "消费级自动化",
+        "count": 1
+      },
+      {
+        "label": "流媒体内容发现",
+        "count": 1
+      },
+      {
+        "label": "流媒体",
+        "count": 1
       }
     ],
     "任务": [
@@ -1759,6 +2015,10 @@
       },
       {
         "label": "Sora",
+        "count": 2
+      },
+      {
+        "label": "高管变动",
         "count": 2
       },
       {
@@ -1838,10 +2098,6 @@
         "count": 1
       },
       {
-        "label": "高管变动",
-        "count": 1
-      },
-      {
         "label": "组织架构调整",
         "count": 1
       },
@@ -1887,6 +2143,26 @@
       },
       {
         "label": "内容推荐",
+        "count": 1
+      },
+      {
+        "label": "多模态AI",
+        "count": 1
+      },
+      {
+        "label": "IPO",
+        "count": 1
+      },
+      {
+        "label": "CSAM防护",
+        "count": 1
+      },
+      {
+        "label": "战略调整",
+        "count": 1
+      },
+      {
+        "label": "经济提案",
         "count": 1
       }
     ],
