@@ -1,0 +1,43 @@
+---
+title: OpenAI回应Axios供应链攻击并更新安全证书
+slug: openai-axios-security-update
+date: '2026-04-11T18:33:51Z'
+publishAt: '2026-04-11T18:33:51Z'
+collectedAt: '2026-04-11T21:02:07Z'
+summary: OpenAI披露其macOS应用签名流程于2026年3月31日受到Axios第三方库供应链攻击影响，攻击者通过入侵的GitHub Actions工作流获取了代码签名证书访问权限。公司正在发布应用更新并更换安全证书以降低风险，涉及ChatGPT
+  Desktop、Codex、Codex-cli及Atlas等产品。
+sources:
+- The Verge AI
+labels:
+- type: 公司
+  value: OpenAI
+- type: 安全合规
+  value: 供应链攻击
+- type: 技术
+  value: Axios
+- type: 安全合规
+  value: 代码签名证书
+- type: 应用
+  value: ChatGPT Desktop
+track: 安全合规
+impactType: 安全合规
+sentiment: neutral
+confidence: 0.78
+relatedArticles: []
+originalUrl: https://www.theverge.com/ai-artificial-intelligence/910707/openai-responds-to-axios-http-hack-by-updating-security-certificates
+---
+
+<AIAbstract>
+OpenAI披露其macOS应用签名工作流于2026年3月31日受到Axios第三方库供应链攻击影响。攻击者通过入侵的GitHub Actions工作流获取了用于签名ChatGPT Desktop、Codex等应用的证书访问权限。公司正通过发布应用更新和更换安全证书来缓解潜在风险。
+</AIAbstract>
+
+## 洞察
+<Insight title="短期">
+OpenAI需紧急完成所有受影响macOS应用（ChatGPT Desktop、Codex、Codex-cli、Atlas）的证书更换与更新推送，用户侧需尽快安装安全更新以避免潜在远程访问风险。
+</Insight>
+<Insight title="中期">
+此事件暴露了CI/CD流程中第三方依赖的安全隐患，预计OpenAI将加强GitHub Actions工作流的安全审计与依赖库验证机制，行业或加速SBOM（软件物料清单）标准实施。
+</Insight>
+<Insight title="风险">
+虽然OpenAI已采取缓解措施，但攻击者在3月31日至发现期间可能已利用签名证书分发恶意软件，具体影响范围尚不明确；此外，供应链攻击的溯源与彻底清除仍需持续监控。
+</Insight>
