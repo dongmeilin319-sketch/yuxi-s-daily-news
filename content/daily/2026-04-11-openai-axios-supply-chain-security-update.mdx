@@ -1,0 +1,35 @@
+---
+title: OpenAI 回应 Axios HTTP 库供应链攻击并更新安全证书
+slug: openai-axios-supply-chain-security-update
+date: '2026-04-11T18:33:51Z'
+publishAt: '2026-04-11T18:33:51Z'
+collectedAt: '2026-04-11T21:02:20Z'
+summary: OpenAI 披露其 macOS 应用签名流程于 2026 年 3 月 31 日下载并执行了被恶意入侵的 Axios HTTP 库（版本 1.14.1），该供应链攻击导致用于签署
+  ChatGPT Desktop、Codex、Codex-cli 及 Atlas 等应用的证书与公证材料面临泄露风险。公司正通过发布应用更新和更换安全证书来降低潜在威胁。
+sources:
+- The Verge AI
+labels:
+- type: 公司
+  value: OpenAI
+- type: 技术
+  value: Axios
+- type: 安全合规
+  value: 供应链攻击
+- type: 应用
+  value: ChatGPT Desktop
+- type: 技术
+  value: 代码签名证书
+track: 安全合规
+impactType: 安全合规
+sentiment: neutral
+confidence: 0.78
+relatedArticles: []
+originalUrl: https://www.theverge.com/ai-artificial-intelligence/910707/openai-responds-to-axios-http-hack-by-updating-security-certificates
+---
+
+<AIAbstract>OpenAI 披露其 macOS 应用签名工作流于 2026 年 3 月 31 日（UTC）下载并执行了被恶意入侵的 Axios HTTP 客户端库（版本 1.14.1）。该工作流可访问用于签署 ChatGPT Desktop、Codex、Codex-cli 及 Atlas 等 macOS 应用的证书与公证材料。为缓解潜在风险，OpenAI 已发布应用更新并更换安全证书。</AIAbstract>
+
+## 洞察
+<Insight title="短期">OpenAI 已 revoke 受影响的旧证书并发布应用更新，macOS 用户需尽快升级 ChatGPT Desktop 及相关工具，以避免潜在的证书信任风险。公司建议用户仅从官方渠道下载软件。</Insight>
+<Insight title="中期">此次事件暴露了第三方依赖库在 CI/CD 流水线中的安全隐患，预计 OpenAI 及行业将加强软件供应链安全审查，实施更严格的依赖版本锁定与签名流程隔离机制。</Insight>
+<Insight title="风险">尽管 OpenAI 采取了缓解措施，但攻击者可能已在证书更换前利用泄露的材料对恶意软件进行签名，用户需验证当前安装应用的签名有效性；此外，该供应链攻击可能影响其他广泛使用 Axios 库的开发者。</Insight>
