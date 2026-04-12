@@ -1,17 +1,18 @@
 {
-  "generatedAt": "2026-04-11T03:32:31.188Z",
-  "totalNews": 150,
+  "generatedAt": "2026-04-12T03:58:47.282Z",
+  "totalNews": 171,
   "bySentiment": {
-    "neutral": 150
+    "neutral": 171
   },
   "byTrack": {
-    "政策监管": 31,
+    "政策监管": 34,
     "基础模型": 9,
-    "行业动态": 53,
-    "应用层": 42,
-    "安全合规": 5,
+    "行业动态": 59,
+    "应用层": 51,
+    "安全合规": 7,
     "芯片算力": 7,
-    "开发者工具": 3
+    "开发者工具": 3,
+    "市场观点": 1
   },
   "topLabelsByType": {
     "政策": [
@@ -222,19 +223,31 @@
       {
         "label": "集体谈判",
         "count": 1
+      },
+      {
+        "label": "佛罗里达州调查",
+        "count": 1
+      },
+      {
+        "label": "API计费政策",
+        "count": 1
+      },
+      {
+        "label": "社交媒体审核",
+        "count": 1
       }
     ],
     "公司": [
       {
         "label": "OpenAI",
-        "count": 45
-      },
-      {
-        "label": "Google",
-        "count": 25
+        "count": 57
       },
       {
         "label": "Anthropic",
+        "count": 31
+      },
+      {
+        "label": "Google",
         "count": 25
       },
       {
@@ -250,6 +263,10 @@
         "count": 7
       },
       {
+        "label": "Microsoft",
+        "count": 6
+      },
+      {
         "label": "Suno",
         "count": 6
       },
@@ -259,10 +276,6 @@
       },
       {
         "label": "Amazon",
-        "count": 4
-      },
-      {
-        "label": "Microsoft",
         "count": 4
       },
       {
@@ -347,6 +360,10 @@
       },
       {
         "label": "Fox",
+        "count": 2
+      },
+      {
+        "label": "Gallup",
         "count": 2
       },
       {
@@ -580,12 +597,24 @@
       {
         "label": "Astropad",
         "count": 1
+      },
+      {
+        "label": "Explosive Media",
+        "count": 1
+      },
+      {
+        "label": "Fawn Friends",
+        "count": 1
       }
     ],
     "主题": [
       {
         "label": "地缘政治",
-        "count": 3
+        "count": 4
+      },
+      {
+        "label": "Sam Altman",
+        "count": 4
       },
       {
         "label": "劳工罢工",
@@ -612,6 +641,14 @@
         "count": 2
       },
       {
+        "label": "法律诉讼",
+        "count": 2
+      },
+      {
+        "label": "社交媒体传播",
+        "count": 2
+      },
+      {
         "label": "AI基础设施",
         "count": 2
       },
@@ -633,6 +670,14 @@
       },
       {
         "label": "集体谈判",
+        "count": 2
+      },
+      {
+        "label": "Z世代",
+        "count": 2
+      },
+      {
+        "label": "AI领导力",
         "count": 2
       },
       {
@@ -904,10 +949,6 @@
         "count": 1
       },
       {
-        "label": "法律诉讼",
-        "count": 1
-      },
-      {
         "label": "隐私保护",
         "count": 1
       },
@@ -933,10 +974,6 @@
       },
       {
         "label": "身份核实",
-        "count": 1
-      },
-      {
-        "label": "社交媒体传播",
         "count": 1
       },
       {
@@ -1013,10 +1050,6 @@
       },
       {
         "label": "四天工作制",
-        "count": 1
-      },
-      {
-        "label": "Sam Altman",
         "count": 1
       },
       {
@@ -1138,12 +1171,88 @@
       {
         "label": "内容推荐",
         "count": 1
+      },
+      {
+        "label": "儿童安全",
+        "count": 1
+      },
+      {
+        "label": "订阅服务",
+        "count": 1
+      },
+      {
+        "label": "API定价",
+        "count": 1
+      },
+      {
+        "label": "工作流自动化",
+        "count": 1
+      },
+      {
+        "label": "美伊冲突",
+        "count": 1
+      },
+      {
+        "label": "AI生成内容",
+        "count": 1
+      },
+      {
+        "label": "人工智能接受度",
+        "count": 1
+      },
+      {
+        "label": "劳动力市场",
+        "count": 1
+      },
+      {
+        "label": "教育",
+        "count": 1
+      },
+      {
+        "label": "人工智能态度",
+        "count": 1
+      },
+      {
+        "label": "公司治理",
+        "count": 1
+      },
+      {
+        "label": "播客",
+        "count": 1
+      },
+      {
+        "label": "执法调查",
+        "count": 1
+      },
+      {
+        "label": "燃烧瓶袭击事件",
+        "count": 1
+      },
+      {
+        "label": "AI安全",
+        "count": 1
+      },
+      {
+        "label": "诉讼",
+        "count": 1
+      },
+      {
+        "label": "情感陪伴",
+        "count": 1
+      },
+      {
+        "label": "AGI治理",
+        "count": 1
+      },
+      {
+        "label": "AI行业动态",
+        "count": 1
       }
     ],
     "安全合规": [
       {
         "label": "AI安全",
-        "count": 3
+        "count": 4
       },
       {
         "label": "数据泄露",
@@ -1260,28 +1369,60 @@
       {
         "label": "五角大楼合同争议",
         "count": 1
+      },
+      {
+        "label": "公共安全",
+        "count": 1
+      },
+      {
+        "label": "国家安全",
+        "count": 1
+      },
+      {
+        "label": "账户封禁",
+        "count": 1
+      },
+      {
+        "label": "安全威胁",
+        "count": 1
+      },
+      {
+        "label": "物理安全威胁",
+        "count": 1
+      },
+      {
+        "label": "平台责任",
+        "count": 1
+      },
+      {
+        "label": "AI心理健康风险",
+        "count": 1
+      },
+      {
+        "label": "暴力袭击事件",
+        "count": 1
       }
     ],
     "技术": [
+      {
+        "label": "生成式AI",
+        "count": 7
+      },
       {
         "label": "Gemini",
         "count": 6
       },
       {
-        "label": "生成式AI",
-        "count": 5
+        "label": "ChatGPT",
+        "count": 6
       },
       {
-        "label": "ChatGPT",
-        "count": 5
+        "label": "Claude",
+        "count": 4
       },
       {
         "label": "AI音乐生成",
         "count": 4
-      },
-      {
-        "label": "Claude",
-        "count": 3
       },
       {
         "label": "AI芯片",
@@ -1289,6 +1430,10 @@
       },
       {
         "label": "Claude Code",
+        "count": 3
+      },
+      {
+        "label": "OpenClaw",
         "count": 3
       },
       {
@@ -1324,7 +1469,27 @@
         "count": 2
       },
       {
+        "label": "AI",
+        "count": 2
+      },
+      {
         "label": "Claude Mythos Preview",
+        "count": 2
+      },
+      {
+        "label": "Codex",
+        "count": 2
+      },
+      {
+        "label": "Agentic AI",
+        "count": 2
+      },
+      {
+        "label": "vibe-coding",
+        "count": 2
+      },
+      {
+        "label": "GPT-4o",
         "count": 2
       },
       {
@@ -1524,14 +1689,6 @@
         "count": 1
       },
       {
-        "label": "AI",
-        "count": 1
-      },
-      {
-        "label": "OpenClaw",
-        "count": 1
-      },
-      {
         "label": "内容认证",
         "count": 1
       },
@@ -1613,6 +1770,10 @@
       },
       {
         "label": "AI agents",
+        "count": 1
+      },
+      {
+        "label": "AI语音合成",
         "count": 1
       }
     ],
@@ -1744,11 +1905,27 @@
     ],
     "应用": [
       {
+        "label": "ChatGPT",
+        "count": 3
+      },
+      {
+        "label": "Copilot",
+        "count": 3
+      },
+      {
         "label": "Gemini",
         "count": 2
       },
       {
-        "label": "ChatGPT",
+        "label": "Claude",
+        "count": 2
+      },
+      {
+        "label": "Windows 11",
+        "count": 2
+      },
+      {
+        "label": "Notepad",
         "count": 2
       },
       {
@@ -1892,10 +2069,6 @@
         "count": 1
       },
       {
-        "label": "Claude",
-        "count": 1
-      },
-      {
         "label": "Grok",
         "count": 1
       },
@@ -1913,10 +2086,6 @@
       },
       {
         "label": "工业自动化",
-        "count": 1
-      },
-      {
-        "label": "Copilot",
         "count": 1
       },
       {
@@ -2001,6 +2170,38 @@
       },
       {
         "label": "流媒体",
+        "count": 1
+      },
+      {
+        "label": "代码生成",
+        "count": 1
+      },
+      {
+        "label": "企业办公自动化",
+        "count": 1
+      },
+      {
+        "label": "Claude Cowork",
+        "count": 1
+      },
+      {
+        "label": "AI视频生成",
+        "count": 1
+      },
+      {
+        "label": "乐高动画",
+        "count": 1
+      },
+      {
+        "label": "教育",
+        "count": 1
+      },
+      {
+        "label": "职场",
+        "count": 1
+      },
+      {
+        "label": "实体AI伴侣",
         "count": 1
       }
     ],
@@ -2164,19 +2365,35 @@
       {
         "label": "经济提案",
         "count": 1
+      },
+      {
+        "label": "ChatGPT Pro",
+        "count": 1
+      },
+      {
+        "label": "会议转录处理",
+        "count": 1
+      },
+      {
+        "label": "企业部署",
+        "count": 1
+      },
+      {
+        "label": "AI功能集成",
+        "count": 1
       }
     ],
     "人物": [
+      {
+        "label": "Sam Altman",
+        "count": 2
+      },
       {
         "label": "Mustafa Suleyman",
         "count": 1
       },
       {
         "label": "Jay Edelson",
-        "count": 1
-      },
-      {
-        "label": "Sam Altman",
         "count": 1
       },
       {
@@ -2201,6 +2418,12 @@
     "行业": [
       {
         "label": "娱乐产业",
+        "count": 1
+      }
+    ],
+    "产品": [
+      {
+        "label": "Claude Cowork",
         "count": 1
       }
     ]
