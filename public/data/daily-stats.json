@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-05-05T04:12:19.889Z",
-  "totalNews": 148,
+  "generatedAt": "2026-05-06T04:29:43.095Z",
+  "totalNews": 141,
   "bySentiment": {
-    "neutral": 148
+    "neutral": 141
   },
   "byTrack": {
-    "应用层": 37,
-    "行业动态": 57,
-    "政策监管": 29,
     "芯片算力": 5,
+    "行业动态": 55,
+    "应用层": 33,
+    "政策监管": 28,
     "安全合规": 10,
     "基础模型": 4,
     "市场观点": 1,
@@ -18,7 +18,7 @@
     "公司": [
       {
         "label": "OpenAI",
-        "count": 64
+        "count": 63
       },
       {
         "label": "Anthropic",
@@ -26,11 +26,11 @@
       },
       {
         "label": "Google",
-        "count": 16
+        "count": 15
       },
       {
         "label": "xAI",
-        "count": 8
+        "count": 7
       },
       {
         "label": "Meta",
@@ -42,15 +42,11 @@
       },
       {
         "label": "SpaceX",
-        "count": 5
+        "count": 4
       },
       {
         "label": "AWS",
         "count": 4
-      },
-      {
-        "label": "Suno",
-        "count": 3
       },
       {
         "label": "Broadcom",
@@ -73,15 +69,15 @@
         "count": 3
       },
       {
-        "label": "微软",
-        "count": 2
-      },
-      {
         "label": "Cisco",
         "count": 2
       },
       {
         "label": "Intel",
+        "count": 2
+      },
+      {
+        "label": "Suno",
         "count": 2
       },
       {
@@ -123,26 +119,6 @@
       {
         "label": "Valve",
         "count": 2
-      },
-      {
-        "label": "Grammarly/Superhuman",
-        "count": 1
-      },
-      {
-        "label": "Mujin",
-        "count": 1
-      },
-      {
-        "label": "Starcloud",
-        "count": 1
-      },
-      {
-        "label": "Blue Origin",
-        "count": 1
-      },
-      {
-        "label": "Character.ai",
-        "count": 1
       },
       {
         "label": "Bluesky",
@@ -217,6 +193,10 @@
         "count": 1
       },
       {
+        "label": "微软",
+        "count": 1
+      },
+      {
         "label": "软银",
         "count": 1
       },
@@ -275,12 +255,12 @@
         "count": 7
       },
       {
-        "label": "Gemini",
+        "label": "OpenClaw",
         "count": 5
       },
       {
-        "label": "OpenClaw",
-        "count": 5
+        "label": "Gemini",
+        "count": 4
       },
       {
         "label": "大语言模型",
@@ -327,10 +307,6 @@
         "count": 3
       },
       {
-        "label": "AI音乐生成",
-        "count": 2
-      },
-      {
         "label": "Claude Mythos Preview",
         "count": 2
       },
@@ -375,14 +351,6 @@
         "count": 2
       },
       {
-        "label": "AI写作助手",
-        "count": 1
-      },
-      {
-        "label": "Physical AI",
-        "count": 1
-      },
-      {
         "label": "服务中断",
         "count": 1
       },
@@ -424,6 +392,10 @@
       },
       {
         "label": "AI 播放列表生成",
+        "count": 1
+      },
+      {
+        "label": "AI音乐生成",
         "count": 1
       },
       {
@@ -543,249 +515,73 @@
         "count": 1
       }
     ],
-    "应用": [
+    "资本": [
       {
-        "label": "Copilot",
+        "label": "战略投资",
         "count": 3
       },
       {
-        "label": "ChatGPT",
-        "count": 3
-      },
-      {
-        "label": "Gemini",
-        "count": 2
-      },
-      {
-        "label": "Claude",
-        "count": 2
-      },
-      {
-        "label": "Windows 11",
-        "count": 2
-      },
-      {
-        "label": "Notepad",
-        "count": 2
-      },
-      {
-        "label": "ChatGPT Desktop",
-        "count": 2
-      },
-      {
-        "label": "Claude Code",
-        "count": 2
-      },
-      {
-        "label": "AI智能体",
-        "count": 2
-      },
-      {
-        "label": "Microsoft 365 Copilot",
-        "count": 2
-      },
-      {
-        "label": "图像生成",
-        "count": 2
-      },
-      {
-        "label": "Chrome",
-        "count": 2
-      },
-      {
-        "label": "Google Maps",
+        "label": "基础设施投资",
         "count": 1
       },
       {
-        "label": "工业自动化",
+        "label": "AI基础设施",
         "count": 1
       },
       {
-        "label": "Suno Studio",
+        "label": "风险投资",
         "count": 1
       },
       {
-        "label": "角色扮演聊天机器人",
+        "label": "500亿美元投资",
         "count": 1
       },
       {
-        "label": "AI合规工具",
+        "label": "IPO筹备",
         "count": 1
       },
       {
-        "label": "AI Edge Eloquent",
+        "label": "1220亿美元融资",
         "count": 1
       },
       {
-        "label": "Google AI Edge Eloquent",
+        "label": "追加融资",
         "count": 1
       },
       {
-        "label": "iOS",
+        "label": "融资",
         "count": 1
       },
       {
-        "label": "自动化漏洞检测",
+        "label": "收入增长",
         "count": 1
       },
       {
-        "label": "漏洞检测",
+        "label": "估值",
         "count": 1
       },
       {
-        "label": "AI制造",
+        "label": "C轮融资",
         "count": 1
       },
       {
-        "label": "对话式AI",
+        "label": "股价波动",
         "count": 1
       },
       {
-        "label": "项目管理",
+        "label": "盈利结构",
         "count": 1
       },
       {
-        "label": "智能制造",
+        "label": "季度捐赠暂停",
         "count": 1
       },
       {
-        "label": "播客发现",
+        "label": "资金冻结",
         "count": 1
       },
       {
-        "label": "AI代理监控",
-        "count": 1
-      },
-      {
-        "label": "Google Finance",
-        "count": 1
-      },
-      {
-        "label": "智能眼镜",
-        "count": 1
-      },
-      {
-        "label": "消费级AI助手",
-        "count": 1
-      },
-      {
-        "label": "消息应用集成",
-        "count": 1
-      },
-      {
-        "label": "消费级自动化",
-        "count": 1
-      },
-      {
-        "label": "流媒体内容发现",
-        "count": 1
-      },
-      {
-        "label": "流媒体",
-        "count": 1
-      },
-      {
-        "label": "代码生成",
-        "count": 1
-      },
-      {
-        "label": "企业办公自动化",
-        "count": 1
-      },
-      {
-        "label": "Claude Cowork",
-        "count": 1
-      },
-      {
-        "label": "AI视频生成",
-        "count": 1
-      },
-      {
-        "label": "乐高动画",
-        "count": 1
-      },
-      {
-        "label": "教育",
-        "count": 1
-      },
-      {
-        "label": "职场",
-        "count": 1
-      },
-      {
-        "label": "实体AI伴侣",
-        "count": 1
-      },
-      {
-        "label": "新闻插图",
-        "count": 1
-      },
-      {
-        "label": "vibe coding",
-        "count": 1
-      },
-      {
-        "label": "AI语音助手",
-        "count": 1
-      },
-      {
-        "label": "Agentic AI",
-        "count": 1
-      },
-      {
-        "label": "虚拟网红",
-        "count": 1
-      },
-      {
-        "label": "企业会议",
-        "count": 1
-      },
-      {
-        "label": "办公自动化",
-        "count": 1
-      },
-      {
-        "label": "机器人",
-        "count": 1
-      },
-      {
-        "label": "AI 编码助手",
-        "count": 1
-      },
-      {
-        "label": "个人智能",
-        "count": 1
-      },
-      {
-        "label": "Chrome浏览器",
-        "count": 1
-      },
-      {
-        "label": "Skills",
-        "count": 1
-      },
-      {
-        "label": "图像生成检测",
-        "count": 1
-      },
-      {
-        "label": "数字替身",
-        "count": 1
-      },
-      {
-        "label": "企业图像生成",
-        "count": 1
-      },
-      {
-        "label": "神经疾病治疗",
-        "count": 1
-      },
-      {
-        "label": "社交媒体",
-        "count": 1
-      },
-      {
-        "label": "Microsoft Word",
+        "label": "收购要约",
         "count": 1
       }
     ],
@@ -877,30 +673,6 @@
       {
         "label": "公众形象",
         "count": 2
-      },
-      {
-        "label": "AI 行程规划",
-        "count": 1
-      },
-      {
-        "label": "肖像权/隐私权",
-        "count": 1
-      },
-      {
-        "label": "劳动力短缺",
-        "count": 1
-      },
-      {
-        "label": "太空基础设施",
-        "count": 1
-      },
-      {
-        "label": "版权侵权",
-        "count": 1
-      },
-      {
-        "label": "青少年用户行为",
-        "count": 1
       },
       {
         "label": "AI算力",
@@ -1343,6 +1115,408 @@
         "count": 1
       }
     ],
+    "人物": [
+      {
+        "label": "Elon Musk",
+        "count": 3
+      },
+      {
+        "label": "Sam Altman",
+        "count": 2
+      },
+      {
+        "label": "Chuck Robbins",
+        "count": 1
+      },
+      {
+        "label": "Kyle Kozic",
+        "count": 1
+      },
+      {
+        "label": "Jeff Bezos",
+        "count": 1
+      },
+      {
+        "label": "Max Hodak",
+        "count": 1
+      },
+      {
+        "label": "Gabe Newell",
+        "count": 1
+      }
+    ],
+    "安全合规": [
+      {
+        "label": "AI安全",
+        "count": 2
+      },
+      {
+        "label": "国家安全",
+        "count": 2
+      },
+      {
+        "label": "物理安全威胁",
+        "count": 2
+      },
+      {
+        "label": "供应链攻击",
+        "count": 2
+      },
+      {
+        "label": "人身安全威胁",
+        "count": 2
+      },
+      {
+        "label": "枪支暴力",
+        "count": 2
+      },
+      {
+        "label": "内容溯源",
+        "count": 2
+      },
+      {
+        "label": "数据泄露",
+        "count": 1
+      },
+      {
+        "label": "基础设施物理威胁",
+        "count": 1
+      },
+      {
+        "label": "数据中心安全",
+        "count": 1
+      },
+      {
+        "label": "企业伦理",
+        "count": 1
+      },
+      {
+        "label": "网络安全防御",
+        "count": 1
+      },
+      {
+        "label": "危机干预",
+        "count": 1
+      },
+      {
+        "label": "基础设施安全",
+        "count": 1
+      },
+      {
+        "label": "儿童安全",
+        "count": 1
+      },
+      {
+        "label": "五角大楼合同争议",
+        "count": 1
+      },
+      {
+        "label": "公共安全",
+        "count": 1
+      },
+      {
+        "label": "账户封禁",
+        "count": 1
+      },
+      {
+        "label": "安全威胁",
+        "count": 1
+      },
+      {
+        "label": "平台责任",
+        "count": 1
+      },
+      {
+        "label": "AI心理健康风险",
+        "count": 1
+      },
+      {
+        "label": "代码签名证书",
+        "count": 1
+      },
+      {
+        "label": "物理安全事件",
+        "count": 1
+      },
+      {
+        "label": "暴力袭击事件",
+        "count": 1
+      },
+      {
+        "label": "幻觉",
+        "count": 1
+      },
+      {
+        "label": "企业安全控制",
+        "count": 1
+      },
+      {
+        "label": "企业数据安全",
+        "count": 1
+      },
+      {
+        "label": "刑事调查",
+        "count": 1
+      },
+      {
+        "label": "住宅安全事件",
+        "count": 1
+      },
+      {
+        "label": "信息真实性",
+        "count": 1
+      },
+      {
+        "label": "暴力事件",
+        "count": 1
+      },
+      {
+        "label": "人身安全",
+        "count": 1
+      },
+      {
+        "label": "供应链风险",
+        "count": 1
+      },
+      {
+        "label": "人机协同决策",
+        "count": 1
+      },
+      {
+        "label": "高级账户安全",
+        "count": 1
+      }
+    ],
+    "应用": [
+      {
+        "label": "ChatGPT",
+        "count": 3
+      },
+      {
+        "label": "Gemini",
+        "count": 2
+      },
+      {
+        "label": "Claude",
+        "count": 2
+      },
+      {
+        "label": "Windows 11",
+        "count": 2
+      },
+      {
+        "label": "Copilot",
+        "count": 2
+      },
+      {
+        "label": "Notepad",
+        "count": 2
+      },
+      {
+        "label": "ChatGPT Desktop",
+        "count": 2
+      },
+      {
+        "label": "Claude Code",
+        "count": 2
+      },
+      {
+        "label": "AI智能体",
+        "count": 2
+      },
+      {
+        "label": "Microsoft 365 Copilot",
+        "count": 2
+      },
+      {
+        "label": "图像生成",
+        "count": 2
+      },
+      {
+        "label": "Chrome",
+        "count": 2
+      },
+      {
+        "label": "AI合规工具",
+        "count": 1
+      },
+      {
+        "label": "AI Edge Eloquent",
+        "count": 1
+      },
+      {
+        "label": "Google AI Edge Eloquent",
+        "count": 1
+      },
+      {
+        "label": "iOS",
+        "count": 1
+      },
+      {
+        "label": "自动化漏洞检测",
+        "count": 1
+      },
+      {
+        "label": "漏洞检测",
+        "count": 1
+      },
+      {
+        "label": "AI制造",
+        "count": 1
+      },
+      {
+        "label": "对话式AI",
+        "count": 1
+      },
+      {
+        "label": "项目管理",
+        "count": 1
+      },
+      {
+        "label": "智能制造",
+        "count": 1
+      },
+      {
+        "label": "播客发现",
+        "count": 1
+      },
+      {
+        "label": "AI代理监控",
+        "count": 1
+      },
+      {
+        "label": "Google Finance",
+        "count": 1
+      },
+      {
+        "label": "智能眼镜",
+        "count": 1
+      },
+      {
+        "label": "消费级AI助手",
+        "count": 1
+      },
+      {
+        "label": "消息应用集成",
+        "count": 1
+      },
+      {
+        "label": "消费级自动化",
+        "count": 1
+      },
+      {
+        "label": "流媒体内容发现",
+        "count": 1
+      },
+      {
+        "label": "流媒体",
+        "count": 1
+      },
+      {
+        "label": "代码生成",
+        "count": 1
+      },
+      {
+        "label": "企业办公自动化",
+        "count": 1
+      },
+      {
+        "label": "Claude Cowork",
+        "count": 1
+      },
+      {
+        "label": "AI视频生成",
+        "count": 1
+      },
+      {
+        "label": "乐高动画",
+        "count": 1
+      },
+      {
+        "label": "教育",
+        "count": 1
+      },
+      {
+        "label": "职场",
+        "count": 1
+      },
+      {
+        "label": "实体AI伴侣",
+        "count": 1
+      },
+      {
+        "label": "新闻插图",
+        "count": 1
+      },
+      {
+        "label": "vibe coding",
+        "count": 1
+      },
+      {
+        "label": "AI语音助手",
+        "count": 1
+      },
+      {
+        "label": "Agentic AI",
+        "count": 1
+      },
+      {
+        "label": "虚拟网红",
+        "count": 1
+      },
+      {
+        "label": "企业会议",
+        "count": 1
+      },
+      {
+        "label": "办公自动化",
+        "count": 1
+      },
+      {
+        "label": "机器人",
+        "count": 1
+      },
+      {
+        "label": "AI 编码助手",
+        "count": 1
+      },
+      {
+        "label": "个人智能",
+        "count": 1
+      },
+      {
+        "label": "Chrome浏览器",
+        "count": 1
+      },
+      {
+        "label": "Skills",
+        "count": 1
+      },
+      {
+        "label": "图像生成检测",
+        "count": 1
+      },
+      {
+        "label": "数字替身",
+        "count": 1
+      },
+      {
+        "label": "企业图像生成",
+        "count": 1
+      },
+      {
+        "label": "神经疾病治疗",
+        "count": 1
+      },
+      {
+        "label": "社交媒体",
+        "count": 1
+      },
+      {
+        "label": "Microsoft Word",
+        "count": 1
+      }
+    ],
     "任务": [
       {
         "label": "Stargate",
@@ -1359,14 +1533,6 @@
       {
         "label": "IPO",
         "count": 2
-      },
-      {
-        "label": "Expert Review",
-        "count": 1
-      },
-      {
-        "label": "轨道数据中心",
-        "count": 1
       },
       {
         "label": "AI模型开发",
@@ -1489,160 +1655,6 @@
         "count": 1
       }
     ],
-    "安全合规": [
-      {
-        "label": "AI安全",
-        "count": 2
-      },
-      {
-        "label": "国家安全",
-        "count": 2
-      },
-      {
-        "label": "物理安全威胁",
-        "count": 2
-      },
-      {
-        "label": "供应链攻击",
-        "count": 2
-      },
-      {
-        "label": "人身安全威胁",
-        "count": 2
-      },
-      {
-        "label": "枪支暴力",
-        "count": 2
-      },
-      {
-        "label": "内容溯源",
-        "count": 2
-      },
-      {
-        "label": "未经授权使用 likeness",
-        "count": 1
-      },
-      {
-        "label": "版权过滤",
-        "count": 1
-      },
-      {
-        "label": "AI内容安全",
-        "count": 1
-      },
-      {
-        "label": "数据泄露",
-        "count": 1
-      },
-      {
-        "label": "基础设施物理威胁",
-        "count": 1
-      },
-      {
-        "label": "数据中心安全",
-        "count": 1
-      },
-      {
-        "label": "企业伦理",
-        "count": 1
-      },
-      {
-        "label": "网络安全防御",
-        "count": 1
-      },
-      {
-        "label": "危机干预",
-        "count": 1
-      },
-      {
-        "label": "基础设施安全",
-        "count": 1
-      },
-      {
-        "label": "儿童安全",
-        "count": 1
-      },
-      {
-        "label": "五角大楼合同争议",
-        "count": 1
-      },
-      {
-        "label": "公共安全",
-        "count": 1
-      },
-      {
-        "label": "账户封禁",
-        "count": 1
-      },
-      {
-        "label": "安全威胁",
-        "count": 1
-      },
-      {
-        "label": "平台责任",
-        "count": 1
-      },
-      {
-        "label": "AI心理健康风险",
-        "count": 1
-      },
-      {
-        "label": "代码签名证书",
-        "count": 1
-      },
-      {
-        "label": "物理安全事件",
-        "count": 1
-      },
-      {
-        "label": "暴力袭击事件",
-        "count": 1
-      },
-      {
-        "label": "幻觉",
-        "count": 1
-      },
-      {
-        "label": "企业安全控制",
-        "count": 1
-      },
-      {
-        "label": "企业数据安全",
-        "count": 1
-      },
-      {
-        "label": "刑事调查",
-        "count": 1
-      },
-      {
-        "label": "住宅安全事件",
-        "count": 1
-      },
-      {
-        "label": "信息真实性",
-        "count": 1
-      },
-      {
-        "label": "暴力事件",
-        "count": 1
-      },
-      {
-        "label": "人身安全",
-        "count": 1
-      },
-      {
-        "label": "供应链风险",
-        "count": 1
-      },
-      {
-        "label": "人机协同决策",
-        "count": 1
-      },
-      {
-        "label": "高级账户安全",
-        "count": 1
-      }
-    ],
     "政策": [
       {
         "label": "AI治理",
@@ -1663,14 +1675,6 @@
       {
         "label": "联邦刑事指控",
         "count": 2
-      },
-      {
-        "label": "经济产业省 2040 战略",
-        "count": 1
-      },
-      {
-        "label": "服务条款",
-        "count": 1
       },
       {
         "label": "AI经济框架",
@@ -1786,110 +1790,6 @@
       },
       {
         "label": "数据隐私保护",
-        "count": 1
-      }
-    ],
-    "资本": [
-      {
-        "label": "战略投资",
-        "count": 3
-      },
-      {
-        "label": "IPO",
-        "count": 1
-      },
-      {
-        "label": "基础设施投资",
-        "count": 1
-      },
-      {
-        "label": "AI基础设施",
-        "count": 1
-      },
-      {
-        "label": "风险投资",
-        "count": 1
-      },
-      {
-        "label": "500亿美元投资",
-        "count": 1
-      },
-      {
-        "label": "IPO筹备",
-        "count": 1
-      },
-      {
-        "label": "1220亿美元融资",
-        "count": 1
-      },
-      {
-        "label": "追加融资",
-        "count": 1
-      },
-      {
-        "label": "融资",
-        "count": 1
-      },
-      {
-        "label": "收入增长",
-        "count": 1
-      },
-      {
-        "label": "估值",
-        "count": 1
-      },
-      {
-        "label": "C轮融资",
-        "count": 1
-      },
-      {
-        "label": "股价波动",
-        "count": 1
-      },
-      {
-        "label": "盈利结构",
-        "count": 1
-      },
-      {
-        "label": "季度捐赠暂停",
-        "count": 1
-      },
-      {
-        "label": "资金冻结",
-        "count": 1
-      },
-      {
-        "label": "收购要约",
-        "count": 1
-      }
-    ],
-    "人物": [
-      {
-        "label": "Elon Musk",
-        "count": 3
-      },
-      {
-        "label": "Sam Altman",
-        "count": 2
-      },
-      {
-        "label": "Chuck Robbins",
-        "count": 1
-      },
-      {
-        "label": "Kyle Kozic",
-        "count": 1
-      },
-      {
-        "label": "Jeff Bezos",
-        "count": 1
-      },
-      {
-        "label": "Max Hodak",
-        "count": 1
-      },
-      {
-        "label": "Gabe Newell",
         "count": 1
       }
     ],
