@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-05-06T04:29:43.095Z",
-  "totalNews": 141,
+  "generatedAt": "2026-05-07T04:30:02.677Z",
+  "totalNews": 127,
   "bySentiment": {
-    "neutral": 141
+    "neutral": 127
   },
   "byTrack": {
-    "芯片算力": 5,
-    "行业动态": 55,
-    "应用层": 33,
-    "政策监管": 28,
-    "安全合规": 10,
-    "基础模型": 4,
+    "行业动态": 50,
+    "安全合规": 9,
+    "应用层": 31,
+    "芯片算力": 2,
+    "政策监管": 26,
+    "基础模型": 3,
     "市场观点": 1,
     "开发者工具": 5
   },
@@ -18,39 +18,31 @@
     "公司": [
       {
         "label": "OpenAI",
-        "count": 63
+        "count": 59
       },
       {
         "label": "Anthropic",
-        "count": 30
+        "count": 27
       },
       {
         "label": "Google",
-        "count": 15
+        "count": 10
       },
       {
         "label": "xAI",
         "count": 7
       },
       {
-        "label": "Meta",
-        "count": 6
-      },
-      {
         "label": "Microsoft",
         "count": 6
       },
       {
-        "label": "SpaceX",
-        "count": 4
+        "label": "Meta",
+        "count": 5
       },
       {
         "label": "AWS",
         "count": 4
-      },
-      {
-        "label": "Broadcom",
-        "count": 3
       },
       {
         "label": "Muck Rack",
@@ -61,16 +53,16 @@
         "count": 3
       },
       {
+        "label": "SpaceX",
+        "count": 3
+      },
+      {
         "label": "Tesla",
         "count": 3
       },
       {
         "label": "ProPublica",
         "count": 3
-      },
-      {
-        "label": "Cisco",
-        "count": 2
       },
       {
         "label": "Intel",
@@ -119,22 +111,6 @@
       {
         "label": "Valve",
         "count": 2
-      },
-      {
-        "label": "Bluesky",
-        "count": 1
-      },
-      {
-        "label": "Delve",
-        "count": 1
-      },
-      {
-        "label": "Y Combinator",
-        "count": 1
-      },
-      {
-        "label": "Oracle",
-        "count": 1
       },
       {
         "label": "Nvidia",
@@ -275,10 +251,6 @@
         "count": 4
       },
       {
-        "label": "TPU",
-        "count": 3
-      },
-      {
         "label": "AI代理",
         "count": 3
       },
@@ -349,34 +321,6 @@
       {
         "label": "SynthID",
         "count": 2
-      },
-      {
-        "label": "服务中断",
-        "count": 1
-      },
-      {
-        "label": "太空数据中心",
-        "count": 1
-      },
-      {
-        "label": "网络芯片",
-        "count": 1
-      },
-      {
-        "label": "语音识别",
-        "count": 1
-      },
-      {
-        "label": "Gemma",
-        "count": 1
-      },
-      {
-        "label": "自动语音识别",
-        "count": 1
-      },
-      {
-        "label": "开源AI模型",
-        "count": 1
       },
       {
         "label": "AI搜索引擎",
@@ -515,88 +459,14 @@
         "count": 1
       }
     ],
-    "资本": [
-      {
-        "label": "战略投资",
-        "count": 3
-      },
-      {
-        "label": "基础设施投资",
-        "count": 1
-      },
-      {
-        "label": "AI基础设施",
-        "count": 1
-      },
-      {
-        "label": "风险投资",
-        "count": 1
-      },
-      {
-        "label": "500亿美元投资",
-        "count": 1
-      },
-      {
-        "label": "IPO筹备",
-        "count": 1
-      },
-      {
-        "label": "1220亿美元融资",
-        "count": 1
-      },
-      {
-        "label": "追加融资",
-        "count": 1
-      },
-      {
-        "label": "融资",
-        "count": 1
-      },
-      {
-        "label": "收入增长",
-        "count": 1
-      },
-      {
-        "label": "估值",
-        "count": 1
-      },
-      {
-        "label": "C轮融资",
-        "count": 1
-      },
-      {
-        "label": "股价波动",
-        "count": 1
-      },
-      {
-        "label": "盈利结构",
-        "count": 1
-      },
-      {
-        "label": "季度捐赠暂停",
-        "count": 1
-      },
-      {
-        "label": "资金冻结",
-        "count": 1
-      },
-      {
-        "label": "收购要约",
-        "count": 1
-      }
-    ],
     "主题": [
-      {
-        "label": "Sam Altman",
-        "count": 7
-      },
       {
         "label": "法律诉讼",
         "count": 7
       },
       {
-        "label": "地缘政治",
-        "count": 4
+        "label": "Sam Altman",
+        "count": 6
       },
       {
         "label": "高管变动",
@@ -611,14 +481,6 @@
         "count": 3
       },
       {
-        "label": "AI基础设施",
-        "count": 2
-      },
-      {
-        "label": "社交媒体",
-        "count": 2
-      },
-      {
         "label": "网络安全",
         "count": 2
       },
@@ -628,6 +490,10 @@
       },
       {
         "label": "半导体制造",
+        "count": 2
+      },
+      {
+        "label": "地缘政治",
         "count": 2
       },
       {
@@ -673,54 +539,6 @@
       {
         "label": "公众形象",
         "count": 2
-      },
-      {
-        "label": "AI算力",
-        "count": 1
-      },
-      {
-        "label": "vibe coding",
-        "count": 1
-      },
-      {
-        "label": "合规欺诈指控",
-        "count": 1
-      },
-      {
-        "label": "端侧AI",
-        "count": 1
-      },
-      {
-        "label": "离线AI处理",
-        "count": 1
-      },
-      {
-        "label": "中东局势",
-        "count": 1
-      },
-      {
-        "label": "劳动力市场转型",
-        "count": 1
-      },
-      {
-        "label": "四天工作制",
-        "count": 1
-      },
-      {
-        "label": "领导力争议",
-        "count": 1
-      },
-      {
-        "label": "Startup Battlefield 200",
-        "count": 1
-      },
-      {
-        "label": "TechCrunch Disrupt 2026",
-        "count": 1
-      },
-      {
-        "label": "早期初创公司",
-        "count": 1
       },
       {
         "label": "媒体可见性",
@@ -959,6 +777,10 @@
         "count": 1
       },
       {
+        "label": "社交媒体",
+        "count": 1
+      },
+      {
         "label": "内容披露",
         "count": 1
       },
@@ -1115,178 +937,6 @@
         "count": 1
       }
     ],
-    "人物": [
-      {
-        "label": "Elon Musk",
-        "count": 3
-      },
-      {
-        "label": "Sam Altman",
-        "count": 2
-      },
-      {
-        "label": "Chuck Robbins",
-        "count": 1
-      },
-      {
-        "label": "Kyle Kozic",
-        "count": 1
-      },
-      {
-        "label": "Jeff Bezos",
-        "count": 1
-      },
-      {
-        "label": "Max Hodak",
-        "count": 1
-      },
-      {
-        "label": "Gabe Newell",
-        "count": 1
-      }
-    ],
-    "安全合规": [
-      {
-        "label": "AI安全",
-        "count": 2
-      },
-      {
-        "label": "国家安全",
-        "count": 2
-      },
-      {
-        "label": "物理安全威胁",
-        "count": 2
-      },
-      {
-        "label": "供应链攻击",
-        "count": 2
-      },
-      {
-        "label": "人身安全威胁",
-        "count": 2
-      },
-      {
-        "label": "枪支暴力",
-        "count": 2
-      },
-      {
-        "label": "内容溯源",
-        "count": 2
-      },
-      {
-        "label": "数据泄露",
-        "count": 1
-      },
-      {
-        "label": "基础设施物理威胁",
-        "count": 1
-      },
-      {
-        "label": "数据中心安全",
-        "count": 1
-      },
-      {
-        "label": "企业伦理",
-        "count": 1
-      },
-      {
-        "label": "网络安全防御",
-        "count": 1
-      },
-      {
-        "label": "危机干预",
-        "count": 1
-      },
-      {
-        "label": "基础设施安全",
-        "count": 1
-      },
-      {
-        "label": "儿童安全",
-        "count": 1
-      },
-      {
-        "label": "五角大楼合同争议",
-        "count": 1
-      },
-      {
-        "label": "公共安全",
-        "count": 1
-      },
-      {
-        "label": "账户封禁",
-        "count": 1
-      },
-      {
-        "label": "安全威胁",
-        "count": 1
-      },
-      {
-        "label": "平台责任",
-        "count": 1
-      },
-      {
-        "label": "AI心理健康风险",
-        "count": 1
-      },
-      {
-        "label": "代码签名证书",
-        "count": 1
-      },
-      {
-        "label": "物理安全事件",
-        "count": 1
-      },
-      {
-        "label": "暴力袭击事件",
-        "count": 1
-      },
-      {
-        "label": "幻觉",
-        "count": 1
-      },
-      {
-        "label": "企业安全控制",
-        "count": 1
-      },
-      {
-        "label": "企业数据安全",
-        "count": 1
-      },
-      {
-        "label": "刑事调查",
-        "count": 1
-      },
-      {
-        "label": "住宅安全事件",
-        "count": 1
-      },
-      {
-        "label": "信息真实性",
-        "count": 1
-      },
-      {
-        "label": "暴力事件",
-        "count": 1
-      },
-      {
-        "label": "人身安全",
-        "count": 1
-      },
-      {
-        "label": "供应链风险",
-        "count": 1
-      },
-      {
-        "label": "人机协同决策",
-        "count": 1
-      },
-      {
-        "label": "高级账户安全",
-        "count": 1
-      }
-    ],
     "应用": [
       {
         "label": "ChatGPT",
@@ -1335,22 +985,6 @@
       {
         "label": "Chrome",
         "count": 2
-      },
-      {
-        "label": "AI合规工具",
-        "count": 1
-      },
-      {
-        "label": "AI Edge Eloquent",
-        "count": 1
-      },
-      {
-        "label": "Google AI Edge Eloquent",
-        "count": 1
-      },
-      {
-        "label": "iOS",
-        "count": 1
       },
       {
         "label": "自动化漏洞检测",
@@ -1519,10 +1153,6 @@
     ],
     "任务": [
       {
-        "label": "Stargate",
-        "count": 3
-      },
-      {
         "label": "Project Glasswing",
         "count": 2
       },
@@ -1535,15 +1165,11 @@
         "count": 2
       },
       {
-        "label": "AI模型开发",
-        "count": 1
-      },
-      {
-        "label": "初创企业融资",
-        "count": 1
-      },
-      {
         "label": "Kyle Kozic",
+        "count": 1
+      },
+      {
+        "label": "Stargate",
         "count": 1
       },
       {
@@ -1655,6 +1281,158 @@
         "count": 1
       }
     ],
+    "安全合规": [
+      {
+        "label": "国家安全",
+        "count": 2
+      },
+      {
+        "label": "物理安全威胁",
+        "count": 2
+      },
+      {
+        "label": "供应链攻击",
+        "count": 2
+      },
+      {
+        "label": "人身安全威胁",
+        "count": 2
+      },
+      {
+        "label": "枪支暴力",
+        "count": 2
+      },
+      {
+        "label": "内容溯源",
+        "count": 2
+      },
+      {
+        "label": "网络安全防御",
+        "count": 1
+      },
+      {
+        "label": "危机干预",
+        "count": 1
+      },
+      {
+        "label": "基础设施安全",
+        "count": 1
+      },
+      {
+        "label": "儿童安全",
+        "count": 1
+      },
+      {
+        "label": "五角大楼合同争议",
+        "count": 1
+      },
+      {
+        "label": "公共安全",
+        "count": 1
+      },
+      {
+        "label": "账户封禁",
+        "count": 1
+      },
+      {
+        "label": "安全威胁",
+        "count": 1
+      },
+      {
+        "label": "平台责任",
+        "count": 1
+      },
+      {
+        "label": "AI安全",
+        "count": 1
+      },
+      {
+        "label": "AI心理健康风险",
+        "count": 1
+      },
+      {
+        "label": "代码签名证书",
+        "count": 1
+      },
+      {
+        "label": "物理安全事件",
+        "count": 1
+      },
+      {
+        "label": "暴力袭击事件",
+        "count": 1
+      },
+      {
+        "label": "幻觉",
+        "count": 1
+      },
+      {
+        "label": "企业安全控制",
+        "count": 1
+      },
+      {
+        "label": "企业数据安全",
+        "count": 1
+      },
+      {
+        "label": "刑事调查",
+        "count": 1
+      },
+      {
+        "label": "住宅安全事件",
+        "count": 1
+      },
+      {
+        "label": "信息真实性",
+        "count": 1
+      },
+      {
+        "label": "暴力事件",
+        "count": 1
+      },
+      {
+        "label": "人身安全",
+        "count": 1
+      },
+      {
+        "label": "供应链风险",
+        "count": 1
+      },
+      {
+        "label": "人机协同决策",
+        "count": 1
+      },
+      {
+        "label": "高级账户安全",
+        "count": 1
+      }
+    ],
+    "人物": [
+      {
+        "label": "Elon Musk",
+        "count": 3
+      },
+      {
+        "label": "Sam Altman",
+        "count": 2
+      },
+      {
+        "label": "Kyle Kozic",
+        "count": 1
+      },
+      {
+        "label": "Jeff Bezos",
+        "count": 1
+      },
+      {
+        "label": "Max Hodak",
+        "count": 1
+      },
+      {
+        "label": "Gabe Newell",
+        "count": 1
+      }
+    ],
     "政策": [
       {
         "label": "AI治理",
@@ -1675,18 +1453,6 @@
       {
         "label": "联邦刑事指控",
         "count": 2
-      },
-      {
-        "label": "AI经济框架",
-        "count": 1
-      },
-      {
-        "label": "机器人税",
-        "count": 1
-      },
-      {
-        "label": "公共财富基金",
-        "count": 1
       },
       {
         "label": "地缘政治威胁",
@@ -1790,6 +1556,64 @@
       },
       {
         "label": "数据隐私保护",
+        "count": 1
+      }
+    ],
+    "资本": [
+      {
+        "label": "战略投资",
+        "count": 3
+      },
+      {
+        "label": "500亿美元投资",
+        "count": 1
+      },
+      {
+        "label": "IPO筹备",
+        "count": 1
+      },
+      {
+        "label": "1220亿美元融资",
+        "count": 1
+      },
+      {
+        "label": "追加融资",
+        "count": 1
+      },
+      {
+        "label": "融资",
+        "count": 1
+      },
+      {
+        "label": "收入增长",
+        "count": 1
+      },
+      {
+        "label": "估值",
+        "count": 1
+      },
+      {
+        "label": "C轮融资",
+        "count": 1
+      },
+      {
+        "label": "股价波动",
+        "count": 1
+      },
+      {
+        "label": "盈利结构",
+        "count": 1
+      },
+      {
+        "label": "季度捐赠暂停",
+        "count": 1
+      },
+      {
+        "label": "资金冻结",
+        "count": 1
+      },
+      {
+        "label": "收购要约",
         "count": 1
       }
     ],
