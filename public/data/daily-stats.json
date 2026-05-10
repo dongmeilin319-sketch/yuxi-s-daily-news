@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-05-09T04:18:43.814Z",
-  "totalNews": 90,
+  "generatedAt": "2026-05-10T04:39:23.309Z",
+  "totalNews": 87,
   "bySentiment": {
-    "neutral": 90
+    "neutral": 87
   },
   "byTrack": {
-    "应用层": 21,
-    "政策监管": 22,
     "行业动态": 31,
+    "应用层": 19,
     "市场观点": 1,
     "安全合规": 8,
+    "政策监管": 21,
     "开发者工具": 5,
     "基础模型": 2
   },
@@ -17,11 +17,11 @@
     "公司": [
       {
         "label": "OpenAI",
-        "count": 43
+        "count": 40
       },
       {
         "label": "Anthropic",
-        "count": 19
+        "count": 17
       },
       {
         "label": "Google",
@@ -140,92 +140,6 @@
         "count": 1
       }
     ],
-    "任务": [
-      {
-        "label": "ChatGPT Pro",
-        "count": 1
-      },
-      {
-        "label": "会议转录处理",
-        "count": 1
-      },
-      {
-        "label": "企业部署",
-        "count": 1
-      },
-      {
-        "label": "AI功能集成",
-        "count": 1
-      },
-      {
-        "label": "智能眼镜开发",
-        "count": 1
-      },
-      {
-        "label": "漏洞检测",
-        "count": 1
-      },
-      {
-        "label": "AI代理",
-        "count": 1
-      },
-      {
-        "label": "企业战略",
-        "count": 1
-      },
-      {
-        "label": "劳动力市场影响",
-        "count": 1
-      },
-      {
-        "label": "IPO准备",
-        "count": 1
-      },
-      {
-        "label": "IPO",
-        "count": 1
-      },
-      {
-        "label": "Mythos模型",
-        "count": 1
-      },
-      {
-        "label": "Gemini AI",
-        "count": 1
-      },
-      {
-        "label": "桌面应用重设计",
-        "count": 1
-      },
-      {
-        "label": "AI Skills",
-        "count": 1
-      },
-      {
-        "label": "收购",
-        "count": 1
-      },
-      {
-        "label": "Project Matador",
-        "count": 1
-      },
-      {
-        "label": "Elon Musk",
-        "count": 1
-      },
-      {
-        "label": "Sam Altman",
-        "count": 1
-      },
-      {
-        "label": "零工外包",
-        "count": 1
-      },
-      {
-        "label": "法律文档审查",
-        "count": 1
-      }
-    ],
     "技术": [
       {
         "label": "OpenClaw",
@@ -262,10 +176,6 @@
       {
         "label": "脑机接口",
         "count": 3
-      },
-      {
-        "label": "Codex",
-        "count": 2
       },
       {
         "label": "AI",
@@ -414,10 +324,6 @@
     ],
     "应用": [
       {
-        "label": "ChatGPT",
-        "count": 2
-      },
-      {
         "label": "Claude",
         "count": 2
       },
@@ -456,10 +362,6 @@
       {
         "label": "Chrome",
         "count": 2
-      },
-      {
-        "label": "代码生成",
-        "count": 1
       },
       {
         "label": "企业办公自动化",
@@ -558,207 +460,15 @@
         "count": 1
       },
       {
+        "label": "ChatGPT",
+        "count": 1
+      },
+      {
         "label": "社交媒体",
         "count": 1
       },
       {
         "label": "Microsoft Word",
-        "count": 1
-      }
-    ],
-    "政策": [
-      {
-        "label": "AI监管",
-        "count": 2
-      },
-      {
-        "label": "AI治理",
-        "count": 2
-      },
-      {
-        "label": "政治传播",
-        "count": 2
-      },
-      {
-        "label": "特朗普政府",
-        "count": 2
-      },
-      {
-        "label": "联邦刑事指控",
-        "count": 2
-      },
-      {
-        "label": "佛罗里达州调查",
-        "count": 1
-      },
-      {
-        "label": "API计费政策",
-        "count": 1
-      },
-      {
-        "label": "社交媒体审核",
-        "count": 1
-      },
-      {
-        "label": "AI使用披露",
-        "count": 1
-      },
-      {
-        "label": "AGI 治理",
-        "count": 1
-      },
-      {
-        "label": "金融监管",
-        "count": 1
-      },
-      {
-        "label": "行业监管",
-        "count": 1
-      },
-      {
-        "label": "国家安全",
-        "count": 1
-      },
-      {
-        "label": "数据隐私",
-        "count": 1
-      },
-      {
-        "label": "军事AI监管",
-        "count": 1
-      },
-      {
-        "label": "法庭诉讼",
-        "count": 1
-      },
-      {
-        "label": "慈善税收",
-        "count": 1
-      },
-      {
-        "label": "法律诉讼",
-        "count": 1
-      },
-      {
-        "label": "公司治理",
-        "count": 1
-      },
-      {
-        "label": "非营利转型",
-        "count": 1
-      },
-      {
-        "label": "诉讼程序",
-        "count": 1
-      },
-      {
-        "label": "数据隐私保护",
-        "count": 1
-      }
-    ],
-    "安全合规": [
-      {
-        "label": "国家安全",
-        "count": 2
-      },
-      {
-        "label": "物理安全威胁",
-        "count": 2
-      },
-      {
-        "label": "供应链攻击",
-        "count": 2
-      },
-      {
-        "label": "人身安全威胁",
-        "count": 2
-      },
-      {
-        "label": "枪支暴力",
-        "count": 2
-      },
-      {
-        "label": "内容溯源",
-        "count": 2
-      },
-      {
-        "label": "公共安全",
-        "count": 1
-      },
-      {
-        "label": "账户封禁",
-        "count": 1
-      },
-      {
-        "label": "安全威胁",
-        "count": 1
-      },
-      {
-        "label": "平台责任",
-        "count": 1
-      },
-      {
-        "label": "AI安全",
-        "count": 1
-      },
-      {
-        "label": "AI心理健康风险",
-        "count": 1
-      },
-      {
-        "label": "代码签名证书",
-        "count": 1
-      },
-      {
-        "label": "物理安全事件",
-        "count": 1
-      },
-      {
-        "label": "暴力袭击事件",
-        "count": 1
-      },
-      {
-        "label": "幻觉",
-        "count": 1
-      },
-      {
-        "label": "企业安全控制",
-        "count": 1
-      },
-      {
-        "label": "企业数据安全",
-        "count": 1
-      },
-      {
-        "label": "刑事调查",
-        "count": 1
-      },
-      {
-        "label": "住宅安全事件",
-        "count": 1
-      },
-      {
-        "label": "信息真实性",
-        "count": 1
-      },
-      {
-        "label": "暴力事件",
-        "count": 1
-      },
-      {
-        "label": "人身安全",
-        "count": 1
-      },
-      {
-        "label": "供应链风险",
-        "count": 1
-      },
-      {
-        "label": "人机协同决策",
-        "count": 1
-      },
-      {
-        "label": "高级账户安全",
         "count": 1
       }
     ],
@@ -806,14 +516,6 @@
       {
         "label": "公众形象",
         "count": 2
-      },
-      {
-        "label": "儿童安全",
-        "count": 1
-      },
-      {
-        "label": "订阅服务",
-        "count": 1
       },
       {
         "label": "API定价",
@@ -1116,9 +818,279 @@
         "count": 1
       }
     ],
+    "安全合规": [
+      {
+        "label": "物理安全威胁",
+        "count": 2
+      },
+      {
+        "label": "供应链攻击",
+        "count": 2
+      },
+      {
+        "label": "人身安全威胁",
+        "count": 2
+      },
+      {
+        "label": "枪支暴力",
+        "count": 2
+      },
+      {
+        "label": "内容溯源",
+        "count": 2
+      },
+      {
+        "label": "账户封禁",
+        "count": 1
+      },
+      {
+        "label": "安全威胁",
+        "count": 1
+      },
+      {
+        "label": "平台责任",
+        "count": 1
+      },
+      {
+        "label": "AI安全",
+        "count": 1
+      },
+      {
+        "label": "AI心理健康风险",
+        "count": 1
+      },
+      {
+        "label": "代码签名证书",
+        "count": 1
+      },
+      {
+        "label": "物理安全事件",
+        "count": 1
+      },
+      {
+        "label": "暴力袭击事件",
+        "count": 1
+      },
+      {
+        "label": "幻觉",
+        "count": 1
+      },
+      {
+        "label": "企业安全控制",
+        "count": 1
+      },
+      {
+        "label": "企业数据安全",
+        "count": 1
+      },
+      {
+        "label": "刑事调查",
+        "count": 1
+      },
+      {
+        "label": "住宅安全事件",
+        "count": 1
+      },
+      {
+        "label": "信息真实性",
+        "count": 1
+      },
+      {
+        "label": "暴力事件",
+        "count": 1
+      },
+      {
+        "label": "人身安全",
+        "count": 1
+      },
+      {
+        "label": "供应链风险",
+        "count": 1
+      },
+      {
+        "label": "国家安全",
+        "count": 1
+      },
+      {
+        "label": "人机协同决策",
+        "count": 1
+      },
+      {
+        "label": "高级账户安全",
+        "count": 1
+      }
+    ],
     "产品": [
       {
         "label": "Claude Cowork",
+        "count": 1
+      }
+    ],
+    "任务": [
+      {
+        "label": "会议转录处理",
+        "count": 1
+      },
+      {
+        "label": "企业部署",
+        "count": 1
+      },
+      {
+        "label": "AI功能集成",
+        "count": 1
+      },
+      {
+        "label": "智能眼镜开发",
+        "count": 1
+      },
+      {
+        "label": "漏洞检测",
+        "count": 1
+      },
+      {
+        "label": "AI代理",
+        "count": 1
+      },
+      {
+        "label": "企业战略",
+        "count": 1
+      },
+      {
+        "label": "劳动力市场影响",
+        "count": 1
+      },
+      {
+        "label": "IPO准备",
+        "count": 1
+      },
+      {
+        "label": "IPO",
+        "count": 1
+      },
+      {
+        "label": "Mythos模型",
+        "count": 1
+      },
+      {
+        "label": "Gemini AI",
+        "count": 1
+      },
+      {
+        "label": "桌面应用重设计",
+        "count": 1
+      },
+      {
+        "label": "AI Skills",
+        "count": 1
+      },
+      {
+        "label": "收购",
+        "count": 1
+      },
+      {
+        "label": "Project Matador",
+        "count": 1
+      },
+      {
+        "label": "Elon Musk",
+        "count": 1
+      },
+      {
+        "label": "Sam Altman",
+        "count": 1
+      },
+      {
+        "label": "零工外包",
+        "count": 1
+      },
+      {
+        "label": "法律文档审查",
+        "count": 1
+      }
+    ],
+    "政策": [
+      {
+        "label": "AI监管",
+        "count": 2
+      },
+      {
+        "label": "AI治理",
+        "count": 2
+      },
+      {
+        "label": "政治传播",
+        "count": 2
+      },
+      {
+        "label": "特朗普政府",
+        "count": 2
+      },
+      {
+        "label": "联邦刑事指控",
+        "count": 2
+      },
+      {
+        "label": "API计费政策",
+        "count": 1
+      },
+      {
+        "label": "社交媒体审核",
+        "count": 1
+      },
+      {
+        "label": "AI使用披露",
+        "count": 1
+      },
+      {
+        "label": "AGI 治理",
+        "count": 1
+      },
+      {
+        "label": "金融监管",
+        "count": 1
+      },
+      {
+        "label": "行业监管",
+        "count": 1
+      },
+      {
+        "label": "国家安全",
+        "count": 1
+      },
+      {
+        "label": "数据隐私",
+        "count": 1
+      },
+      {
+        "label": "军事AI监管",
+        "count": 1
+      },
+      {
+        "label": "法庭诉讼",
+        "count": 1
+      },
+      {
+        "label": "慈善税收",
+        "count": 1
+      },
+      {
+        "label": "法律诉讼",
+        "count": 1
+      },
+      {
+        "label": "公司治理",
+        "count": 1
+      },
+      {
+        "label": "非营利转型",
+        "count": 1
+      },
+      {
+        "label": "诉讼程序",
+        "count": 1
+      },
+      {
+        "label": "数据隐私保护",
         "count": 1
       }
     ],
