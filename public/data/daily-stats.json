@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-05-11T04:54:14.892Z",
-  "totalNews": 70,
+  "generatedAt": "2026-05-12T04:31:26.645Z",
+  "totalNews": 63,
   "bySentiment": {
-    "neutral": 70
+    "neutral": 63
   },
   "byTrack": {
-    "应用层": 13,
-    "行业动态": 25,
-    "安全合规": 6,
     "开发者工具": 5,
+    "行业动态": 21,
     "基础模型": 2,
-    "政策监管": 19
+    "政策监管": 19,
+    "应用层": 12,
+    "安全合规": 4
   },
   "topLabelsByType": {
     "公司": [
       {
         "label": "OpenAI",
-        "count": 31
+        "count": 25
       },
       {
         "label": "Anthropic",
@@ -49,14 +49,6 @@
       {
         "label": "Valve",
         "count": 2
-      },
-      {
-        "label": "Fawn Friends",
-        "count": 1
-      },
-      {
-        "label": "The New Yorker",
-        "count": 1
       },
       {
         "label": "摩根大通",
@@ -157,14 +149,6 @@
         "count": 3
       },
       {
-        "label": "生成式AI",
-        "count": 2
-      },
-      {
-        "label": "Axios",
-        "count": 2
-      },
-      {
         "label": "AGI",
         "count": 2
       },
@@ -201,14 +185,6 @@
         "count": 2
       },
       {
-        "label": "AI语音合成",
-        "count": 1
-      },
-      {
-        "label": "代码签名证书",
-        "count": 1
-      },
-      {
         "label": "AI编程",
         "count": 1
       },
@@ -234,6 +210,10 @@
       },
       {
         "label": "ChatGPT",
+        "count": 1
+      },
+      {
+        "label": "生成式AI",
         "count": 1
       },
       {
@@ -307,10 +287,6 @@
     ],
     "应用": [
       {
-        "label": "ChatGPT Desktop",
-        "count": 2
-      },
-      {
         "label": "Claude Code",
         "count": 2
       },
@@ -329,14 +305,6 @@
       {
         "label": "Chrome",
         "count": 2
-      },
-      {
-        "label": "实体AI伴侣",
-        "count": 1
-      },
-      {
-        "label": "新闻插图",
-        "count": 1
       },
       {
         "label": "vibe coding",
@@ -425,14 +393,6 @@
         "count": 6
       },
       {
-        "label": "Sam Altman",
-        "count": 3
-      },
-      {
-        "label": "AI艺术",
-        "count": 2
-      },
-      {
         "label": "高管人身安全",
         "count": 2
       },
@@ -455,34 +415,6 @@
       {
         "label": "公众形象",
         "count": 2
-      },
-      {
-        "label": "情感陪伴",
-        "count": 1
-      },
-      {
-        "label": "生成式AI",
-        "count": 1
-      },
-      {
-        "label": "新闻插图",
-        "count": 1
-      },
-      {
-        "label": "版权合规",
-        "count": 1
-      },
-      {
-        "label": "信任危机",
-        "count": 1
-      },
-      {
-        "label": "AGI治理理念",
-        "count": 1
-      },
-      {
-        "label": "商业行为争议",
-        "count": 1
       },
       {
         "label": "AI术语表",
@@ -661,6 +593,10 @@
         "count": 1
       },
       {
+        "label": "Sam Altman",
+        "count": 1
+      },
+      {
         "label": "庭审程序",
         "count": 1
       },
@@ -691,32 +627,12 @@
     ],
     "安全合规": [
       {
-        "label": "供应链攻击",
-        "count": 2
-      },
-      {
-        "label": "人身安全威胁",
-        "count": 2
-      },
-      {
         "label": "枪支暴力",
         "count": 2
       },
       {
         "label": "内容溯源",
         "count": 2
-      },
-      {
-        "label": "AI心理健康风险",
-        "count": 1
-      },
-      {
-        "label": "代码签名证书",
-        "count": 1
-      },
-      {
-        "label": "物理安全事件",
-        "count": 1
       },
       {
         "label": "幻觉",
@@ -759,6 +675,10 @@
         "count": 1
       },
       {
+        "label": "人身安全威胁",
+        "count": 1
+      },
+      {
         "label": "物理安全威胁",
         "count": 1
       },
@@ -768,84 +688,6 @@
       },
       {
         "label": "高级账户安全",
-        "count": 1
-      }
-    ],
-    "政策": [
-      {
-        "label": "AI监管",
-        "count": 2
-      },
-      {
-        "label": "AI治理",
-        "count": 2
-      },
-      {
-        "label": "政治传播",
-        "count": 2
-      },
-      {
-        "label": "特朗普政府",
-        "count": 2
-      },
-      {
-        "label": "联邦刑事指控",
-        "count": 2
-      },
-      {
-        "label": "AI使用披露",
-        "count": 1
-      },
-      {
-        "label": "AGI 治理",
-        "count": 1
-      },
-      {
-        "label": "金融监管",
-        "count": 1
-      },
-      {
-        "label": "行业监管",
-        "count": 1
-      },
-      {
-        "label": "国家安全",
-        "count": 1
-      },
-      {
-        "label": "数据隐私",
-        "count": 1
-      },
-      {
-        "label": "军事AI监管",
-        "count": 1
-      },
-      {
-        "label": "法庭诉讼",
-        "count": 1
-      },
-      {
-        "label": "慈善税收",
-        "count": 1
-      },
-      {
-        "label": "法律诉讼",
-        "count": 1
-      },
-      {
-        "label": "公司治理",
-        "count": 1
-      },
-      {
-        "label": "非营利转型",
-        "count": 1
-      },
-      {
-        "label": "诉讼程序",
-        "count": 1
-      },
-      {
-        "label": "数据隐私保护",
         "count": 1
       }
     ],
@@ -916,6 +758,76 @@
       },
       {
         "label": "法律文档审查",
+        "count": 1
+      }
+    ],
+    "政策": [
+      {
+        "label": "AI监管",
+        "count": 2
+      },
+      {
+        "label": "AI治理",
+        "count": 2
+      },
+      {
+        "label": "政治传播",
+        "count": 2
+      },
+      {
+        "label": "特朗普政府",
+        "count": 2
+      },
+      {
+        "label": "联邦刑事指控",
+        "count": 2
+      },
+      {
+        "label": "金融监管",
+        "count": 1
+      },
+      {
+        "label": "行业监管",
+        "count": 1
+      },
+      {
+        "label": "国家安全",
+        "count": 1
+      },
+      {
+        "label": "数据隐私",
+        "count": 1
+      },
+      {
+        "label": "军事AI监管",
+        "count": 1
+      },
+      {
+        "label": "法庭诉讼",
+        "count": 1
+      },
+      {
+        "label": "慈善税收",
+        "count": 1
+      },
+      {
+        "label": "法律诉讼",
+        "count": 1
+      },
+      {
+        "label": "公司治理",
+        "count": 1
+      },
+      {
+        "label": "非营利转型",
+        "count": 1
+      },
+      {
+        "label": "诉讼程序",
+        "count": 1
+      },
+      {
+        "label": "数据隐私保护",
         "count": 1
       }
     ],
