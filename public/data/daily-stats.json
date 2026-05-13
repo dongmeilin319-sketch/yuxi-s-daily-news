@@ -1,141 +1,19 @@
 {
-  "generatedAt": "2026-05-12T04:31:26.645Z",
-  "totalNews": 63,
+  "generatedAt": "2026-05-13T04:38:04.913Z",
+  "totalNews": 53,
   "bySentiment": {
-    "neutral": 63
+    "neutral": 53
   },
   "byTrack": {
-    "开发者工具": 5,
-    "行业动态": 21,
-    "基础模型": 2,
-    "政策监管": 19,
     "应用层": 12,
-    "安全合规": 4
+    "行业动态": 14,
+    "政策监管": 18,
+    "开发者工具": 4,
+    "安全合规": 4,
+    "基础模型": 1
   },
   "topLabelsByType": {
-    "公司": [
-      {
-        "label": "OpenAI",
-        "count": 25
-      },
-      {
-        "label": "Anthropic",
-        "count": 13
-      },
-      {
-        "label": "Google",
-        "count": 7
-      },
-      {
-        "label": "Meta",
-        "count": 4
-      },
-      {
-        "label": "Microsoft",
-        "count": 4
-      },
-      {
-        "label": "xAI",
-        "count": 4
-      },
-      {
-        "label": "Apple",
-        "count": 2
-      },
-      {
-        "label": "Vercel",
-        "count": 2
-      },
-      {
-        "label": "Valve",
-        "count": 2
-      },
-      {
-        "label": "摩根大通",
-        "count": 1
-      },
-      {
-        "label": "Higgsfield AI",
-        "count": 1
-      },
-      {
-        "label": "微软",
-        "count": 1
-      },
-      {
-        "label": "软银",
-        "count": 1
-      },
-      {
-        "label": "索尼",
-        "count": 1
-      },
-      {
-        "label": "本田",
-        "count": 1
-      },
-      {
-        "label": "SoftBank",
-        "count": 1
-      },
-      {
-        "label": "Sony",
-        "count": 1
-      },
-      {
-        "label": "Honda",
-        "count": 1
-      },
-      {
-        "label": "DeepMind",
-        "count": 1
-      },
-      {
-        "label": "Google DeepMind",
-        "count": 1
-      },
-      {
-        "label": "AI 行业",
-        "count": 1
-      },
-      {
-        "label": "Science Corporation",
-        "count": 1
-      },
-      {
-        "label": "Fermi",
-        "count": 1
-      },
-      {
-        "label": "SpaceX",
-        "count": 1
-      },
-      {
-        "label": "Tesla",
-        "count": 1
-      },
-      {
-        "label": "Elon Musk",
-        "count": 1
-      },
-      {
-        "label": "Fiverr",
-        "count": 1
-      }
-    ],
     "技术": [
-      {
-        "label": "大语言模型",
-        "count": 3
-      },
-      {
-        "label": "深度学习",
-        "count": 3
-      },
-      {
-        "label": "Mythos",
-        "count": 3
-      },
       {
         "label": "AI克隆",
         "count": 3
@@ -147,18 +25,6 @@
       {
         "label": "脑机接口",
         "count": 3
-      },
-      {
-        "label": "AGI",
-        "count": 2
-      },
-      {
-        "label": "Agentic AI",
-        "count": 2
-      },
-      {
-        "label": "Claude",
-        "count": 2
       },
       {
         "label": "AI Agent",
@@ -177,40 +43,16 @@
         "count": 2
       },
       {
+        "label": "Mythos",
+        "count": 2
+      },
+      {
         "label": "Gemini",
         "count": 2
       },
       {
         "label": "SynthID",
         "count": 2
-      },
-      {
-        "label": "AI编程",
-        "count": 1
-      },
-      {
-        "label": "神经网络",
-        "count": 1
-      },
-      {
-        "label": "人工智能术语",
-        "count": 1
-      },
-      {
-        "label": "模型训练",
-        "count": 1
-      },
-      {
-        "label": "智能眼镜",
-        "count": 1
-      },
-      {
-        "label": "可穿戴设备",
-        "count": 1
-      },
-      {
-        "label": "ChatGPT",
-        "count": 1
       },
       {
         "label": "生成式AI",
@@ -287,14 +129,6 @@
     ],
     "应用": [
       {
-        "label": "Claude Code",
-        "count": 2
-      },
-      {
-        "label": "AI智能体",
-        "count": 2
-      },
-      {
         "label": "Microsoft 365 Copilot",
         "count": 2
       },
@@ -305,22 +139,6 @@
       {
         "label": "Chrome",
         "count": 2
-      },
-      {
-        "label": "vibe coding",
-        "count": 1
-      },
-      {
-        "label": "AI语音助手",
-        "count": 1
-      },
-      {
-        "label": "Claude",
-        "count": 1
-      },
-      {
-        "label": "Agentic AI",
-        "count": 1
       },
       {
         "label": "虚拟网红",
@@ -340,6 +158,10 @@
       },
       {
         "label": "AI 编码助手",
+        "count": 1
+      },
+      {
+        "label": "Claude Code",
         "count": 1
       },
       {
@@ -415,46 +237,6 @@
       {
         "label": "公众形象",
         "count": 2
-      },
-      {
-        "label": "AI术语表",
-        "count": 1
-      },
-      {
-        "label": "人工智能术语",
-        "count": 1
-      },
-      {
-        "label": "AGI",
-        "count": 1
-      },
-      {
-        "label": "可穿戴设备",
-        "count": 1
-      },
-      {
-        "label": "硬件创新",
-        "count": 1
-      },
-      {
-        "label": "消费电子",
-        "count": 1
-      },
-      {
-        "label": "市场竞争",
-        "count": 1
-      },
-      {
-        "label": "HumanX Conference",
-        "count": 1
-      },
-      {
-        "label": "HumanX AI conference",
-        "count": 1
-      },
-      {
-        "label": "网络安全",
-        "count": 1
       },
       {
         "label": "社交媒体",
@@ -625,6 +407,108 @@
         "count": 1
       }
     ],
+    "公司": [
+      {
+        "label": "OpenAI",
+        "count": 21
+      },
+      {
+        "label": "Anthropic",
+        "count": 8
+      },
+      {
+        "label": "Google",
+        "count": 6
+      },
+      {
+        "label": "Meta",
+        "count": 4
+      },
+      {
+        "label": "Microsoft",
+        "count": 4
+      },
+      {
+        "label": "xAI",
+        "count": 4
+      },
+      {
+        "label": "Vercel",
+        "count": 2
+      },
+      {
+        "label": "Valve",
+        "count": 2
+      },
+      {
+        "label": "Higgsfield AI",
+        "count": 1
+      },
+      {
+        "label": "微软",
+        "count": 1
+      },
+      {
+        "label": "软银",
+        "count": 1
+      },
+      {
+        "label": "索尼",
+        "count": 1
+      },
+      {
+        "label": "本田",
+        "count": 1
+      },
+      {
+        "label": "SoftBank",
+        "count": 1
+      },
+      {
+        "label": "Sony",
+        "count": 1
+      },
+      {
+        "label": "Honda",
+        "count": 1
+      },
+      {
+        "label": "DeepMind",
+        "count": 1
+      },
+      {
+        "label": "Google DeepMind",
+        "count": 1
+      },
+      {
+        "label": "AI 行业",
+        "count": 1
+      },
+      {
+        "label": "Science Corporation",
+        "count": 1
+      },
+      {
+        "label": "Fermi",
+        "count": 1
+      },
+      {
+        "label": "SpaceX",
+        "count": 1
+      },
+      {
+        "label": "Tesla",
+        "count": 1
+      },
+      {
+        "label": "Elon Musk",
+        "count": 1
+      },
+      {
+        "label": "Fiverr",
+        "count": 1
+      }
+    ],
     "安全合规": [
       {
         "label": "枪支暴力",
@@ -633,10 +517,6 @@
       {
         "label": "内容溯源",
         "count": 2
-      },
-      {
-        "label": "幻觉",
-        "count": 1
       },
       {
         "label": "企业安全控制",
@@ -692,14 +572,6 @@
       }
     ],
     "任务": [
-      {
-        "label": "智能眼镜开发",
-        "count": 1
-      },
-      {
-        "label": "漏洞检测",
-        "count": 1
-      },
       {
         "label": "AI代理",
         "count": 1
@@ -781,10 +653,6 @@
       {
         "label": "联邦刑事指控",
         "count": 2
-      },
-      {
-        "label": "金融监管",
-        "count": 1
       },
       {
         "label": "行业监管",
