@@ -1,58 +1,32 @@
 {
-  "generatedAt": "2026-05-14T04:36:54.509Z",
-  "totalNews": 35,
+  "generatedAt": "2026-05-15T04:43:09.155Z",
+  "totalNews": 17,
   "bySentiment": {
-    "neutral": 35
+    "neutral": 17
   },
   "byTrack": {
-    "政策监管": 16,
-    "应用层": 7,
-    "开发者工具": 2,
-    "安全合规": 3,
-    "行业动态": 6,
-    "基础模型": 1
+    "行业动态": 4,
+    "政策监管": 11,
+    "安全合规": 1,
+    "应用层": 1
   },
   "topLabelsByType": {
     "公司": [
       {
         "label": "OpenAI",
-        "count": 16
-      },
-      {
-        "label": "Anthropic",
-        "count": 7
-      },
-      {
-        "label": "Google",
-        "count": 6
+        "count": 13
       },
       {
         "label": "xAI",
         "count": 4
       },
       {
-        "label": "Meta",
-        "count": 3
-      },
-      {
-        "label": "Microsoft",
+        "label": "Anthropic",
         "count": 2
       },
       {
         "label": "Valve",
         "count": 2
-      },
-      {
-        "label": "DeepMind",
-        "count": 1
-      },
-      {
-        "label": "Google DeepMind",
-        "count": 1
-      },
-      {
-        "label": "Science Corporation",
-        "count": 1
       },
       {
         "label": "Fermi",
@@ -73,6 +47,36 @@
       {
         "label": "Fiverr",
         "count": 1
+      },
+      {
+        "label": "Microsoft",
+        "count": 1
+      }
+    ],
+    "任务": [
+      {
+        "label": "收购",
+        "count": 1
+      },
+      {
+        "label": "Project Matador",
+        "count": 1
+      },
+      {
+        "label": "Elon Musk",
+        "count": 1
+      },
+      {
+        "label": "Sam Altman",
+        "count": 1
+      },
+      {
+        "label": "零工外包",
+        "count": 1
+      },
+      {
+        "label": "法律文档审查",
+        "count": 1
       }
     ],
     "主题": [
@@ -81,67 +85,11 @@
         "count": 6
       },
       {
-        "label": "AI安全",
-        "count": 2
+        "label": "企业AI竞争",
+        "count": 1
       },
       {
         "label": "公众形象",
-        "count": 2
-      },
-      {
-        "label": "社会抵抗",
-        "count": 1
-      },
-      {
-        "label": "暴力袭击",
-        "count": 1
-      },
-      {
-        "label": "AI 就业影响",
-        "count": 1
-      },
-      {
-        "label": "国家安全",
-        "count": 1
-      },
-      {
-        "label": "AI监管",
-        "count": 1
-      },
-      {
-        "label": "浏览器功能",
-        "count": 1
-      },
-      {
-        "label": "桌面端开发工具",
-        "count": 1
-      },
-      {
-        "label": "浏览器AI集成",
-        "count": 1
-      },
-      {
-        "label": "AI工作流",
-        "count": 1
-      },
-      {
-        "label": "CEO公众形象",
-        "count": 1
-      },
-      {
-        "label": "人工智能克隆",
-        "count": 1
-      },
-      {
-        "label": "CEO形象管理",
-        "count": 1
-      },
-      {
-        "label": "人工智能应用",
-        "count": 1
-      },
-      {
-        "label": "企业AI竞争",
         "count": 1
       },
       {
@@ -197,57 +145,69 @@
         "count": 1
       }
     ],
-    "安全合规": [
+    "技术": [
       {
-        "label": "内容溯源",
+        "label": "脑机接口",
         "count": 2
       },
       {
-        "label": "暴力事件",
+        "label": "核能发电",
         "count": 1
       },
       {
-        "label": "人身安全",
+        "label": "通行密钥",
         "count": 1
       },
       {
-        "label": "供应链风险",
+        "label": "AI视频生成",
         "count": 1
       },
       {
-        "label": "国家安全",
+        "label": "AI Agent",
         "count": 1
       },
       {
-        "label": "人机协同决策",
+        "label": "AI模型训练",
+        "count": 1
+      }
+    ],
+    "资本": [
+      {
+        "label": "股价波动",
         "count": 1
       },
       {
-        "label": "高级账户安全",
+        "label": "盈利结构",
+        "count": 1
+      },
+      {
+        "label": "季度捐赠暂停",
+        "count": 1
+      },
+      {
+        "label": "资金冻结",
+        "count": 1
+      },
+      {
+        "label": "收购要约",
+        "count": 1
+      }
+    ],
+    "人物": [
+      {
+        "label": "Elon Musk",
+        "count": 3
+      },
+      {
+        "label": "Sam Altman",
+        "count": 1
+      },
+      {
+        "label": "Gabe Newell",
         "count": 1
       }
     ],
     "政策": [
-      {
-        "label": "特朗普政府",
-        "count": 2
-      },
-      {
-        "label": "AI监管",
-        "count": 1
-      },
-      {
-        "label": "行业监管",
-        "count": 1
-      },
-      {
-        "label": "国家安全",
-        "count": 1
-      },
-      {
-        "label": "数据隐私",
-        "count": 1
-      },
       {
         "label": "军事AI监管",
         "count": 1
@@ -285,179 +245,17 @@
         "count": 1
       }
     ],
-    "技术": [
+    "安全合规": [
       {
-        "label": "脑机接口",
-        "count": 3
-      },
-      {
-        "label": "Mythos",
-        "count": 2
-      },
-      {
-        "label": "Gemini",
-        "count": 2
-      },
-      {
-        "label": "SynthID",
-        "count": 2
-      },
-      {
-        "label": "AI克隆",
-        "count": 2
-      },
-      {
-        "label": "AI Skills",
+        "label": "人机协同决策",
         "count": 1
       },
       {
-        "label": "Claude Code",
-        "count": 1
-      },
-      {
-        "label": "多代理管理",
-        "count": 1
-      },
-      {
-        "label": "AI代理管理",
-        "count": 1
-      },
-      {
-        "label": "Gemini AI",
-        "count": 1
-      },
-      {
-        "label": "AI水印",
-        "count": 1
-      },
-      {
-        "label": "AI 水印",
-        "count": 1
-      },
-      {
-        "label": "AI",
-        "count": 1
-      },
-      {
-        "label": "MAI-Image-2-Efficient",
-        "count": 1
-      },
-      {
-        "label": "text-to-image",
-        "count": 1
-      },
-      {
-        "label": "生物混合脑机接口",
-        "count": 1
-      },
-      {
-        "label": "核能发电",
-        "count": 1
-      },
-      {
-        "label": "通行密钥",
-        "count": 1
-      },
-      {
-        "label": "AI视频生成",
-        "count": 1
-      },
-      {
-        "label": "AI Agent",
-        "count": 1
-      },
-      {
-        "label": "AI模型训练",
-        "count": 1
-      }
-    ],
-    "任务": [
-      {
-        "label": "Mythos模型",
-        "count": 1
-      },
-      {
-        "label": "Gemini AI",
-        "count": 1
-      },
-      {
-        "label": "桌面应用重设计",
-        "count": 1
-      },
-      {
-        "label": "AI Skills",
-        "count": 1
-      },
-      {
-        "label": "收购",
-        "count": 1
-      },
-      {
-        "label": "Project Matador",
-        "count": 1
-      },
-      {
-        "label": "Elon Musk",
-        "count": 1
-      },
-      {
-        "label": "Sam Altman",
-        "count": 1
-      },
-      {
-        "label": "零工外包",
-        "count": 1
-      },
-      {
-        "label": "法律文档审查",
+        "label": "高级账户安全",
         "count": 1
       }
     ],
     "应用": [
-      {
-        "label": "Chrome",
-        "count": 2
-      },
-      {
-        "label": "AI 编码助手",
-        "count": 1
-      },
-      {
-        "label": "Claude Code",
-        "count": 1
-      },
-      {
-        "label": "个人智能",
-        "count": 1
-      },
-      {
-        "label": "Chrome浏览器",
-        "count": 1
-      },
-      {
-        "label": "Skills",
-        "count": 1
-      },
-      {
-        "label": "图像生成检测",
-        "count": 1
-      },
-      {
-        "label": "Gemini",
-        "count": 1
-      },
-      {
-        "label": "数字替身",
-        "count": 1
-      },
-      {
-        "label": "企业图像生成",
-        "count": 1
-      },
-      {
-        "label": "神经疾病治疗",
-        "count": 1
-      },
       {
         "label": "ChatGPT",
         "count": 1
@@ -468,50 +266,6 @@
       },
       {
         "label": "Microsoft Word",
-        "count": 1
-      }
-    ],
-    "人物": [
-      {
-        "label": "Elon Musk",
-        "count": 3
-      },
-      {
-        "label": "Max Hodak",
-        "count": 1
-      },
-      {
-        "label": "Sam Altman",
-        "count": 1
-      },
-      {
-        "label": "Gabe Newell",
-        "count": 1
-      }
-    ],
-    "资本": [
-      {
-        "label": "C轮融资",
-        "count": 1
-      },
-      {
-        "label": "股价波动",
-        "count": 1
-      },
-      {
-        "label": "盈利结构",
-        "count": 1
-      },
-      {
-        "label": "季度捐赠暂停",
-        "count": 1
-      },
-      {
-        "label": "资金冻结",
-        "count": 1
-      },
-      {
-        "label": "收购要约",
         "count": 1
       }
     ]
