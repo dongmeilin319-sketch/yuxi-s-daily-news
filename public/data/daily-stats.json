@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-05-19T04:53:42.180Z",
-  "totalNews": 17,
+  "generatedAt": "2026-05-20T04:57:47.893Z",
+  "totalNews": 16,
   "bySentiment": {
-    "neutral": 17
+    "neutral": 16
   },
   "byTrack": {
-    "行业动态": 4,
+    "行业动态": 3,
     "政策监管": 11,
     "安全合规": 1,
     "应用层": 1
@@ -14,15 +14,11 @@
     "公司": [
       {
         "label": "OpenAI",
-        "count": 13
+        "count": 12
       },
       {
         "label": "xAI",
         "count": 4
-      },
-      {
-        "label": "Anthropic",
-        "count": 2
       },
       {
         "label": "Valve",
@@ -41,6 +37,10 @@
         "count": 1
       },
       {
+        "label": "Anthropic",
+        "count": 1
+      },
+      {
         "label": "Elon Musk",
         "count": 1
       },
@@ -54,10 +54,6 @@
       }
     ],
     "任务": [
-      {
-        "label": "收购",
-        "count": 1
-      },
       {
         "label": "Project Matador",
         "count": 1
@@ -79,18 +75,36 @@
         "count": 1
       }
     ],
+    "技术": [
+      {
+        "label": "脑机接口",
+        "count": 2
+      },
+      {
+        "label": "核能发电",
+        "count": 1
+      },
+      {
+        "label": "通行密钥",
+        "count": 1
+      },
+      {
+        "label": "AI视频生成",
+        "count": 1
+      },
+      {
+        "label": "AI Agent",
+        "count": 1
+      },
+      {
+        "label": "AI模型训练",
+        "count": 1
+      }
+    ],
     "主题": [
       {
         "label": "法律诉讼",
         "count": 6
-      },
-      {
-        "label": "企业AI竞争",
-        "count": 1
-      },
-      {
-        "label": "公众形象",
-        "count": 1
       },
       {
         "label": "高管变动",
@@ -142,32 +156,6 @@
       },
       {
         "label": "非营利治理",
-        "count": 1
-      }
-    ],
-    "技术": [
-      {
-        "label": "脑机接口",
-        "count": 2
-      },
-      {
-        "label": "核能发电",
-        "count": 1
-      },
-      {
-        "label": "通行密钥",
-        "count": 1
-      },
-      {
-        "label": "AI视频生成",
-        "count": 1
-      },
-      {
-        "label": "AI Agent",
-        "count": 1
-      },
-      {
-        "label": "AI模型训练",
         "count": 1
       }
     ],
