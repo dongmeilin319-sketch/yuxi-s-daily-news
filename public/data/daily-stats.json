@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-05-20T04:57:47.893Z",
-  "totalNews": 16,
+  "generatedAt": "2026-05-21T05:03:38.984Z",
+  "totalNews": 15,
   "bySentiment": {
-    "neutral": 16
+    "neutral": 15
   },
   "byTrack": {
-    "行业动态": 3,
     "政策监管": 11,
+    "行业动态": 2,
     "安全合规": 1,
     "应用层": 1
   },
@@ -23,10 +23,6 @@
       {
         "label": "Valve",
         "count": 2
-      },
-      {
-        "label": "Fermi",
-        "count": 1
       },
       {
         "label": "SpaceX",
@@ -53,51 +49,17 @@
         "count": 1
       }
     ],
-    "任务": [
-      {
-        "label": "Project Matador",
-        "count": 1
-      },
+    "人物": [
       {
         "label": "Elon Musk",
-        "count": 1
+        "count": 3
       },
       {
         "label": "Sam Altman",
         "count": 1
       },
       {
-        "label": "零工外包",
-        "count": 1
-      },
-      {
-        "label": "法律文档审查",
-        "count": 1
-      }
-    ],
-    "技术": [
-      {
-        "label": "脑机接口",
-        "count": 2
-      },
-      {
-        "label": "核能发电",
-        "count": 1
-      },
-      {
-        "label": "通行密钥",
-        "count": 1
-      },
-      {
-        "label": "AI视频生成",
-        "count": 1
-      },
-      {
-        "label": "AI Agent",
-        "count": 1
-      },
-      {
-        "label": "AI模型训练",
+        "label": "Gabe Newell",
         "count": 1
       }
     ],
@@ -105,10 +67,6 @@
       {
         "label": "法律诉讼",
         "count": 6
-      },
-      {
-        "label": "高管变动",
-        "count": 1
       },
       {
         "label": "AI伦理",
@@ -161,10 +119,6 @@
     ],
     "资本": [
       {
-        "label": "股价波动",
-        "count": 1
-      },
-      {
         "label": "盈利结构",
         "count": 1
       },
@@ -181,17 +135,25 @@
         "count": 1
       }
     ],
-    "人物": [
+    "技术": [
       {
-        "label": "Elon Musk",
-        "count": 3
+        "label": "脑机接口",
+        "count": 2
       },
       {
-        "label": "Sam Altman",
+        "label": "通行密钥",
         "count": 1
       },
       {
-        "label": "Gabe Newell",
+        "label": "AI视频生成",
+        "count": 1
+      },
+      {
+        "label": "AI Agent",
+        "count": 1
+      },
+      {
+        "label": "AI模型训练",
         "count": 1
       }
     ],
@@ -240,6 +202,24 @@
       },
       {
         "label": "高级账户安全",
+        "count": 1
+      }
+    ],
+    "任务": [
+      {
+        "label": "Elon Musk",
+        "count": 1
+      },
+      {
+        "label": "Sam Altman",
+        "count": 1
+      },
+      {
+        "label": "零工外包",
+        "count": 1
+      },
+      {
+        "label": "法律文档审查",
         "count": 1
       }
     ],
