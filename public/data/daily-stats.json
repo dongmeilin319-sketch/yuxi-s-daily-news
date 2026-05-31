@@ -1,45 +1,16 @@
 {
-  "generatedAt": "2026-05-30T04:44:24.679Z",
-  "totalNews": 15,
+  "generatedAt": "2026-05-31T05:13:05.566Z",
+  "totalNews": 3,
   "bySentiment": {
-    "neutral": 15
+    "neutral": 3
   },
   "byTrack": {
-    "政策监管": 11,
-    "行业动态": 2,
-    "安全合规": 1,
-    "应用层": 1
+    "行业动态": 1,
+    "应用层": 1,
+    "政策监管": 1
   },
   "topLabelsByType": {
     "公司": [
-      {
-        "label": "OpenAI",
-        "count": 12
-      },
-      {
-        "label": "xAI",
-        "count": 4
-      },
-      {
-        "label": "Valve",
-        "count": 2
-      },
-      {
-        "label": "SpaceX",
-        "count": 1
-      },
-      {
-        "label": "Tesla",
-        "count": 1
-      },
-      {
-        "label": "Anthropic",
-        "count": 1
-      },
-      {
-        "label": "Elon Musk",
-        "count": 1
-      },
       {
         "label": "Fiverr",
         "count": 1
@@ -47,59 +18,31 @@
       {
         "label": "Microsoft",
         "count": 1
-      }
-    ],
-    "人物": [
-      {
-        "label": "Elon Musk",
-        "count": 3
       },
       {
-        "label": "Sam Altman",
+        "label": "OpenAI",
         "count": 1
       },
       {
-        "label": "Gabe Newell",
+        "label": "xAI",
+        "count": 1
+      }
+    ],
+    "技术": [
+      {
+        "label": "AI视频生成",
+        "count": 1
+      },
+      {
+        "label": "AI Agent",
+        "count": 1
+      },
+      {
+        "label": "AI模型训练",
         "count": 1
       }
     ],
     "主题": [
-      {
-        "label": "法律诉讼",
-        "count": 6
-      },
-      {
-        "label": "AI伦理",
-        "count": 1
-      },
-      {
-        "label": "法庭程序",
-        "count": 1
-      },
-      {
-        "label": "Elon Musk",
-        "count": 1
-      },
-      {
-        "label": "Birchall",
-        "count": 1
-      },
-      {
-        "label": "Sam Altman",
-        "count": 1
-      },
-      {
-        "label": "庭审程序",
-        "count": 1
-      },
-      {
-        "label": "非营利转营利转型",
-        "count": 1
-      },
-      {
-        "label": "非营利资产估值",
-        "count": 1
-      },
       {
         "label": "宗教内容创作",
         "count": 1
@@ -117,123 +60,23 @@
         "count": 1
       }
     ],
-    "资本": [
-      {
-        "label": "盈利结构",
-        "count": 1
-      },
-      {
-        "label": "季度捐赠暂停",
-        "count": 1
-      },
-      {
-        "label": "资金冻结",
-        "count": 1
-      },
-      {
-        "label": "收购要约",
-        "count": 1
-      }
-    ],
-    "技术": [
-      {
-        "label": "脑机接口",
-        "count": 2
-      },
-      {
-        "label": "通行密钥",
-        "count": 1
-      },
-      {
-        "label": "AI视频生成",
-        "count": 1
-      },
-      {
-        "label": "AI Agent",
-        "count": 1
-      },
-      {
-        "label": "AI模型训练",
-        "count": 1
-      }
-    ],
-    "政策": [
-      {
-        "label": "军事AI监管",
-        "count": 1
-      },
-      {
-        "label": "AI治理",
-        "count": 1
-      },
-      {
-        "label": "法庭诉讼",
-        "count": 1
-      },
-      {
-        "label": "慈善税收",
-        "count": 1
-      },
-      {
-        "label": "法律诉讼",
-        "count": 1
-      },
-      {
-        "label": "公司治理",
-        "count": 1
-      },
-      {
-        "label": "非营利转型",
-        "count": 1
-      },
-      {
-        "label": "诉讼程序",
-        "count": 1
-      },
-      {
-        "label": "数据隐私保护",
-        "count": 1
-      }
-    ],
-    "安全合规": [
-      {
-        "label": "人机协同决策",
-        "count": 1
-      },
-      {
-        "label": "高级账户安全",
-        "count": 1
-      }
-    ],
-    "任务": [
-      {
-        "label": "Elon Musk",
-        "count": 1
-      },
-      {
-        "label": "Sam Altman",
-        "count": 1
-      },
-      {
-        "label": "零工外包",
-        "count": 1
-      },
-      {
-        "label": "法律文档审查",
-        "count": 1
-      }
-    ],
     "应用": [
-      {
-        "label": "ChatGPT",
-        "count": 1
-      },
       {
         "label": "社交媒体",
         "count": 1
       },
       {
         "label": "Microsoft Word",
+        "count": 1
+      }
+    ],
+    "任务": [
+      {
+        "label": "零工外包",
+        "count": 1
+      },
+      {
+        "label": "法律文档审查",
         "count": 1
       }
     ]
